@@ -1,0 +1,14 @@
+{
+  "name": "mock-exam-server",
+  "version": "1.0.0",
+  "description": "2027 전문상담 임용고시 모의고사 문제풀이 시스템",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}
