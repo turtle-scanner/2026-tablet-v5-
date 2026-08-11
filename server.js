@@ -11,7 +11,7 @@ const ADMIN_CONFIG_FILE = path.join(__dirname, 'data', 'admin_config.json');
 
 // 카카오톡 수험생 스터디 회원 계정 (닉네임 기반 계정)
 const STUDENT_USERS = [
-  { username: 'thousand_doors', password: 'pass_doors77', name: '천개의문/초수/인천/독학', studentNo: '2027-0100' },
+  { username: '1000door', password: '135300', name: '천개의문/초수/인천/독학', studentNo: '2027-0100' },
   { username: 'ryan_jaesu', password: 'pass_ryan77', name: '라이언/재수/경기', studentNo: '2027-0100b' },
   { username: 'jordi_incheon', password: 'pass_jordi01', name: '사랑에 빠진 죠르디/재수/인천', studentNo: '2027-0101' },
   { username: 'apeach_gyeongbuk', password: 'pass_apeach02', name: '엉엉 우는 어피치/재수/경북', studentNo: '2027-0102' },
