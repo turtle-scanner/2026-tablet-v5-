@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputStudentNo = document.getElementById('inputStudentNo');
   const selectStudentQuick = document.getElementById('selectStudentQuick');
   const btnLogin = document.getElementById('btnLogin');
-  const btnAdminQuick = document.getElementById('btnAdminQuick');
 
   // DOM Elements - Section Switch Tabs
   const btnSecP = document.getElementById('btnSecP');
@@ -134,12 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnSubmitChangePw = document.getElementById('btnSubmitChangePw');
 
   // 1. 로그인
-  btnAdminQuick.addEventListener('click', () => {
-    loginIdInput.value = 'cntfed';
-    loginPwInput.value = 'cntfed';
-    inputName.value = '관리자(출제자)';
-    handleLogin('cntfed', 'cntfed');
-  });
 
   btnLogin.addEventListener('click', () => {
     const username = loginIdInput.value.trim() || inputName.value.trim() || 'aries01';
