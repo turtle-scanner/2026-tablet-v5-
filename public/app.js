@@ -135,8 +135,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. 로그인
 
   btnLogin.addEventListener('click', () => {
-    const username = loginIdInput.value.trim() || inputName.value.trim() || 'aries01';
+    const username = loginIdInput.value.trim();
     const password = loginPwInput.value.trim();
+
+    if (!username) {
+      alert('아이디를 선택하거나 입력해 주세요.');
+      loginIdInput.focus();
+      return;
+    }
     if (!password) {
       alert('패스워드를 입력해 주세요.');
       loginPwInput.focus();
