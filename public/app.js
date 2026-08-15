@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   loadStudentAccounts();
+  setupExamRoundDropdownOptions();
 
   if (selectStudentQuick) {
     selectStudentQuick.addEventListener('change', () => {
