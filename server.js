@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const DATA_FILE = path.join(__dirname, 'data', 'exams.json');
 const SUBMISSIONS_FILE = path.join(__dirname, 'data', 'submissions.json');
+const DRAFTS_FILE = path.join(__dirname, 'data', 'drafts.json');
 const ADMIN_CONFIG_FILE = path.join(__dirname, 'data', 'admin_config.json');
 
 // 카카오톡 수험생 스터디 회원 계정 (닉네임 기반 계정)
@@ -86,6 +87,23 @@ const getSubmissionsData = () => {
 
 const saveSubmissionsData = (data) => {
   fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+};
+
+const getDraftsData = () => {
+  if (!fs.existsSync(DRAFTS_FILE)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(DRAFTS_FILE, 'utf-8'));
+  } catch (e) {
+    return {};
+  }
+};
+
+const saveDraftsData = (data) => {
+  try {
+    fs.writeFileSync(DRAFTS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 const server = http.createServer((req, res) => {
@@ -192,6 +210,51 @@ const server = http.createServer((req, res) => {
     const exams = getExamsData();
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
     return res.end(JSON.stringify({ success: true, exams }));
+  }
+
+  // 4-1. API: /api/draft (POST) - 회원별/회차별 임시 작성 답안 저장
+  if (pathname === '/api/draft' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', () => {
+      try {
+        const { username, examId, userAnswers } = JSON.parse(body || '{}');
+        if (!username || !examId) {
+          res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+          return res.end(JSON.stringify({ success: false, message: 'username과 examId가 필요합니다.' }));
+        }
+        const drafts = getDraftsData();
+        const key = `${username}_${examId}`;
+        drafts[key] = {
+          username,
+          examId,
+          userAnswers,
+          updatedAt: new Date().toLocaleString('ko-KR')
+        };
+        saveDraftsData(drafts);
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        return res.end(JSON.stringify({ success: true, message: '임시 답안이 성공적으로 저장되었습니다.' }));
+      } catch (e) {
+        res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+        return res.end(JSON.stringify({ success: false, message: '임시 저장 중 오류가 발생했습니다.' }));
+      }
+    });
+    return;
+  }
+
+  // 4-2. API: /api/draft (GET) - 회원별/회차별 임시 작성 답안 불러오기
+  if (pathname === '/api/draft' && req.method === 'GET') {
+    const username = parsedUrl.query.username;
+    const examId = parsedUrl.query.examId;
+    if (!username || !examId) {
+      res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+      return res.end(JSON.stringify({ success: false, message: 'username과 examId가 필요합니다.' }));
+    }
+    const drafts = getDraftsData();
+    const key = `${username}_${examId}`;
+    const draft = drafts[key] || null;
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    return res.end(JSON.stringify({ success: true, draft }));
   }
 
   // 5. API: /api/exams/:id (GET)

@@ -6,6 +6,67 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeQuestionId = 1;
   let userAnswers = {};
 
+  let draftSaveTimer = null;
+
+  async function loadDraftAnswers() {
+    if (!currentUser || !currentExamId) return;
+    const username = currentUser.username;
+    const localKey = `draft_answers_${username}_${currentExamId}`;
+    
+    // 1. 로컬 스토리지 데이터 우선 복원
+    const localSaved = localStorage.getItem(localKey);
+    if (localSaved) {
+      try {
+        const parsed = JSON.parse(localSaved);
+        if (parsed && typeof parsed === 'object') {
+          userAnswers = parsed;
+          return;
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    // 2. 서버 백업에서 복원 시도
+    try {
+      const res = await fetch(`/api/draft?username=${username}&examId=${currentExamId}`);
+      const data = await res.json();
+      if (data.success && data.draft && data.draft.userAnswers) {
+        userAnswers = data.draft.userAnswers || {};
+        localStorage.setItem(localKey, JSON.stringify(userAnswers));
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  function saveDraftAnswers() {
+    if (!currentUser || !currentExamId) return;
+    const username = currentUser.username;
+    const localKey = `draft_answers_${username}_${currentExamId}`;
+    
+    // 로컬스토리지 즉시 실시간 자동 저장 (페이지 이동/새로고침 보존)
+    localStorage.setItem(localKey, JSON.stringify(userAnswers));
+
+    // 서버에 1초 데바운스 저장
+    if (draftSaveTimer) clearTimeout(draftSaveTimer);
+    draftSaveTimer = setTimeout(async () => {
+      try {
+        await fetch('/api/draft', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username,
+            examId: currentExamId,
+            userAnswers
+          })
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }, 1000);
+  }
+
   // 교시별 제출/완료 상태 (P, A, B)
   let completedSections = {
     P: false,
@@ -201,40 +262,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function setupExamRoundDropdownOptions() {
-    const isAdmin = currentUser && currentUser.isAdmin;
     const options = selectExamRound.options;
 
     for (let i = 0; i < options.length; i++) {
       const opt = options[i];
-      if (opt.value === 'exam-1') {
-        opt.disabled = false;
-        opt.textContent = '📚 [제 1 회차] 2027 통합 모의고사 (교육학+전공)';
-      } else {
-        if (isAdmin) {
-          opt.disabled = false;
-          opt.textContent = `📚 [제 ${i + 1} 회차] 2027 통합 모의고사 (교육학+전공)`;
-        } else {
-          opt.disabled = true;
-          opt.textContent = `🔒 [제 ${i + 1} 회차] (관리자 전용 회차)`;
-        }
-      }
-    }
-
-    if (!isAdmin) {
-      currentExamId = 'exam-1';
-      selectExamRound.value = 'exam-1';
+      opt.disabled = false;
+      opt.textContent = `📚 [제 ${i + 1} 회차] 2027 통합 모의고사 (교육학+전공)`;
     }
   }
 
   selectExamRound.addEventListener('change', async (e) => {
     const targetRound = e.target.value;
     const isAdmin = currentUser && currentUser.isAdmin;
-
-    if (!isAdmin && targetRound !== 'exam-1') {
-      alert('🔒 [제 2 ~ 10 회차]는 관리자 전용입니다.\n일반 수험생은 제1회차 모의고사만 응시 가능합니다.');
-      selectExamRound.value = 'exam-1';
-      return;
-    }
 
     currentExamId = targetRound;
     userAnswers = {}; 
@@ -244,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
       completedSections.B = false;
     }
     await loadExamData(currentExamId);
-    startSection('P');
+    await startSection('P');
   });
 
   btnSecP.addEventListener('click', () => switchSection('P'));
@@ -374,8 +413,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 교시(P/A/B) 시작 시 최종 제출 버튼 노출 제어 (마지막 B형에서만 전체 최종 제출 버튼 노출!)
-  function startSection(secKey) {
+  async function startSection(secKey) {
     currentSectionKey = secKey;
+    await loadDraftAnswers();
     const secData = currentExam.sections[secKey];
 
     updateSectionTabUI();
@@ -548,6 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userAnswers[q.id] = e.target.value;
         document.getElementById(`char-count-${q.id}`).textContent = `${e.target.value.length} 자`;
         updateTotalCharCount();
+        saveDraftAnswers(); // 실시간 회원별 자동 저장!
       });
     });
     updateTotalCharCount();
@@ -591,9 +632,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  btnSaveTemp.addEventListener('click', () => {
-    localStorage.setItem(`temp_answers_${currentExamId}`, JSON.stringify(userAnswers));
-    alert(`[${currentExam.title}] 작성 답안이 임시 저장되었습니다!`);
+  btnSaveTemp.addEventListener('click', async () => {
+    saveDraftAnswers();
+    const userName = currentUser ? currentUser.name : '수험생';
+    alert(`💾 [${userName}]님의 [${currentExam ? currentExam.title : '모의고사'}] 작성 답안이 회원 계정에 안전하게 임시 저장되었습니다!\n(페이지 이동/새로고침을 하거나 재접속해도 답안이 유지됩니다.)`);
   });
 
   btnSubmitExam.addEventListener('click', () => {
