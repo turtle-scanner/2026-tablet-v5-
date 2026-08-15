@@ -6,6 +6,7 @@ const url = require('url');
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const DATA_FILE = path.join(__dirname, 'data', 'exams.json');
+const DEFAULT_DATA_FILE = path.join(__dirname, 'data', 'default_exams.json');
 const SUBMISSIONS_FILE = path.join(__dirname, 'data', 'submissions.json');
 const DRAFTS_FILE = path.join(__dirname, 'data', 'drafts.json');
 const ADMIN_CONFIG_FILE = path.join(__dirname, 'data', 'admin_config.json');
@@ -72,12 +73,45 @@ const saveAdminConfig = (config) => {
 };
 
 const getExamsData = () => {
-  if (!fs.existsSync(DATA_FILE)) return [];
+  let defaultExams = [];
+  if (fs.existsSync(DEFAULT_DATA_FILE)) {
+    try {
+      defaultExams = JSON.parse(fs.readFileSync(DEFAULT_DATA_FILE, 'utf-8'));
+    } catch (e) {}
+  }
+
+  if (!fs.existsSync(DATA_FILE)) {
+    if (defaultExams.length > 0) {
+      try { fs.writeFileSync(DATA_FILE, JSON.stringify(defaultExams, null, 2), 'utf-8'); } catch (e) {}
+    }
+    return defaultExams;
+  }
+
   try {
-    const exams = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-    return exams;
+    const currentExams = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+    let needsUpdate = false;
+    if (defaultExams.length > 0) {
+      defaultExams.forEach(defEx => {
+        const idx = currentExams.findIndex(ex => ex.id === defEx.id);
+        if (idx === -1) {
+          currentExams.push(defEx);
+          needsUpdate = true;
+        } else if (defEx.id >= 'exam-11') {
+          currentExams[idx] = defEx;
+          needsUpdate = true;
+        }
+      });
+    }
+
+    if (needsUpdate) {
+      try {
+        fs.writeFileSync(DATA_FILE, JSON.stringify(currentExams, null, 2), 'utf-8');
+      } catch (e) {}
+    }
+
+    return currentExams;
   } catch (e) {
-    return [];
+    return defaultExams;
   }
 };
 
