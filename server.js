@@ -321,6 +321,7 @@ const server = http.createServer((req, res) => {
           id: submissionId,
           examId: exam.id,
           examTitle: exam.title,
+          username: user ? user.username : 'guest',
           studentName: user ? user.name : '수험생',
           studentNo: user ? user.studentNo : '2027-0000',
           submittedAt: new Date().toLocaleString('ko-KR'),
@@ -393,6 +394,82 @@ const server = http.createServer((req, res) => {
       }
     });
     return;
+  }
+
+  // 9. API: /api/admin/export-csv (GET) - 전체 수험생 답안 엑셀 다운로드 (UTF-8 BOM CSV)
+  if (pathname === '/api/admin/export-csv' && req.method === 'GET') {
+    const submissions = getSubmissionsData();
+    const drafts = getDraftsData();
+    const exams = getExamsData();
+
+    // Excel 한글 깨짐 방지 UTF-8 BOM Header (\uFEFF)
+    let csvContent = '\uFEFF';
+    csvContent += '수험생성명,수험번호,회원아이디,모의고사회차,과목명(교시),문제번호,문제제목,작성한답안,획득점수,배점,제출/저장시각,상태\n';
+
+    // 1) 제출 완료된 수험생 답안 목록
+    submissions.forEach(sub => {
+      const exam = exams.find(e => e.id === sub.examId);
+      const roundTitle = exam ? exam.title : sub.examId;
+
+      if (sub.details && sub.details.length > 0) {
+        sub.details.forEach(det => {
+          const studentName = `"${(sub.studentName || '').replace(/"/g, '""')}"`;
+          const studentNo = `"${(sub.studentNo || '').replace(/"/g, '""')}"`;
+          const username = `"${(sub.username || '').replace(/"/g, '""')}"`;
+          const round = `"${(roundTitle || '').replace(/"/g, '""')}"`;
+          const section = `"${(det.section || '전공').replace(/"/g, '""')}"`;
+          const qNum = `"${(det.number || det.questionId || '').toString().replace(/"/g, '""')}"`;
+          const qTitle = `"${(det.title || '').replace(/"/g, '""')}"`;
+          const userAns = `"${(det.userAnswer || '').replace(/"/g, '""').replace(/\r?\n/g, ' ')}"`;
+          const earned = det.earnedScore || 0;
+          const score = det.score || 0;
+          const time = `"${(sub.submittedAt || '').replace(/"/g, '""')}"`;
+          const status = `"${(sub.status || '제출완료').replace(/"/g, '""')}"`;
+
+          csvContent += `${studentName},${studentNo},${username},${round},${section},${qNum},${qTitle},${userAns},${earned},${score},${time},${status}\n`;
+        });
+      }
+    });
+
+    // 2) 작성 중인 수험생 임시저장 답안 목록
+    Object.keys(drafts).forEach(key => {
+      const draft = drafts[key];
+      const exam = exams.find(e => e.id === draft.examId);
+      const roundTitle = exam ? exam.title : draft.examId;
+      const userAnswers = draft.userAnswers || {};
+
+      if (exam && exam.sections) {
+        const allQ = [
+          ...(exam.sections.P ? exam.sections.P.questions : []),
+          ...(exam.sections.A ? exam.sections.A.questions : []),
+          ...(exam.sections.B ? exam.sections.B.questions : [])
+        ];
+
+        allQ.forEach(q => {
+          const ans = userAnswers[q.id];
+          if (ans && ans.trim()) {
+            const studentName = `"${(draft.username || '').replace(/"/g, '""')}"`;
+            const studentNo = `"임시저장"`;
+            const username = `"${(draft.username || '').replace(/"/g, '""')}"`;
+            const round = `"${(roundTitle || '').replace(/"/g, '""')}"`;
+            const section = `"${(q.section || '전공').replace(/"/g, '""')}"`;
+            const qNum = `"${q.number}"`;
+            const qTitle = `"${(q.title || '').replace(/"/g, '""')}"`;
+            const userAns = `"${ans.replace(/"/g, '""').replace(/\r?\n/g, ' ')}"`;
+            const time = `"${(draft.updatedAt || '').replace(/"/g, '""')}"`;
+            const status = `"작성중(임시저장)"`;
+
+            csvContent += `${studentName},${studentNo},${username},${round},${section},${qNum},${qTitle},${userAns},0,${q.score},${time},${status}\n`;
+          }
+        });
+      }
+    });
+
+    res.writeHead(200, {
+      'Content-Type': 'text/csv; charset=utf-8',
+      'Content-Disposition': 'attachment; filename="2027_Mock_Exam_All_Student_Answers.csv"'
+    });
+    return res.end(csvContent);
   }
 
   // 정적 파일 호스팅

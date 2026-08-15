@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const qTimerDisplay = document.getElementById('qTimerDisplay');
   const btnPauseTimer = document.getElementById('btnPauseTimer');
   const btnSaveTemp = document.getElementById('btnSaveTemp');
+  const btnExportExcel = document.getElementById('btnExportExcel');
   const btnCompleteCurrentSec = document.getElementById('btnCompleteCurrentSec');
   const btnSubmitExam = document.getElementById('btnSubmitExam');
   const btnAdminDashboardNav = document.getElementById('btnAdminDashboardNav');
@@ -637,6 +638,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const userName = currentUser ? currentUser.name : '수험생';
     alert(`💾 [${userName}]님의 [${currentExam ? currentExam.title : '모의고사'}] 작성 답안이 회원 계정에 안전하게 임시 저장되었습니다!\n(페이지 이동/새로고침을 하거나 재접속해도 답안이 유지됩니다.)`);
   });
+
+  if (btnExportExcel) {
+    btnExportExcel.addEventListener('click', () => {
+      window.location.href = '/api/admin/export-csv';
+    });
+  }
 
   btnSubmitExam.addEventListener('click', () => {
     if (confirm(`3교시 전공 B형까지 모두 마쳤습니다. 전체 시험 답안을 최종 제출하시겠습니까?`)) {
