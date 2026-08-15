@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function setupExamRoundDropdownOptions() {
     try {
-      const res = await fetch('/api/exams');
+      const res = await fetch('/api/exams?t=' + Date.now());
       const data = await res.json();
       if (data.success && data.exams && selectExamRound) {
         const savedVal = currentExamId || 'exam-1';
@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadExamData(examId) {
     try {
-      const res = await fetch(`/api/exams/${examId}`);
+      const res = await fetch(`/api/exams/${examId}?t=${Date.now()}`);
       const data = await res.json();
       if (data.success) {
         currentExam = data.exam;

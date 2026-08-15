@@ -73,7 +73,12 @@ const saveAdminConfig = (config) => {
 
 const getExamsData = () => {
   if (!fs.existsSync(DATA_FILE)) return [];
-  return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+  try {
+    const exams = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+    return exams;
+  } catch (e) {
+    return [];
+  }
 };
 
 const getSubmissionsData = () => {
