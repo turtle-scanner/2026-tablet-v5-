@@ -246,13 +246,13 @@ document.addEventListener('DOMContentLoaded', () => {
           completedSections.B = false;
         }
 
-        setupExamRoundDropdownOptions();
+        await setupExamRoundDropdownOptions();
 
         loginView.classList.add('hidden');
         examView.classList.remove('hidden');
 
         await loadExamData(currentExamId);
-        startSection('P');
+        await startSection('P');
       } else {
         alert(data.message || '로그인 실패: 아이디 또는 비밀번호가 일치하지 않습니다.');
       }
@@ -262,13 +262,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function setupExamRoundDropdownOptions() {
-    const options = selectExamRound.options;
-
-    for (let i = 0; i < options.length; i++) {
-      const opt = options[i];
-      opt.disabled = false;
-      opt.textContent = `📚 [제 ${i + 1} 회차] 2027 통합 모의고사 (교육학+전공)`;
+  async function setupExamRoundDropdownOptions() {
+    try {
+      const res = await fetch('/api/exams');
+      const data = await res.json();
+      if (data.success && data.exams && selectExamRound) {
+        const savedVal = currentExamId || 'exam-1';
+        selectExamRound.innerHTML = '';
+        data.exams.forEach((ex, idx) => {
+          const opt = document.createElement('option');
+          opt.value = ex.id;
+          opt.textContent = `📚 [제 ${idx + 1} 회차] 2027 통합 모의고사 (교육학+전공)`;
+          selectExamRound.appendChild(opt);
+        });
+        selectExamRound.value = savedVal;
+      }
+    } catch (e) {
+      console.error(e);
     }
   }
 

@@ -8,7 +8,7 @@
     "submittedAt": "2026. 8. 11. PM 10:04:00",
     "totalScore": 0,
     "maxScore": 100,
-    "status": "자동채점완료",
+    "status": "관리자수동채점완료",
     "details": [
       {
         "questionId": 1,
@@ -298,6 +298,7 @@
         "matchedKeywords": [],
         "feedback": ""
       }
-    ]
+    ],
+    "gradedAt": "2026. 8. 15. PM 5:22:16"
   }
 ]
