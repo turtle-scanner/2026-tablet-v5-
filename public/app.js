@@ -623,15 +623,31 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
   }
 
-  // 실시간 시험 감독관 공지 팝업
+  // 실제 시험장 감독관 음성 TTS 낭독 방송
+  function speakSupervisorNotice(text) {
+    if (!soundEnabled || !('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const cleanText = text.replace(/^[^\w가-힣]+/, '').replace(/\[.*?\]/g, '');
+      const msg = new SpeechSynthesisUtterance(cleanText);
+      msg.lang = 'ko-KR';
+      msg.rate = 0.92;
+      msg.pitch = 1.0;
+      window.speechSynthesis.speak(msg);
+    } catch(e) {}
+  }
+
+  // 실시간 시험 감독관 공지 팝업 & 음성 방송
   function showSupervisorNotice(text) {
     if (!supervisorNoticeBar || !supervisorNoticeText) return;
     supervisorNoticeText.textContent = text;
     supervisorNoticeBar.classList.remove('hidden');
 
+    speakSupervisorNotice(text);
+
     setTimeout(() => {
       supervisorNoticeBar.classList.add('hidden');
-    }, 5500);
+    }, 6000);
   }
 
   // 윈도우 창 이탈 엄격 감시
@@ -1187,6 +1203,35 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnClearHl) {
     btnClearHl.addEventListener('mousedown', (e) => e.preventDefault());
     btnClearHl.addEventListener('click', clearPassageHighlight);
+  }
+
+  // ✂️ 취소선 (수정테이프) 기능
+  const btnHlStrike = document.getElementById('btnHlStrike');
+  if (btnHlStrike) {
+    btnHlStrike.addEventListener('mousedown', (e) => e.preventDefault());
+    btnHlStrike.addEventListener('click', () => {
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || sel.toString().trim().length === 0) {
+        alert('💡 취소선을 그을 지문 텍스트를 마우스로 드래그 선택한 후 버튼을 누르세요!');
+        return;
+      }
+
+      const paperBody = document.getElementById('paperBody') || document.body;
+      const prevEditable = paperBody.isContentEditable;
+
+      try {
+        paperBody.contentEditable = 'true';
+        document.execCommand('strikeThrough', false, null);
+        document.execCommand('foreColor', false, '#94a3b8');
+      } catch (e) {
+        console.error('Strikethrough error:', e);
+      } finally {
+        paperBody.contentEditable = prevEditable ? 'true' : 'false';
+      }
+
+      sel.removeAllRanges();
+      savePassageHighlightState();
+    });
   }
 });
 
