@@ -267,10 +267,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!selectExamRound) return;
     const savedVal = currentExamId || 'exam-1';
     let count = 22;
+    if (window.FALLBACK_EXAMS_MAP) {
+      const fbCount = Object.keys(window.FALLBACK_EXAMS_MAP).length;
+      if (fbCount > count) count = fbCount;
+    }
     try {
       const res = await fetch('/api/exams?t=' + Date.now());
       const data = await res.json();
-      if (data.success && Array.isArray(data.exams) && data.exams.length > 22) {
+      if (data.success && Array.isArray(data.exams) && data.exams.length > count) {
         count = data.exams.length;
       }
     } catch (e) {
