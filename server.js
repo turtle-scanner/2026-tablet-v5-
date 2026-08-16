@@ -221,6 +221,30 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 2-1. API: /api/sync-exams (POST) - 원격 온라인 서버 실시간 17개 시험지 강제 덮어쓰기 동기화
+  if (pathname === '/api/sync-exams' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', () => {
+      try {
+        const { exams } = JSON.parse(body || '{}');
+        if (Array.isArray(exams) && exams.length > 0) {
+          fs.writeFileSync(DATA_FILE, JSON.stringify(exams, null, 2), 'utf-8');
+          fs.writeFileSync(DEFAULT_DATA_FILE, JSON.stringify(exams, null, 2), 'utf-8');
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          return res.end(JSON.stringify({ success: true, count: exams.length, message: `성공적으로 ${exams.length}개 회차 모의고사가 온라인 서버에 실시간 반영되었습니다.` }));
+        } else {
+          res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+          return res.end(JSON.stringify({ success: false, message: '올바른 exams 배열 데이터가 필요합니다.' }));
+        }
+      } catch (e) {
+        res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+        return res.end(JSON.stringify({ success: false, message: '동기화 중 오류가 발생했습니다.' }));
+      }
+    });
+    return;
+  }
+
   // 3. API: /api/users (GET) - 보안을 위해 비밀번호는 제거하여 응답!
   if (pathname === '/api/users' && req.method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });

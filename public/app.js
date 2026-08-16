@@ -270,12 +270,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (data.success && data.exams && selectExamRound) {
         const savedVal = currentExamId || 'exam-1';
         selectExamRound.innerHTML = '';
-        data.exams.forEach((ex, idx) => {
+        const totalTargetCount = Math.max(17, data.exams.length);
+        for (let i = 1; i <= totalTargetCount; i++) {
+          const exId = `exam-${i}`;
           const opt = document.createElement('option');
-          opt.value = ex.id;
-          opt.textContent = `📚 [제 ${idx + 1} 회차] 2027 통합 모의고사 (교육학+전공)`;
+          opt.value = exId;
+          opt.textContent = `📚 [제 ${i} 회차] 2027 통합 모의고사 (교육학+전공)`;
           selectExamRound.appendChild(opt);
-        });
+        }
         selectExamRound.value = savedVal;
       }
     } catch (e) {
