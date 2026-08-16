@@ -273,6 +273,28 @@ body {
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
+/* 수정테이프 글자 가리기 (White-out Blinder) 스타일 */
+.correction-tape {
+  background-color: #e2e8f0 !important;
+  color: transparent !important;
+  user-select: none !important;
+  border-radius: 4px;
+  padding: 1px 6px;
+  border: 1px dashed #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.correction-tape:hover {
+  color: #0f172a !important;
+  background-color: #fef08a !important;
+  border-color: #eab308;
+  user-select: text !important;
+}
+
 .btn-admin {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;

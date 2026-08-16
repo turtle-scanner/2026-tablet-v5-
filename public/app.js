@@ -1212,30 +1212,37 @@ document.addEventListener('DOMContentLoaded', () => {
     btnClearHl.addEventListener('click', clearPassageHighlight);
   }
 
-  // ✂️ 취소선 (수정테이프) 기능
+  // ✂️ 수정테이프 (정답 가리기 / 암호 마스킹) 기능
   const btnHlStrike = document.getElementById('btnHlStrike');
   if (btnHlStrike) {
     btnHlStrike.addEventListener('mousedown', (e) => e.preventDefault());
     btnHlStrike.addEventListener('click', () => {
       const sel = window.getSelection();
       if (!sel || sel.isCollapsed || sel.toString().trim().length === 0) {
-        alert('💡 취소선을 그을 지문 텍스트를 마우스로 드래그 선택한 후 버튼을 누르세요!');
+        alert('💡 수정테이프로 가릴 지문 텍스트(정답 단어 등)를 마우스로 드래그 선택해 주세요!');
         return;
       }
 
-      const paperBody = document.getElementById('paperBody') || document.body;
-      const prevEditable = paperBody.isContentEditable;
-
       try {
-        paperBody.contentEditable = 'true';
-        // 실제 흰색/연회색 수정테이프 밴드 + 회색 취소선 연출
-        document.execCommand('strikeThrough', false, null);
-        document.execCommand('foreColor', false, '#64748b');
-        document.execCommand('hiliteColor', false, '#e2e8f0');
+        const range = sel.getRangeAt(0);
+        const span = document.createElement('span');
+        span.className = 'correction-tape';
+        span.title = '💡 마우스를 대면 가려진 정답이 보입니다! (클릭 시 수정테이프 제거)';
+
+        const fragment = range.extractContents();
+        span.appendChild(fragment);
+        range.insertNode(span);
+
+        // 클릭 시 수정테이프 떼어내기 (제거)
+        span.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          const parent = span.parentNode;
+          while (span.firstChild) parent.insertBefore(span.firstChild, span);
+          parent.removeChild(span);
+          savePassageHighlightState();
+        });
       } catch (e) {
-        console.error('Strikethrough error:', e);
-      } finally {
-        paperBody.contentEditable = prevEditable ? 'true' : 'false';
+        console.error('Correction tape masking error:', e);
       }
 
       sel.removeAllRanges();
