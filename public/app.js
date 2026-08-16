@@ -1228,8 +1228,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         paperBody.contentEditable = 'true';
+        // 실제 흰색/연회색 수정테이프 밴드 + 회색 취소선 연출
         document.execCommand('strikeThrough', false, null);
-        document.execCommand('foreColor', false, '#94a3b8');
+        document.execCommand('foreColor', false, '#64748b');
+        document.execCommand('hiliteColor', false, '#e2e8f0');
       } catch (e) {
         console.error('Strikethrough error:', e);
       } finally {
