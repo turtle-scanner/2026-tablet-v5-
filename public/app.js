@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   let currentUser = null;
   let currentExam = null;
-  let currentExamId = 'exam-1';
+  let currentExamId = 'exam-26';
   let currentSectionKey = 'P'; // P: 1교시 교육학, A: 2교시 전공A, B: 3교시 전공B
   let activeQuestionId = 1;
   let userAnswers = {};
@@ -282,34 +282,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function setupExamRoundDropdownOptions() {
     if (!selectExamRound) return;
-    const savedVal = currentExamId || 'exam-1';
-    let count = 23;
-    if (window.FALLBACK_EXAMS_MAP) {
-      const fbCount = Object.keys(window.FALLBACK_EXAMS_MAP).length;
-      if (fbCount > count) count = fbCount;
-    }
+    const savedVal = currentExamId || 'exam-26';
 
     autoSyncFallbackExamsWithServer();
 
+    let examList = [];
     try {
       const res = await fetch('/api/exams?t=' + Date.now());
       const data = await res.json();
-      if (data.success && Array.isArray(data.exams) && data.exams.length > count) {
-        count = data.exams.length;
+      if (data.success && Array.isArray(data.exams) && data.exams.length > 0) {
+        examList = data.exams;
       }
     } catch (e) {
       console.error(e);
     }
-    
-    selectExamRound.innerHTML = '';
-    for (let i = 1; i <= count; i++) {
-      const exId = `exam-${i}`;
-      const opt = document.createElement('option');
-      opt.value = exId;
-      opt.textContent = `📚 [제 ${i} 회차] 2027 통합 모의고사 (교육학+전공)`;
-      selectExamRound.appendChild(opt);
+
+    if (examList.length === 0 && window.FALLBACK_EXAMS_MAP) {
+      examList = Object.values(window.FALLBACK_EXAMS_MAP);
     }
-    selectExamRound.value = savedVal;
+
+    selectExamRound.innerHTML = '';
+    if (examList.length > 0) {
+      examList.forEach(ex => {
+        const opt = document.createElement('option');
+        opt.value = ex.id;
+        opt.textContent = ex.title || `📚 [제 ${ex.id.replace('exam-', '')} 회차] 2027 통합 모의고사`;
+        selectExamRound.appendChild(opt);
+      });
+    } else {
+      for (let i = 1; i <= 26; i++) {
+        const exId = `exam-${i}`;
+        const opt = document.createElement('option');
+        opt.value = exId;
+        opt.textContent = `📚 [제 ${i} 회차] 2027 통합 모의고사`;
+        selectExamRound.appendChild(opt);
+      }
+    }
+
+    if (selectExamRound.querySelector(`option[value="${savedVal}"]`)) {
+      selectExamRound.value = savedVal;
+    } else if (selectExamRound.options.length > 0) {
+      selectExamRound.value = selectExamRound.options[selectExamRound.options.length - 1].value;
+      currentExamId = selectExamRound.value;
+    }
   }
 
   selectExamRound.addEventListener('change', async (e) => {
