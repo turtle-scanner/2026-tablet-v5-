@@ -1325,6 +1325,9 @@ document.addEventListener('DOMContentLoaded', () => {
       saveStickyNoteContent();
     });
   }
+
+  // 페이지 초기 진입 시 드롭다운 동적 생성 즉시 실행
+  setupExamRoundDropdownOptions();
 });
 
 
