@@ -80,39 +80,23 @@ const getExamsData = () => {
     } catch (e) {}
   }
 
-  if (!fs.existsSync(DATA_FILE)) {
-    if (defaultExams.length > 0) {
-      try { fs.writeFileSync(DATA_FILE, JSON.stringify(defaultExams, null, 2), 'utf-8'); } catch (e) {}
+  // RENDER 온라인 호스팅 환경에서도 소스코드 최신 1~17회 모의고사 파일로 100% 강제 교체 동기화
+  if (defaultExams.length > 0) {
+    try {
+      fs.writeFileSync(DATA_FILE, JSON.stringify(defaultExams, null, 2), 'utf-8');
+      return defaultExams;
+    } catch (e) {
+      return defaultExams;
     }
-    return defaultExams;
   }
 
-  try {
-    const currentExams = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-    let needsUpdate = false;
-    if (defaultExams.length > 0) {
-      defaultExams.forEach(defEx => {
-        const idx = currentExams.findIndex(ex => ex.id === defEx.id);
-        if (idx === -1) {
-          currentExams.push(defEx);
-          needsUpdate = true;
-        } else if (defEx.id >= 'exam-11') {
-          currentExams[idx] = defEx;
-          needsUpdate = true;
-        }
-      });
-    }
-
-    if (needsUpdate) {
-      try {
-        fs.writeFileSync(DATA_FILE, JSON.stringify(currentExams, null, 2), 'utf-8');
-      } catch (e) {}
-    }
-
-    return currentExams;
-  } catch (e) {
-    return defaultExams;
+  if (fs.existsSync(DATA_FILE)) {
+    try {
+      return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+    } catch (e) {}
   }
+
+  return [];
 };
 
 const getSubmissionsData = () => {
