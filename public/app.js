@@ -776,6 +776,9 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       paperBody.appendChild(qEl);
     });
+
+    // 🖍️ 지문 형광펜/펜 색칠 내역 자동 복원
+    restorePassageHighlightState();
   }
 
   function renderOMRForm(questions) {
@@ -1074,67 +1077,116 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================
-  // 🖊️ 안전한 빨간 펜 지문 색칠 기능 (execCommand 100% 엔진)
+  // 🖍️ 4색 지문 형광펜 & 펜 색칠 기능 (자동 저장 및 복원 엔진)
   // =========================================================
-  const btnApplyRedPen = document.getElementById('btnApplyRedPen');
-  const btnClearRedPen = document.getElementById('btnClearRedPen');
+  const colorSchemes = {
+    yellow: { bg: '#fef08a', text: '#1e293b' },
+    red: { bg: '#ffe4e6', text: '#dc2626' },
+    green: { bg: '#bbf7d0', text: '#065f46' },
+    blue: { bg: '#bfdbfe', text: '#1e40af' }
+  };
 
-  if (btnApplyRedPen) {
-    btnApplyRedPen.addEventListener('mousedown', (e) => e.preventDefault());
-    btnApplyRedPen.addEventListener('click', () => {
-      const sel = window.getSelection();
-      if (!sel || sel.isCollapsed || sel.toString().trim().length === 0) {
-        alert('💡 빨간색으로 칠할 지문 텍스트를 마우스로 드래그 선택한 후 버튼을 누르세요!');
-        return;
-      }
+  function applyHighlightColor(colorName) {
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || sel.toString().trim().length === 0) {
+      alert('💡 색칠할 지문 텍스트를 마우스로 드래그 선택한 후 버튼을 누르세요!');
+      return;
+    }
 
-      const paperBody = document.getElementById('paperBody') || document.body;
-      const prevEditable = paperBody.isContentEditable;
+    const scheme = colorSchemes[colorName] || colorSchemes.yellow;
+    const paperBody = document.getElementById('paperBody') || document.body;
+    const prevEditable = paperBody.isContentEditable;
 
-      try {
-        paperBody.contentEditable = 'true';
-        // 빨간 글자색 + 연분홍 하이라이트 적용
-        document.execCommand('foreColor', false, '#dc2626');
-        document.execCommand('hiliteColor', false, '#ffe4e6');
-      } catch (e) {
-        console.error('Red pen execCommand error:', e);
-      } finally {
-        paperBody.contentEditable = prevEditable ? 'true' : 'false';
-      }
+    try {
+      paperBody.contentEditable = 'true';
+      document.execCommand('foreColor', false, scheme.text);
+      document.execCommand('hiliteColor', false, scheme.bg);
+    } catch (e) {
+      console.error('Highlight execCommand error:', e);
+    } finally {
+      paperBody.contentEditable = prevEditable ? 'true' : 'false';
+    }
 
-      sel.removeAllRanges();
-    });
+    sel.removeAllRanges();
+    savePassageHighlightState();
   }
 
-  if (btnClearRedPen) {
-    btnClearRedPen.addEventListener('mousedown', (e) => e.preventDefault());
-    btnClearRedPen.addEventListener('click', () => {
-      const sel = window.getSelection();
-      const paperBody = document.getElementById('paperBody') || document.body;
-      const prevEditable = paperBody.isContentEditable;
+  function clearPassageHighlight() {
+    const sel = window.getSelection();
+    const paperBody = document.getElementById('paperBody') || document.body;
+    const prevEditable = paperBody.isContentEditable;
 
-      try {
-        paperBody.contentEditable = 'true';
-        if (sel && !sel.isCollapsed) {
-          document.execCommand('removeFormat', false, null);
-          document.execCommand('foreColor', false, '#1e293b');
-          document.execCommand('hiliteColor', false, 'transparent');
-        } else {
-          // 지문 전체 스타일 초기화
-          const colored = paperBody.querySelectorAll('*');
-          colored.forEach(el => {
-            el.style.color = '';
-            el.style.backgroundColor = '';
-          });
-        }
-      } catch(e) {
-        console.error('Clear red pen error:', e);
-      } finally {
-        paperBody.contentEditable = prevEditable ? 'true' : 'false';
+    try {
+      paperBody.contentEditable = 'true';
+      if (sel && !sel.isCollapsed) {
+        document.execCommand('removeFormat', false, null);
+        document.execCommand('foreColor', false, '#1e293b');
+        document.execCommand('hiliteColor', false, 'transparent');
+      } else {
+        const colored = paperBody.querySelectorAll('*');
+        colored.forEach(el => {
+          el.style.color = '';
+          el.style.backgroundColor = '';
+        });
       }
+    } catch(e) {
+      console.error('Clear highlight error:', e);
+    } finally {
+      paperBody.contentEditable = prevEditable ? 'true' : 'false';
+    }
 
-      if (sel) sel.removeAllRanges();
-    });
+    if (sel) sel.removeAllRanges();
+    savePassageHighlightState();
+  }
+
+  function savePassageHighlightState() {
+    const paperBody = document.getElementById('paperBody');
+    if (!paperBody || !currentExamId || !currentSectionKey) return;
+    const userKey = currentUser ? currentUser.username : 'guest';
+    const key = `exam_hl_${userKey}_${currentExamId}_${currentSectionKey}`;
+    try {
+      localStorage.setItem(key, paperBody.innerHTML);
+    } catch (e) {}
+  }
+
+  function restorePassageHighlightState() {
+    const paperBody = document.getElementById('paperBody');
+    if (!paperBody || !currentExamId || !currentSectionKey) return;
+    const userKey = currentUser ? currentUser.username : 'guest';
+    const key = `exam_hl_${userKey}_${currentExamId}_${currentSectionKey}`;
+    try {
+      const savedHtml = localStorage.getItem(key);
+      if (savedHtml && savedHtml.trim().length > 0) {
+        paperBody.innerHTML = savedHtml;
+      }
+    } catch (e) {}
+  }
+
+  const btnHlYellow = document.getElementById('btnHlYellow');
+  const btnHlRed = document.getElementById('btnHlRed');
+  const btnHlGreen = document.getElementById('btnHlGreen');
+  const btnHlBlue = document.getElementById('btnHlBlue');
+  const btnClearHl = document.getElementById('btnClearHl');
+
+  if (btnHlYellow) {
+    btnHlYellow.addEventListener('mousedown', (e) => e.preventDefault());
+    btnHlYellow.addEventListener('click', () => applyHighlightColor('yellow'));
+  }
+  if (btnHlRed) {
+    btnHlRed.addEventListener('mousedown', (e) => e.preventDefault());
+    btnHlRed.addEventListener('click', () => applyHighlightColor('red'));
+  }
+  if (btnHlGreen) {
+    btnHlGreen.addEventListener('mousedown', (e) => e.preventDefault());
+    btnHlGreen.addEventListener('click', () => applyHighlightColor('green'));
+  }
+  if (btnHlBlue) {
+    btnHlBlue.addEventListener('mousedown', (e) => e.preventDefault());
+    btnHlBlue.addEventListener('click', () => applyHighlightColor('blue'));
+  }
+  if (btnClearHl) {
+    btnClearHl.addEventListener('mousedown', (e) => e.preventDefault());
+    btnClearHl.addEventListener('click', clearPassageHighlight);
   }
 });
 
