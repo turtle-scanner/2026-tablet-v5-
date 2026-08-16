@@ -423,20 +423,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (isAdmin || completedSections.P) {
       btnSecA.classList.remove('locked-tab');
-      btnSecA.textContent = '2교시 전공 A (60분)';
+      btnSecA.textContent = '2교시 전공 A (35분)';
       btnSecA.classList.toggle('active-sec', currentSectionKey === 'A');
     } else {
       btnSecA.classList.add('locked-tab');
-      btnSecA.textContent = '🔒 2교시 전공 A (60분)';
+      btnSecA.textContent = '🔒 2교시 전공 A (35분)';
     }
 
     if (isAdmin || completedSections.A) {
       btnSecB.classList.remove('locked-tab');
-      btnSecB.textContent = '3교시 전공 B (60분)';
+      btnSecB.textContent = '3교시 전공 B (35분)';
       btnSecB.classList.toggle('active-sec', currentSectionKey === 'B');
     } else {
       btnSecB.classList.add('locked-tab');
-      btnSecB.textContent = '🔒 3교시 전공 B (60분)';
+      btnSecB.textContent = '🔒 3교시 전공 B (35분)';
     }
   }
 
@@ -671,7 +671,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSectionTimerDisplay();
     playChimeSound(); // 교시 개시 령 종소리!
-    showSupervisorNotice('🔔 본 교시 시험이 시작되었습니다. 시계와 성분기준을 확인하고 신중히 답안을 작성하십시오.');
+    
+    if (currentSectionKey === 'P') {
+      showSupervisorNotice('🔔 1교시 교육학 논술 시험이 시작되었습니다. 제한시간 60분 동안 신중히 답안을 작성하십시오.');
+    } else if (currentSectionKey === 'A') {
+      showSupervisorNotice('🔔 2교시 전공 A형 시험이 시작되었습니다. 제한시간 35분 동안 서술형 답안을 작성하십시오.');
+    } else {
+      showSupervisorNotice('🔔 3교시 전공 B형 시험이 시작되었습니다. 제한시간 35분 동안 서술형 답안을 작성하십시오.');
+    }
 
     sectionTimerInterval = setInterval(() => {
       if (!isTimerPaused && sectionRemainingSecs > 0) {

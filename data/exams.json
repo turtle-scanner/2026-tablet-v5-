@@ -39,7 +39,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -247,7 +247,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -483,7 +483,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 102,
@@ -690,7 +690,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 114,
@@ -930,7 +930,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 202,
@@ -1108,7 +1108,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 214,
@@ -1315,7 +1315,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 302,
@@ -1487,7 +1487,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 314,
@@ -1693,7 +1693,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 402,
@@ -1865,7 +1865,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 414,
@@ -2073,7 +2073,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 502,
@@ -2249,7 +2249,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 514,
@@ -2463,7 +2463,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 602,
@@ -2639,7 +2639,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 614,
@@ -2848,7 +2848,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 702,
@@ -3026,7 +3026,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 714,
@@ -3241,7 +3241,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 802,
@@ -3420,7 +3420,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 814,
@@ -3624,7 +3624,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 902,
@@ -3803,7 +3803,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 914,
@@ -4003,7 +4003,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -4228,7 +4228,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -4463,7 +4463,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -4695,7 +4695,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -4933,7 +4933,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -5148,7 +5148,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -5388,7 +5388,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -5609,7 +5609,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -5836,7 +5836,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -6057,7 +6057,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -6293,7 +6293,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -6514,7 +6514,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -6753,7 +6753,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -6974,7 +6974,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -7205,7 +7205,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -7427,7 +7427,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -7658,7 +7658,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -7874,7 +7874,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -8107,7 +8107,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -8323,7 +8323,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -8556,7 +8556,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -8782,7 +8782,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -9015,7 +9015,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -9241,7 +9241,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 90,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -9474,7 +9474,7 @@
       },
       "A": {
         "title": "2교시 전문상담 [전공 A]",
-        "timeLimit": 60,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 2,
@@ -9694,7 +9694,7 @@
       },
       "B": {
         "title": "3교시 전문상담 [전공 B]",
-        "timeLimit": 60,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 14,
@@ -9929,7 +9929,7 @@
       },
       "A": {
         "title": "전문상담 [전공 A]",
-        "timeLimit": 60,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 1,
@@ -10128,7 +10128,7 @@
       },
       "B": {
         "title": "전문상담 [전공 B]",
-        "timeLimit": 60,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 1,
@@ -10340,7 +10340,7 @@
       },
       "A": {
         "title": "전문상담 [전공 A]",
-        "timeLimit": 60,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 1,
@@ -10533,7 +10533,7 @@
       },
       "B": {
         "title": "전문상담 [전공 B]",
-        "timeLimit": 60,
+        "timeLimit": 35,
         "questions": [
           {
             "id": 1,
