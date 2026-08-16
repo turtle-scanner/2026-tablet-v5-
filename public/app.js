@@ -1072,4 +1072,80 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('비밀번호 변경 처리 중 오류가 발생했습니다.');
     }
   });
+
+  // =========================================================
+  // 🖊️ 안전한 빨간 펜 지문 색칠 기능
+  // =========================================================
+  let savedRedPenRange = null;
+
+  document.addEventListener('selectionchange', () => {
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.toString().trim().length > 0) {
+      try {
+        savedRedPenRange = sel.getRangeAt(0).cloneRange();
+      } catch (e) {}
+    }
+  });
+
+  const btnApplyRedPen = document.getElementById('btnApplyRedPen');
+  const btnClearRedPen = document.getElementById('btnClearRedPen');
+
+  if (btnApplyRedPen) {
+    btnApplyRedPen.addEventListener('mousedown', (e) => e.preventDefault());
+    btnApplyRedPen.addEventListener('click', () => {
+      const sel = window.getSelection();
+      let range = null;
+      if (sel && !sel.isCollapsed && sel.toString().trim().length > 0) {
+        range = sel.getRangeAt(0);
+      } else if (savedRedPenRange) {
+        range = savedRedPenRange;
+      }
+
+      if (!range || range.collapsed) {
+        alert('💡 빨간색으로 칠할 지문 텍스트를 마우스로 드래그 선택한 후 버튼을 누르세요!');
+        return;
+      }
+
+      const span = document.createElement('span');
+      span.className = 'red-pen-mark';
+      span.title = '클릭하면 색칠 해제';
+
+      try {
+        const fragment = range.extractContents();
+        span.appendChild(fragment);
+        range.insertNode(span);
+
+        span.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          const parent = span.parentNode;
+          while (span.firstChild) parent.insertBefore(span.firstChild, span);
+          parent.removeChild(span);
+        });
+      } catch (e) {
+        console.error('Red pen mark error:', e);
+      }
+
+      if (sel) sel.removeAllRanges();
+      savedRedPenRange = null;
+    });
+  }
+
+  if (btnClearRedPen) {
+    btnClearRedPen.addEventListener('mousedown', (e) => e.preventDefault());
+    btnClearRedPen.addEventListener('click', () => {
+      const paperBody = document.getElementById('paperBody');
+      if (paperBody) {
+        const marks = paperBody.querySelectorAll('.red-pen-mark');
+        marks.forEach(el => {
+          const parent = el.parentNode;
+          while (el.firstChild) parent.insertBefore(el.firstChild, el);
+          parent.removeChild(el);
+        });
+      }
+      const sel = window.getSelection();
+      if (sel) sel.removeAllRanges();
+      savedRedPenRange = null;
+    });
+  }
 });
+
