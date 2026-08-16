@@ -417,11 +417,18 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const res = await fetch(`/api/exams/${examId}?t=${Date.now()}`);
       const data = await res.json();
-      if (data.success) {
+      if (data.success && data.exam) {
         currentExam = data.exam;
+        return;
       }
     } catch (err) {
       console.error(err);
+    }
+
+    // 백엔드가 해당 회차 데이터를 서빙하지 못할 때도 100% 정상 작동하도록 클라이언트 2중 완충 장치 작동!
+    if (window.FALLBACK_EXAMS_MAP && window.FALLBACK_EXAMS_MAP[examId]) {
+      currentExam = window.FALLBACK_EXAMS_MAP[examId];
+    } else {
       alert('시험지 데이터를 로드하지 못했습니다.');
     }
   }
