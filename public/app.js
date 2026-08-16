@@ -1249,6 +1249,67 @@ document.addEventListener('DOMContentLoaded', () => {
       savePassageHighlightState();
     });
   }
+
+  // 📌 노란색 스티키 메모장 제어 및 실시간 저장 엔진
+  const btnToggleStickyNote = document.getElementById('btnToggleStickyNote');
+  const stickyNoteWidget = document.getElementById('stickyNoteWidget');
+  const btnCloseStickyNote = document.getElementById('btnCloseStickyNote');
+  const stickyNoteTextarea = document.getElementById('stickyNoteTextarea');
+  const stickySaveBadge = document.getElementById('stickySaveBadge');
+
+  function loadStickyNoteContent() {
+    if (!stickyNoteTextarea) return;
+    const userKey = currentUser ? currentUser.username : 'guest';
+    const key = `user_sticky_note_${userKey}`;
+    try {
+      const savedText = localStorage.getItem(key);
+      if (savedText !== null) {
+        stickyNoteTextarea.value = savedText;
+      }
+    } catch(e) {}
+  }
+
+  function saveStickyNoteContent() {
+    if (!stickyNoteTextarea) return;
+    const userKey = currentUser ? currentUser.username : 'guest';
+    const key = `user_sticky_note_${userKey}`;
+    try {
+      localStorage.setItem(key, stickyNoteTextarea.value);
+      if (stickySaveBadge) {
+        stickySaveBadge.textContent = '✓ 실시간 저장됨';
+        stickySaveBadge.style.background = '#dcfce7';
+        stickySaveBadge.style.color = '#15803d';
+      }
+    } catch(e) {}
+  }
+
+  if (btnToggleStickyNote && stickyNoteWidget) {
+    btnToggleStickyNote.addEventListener('click', () => {
+      loadStickyNoteContent();
+      stickyNoteWidget.classList.toggle('hidden');
+      if (!stickyNoteWidget.classList.contains('hidden')) {
+        stickyNoteTextarea.focus();
+      }
+    });
+  }
+
+  if (btnCloseStickyNote && stickyNoteWidget) {
+    btnCloseStickyNote.addEventListener('click', () => {
+      saveStickyNoteContent();
+      stickyNoteWidget.classList.add('hidden');
+    });
+  }
+
+  if (stickyNoteTextarea) {
+    stickyNoteTextarea.addEventListener('input', () => {
+      if (stickySaveBadge) {
+        stickySaveBadge.textContent = '⏳ 저장 중...';
+        stickySaveBadge.style.background = '#fef3c7';
+        stickySaveBadge.style.color = '#b45309';
+      }
+      saveStickyNoteContent();
+    });
+  }
 });
 
 

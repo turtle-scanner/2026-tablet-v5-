@@ -174,7 +174,7 @@
           <!-- JS에서 탭 생성 -->
         </div>
 
-        <!-- 🖍️ 4색 지문 형광펜 & 펜 색칠 & 수정테이프 툴바 -->
+        <!-- 🖍️ 4색 지문 형광펜 & 펜 색칠 & 수정테이프 & 노란 메모장 툴바 -->
         <div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:8px 14px; margin-bottom:12px;">
           <span style="font-weight:800; font-size:13px; color:#0f172a;">🖍️ 지문 분석 툴바:</span>
           <button type="button" id="btnHlYellow" style="background:#eab308; color:#0f172a; font-weight:800; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:13px;">🖍️ 노란 형광펜</button>
@@ -182,6 +182,7 @@
           <button type="button" id="btnHlGreen" style="background:#10b981; color:#ffffff; font-weight:800; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:13px;">💚 초록 형광펜</button>
           <button type="button" id="btnHlBlue" style="background:#3b82f6; color:#ffffff; font-weight:800; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:13px;">💙 파란 형광펜</button>
           <button type="button" id="btnHlStrike" style="background:#475569; color:#ffffff; font-weight:800; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:13px;">✂️ 수정테이프 (정답 가리기)</button>
+          <button type="button" id="btnToggleStickyNote" style="background:#ca8a04; color:#ffffff; font-weight:800; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:13px;">📌 노란색 메모장</button>
           <button type="button" id="btnClearHl" style="background:#334155; color:#ffffff; font-weight:700; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:13px;">🧹 색칠 지우기</button>
           <span style="font-size:11px; color:#64748b; margin-left:auto;">💡 드래그 후 클릭 | 자동 저장 100% 지원</span>
         </div>
@@ -396,7 +397,17 @@
       </div>
       <div class="modal-footer" style="justify-content:flex-end;">
         <button id="btnSubmitChangePw" class="btn-primary" style="background:#7c3aed;">🔐 암호 변경 저장</button>
+  <!-- 📌 노란색 스티키 포스트잇 메모장 패널 (실시간 자동 저장) -->
+  <div id="stickyNoteWidget" class="sticky-note-widget hidden">
+    <div class="sticky-note-header">
+      <span class="sticky-title">📌 수험생 중요 노란색 메모장</span>
+      <div class="sticky-actions">
+        <span id="stickySaveBadge" class="sticky-save-badge">✓ 실시간 자동 저장됨</span>
+        <button type="button" id="btnCloseStickyNote" class="btn-sticky-close">&times;</button>
       </div>
+    </div>
+    <div class="sticky-note-body">
+      <textarea id="stickyNoteTextarea" class="sticky-textarea" placeholder="💡 중요 개념, 기억할 공식, 키워드나 요약 메모를 여기에 적으세요! (100% 실시간 자동 저장됩니다)"></textarea>
     </div>
   </div>
 
