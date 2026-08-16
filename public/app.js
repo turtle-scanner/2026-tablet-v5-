@@ -263,6 +263,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  async function autoSyncFallbackExamsWithServer() {
+    if (window.FALLBACK_EXAMS_MAP) {
+      const fbExams = Object.values(window.FALLBACK_EXAMS_MAP);
+      if (fbExams.length >= 22) {
+        try {
+          await fetch('/api/sync-exams', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ exams: fbExams })
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }
+  }
+
   async function setupExamRoundDropdownOptions() {
     if (!selectExamRound) return;
     const savedVal = currentExamId || 'exam-1';
@@ -271,6 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const fbCount = Object.keys(window.FALLBACK_EXAMS_MAP).length;
       if (fbCount > count) count = fbCount;
     }
+
+    autoSyncFallbackExamsWithServer();
+
     try {
       const res = await fetch('/api/exams?t=' + Date.now());
       const data = await res.json();
