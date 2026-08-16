@@ -510,17 +510,186 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // =========================================================
+  // Web Audio API 사운드 및 실제 임용 시험장 긴장감 연출 엔진
+  // =========================================================
+  let audioCtx = null;
+  let soundEnabled = true;
+  let notice10MinFired = false;
+  let notice5MinFired = false;
+
+  const btnToggleSound = document.getElementById('btnToggleSound');
+  const sectionTimerBox = document.getElementById('sectionTimerBox');
+  const supervisorNoticeBar = document.getElementById('supervisorNoticeBar');
+  const supervisorNoticeText = document.getElementById('supervisorNoticeText');
+  const screenUrgencyGlow = document.getElementById('screenUrgencyGlow');
+
+  function initAudioContext() {
+    if (!audioCtx) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) audioCtx = new AudioContextClass();
+    }
+  }
+
+  if (btnToggleSound) {
+    btnToggleSound.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      if (soundEnabled) {
+        initAudioContext();
+        btnToggleSound.textContent = '🔊 시험장 오디오 (ON)';
+        btnToggleSound.classList.add('sound-on');
+      } else {
+        btnToggleSound.textContent = '🔇 시험장 오디오 (OFF)';
+        btnToggleSound.classList.remove('sound-on');
+      }
+    });
+    btnToggleSound.classList.add('sound-on');
+  }
+
+  // 아날로그 시계 초침 째깍 소리 (Tik-Tok)
+  function playTickSound(isCritical = false) {
+    if (!soundEnabled) return;
+    try {
+      initAudioContext();
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = isCritical ? 'sawtooth' : 'sine';
+      osc.frequency.setValueAtTime(isCritical ? 1200 : 800, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.04);
+
+      gain.gain.setValueAtTime(isCritical ? 0.25 : 0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.04);
+    } catch (e) {}
+  }
+
+  // 시험 감독관 령 종소리 (Chime Bell)
+  function playChimeSound() {
+    if (!soundEnabled) return;
+    try {
+      initAudioContext();
+      if (!audioCtx) return;
+
+      const freqs = [523.25, 659.25, 783.99, 1046.50];
+      freqs.forEach((freq, idx) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.15);
+
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime + idx * 0.15);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.15 + 1.2);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(audioCtx.currentTime + idx * 0.15);
+        osc.stop(audioCtx.currentTime + idx * 0.15 + 1.2);
+      });
+    } catch (e) {}
+  }
+
+  // 긴급 경고 삐- 소리 (Warning Beep)
+  function playWarningBeep() {
+    if (!soundEnabled) return;
+    try {
+      initAudioContext();
+      if (!audioCtx) return;
+
+      for (let i = 0; i < 3; i++) {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime + i * 0.18);
+
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime + i * 0.18);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + i * 0.18 + 0.1);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(audioCtx.currentTime + i * 0.18);
+        osc.stop(audioCtx.currentTime + i * 0.18 + 0.1);
+      }
+    } catch (e) {}
+  }
+
+  // 실시간 시험 감독관 공지 팝업
+  function showSupervisorNotice(text) {
+    if (!supervisorNoticeBar || !supervisorNoticeText) return;
+    supervisorNoticeText.textContent = text;
+    supervisorNoticeBar.classList.remove('hidden');
+
+    setTimeout(() => {
+      supervisorNoticeBar.classList.add('hidden');
+    }, 5500);
+  }
+
+  // 윈도우 창 이탈 엄격 감시
+  window.addEventListener('blur', () => {
+    if (sectionTimerInterval && sectionRemainingSecs > 0) {
+      showSupervisorNotice('⚠️ [시험 감독관 경고] 시험장 화면 이탈 감지! 시험에 온전히 집중해 주십시오.');
+    }
+  });
+
   function startSectionTimer() {
     if (sectionTimerInterval) clearInterval(sectionTimerInterval);
+    notice10MinFired = false;
+    notice5MinFired = false;
+
+    if (sectionTimerBox) {
+      sectionTimerBox.classList.remove('timer-warning-amber', 'timer-critical-red');
+    }
+    if (screenUrgencyGlow) {
+      screenUrgencyGlow.classList.add('hidden');
+    }
+
     updateSectionTimerDisplay();
+    playChimeSound(); // 교시 개시 령 종소리!
+    showSupervisorNotice('🔔 본 교시 시험이 시작되었습니다. 시계와 성분기준을 확인하고 신중히 답안을 작성하십시오.');
 
     sectionTimerInterval = setInterval(() => {
       if (!isTimerPaused && sectionRemainingSecs > 0) {
         sectionRemainingSecs--;
         updateSectionTimerDisplay();
 
+        const isCritical = sectionRemainingSecs <= 300;
+        playTickSound(isCritical);
+
+        // 10분 남았을 때 앰버 경고 (600초)
+        if (sectionRemainingSecs === 600 && !notice10MinFired) {
+          notice10MinFired = true;
+          if (sectionTimerBox) sectionTimerBox.classList.add('timer-warning-amber');
+          showSupervisorNotice('📢 [시험 감독관 안내] 시험 종료 10분 전입니다! 미작성 서술란을 정리하고 답안을 검토하십시오.');
+          playChimeSound();
+        }
+
+        // 5분 남았을 때 레드 펄스 긴급 경고 (300초)
+        if (sectionRemainingSecs === 300 && !notice5MinFired) {
+          notice5MinFired = true;
+          if (sectionTimerBox) {
+            sectionTimerBox.classList.remove('timer-warning-amber');
+            sectionTimerBox.classList.add('timer-critical-red');
+          }
+          if (screenUrgencyGlow) screenUrgencyGlow.classList.remove('hidden');
+          showSupervisorNotice('🚨 [시험 감독관 긴급 안내] 시험 종료 5분 전입니다! OMR 답안 서술을 최종 점검하십시오.');
+          playWarningBeep();
+        }
+
         if (sectionRemainingSecs === 0) {
           clearInterval(sectionTimerInterval);
+          if (screenUrgencyGlow) screenUrgencyGlow.classList.add('hidden');
+          playChimeSound();
+          showSupervisorNotice('🔔 [시험 감독관] 시험이 종료되었습니다! 즉시 필기구를 놓아주십시오.');
           handleSectionTimeOut();
         }
       }

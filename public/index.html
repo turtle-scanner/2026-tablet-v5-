@@ -115,10 +115,12 @@
         </div>
 
         <span id="displayStudentInfo" class="user-badge">수험생: 홍길동 (2027-1004)</span>
+        <button id="btnToggleSound" class="btn-sound-toggle">🔊 시험장 오디오 (ON)</button>
+        <span class="strict-exam-badge">⚡ KICE 실전 모드</span>
       </div>
 
       <div class="bar-center">
-        <div class="timer-box">
+        <div id="sectionTimerBox" class="timer-box">
           <span class="timer-label">교시 남은시간:</span>
           <span id="sectionTimerDisplay" class="timer-time">60:00</span>
         </div>
@@ -139,6 +141,13 @@
         <button id="btnSubmitExam" class="btn-primary hidden">📝 3교시 B형 완료 및 전체 최종 제출</button>
       </div>
     </header>
+
+    <!-- 감독관 안내 방송 팝업 및 전면 긴장감 펄스 레이어 -->
+    <div id="supervisorNoticeBar" class="supervisor-notice-bar hidden">
+      <span style="font-size: 20px;">📢</span>
+      <span id="supervisorNoticeText">시험 개시 10분 전입니다. 답안지에 수험번호와 성명을 확인하십시오.</span>
+    </div>
+    <div id="screenUrgencyGlow" class="screen-urgency-glow hidden"></div>
 
     <!-- 분할 화면 메인 영역 -->
     <main class="split-main">
