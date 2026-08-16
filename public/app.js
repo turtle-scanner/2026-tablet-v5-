@@ -1074,19 +1074,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================
-  // 🖊️ 안전한 빨간 펜 지문 색칠 기능
+  // 🖊️ 안전한 빨간 펜 지문 색칠 기능 (execCommand 100% 엔진)
   // =========================================================
-  let savedRedPenRange = null;
-
-  document.addEventListener('selectionchange', () => {
-    const sel = window.getSelection();
-    if (sel && !sel.isCollapsed && sel.toString().trim().length > 0) {
-      try {
-        savedRedPenRange = sel.getRangeAt(0).cloneRange();
-      } catch (e) {}
-    }
-  });
-
   const btnApplyRedPen = document.getElementById('btnApplyRedPen');
   const btnClearRedPen = document.getElementById('btnClearRedPen');
 
@@ -1094,58 +1083,59 @@ document.addEventListener('DOMContentLoaded', () => {
     btnApplyRedPen.addEventListener('mousedown', (e) => e.preventDefault());
     btnApplyRedPen.addEventListener('click', () => {
       const sel = window.getSelection();
-      let range = null;
-      if (sel && !sel.isCollapsed && sel.toString().trim().length > 0) {
-        range = sel.getRangeAt(0);
-      } else if (savedRedPenRange) {
-        range = savedRedPenRange;
-      }
-
-      if (!range || range.collapsed) {
+      if (!sel || sel.isCollapsed || sel.toString().trim().length === 0) {
         alert('💡 빨간색으로 칠할 지문 텍스트를 마우스로 드래그 선택한 후 버튼을 누르세요!');
         return;
       }
 
-      const span = document.createElement('span');
-      span.className = 'red-pen-mark';
-      span.title = '클릭하면 색칠 해제';
+      const paperBody = document.getElementById('paperBody') || document.body;
+      const prevEditable = paperBody.isContentEditable;
 
       try {
-        const fragment = range.extractContents();
-        span.appendChild(fragment);
-        range.insertNode(span);
-
-        span.addEventListener('click', (ev) => {
-          ev.stopPropagation();
-          const parent = span.parentNode;
-          while (span.firstChild) parent.insertBefore(span.firstChild, span);
-          parent.removeChild(span);
-        });
+        paperBody.contentEditable = 'true';
+        // 빨간 글자색 + 연분홍 하이라이트 적용
+        document.execCommand('foreColor', false, '#dc2626');
+        document.execCommand('hiliteColor', false, '#ffe4e6');
       } catch (e) {
-        console.error('Red pen mark error:', e);
+        console.error('Red pen execCommand error:', e);
+      } finally {
+        paperBody.contentEditable = prevEditable ? 'true' : 'false';
       }
 
-      if (sel) sel.removeAllRanges();
-      savedRedPenRange = null;
+      sel.removeAllRanges();
     });
   }
 
   if (btnClearRedPen) {
     btnClearRedPen.addEventListener('mousedown', (e) => e.preventDefault());
     btnClearRedPen.addEventListener('click', () => {
-      const paperBody = document.getElementById('paperBody');
-      if (paperBody) {
-        const marks = paperBody.querySelectorAll('.red-pen-mark');
-        marks.forEach(el => {
-          const parent = el.parentNode;
-          while (el.firstChild) parent.insertBefore(el.firstChild, el);
-          parent.removeChild(el);
-        });
-      }
       const sel = window.getSelection();
+      const paperBody = document.getElementById('paperBody') || document.body;
+      const prevEditable = paperBody.isContentEditable;
+
+      try {
+        paperBody.contentEditable = 'true';
+        if (sel && !sel.isCollapsed) {
+          document.execCommand('removeFormat', false, null);
+          document.execCommand('foreColor', false, '#1e293b');
+          document.execCommand('hiliteColor', false, 'transparent');
+        } else {
+          // 지문 전체 스타일 초기화
+          const colored = paperBody.querySelectorAll('*');
+          colored.forEach(el => {
+            el.style.color = '';
+            el.style.backgroundColor = '';
+          });
+        }
+      } catch(e) {
+        console.error('Clear red pen error:', e);
+      } finally {
+        paperBody.contentEditable = prevEditable ? 'true' : 'false';
+      }
+
       if (sel) sel.removeAllRanges();
-      savedRedPenRange = null;
     });
   }
 });
+
 
