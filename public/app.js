@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function autoSyncFallbackExamsWithServer() {
     if (window.FALLBACK_EXAMS_MAP) {
       const fbExams = Object.values(window.FALLBACK_EXAMS_MAP);
-      if (fbExams.length >= 22) {
+      if (fbExams.length >= 23) {
         try {
           await fetch('/api/sync-exams', {
             method: 'POST',
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function setupExamRoundDropdownOptions() {
     if (!selectExamRound) return;
     const savedVal = currentExamId || 'exam-1';
-    let count = 22;
+    let count = 23;
     if (window.FALLBACK_EXAMS_MAP) {
       const fbCount = Object.keys(window.FALLBACK_EXAMS_MAP).length;
       if (fbCount > count) count = fbCount;
@@ -423,20 +423,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (isAdmin || completedSections.P) {
       btnSecA.classList.remove('locked-tab');
-      btnSecA.textContent = '2교시 전공 A (90분)';
+      btnSecA.textContent = '2교시 전공 A (60분)';
       btnSecA.classList.toggle('active-sec', currentSectionKey === 'A');
     } else {
       btnSecA.classList.add('locked-tab');
-      btnSecA.textContent = '🔒 2교시 전공 A (90분)';
+      btnSecA.textContent = '🔒 2교시 전공 A (60분)';
     }
 
     if (isAdmin || completedSections.A) {
       btnSecB.classList.remove('locked-tab');
-      btnSecB.textContent = '3교시 전공 B (90분)';
+      btnSecB.textContent = '3교시 전공 B (60분)';
       btnSecB.classList.toggle('active-sec', currentSectionKey === 'B');
     } else {
       btnSecB.classList.add('locked-tab');
-      btnSecB.textContent = '🔒 3교시 전공 B (90분)';
+      btnSecB.textContent = '🔒 3교시 전공 B (60분)';
     }
   }
 
@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
       paperSectionTitle.textContent = '전문상담 [전공 A]';
       if (tableSectionName) tableSectionName.textContent = '2교시 전공 A';
       if (tableQSpec) tableQSpec.textContent = '12문항 40점';
-      if (tableTimeSpec) tableTimeSpec.textContent = '시험 시간 90분';
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 60}분`;
       omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 핑크 4줄 양식)';
       btnCompleteCurrentSec.textContent = '🚀 2교시 전공A 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
       paperSectionTitle.textContent = '전문상담 [전공 B]';
       if (tableSectionName) tableSectionName.textContent = '3교시 전공 B';
       if (tableQSpec) tableQSpec.textContent = '11문항 40점';
-      if (tableTimeSpec) tableTimeSpec.textContent = '시험 시간 90분';
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 60}분`;
       omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 핑크 4줄 양식)';
       btnCompleteCurrentSec.classList.add('hidden');
       btnSubmitExam.classList.remove('hidden'); // 마지막 B형에서만 노출!
