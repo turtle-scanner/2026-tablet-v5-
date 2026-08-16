@@ -266,11 +266,11 @@ document.addEventListener('DOMContentLoaded', () => {
   async function setupExamRoundDropdownOptions() {
     if (!selectExamRound) return;
     const savedVal = currentExamId || 'exam-1';
-    let count = 17;
+    let count = 18;
     try {
       const res = await fetch('/api/exams?t=' + Date.now());
       const data = await res.json();
-      if (data.success && Array.isArray(data.exams) && data.exams.length > 17) {
+      if (data.success && Array.isArray(data.exams) && data.exams.length > 18) {
         count = data.exams.length;
       }
     } catch (e) {
