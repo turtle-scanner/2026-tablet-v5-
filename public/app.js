@@ -859,6 +859,59 @@ document.addEventListener('DOMContentLoaded', () => {
     restorePassageHighlightState();
   }
 
+  // =========================================================
+  // ⭕/❌ O/X 채점 도장 표식 & ✒️ 펜 색상(검정/빨강/파랑) 스위처
+  // =========================================================
+  let omrMarksMap = {};
+  let activePenColor = 'black'; // 'black', 'red', 'blue'
+
+  const btnPenBlack = document.getElementById('btnPenBlack');
+  const btnPenRed = document.getElementById('btnPenRed');
+  const btnPenBlue = document.getElementById('btnPenBlue');
+
+  function updatePenColorUI(color) {
+    activePenColor = color;
+    if (btnPenBlack) btnPenBlack.classList.toggle('active-pen', color === 'black');
+    if (btnPenRed) btnPenRed.classList.toggle('active-pen', color === 'red');
+    if (btnPenBlue) btnPenBlue.classList.toggle('active-pen', color === 'blue');
+
+    document.querySelectorAll('.pink-4line-textarea').forEach(ta => {
+      ta.classList.remove('pen-text-black', 'pen-text-red', 'pen-text-blue');
+      ta.classList.add(`pen-text-${color}`);
+    });
+  }
+
+  if (btnPenBlack) btnPenBlack.addEventListener('click', () => updatePenColorUI('black'));
+  if (btnPenRed) btnPenRed.addEventListener('click', () => updatePenColorUI('red'));
+  if (btnPenBlue) btnPenBlue.addEventListener('click', () => updatePenColorUI('blue'));
+
+  function updateOMRMarkDisplay(qNum, qCell) {
+    let markBadge = qCell.querySelector('.omr-mark-badge');
+    if (markBadge) markBadge.remove();
+
+    const currentState = omrMarksMap[qNum];
+    if (currentState === 'O') {
+      const b = document.createElement('div');
+      b.className = 'omr-mark-badge';
+      b.innerHTML = '<div class="omr-mark-o"></div>';
+      qCell.appendChild(b);
+    } else if (currentState === 'X') {
+      const b = document.createElement('div');
+      b.className = 'omr-mark-badge';
+      b.innerHTML = '<div class="omr-mark-x"></div>';
+      qCell.appendChild(b);
+    }
+  }
+
+  function toggleOMRMark(qNum, qCell) {
+    const current = omrMarksMap[qNum];
+    if (!current) omrMarksMap[qNum] = 'O';
+    else if (current === 'O') omrMarksMap[qNum] = 'X';
+    else omrMarksMap[qNum] = null;
+
+    updateOMRMarkDisplay(qNum, qCell);
+  }
+
   function renderOMRForm(questions) {
     omrAnswerContainer.innerHTML = '';
     questions.forEach((q, idx) => {
@@ -871,17 +924,26 @@ document.addEventListener('DOMContentLoaded', () => {
       box.id = `omr-card-${qNum}`;
 
       box.innerHTML = `
-        <div class="pink-q-cell">
+        <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNum}" title="클릭하여 O/X 도장을 찍으세요">
           <div class="pink-q-num">${isPed ? '교육학' : `문항 ${qNum}`}</div>
           <div class="pink-q-score">(${qScore}점)</div>
         </div>
         <div class="pink-input-cell">
-          <textarea id="ans-text-${qNum}" class="pink-4line-textarea ${isPed ? 'pedagogy-textarea' : ''}" placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${qNum}번 서술형 답안을 4줄에 작성하세요.`}">${userAnswers[qNum] || ''}</textarea>
+          <textarea id="ans-text-${qNum}" class="pink-4line-textarea ${isPed ? 'pedagogy-textarea' : ''} pen-text-${activePenColor}" placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${qNum}번 서술형 답안을 4줄에 작성하세요.`}">${userAnswers[qNum] || ''}</textarea>
           <div class="pink-char-counter" id="char-count-${qNum}">${(userAnswers[qNum] || '').length} 자</div>
         </div>
       `;
 
       omrAnswerContainer.appendChild(box);
+
+      const qCell = box.querySelector(`#q-label-cell-${qNum}`);
+      if (qCell) {
+        updateOMRMarkDisplay(qNum, qCell);
+        qCell.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleOMRMark(qNum, qCell);
+        });
+      }
 
       const ta = box.querySelector('textarea');
       ta.addEventListener('focus', () => selectQuestion(qNum));
