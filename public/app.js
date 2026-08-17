@@ -831,30 +831,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderOMRForm(questions) {
     omrAnswerContainer.innerHTML = '';
-    questions.forEach(q => {
+    questions.forEach((q, idx) => {
       const isPed = (currentSectionKey === 'P');
+      const qNum = q.id || q.number || q.no || (idx + 1);
+      const qScore = q.points || q.score || (isPed ? 20 : (idx < 4 ? 2 : 4));
+
       const box = document.createElement('div');
       box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''}`;
-      box.id = `omr-card-${q.id}`;
+      box.id = `omr-card-${qNum}`;
 
       box.innerHTML = `
         <div class="pink-q-cell">
-          <div class="pink-q-num">${isPed ? '교육학' : `문항 ${q.number}`}</div>
-          <div class="pink-q-score">(${q.score}점)</div>
+          <div class="pink-q-num">${isPed ? '교육학' : `문항 ${qNum}`}</div>
+          <div class="pink-q-score">(${qScore}점)</div>
         </div>
         <div class="pink-input-cell">
-          <textarea id="ans-text-${q.id}" class="pink-4line-textarea ${isPed ? 'pedagogy-textarea' : ''}" placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${q.number}번 서술형 답안을 4줄에 작성하세요.`}">${userAnswers[q.id] || ''}</textarea>
-          <div class="pink-char-counter" id="char-count-${q.id}">${(userAnswers[q.id] || '').length} 자</div>
+          <textarea id="ans-text-${qNum}" class="pink-4line-textarea ${isPed ? 'pedagogy-textarea' : ''}" placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${qNum}번 서술형 답안을 4줄에 작성하세요.`}">${userAnswers[qNum] || ''}</textarea>
+          <div class="pink-char-counter" id="char-count-${qNum}">${(userAnswers[qNum] || '').length} 자</div>
         </div>
       `;
 
       omrAnswerContainer.appendChild(box);
 
       const ta = box.querySelector('textarea');
-      ta.addEventListener('focus', () => selectQuestion(q.id));
+      ta.addEventListener('focus', () => selectQuestion(qNum));
       ta.addEventListener('input', (e) => {
-        userAnswers[q.id] = e.target.value;
-        document.getElementById(`char-count-${q.id}`).textContent = `${e.target.value.length} 자`;
+        userAnswers[qNum] = e.target.value;
+        document.getElementById(`char-count-${qNum}`).textContent = `${e.target.value.length} 자`;
         updateTotalCharCount();
         saveDraftAnswers(); // 실시간 회원별 자동 저장!
       });
@@ -864,12 +867,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderTabs(questions) {
     questionTabs.innerHTML = '';
-    questions.forEach(q => {
+    questions.forEach((q, idx) => {
+      const qNum = q.id || q.number || q.no || (idx + 1);
+      const qScore = q.points || q.score || (currentSectionKey === 'P' ? 20 : (idx < 4 ? 2 : 4));
+      const qType = q.type || (currentSectionKey === 'P' ? '논술형' : (idx < 4 ? '단답형' : '서술형'));
+
       const btn = document.createElement('button');
       btn.className = 'q-tab';
-      btn.dataset.qid = q.id;
-      btn.textContent = currentSectionKey === 'P' ? '1교시 교육학 논술' : `문항 ${q.number}번 (${q.type})`;
-      btn.addEventListener('click', () => selectQuestion(q.id));
+      btn.dataset.qid = qNum;
+      btn.textContent = currentSectionKey === 'P' ? '1교시 교육학 논술 (20점)' : `문항 ${qNum}번 [${qScore}점] (${qType})`;
+      btn.addEventListener('click', () => selectQuestion(qNum));
       questionTabs.appendChild(btn);
     });
   }
