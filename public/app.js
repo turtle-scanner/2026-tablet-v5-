@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
       paperSectionTitle.textContent = '교육학';
       if (tableSectionName) tableSectionName.textContent = '1교시 교육학';
       if (tableQSpec) tableQSpec.textContent = '1문항 20점';
-      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 40}분`;
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 37}분`;
       omrTitleText.textContent = '✏️ 오른쪽 1교시 교육학 논술 작성란 (20점 만점 / 1200~1500자)';
       btnCompleteCurrentSec.textContent = '🚀 1교시 교육학 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
       paperSectionTitle.textContent = '전문상담 [전공 A]';
       if (tableSectionName) tableSectionName.textContent = '2교시 전공 A';
       if (tableQSpec) tableQSpec.textContent = '12문항 40점';
-      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 60}분`;
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 35}분`;
       omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 핑크 4줄 양식)';
       btnCompleteCurrentSec.textContent = '🚀 2교시 전공A 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
       paperSectionTitle.textContent = '전문상담 [전공 B]';
       if (tableSectionName) tableSectionName.textContent = '3교시 전공 B';
       if (tableQSpec) tableQSpec.textContent = '11문항 40점';
-      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 60}분`;
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 35}분`;
       omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 핑크 4줄 양식)';
       btnCompleteCurrentSec.classList.add('hidden');
       btnSubmitExam.classList.remove('hidden'); // 마지막 B형에서만 노출!
@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
     playChimeSound(); // 교시 개시 령 종소리!
     
     if (currentSectionKey === 'P') {
-      showSupervisorNotice('🔔 1교시 교육학 논술 시험이 시작되었습니다. 제한시간 60분 동안 신중히 답안을 작성하십시오.');
+      showSupervisorNotice('🔔 1교시 교육학 논술 시험이 시작되었습니다. 제한시간 37분 동안 신중히 답안을 작성하십시오.');
     } else if (currentSectionKey === 'A') {
       showSupervisorNotice('🔔 2교시 전공 A형 시험이 시작되었습니다. 제한시간 35분 동안 서술형 답안을 작성하십시오.');
     } else {
