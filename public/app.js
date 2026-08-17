@@ -860,10 +860,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
-  // ⭕/❌ O/X 채점 도장 표식 & ✒️ 펜 색상(검정/빨강/파랑) 스위처
+  // ⭕/❌ O/X 채점 도장 표식 & ✒️ 문항별 독립 펜 색상(검정/빨강/파랑) 스위처
   // =========================================================
   let omrMarksMap = {};
-  let activePenColor = 'black'; // 'black', 'red', 'blue'
+  let qPenColorMap = {}; // 문항별 개별 펜 색상 저장 { '1': 'black', '4': 'blue', '5': 'red' }
+  let activePenColor = 'black'; // 기본 펜 색상
 
   const btnPenBlack = document.getElementById('btnPenBlack');
   const btnPenRed = document.getElementById('btnPenRed');
@@ -875,10 +876,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnPenRed) btnPenRed.classList.toggle('active-pen', color === 'red');
     if (btnPenBlue) btnPenBlue.classList.toggle('active-pen', color === 'blue');
 
-    document.querySelectorAll('.pink-4line-textarea').forEach(ta => {
+    // 현재 포커스된 문항이 있으면 해당 문항의 글씨 색상만 독립 변경!
+    if (activeQuestionId) {
+      setQuestionPenColor(activeQuestionId, color);
+    }
+  }
+
+  function setQuestionPenColor(qNum, color) {
+    qPenColorMap[qNum] = color;
+    const ta = document.getElementById(`ans-text-${qNum}`);
+    if (ta) {
       ta.classList.remove('pen-text-black', 'pen-text-red', 'pen-text-blue');
       ta.classList.add(`pen-text-${color}`);
-    });
+    }
+    // 미니 툴바 버튼 활성화태 업데이트
+    const miniToolbar = document.getElementById(`mini-pen-toolbar-${qNum}`);
+    if (miniToolbar) {
+      miniToolbar.querySelectorAll('.btn-pen-color').forEach(btn => {
+        btn.classList.toggle('active-pen', btn.dataset.color === color);
+      });
+    }
+    saveDraftAnswers();
   }
 
   if (btnPenBlack) btnPenBlack.addEventListener('click', () => updatePenColorUI('black'));
@@ -926,7 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
-  // 💾 OMR 답안 & O/X/△ 채점 도장 회원 계정별 영구 저장 및 자동 복원
+  // 💾 OMR 답안 & O/X/△ 채점 도장 & 문항별 개별 펜색상 영구 저장 및 자동 복원
   // =========================================================
   async function saveDraftAnswers() {
     const userKey = currentUser ? (currentUser.studentNo || currentUser.username) : 'guest';
@@ -935,13 +953,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const draftData = {
       userAnswers: userAnswers || {},
       omrMarksMap: omrMarksMap || {},
+      qPenColorMap: qPenColorMap || {},
       savedAt: new Date().toISOString()
     };
 
     try {
       localStorage.setItem(draftKey, JSON.stringify(draftData));
 
-      // 백엔드 API 저장을 시도하여 디바이스 이동 시에도 동기화 지원
       fetch('/api/drafts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -949,7 +967,8 @@ document.addEventListener('DOMContentLoaded', () => {
           studentNo: userKey,
           examId: currentExamId,
           userAnswers,
-          omrMarksMap
+          omrMarksMap,
+          qPenColorMap
         })
       }).catch(() => {});
     } catch (e) {
@@ -962,23 +981,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const draftKey = `draft_${userKey}_${currentExamId}`;
 
     try {
-      // 1차: 서버 백엔드 API에서 저장 내역 조회
       const res = await fetch(`/api/drafts/${userKey}/${currentExamId}`);
       const data = await res.json();
       if (data.success && data.draft) {
         userAnswers = data.draft.userAnswers || {};
         omrMarksMap = data.draft.omrMarksMap || {};
+        qPenColorMap = data.draft.qPenColorMap || {};
         return;
       }
     } catch (e) {}
 
-    // 2차: 백엔드 조회가 실패하거나 없을 경우 로컬스토리지에서 복원
     try {
       const localItem = localStorage.getItem(draftKey);
       if (localItem) {
         const parsed = JSON.parse(localItem);
         userAnswers = parsed.userAnswers || {};
         omrMarksMap = parsed.omrMarksMap || {};
+        qPenColorMap = parsed.qPenColorMap || {};
       }
     } catch (e) {
       console.error(e);
@@ -991,6 +1010,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isPed = (currentSectionKey === 'P');
       const qNum = q.id || q.number || q.no || (idx + 1);
       const qScore = q.points || q.score || (isPed ? 20 : (idx < 4 ? 2 : 4));
+      const qColor = qPenColorMap[qNum] || 'black';
 
       const box = document.createElement('div');
       box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''}`;
@@ -1002,12 +1022,38 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="pink-q-score">(${qScore}점)</div>
         </div>
         <div class="pink-input-cell">
-          <textarea id="ans-text-${qNum}" class="pink-4line-textarea ${isPed ? 'pedagogy-textarea' : ''} pen-text-${activePenColor}" placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${qNum}번 서술형 답안을 4줄에 작성하세요.`}">${userAnswers[qNum] || ''}</textarea>
-          <div class="pink-char-counter" id="char-count-${qNum}">${(userAnswers[qNum] || '').length} 자</div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <div id="mini-pen-toolbar-${qNum}" class="pen-color-toolbar" style="margin-left:0; padding:2px 6px; scale:0.9;">
+              <span class="pen-color-label" style="font-size:10px;">✒️ 펜색상:</span>
+              <button type="button" class="btn-pen-color btn-pen-black ${qColor==='black'?'active-pen':''}" data-color="black" title="검정색"></button>
+              <button type="button" class="btn-pen-color btn-pen-red ${qColor==='red'?'active-pen':''}" data-color="red" title="빨간색"></button>
+              <button type="button" class="btn-pen-color btn-pen-blue ${qColor==='blue'?'active-pen':''}" data-color="blue" title="파란색"></button>
+            </div>
+            <div class="pink-char-counter" id="char-count-${qNum}" style="margin:0;">${(userAnswers[qNum] || '').length} 자</div>
+          </div>
+          <textarea id="ans-text-${qNum}" class="pink-4line-textarea ${isPed ? 'pedagogy-textarea' : ''} pen-text-${qColor}" placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${qNum}번 서술형 답안을 4줄에 작성하세요.`}">${userAnswers[qNum] || ''}</textarea>
         </div>
       `;
 
       omrAnswerContainer.appendChild(box);
+
+      // 개별 미니 툴바 버튼 이벤트
+      const miniTb = box.querySelector(`#mini-pen-toolbar-${qNum}`);
+      if (miniTb) {
+        miniTb.querySelectorAll('.btn-pen-color').forEach(b => {
+          b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const color = b.dataset.color;
+            setQuestionPenColor(qNum, color);
+            // 메인 툴바 UI도 동기화
+            if (activeQuestionId === qNum) {
+              if (btnPenBlack) btnPenBlack.classList.toggle('active-pen', color === 'black');
+              if (btnPenRed) btnPenRed.classList.toggle('active-pen', color === 'red');
+              if (btnPenBlue) btnPenBlue.classList.toggle('active-pen', color === 'blue');
+            }
+          });
+        });
+      }
 
       const qCell = box.querySelector(`#q-label-cell-${qNum}`);
       if (qCell) {
@@ -1019,7 +1065,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const ta = box.querySelector('textarea');
-      ta.addEventListener('focus', () => selectQuestion(qNum));
+      ta.addEventListener('focus', () => {
+        selectQuestion(qNum);
+        const curColor = qPenColorMap[qNum] || 'black';
+        if (btnPenBlack) btnPenBlack.classList.toggle('active-pen', curColor === 'black');
+        if (btnPenRed) btnPenRed.classList.toggle('active-pen', curColor === 'red');
+        if (btnPenBlue) btnPenBlue.classList.toggle('active-pen', curColor === 'blue');
+      });
       ta.addEventListener('input', (e) => {
         if (!isPed) {
           // 4줄 제한 엄격 적용
