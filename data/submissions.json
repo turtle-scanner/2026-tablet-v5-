@@ -1,5 +1,235 @@
 [
   {
+    "id": "sub_1786954711124",
+    "examId": "exam-46",
+    "examTitle": "🏆 [제 46 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 17. PM 5:18:31",
+    "totalScore": 0,
+    "maxScore": null,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": 1,
+        "section": "전공",
+        "title": "[주제: 디지털 전환기 2022 개정 교육과정 실행과 학생 맞춤형 수업·평가 및 학교 조직 변혁을 추구하는 교사]",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 1,
+        "section": "전공",
+        "title": "[문항 A-1] 해결중심 단기상담 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 2,
+        "section": "전공",
+        "title": "[문항 A-2] 성격심리학 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 3,
+        "section": "전공",
+        "title": "[문항 A-3] 행동수정 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 4,
+        "section": "전공",
+        "title": "[문항 A-4] 심리검사 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 5,
+        "section": "전공",
+        "title": "[문항 A-5] 🔥 [초융합 킬러 1] RAD vs DSED 진단 + K-WISC-V 뇌 기능 사정 + 자살 위기 윤리 3중 초융합 (4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 6,
+        "section": "전공",
+        "title": "[문항 A-6] 인지치료 & 자살위기 윤리 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 7,
+        "section": "전공",
+        "title": "[문항 A-7] 가족상담 & REBT (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 8,
+        "section": "전공",
+        "title": "[문항 A-8] 진로상담 (서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 9,
+        "section": "전공",
+        "title": "[문항 A-9] 심리검사 (서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 10,
+        "section": "전공",
+        "title": "[문항 A-10] 상담윤리 및 법령 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 11,
+        "section": "전공",
+        "title": "[문항 A-11] 게슈탈트 치료 (서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 12,
+        "section": "전공",
+        "title": "[문항 A-12] 다문화상담 (서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 1,
+        "section": "전공",
+        "title": "[문항 B-1] 정신분석 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 2,
+        "section": "전공",
+        "title": "[문항 B-2] 학습심리학 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 3,
+        "section": "전공",
+        "title": "[문항 B-3] 🔥 [초융합 킬러 2] Bowen 가족투사 & Minuchin 연합/삼각관계 + MMPI-2-RF RC2 3중 초융합 (4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 4,
+        "section": "전공",
+        "title": "[문항 B-4] REBT (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 5,
+        "section": "전공",
+        "title": "[문항 B-5] 진로상담/SCCT (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 6,
+        "section": "전공",
+        "title": "[문항 B-6] 이상심리 & MMPI-2 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 7,
+        "section": "전공",
+        "title": "[문항 B-7] 집단상담 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 8,
+        "section": "전공",
+        "title": "[문항 B-8] 법령 및 윤리 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 9,
+        "section": "전공",
+        "title": "[문항 B-9] 투사검사 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 10,
+        "section": "전공",
+        "title": "[문항 B-10] 진로 & ACT (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 11,
+        "section": "전공",
+        "title": "[문항 B-11] 영재/발달 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
     "id": "sub_1786788906381",
     "examId": "exam-11",
     "examTitle": "제 11 회 2027학년도 임용후보자 선정경쟁시험 통합 모의고사 (초장문 실전형)",
