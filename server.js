@@ -80,23 +80,30 @@ const getExamsData = () => {
     } catch (e) {}
   }
 
-  // RENDER 온라인 호스팅 환경에서도 소스코드 최신 1~17회 모의고사 파일로 100% 강제 교체 동기화
-  if (defaultExams.length > 0) {
+  let finalExams = defaultExams;
+  if (finalExams.length === 0 && fs.existsSync(DATA_FILE)) {
+    try {
+      finalExams = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
+    } catch (e) {}
+  } else if (finalExams.length > 0) {
     try {
       fs.writeFileSync(DATA_FILE, JSON.stringify(defaultExams, null, 2), 'utf-8');
-      return defaultExams;
-    } catch (e) {
-      return defaultExams;
-    }
-  }
-
-  if (fs.existsSync(DATA_FILE)) {
-    try {
-      return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
     } catch (e) {}
   }
 
-  return [];
+  finalExams.forEach(ex => {
+    const p_sec = ex.p_section || (ex.sections ? ex.sections.P : null);
+    const a_sec = ex.a_section || (ex.sections ? ex.sections.A : null);
+    const b_sec = ex.b_section || (ex.sections ? ex.sections.B : null);
+    if (p_sec) p_sec.timeLimit = 37;
+    ex.sections = {
+      P: p_sec || { title: "1교시 교육학", timeLimit: 37, questions: [] },
+      A: a_sec || { title: "2교시 전공 A", timeLimit: 35, questions: [] },
+      B: b_sec || { title: "3교시 전공 B", timeLimit: 35, questions: [] }
+    };
+  });
+
+  return finalExams;
 };
 
 const getSubmissionsData = () => {
