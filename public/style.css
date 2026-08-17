@@ -783,6 +783,22 @@ body {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
 }
 
+.q-rubric {
+  width: 100%;
+  border: 2px solid #000000;
+  padding: 18px 22px;
+  background: #f8fafc;
+  font-size: 18.5px;
+  font-weight: 800;
+  white-space: pre-wrap;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  font-family: 'Nanum Myeongjo', 'Batang', serif;
+  line-height: 1.85;
+  color: #000000;
+  letter-spacing: -0.2px;
+}
+
 /* =========================================================
    3. B4 대형 답안지 규격 (교육학 1400px / 전공 260px 대폭 확장)
    ========================================================= */

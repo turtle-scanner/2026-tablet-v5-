@@ -818,9 +818,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const qEl = document.createElement('div');
       qEl.className = 'q-block';
       qEl.id = `paper-q-${q.id}`;
+      const rubricHtml = q.rubric ? `<div class="q-rubric">${q.rubric}</div>` : '';
       qEl.innerHTML = `
         <div class="q-title">${q.title}</div>
         ${q.passage ? `<div class="q-passage">${q.passage}</div>` : ''}
+        ${rubricHtml}
       `;
       paperBody.appendChild(qEl);
     });
