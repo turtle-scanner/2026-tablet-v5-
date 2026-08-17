@@ -15,9 +15,12 @@ def fix_all_exams():
 
         ex['sections'] = {
             'P': p_sec if p_sec else {"title": "1교시 교육학", "timeLimit": 37, "questions": []},
-            'A': a_sec if a_sec else {"title": "2교시 전공 A", "timeLimit": 35, "questions": []},
-            'B': b_sec if b_sec else {"title": "3교시 전공 B", "timeLimit": 35, "questions": []}
+            'A': a_sec if a_sec else {"title": "2교시 전공 A", "timeLimit": 30, "questions": []},
+            'B': b_sec if b_sec else {"title": "3교시 전공 B", "timeLimit": 30, "questions": []}
         }
+        # timeLimit 30분 보장
+        ex['sections']['A']['timeLimit'] = 30
+        ex['sections']['B']['timeLimit'] = 30
         # 하위 호환성 유지
         ex['p_section'] = ex['sections']['P']
         ex['a_section'] = ex['sections']['A']
