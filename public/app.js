@@ -461,6 +461,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await res.json();
       if (data.success && data.exam) {
         currentExam = data.exam;
+        if (currentExam && currentExam.sections && currentExam.sections.P) {
+          currentExam.sections.P.timeLimit = 37;
+        }
         return;
       }
     } catch (err) {
@@ -473,6 +476,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       alert('시험지 데이터를 로드하지 못했습니다.');
     }
+    if (currentExam && currentExam.sections && currentExam.sections.P) {
+      currentExam.sections.P.timeLimit = 37;
+    }
   }
 
   // 교시(P/A/B) 시작 시 최종 제출 버튼 노출 제어 (마지막 B형에서만 전체 최종 제출 버튼 노출!)
@@ -481,13 +487,17 @@ document.addEventListener('DOMContentLoaded', () => {
     await loadDraftAnswers();
     const secData = currentExam.sections[secKey];
 
+    if (secKey === 'P') {
+      secData.timeLimit = 37;
+    }
+
     updateSectionTabUI();
 
     if (secKey === 'P') {
       paperSectionTitle.textContent = '교육학';
       if (tableSectionName) tableSectionName.textContent = '1교시 교육학';
       if (tableQSpec) tableQSpec.textContent = '1문항 20점';
-      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 37}분`;
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 37분`;
       omrTitleText.textContent = '✏️ 오른쪽 1교시 교육학 논술 작성란 (20점 만점 / 1200~1500자)';
       btnCompleteCurrentSec.textContent = '🚀 1교시 교육학 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
@@ -513,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnSubmitExam.textContent = '📝 3교시 B형 완료 및 전체 최종 제출';
     }
 
-    sectionRemainingSecs = secData.timeLimit * 60;
+    sectionRemainingSecs = (secKey === 'P' ? 37 : (secData.timeLimit || 35)) * 60;
     startSectionTimer();
 
     renderExamPaper(secData.questions);
