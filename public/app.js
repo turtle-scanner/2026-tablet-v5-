@@ -820,10 +820,6 @@ document.addEventListener('DOMContentLoaded', () => {
       qEl.id = `paper-q-${q.id}`;
 
       let titleText = q.title || '';
-      // 정답/출제키워드 스포일러 방지: - 뒤쪽의 정답 텍스트 완전 필터링
-      if (titleText.includes(' - ')) {
-        titleText = titleText.split(' - ')[0].trim();
-      }
 
       let rubricText = q.rubric || '';
       // [정답 예시] 스포일러 방지를 위해 문제지 표출 시 정답 텍스트 완전 필터링
