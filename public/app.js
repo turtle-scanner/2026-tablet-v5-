@@ -1326,6 +1326,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ↔️ 문제지 - 답안지 반응형 5:5 비율 조절 및 리사이저 드래그 엔합
+  const paneLeft = document.getElementById('paneLeft');
+  const paneRight = document.getElementById('paneRight');
+  const resizer = document.getElementById('resizer');
+  const splitMain = document.querySelector('.split-main');
+
+  if (resizer && paneLeft && paneRight && splitMain) {
+    let isResizing = false;
+
+    resizer.addEventListener('mousedown', (e) => {
+      isResizing = true;
+      document.body.style.cursor = 'col-resize';
+      document.body.style.userSelect = 'none';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isResizing) return;
+      const containerRect = splitMain.getBoundingClientRect();
+      const leftWidth = e.clientX - containerRect.left;
+      const totalWidth = containerRect.width;
+
+      let percentage = (leftWidth / totalWidth) * 100;
+      if (percentage < 20) percentage = 20;
+      if (percentage > 80) percentage = 80;
+
+      paneLeft.style.flex = `0 0 ${percentage}%`;
+      paneRight.style.flex = `0 0 ${100 - percentage}%`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isResizing) {
+        isResizing = false;
+        document.body.style.cursor = 'default';
+        document.body.style.userSelect = 'auto';
+      }
+    });
+
+    // 윈도우 창 크기 변경 시 비율 유지
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < 768) {
+        paneLeft.style.flex = '1 1 100%';
+        paneRight.style.flex = '1 1 100%';
+      } else {
+        if (!paneLeft.style.flex || paneLeft.style.flex.includes('100%')) {
+          paneLeft.style.flex = '1 1 50%';
+          paneRight.style.flex = '1 1 50%';
+        }
+      }
+    });
+  }
+
   // 페이지 초기 진입 시 드롭다운 동적 생성 즉시 실행
   setupExamRoundDropdownOptions();
 });
