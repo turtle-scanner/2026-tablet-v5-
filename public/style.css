@@ -706,6 +706,11 @@ body {
   border-right: 1px solid var(--border-light);
 }
 
+/* 실제 평가원 느낌의 깔끔하고 눈이 편안한 명조체 폰트 설정 */
+.paper-container, .paper-page, .paper-header, .p-title, .p-subject, .p-meta-table td, .paper-body, .q-block, .q-title, .q-passage, .q-rubric {
+  font-family: 'Nanum Myeongjo', '신명조', '한양바탕', 'Batang', serif !important;
+}
+
 .paper-page {
   width: 100%;
   max-width: 100%;
@@ -715,8 +720,7 @@ body {
   border-radius: var(--radius-sm);
   padding: 24px 28px;
   min-height: 1200px;
-  font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif;
-  color: #000000;
+  color: #0f172a;
 }
 
 .paper-header {
@@ -724,18 +728,16 @@ body {
   padding-bottom: 12px;
   margin-bottom: 20px;
   text-align: center;
-  font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif;
 }
 
-.p-title { font-size: 21px; font-weight: 900; letter-spacing: 1px; color: #000000; font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif; }
+.p-title { font-size: 21px; font-weight: 700; letter-spacing: 1px; color: #000000; }
 
 .p-subject {
   font-size: 38px;
-  font-weight: 900;
+  font-weight: 800;
   margin: 8px 0 16px 0;
   letter-spacing: 4px;
   color: #000000;
-  font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif;
 }
 
 .p-meta-table {
@@ -749,59 +751,54 @@ body {
   padding: 8px;
   font-size: 14.5px;
   text-align: center;
-  font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif;
-  font-weight: 800;
+  font-weight: 600;
   color: #000000;
 }
 
-.paper-body { line-height: 1.95; font-size: 19px; font-weight: 700; color: #000000; font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif; }
+.paper-body { line-height: 1.9; font-size: 18.5px; font-weight: 600; color: #0f172a; }
 
 .q-block {
-  margin-bottom: 45px;
+  margin-bottom: 40px;
   padding-bottom: 25px;
-  border-bottom: 2.5px dashed #64748b;
-  font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif;
+  border-bottom: 2px dashed #94a3b8;
 }
 
 .q-title {
-  font-size: 21.5px;
-  font-weight: 900;
-  margin-bottom: 18px;
+  font-size: 20.5px;
+  font-weight: 800;
+  margin-bottom: 16px;
   line-height: 1.6;
   color: #000000;
   letter-spacing: -0.3px;
-  font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif;
 }
 
 .q-passage {
   width: 100%;
-  border: 3px solid #000000;
+  border: 2px solid #1e293b;
   padding: 20px 24px;
   background: #ffffff;
-  font-size: 19.5px;
-  font-weight: 800;
+  font-size: 18.5px;
+  font-weight: 600;
   white-space: pre-wrap;
-  margin-bottom: 22px;
-  font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif;
-  line-height: 1.95;
-  color: #000000;
+  margin-bottom: 20px;
+  line-height: 1.9;
+  color: #0f172a;
   letter-spacing: -0.2px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .q-rubric {
   width: 100%;
-  border: 2px solid #000000;
+  border: 2px solid #334155;
   padding: 18px 22px;
   background: #f8fafc;
-  font-size: 18.5px;
-  font-weight: 800;
+  font-size: 17.5px;
+  font-weight: 600;
   white-space: pre-wrap;
   margin-top: 15px;
   margin-bottom: 25px;
-  font-family: "HY신명조", "Shin Myeongjo", "Times New Roman", "한양바탕", "Batang", "KoPub Batang", "KoPub 바탕", "Nanum Myeongjo", "나눔명조", serif;
   line-height: 1.85;
-  color: #000000;
+  color: #0f172a;
   letter-spacing: -0.2px;
 }
 
