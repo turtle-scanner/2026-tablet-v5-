@@ -820,9 +820,19 @@ document.addEventListener('DOMContentLoaded', () => {
       qEl.id = `paper-q-${q.id}`;
 
       let rubricText = q.rubric || '';
+      // [정답 예시] 스포일러 방지를 위해 문제지 표출 시 정답 텍스트 완전 필터링
+      if (rubricText.includes('[정답 예시]')) {
+        rubricText = rubricText.split('[정답 예시]')[0].trim();
+      }
+      if (rubricText.includes('[정답]')) {
+        rubricText = rubricText.split('[정답]')[0].trim();
+      }
+      if (rubricText.includes('[모범 답안]')) {
+        rubricText = rubricText.split('[모범 답안]')[0].trim();
+      }
+
       let rubricHtml = '';
       if (rubricText) {
-        // <작성 방법>이나 <배 점> 제목 강조 포함 렌더링
         rubricHtml = `<div class="q-rubric">${rubricText}</div>`;
       }
 
