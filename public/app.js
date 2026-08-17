@@ -818,7 +818,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const qEl = document.createElement('div');
       qEl.className = 'q-block';
       qEl.id = `paper-q-${q.id}`;
-      const rubricHtml = q.rubric ? `<div class="q-rubric">${q.rubric}</div>` : '';
+
+      let rubricText = q.rubric || '';
+      let rubricHtml = '';
+      if (rubricText) {
+        // <작성 방법>이나 <배 점> 제목 강조 포함 렌더링
+        rubricHtml = `<div class="q-rubric">${rubricText}</div>`;
+      }
+
       qEl.innerHTML = `
         <div class="q-title">${q.title}</div>
         ${q.passage ? `<div class="q-passage">${q.passage}</div>` : ''}
