@@ -332,7 +332,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isAdmin = currentUser && currentUser.isAdmin;
 
     currentExamId = targetRound;
-    userAnswers = {}; 
     if (!isAdmin) {
       completedSections.P = false;
       completedSections.A = false;
