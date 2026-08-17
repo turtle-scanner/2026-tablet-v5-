@@ -881,8 +881,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const ta = box.querySelector('textarea');
       ta.addEventListener('focus', () => selectQuestion(qNum));
       ta.addEventListener('input', (e) => {
+        if (!isPed) {
+          // 4줄 제한 엄격 적용
+          const lines = e.target.value.split('\n');
+          if (lines.length > 4) {
+            e.target.value = lines.slice(0, 4).join('\n');
+          }
+        }
         userAnswers[qNum] = e.target.value;
-        document.getElementById(`char-count-${qNum}`).textContent = `${e.target.value.length} 자`;
+        document.getElementById(`char-count-${qNum}`).textContent = `${e.target.value.length} 자${isPed ? '' : ' (최대 4줄)'}`;
         updateTotalCharCount();
         saveDraftAnswers(); // 실시간 회원별 자동 저장!
       });
