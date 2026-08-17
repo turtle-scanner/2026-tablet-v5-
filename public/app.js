@@ -922,6 +922,67 @@ document.addEventListener('DOMContentLoaded', () => {
     else omrMarksMap[qNum] = null;
 
     updateOMRMarkDisplay(qNum, qCell);
+    saveDraftAnswers(); // 🔴 O, 🔵 X, 🟡 △ 채점 도장 실시간 자동 영구 저장!
+  }
+
+  // =========================================================
+  // 💾 OMR 답안 & O/X/△ 채점 도장 회원 계정별 영구 저장 및 자동 복원
+  // =========================================================
+  async function saveDraftAnswers() {
+    const userKey = currentUser ? (currentUser.studentNo || currentUser.username) : 'guest';
+    const draftKey = `draft_${userKey}_${currentExamId}`;
+
+    const draftData = {
+      userAnswers: userAnswers || {},
+      omrMarksMap: omrMarksMap || {},
+      savedAt: new Date().toISOString()
+    };
+
+    try {
+      localStorage.setItem(draftKey, JSON.stringify(draftData));
+
+      // 백엔드 API 저장을 시도하여 디바이스 이동 시에도 동기화 지원
+      fetch('/api/drafts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          studentNo: userKey,
+          examId: currentExamId,
+          userAnswers,
+          omrMarksMap
+        })
+      }).catch(() => {});
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async function loadDraftAnswers() {
+    const userKey = currentUser ? (currentUser.studentNo || currentUser.username) : 'guest';
+    const draftKey = `draft_${userKey}_${currentExamId}`;
+
+    try {
+      // 1차: 서버 백엔드 API에서 저장 내역 조회
+      const res = await fetch(`/api/drafts/${userKey}/${currentExamId}`);
+      const data = await res.json();
+      if (data.success && data.draft) {
+        userAnswers = data.draft.userAnswers || {};
+        omrMarksMap = data.draft.omrMarksMap || {};
+        return;
+      }
+    } catch (e) {}
+
+    // 2차: 백엔드 조회가 실패하거나 없을 경우 로컬스토리지에서 복원
+    try {
+      const localItem = localStorage.getItem(draftKey);
+      if (localItem) {
+        const parsed = JSON.parse(localItem);
+        userAnswers = parsed.userAnswers || {};
+        omrMarksMap = parsed.omrMarksMap || {};
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   function renderOMRForm(questions) {

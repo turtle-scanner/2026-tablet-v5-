@@ -266,28 +266,30 @@ const server = http.createServer((req, res) => {
     return res.end(JSON.stringify({ success: true, exams }));
   }
 
-  // 4-1. API: /api/draft (POST) - 회원별/회차별 임시 작성 답안 저장
-  if (pathname === '/api/draft' && req.method === 'POST') {
+  // 4-1. API: /api/draft (POST) - 회원별/회차별 임시 작성 답안 및 O/X/△ 채점 도장 저장
+  if ((pathname === '/api/draft' || pathname === '/api/drafts') && req.method === 'POST') {
     let body = '';
     req.on('data', chunk => { body += chunk.toString(); });
     req.on('end', () => {
       try {
-        const { username, examId, userAnswers } = JSON.parse(body || '{}');
-        if (!username || !examId) {
+        const { username, studentNo, examId, userAnswers, omrMarksMap } = JSON.parse(body || '{}');
+        const uKey = username || studentNo;
+        if (!uKey || !examId) {
           res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
-          return res.end(JSON.stringify({ success: false, message: 'username과 examId가 필요합니다.' }));
+          return res.end(JSON.stringify({ success: false, message: 'username/studentNo와 examId가 필요합니다.' }));
         }
         const drafts = getDraftsData();
-        const key = `${username}_${examId}`;
+        const key = `${uKey}_${examId}`;
         drafts[key] = {
-          username,
+          username: uKey,
           examId,
-          userAnswers,
+          userAnswers: userAnswers || {},
+          omrMarksMap: omrMarksMap || {},
           updatedAt: new Date().toLocaleString('ko-KR')
         };
         saveDraftsData(drafts);
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-        return res.end(JSON.stringify({ success: true, message: '임시 답안이 성공적으로 저장되었습니다.' }));
+        return res.end(JSON.stringify({ success: true, message: '임시 답안 및 O/X/△ 채점 도장이 성공적으로 저장되었습니다.' }));
       } catch (e) {
         res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
         return res.end(JSON.stringify({ success: false, message: '임시 저장 중 오류가 발생했습니다.' }));
@@ -296,10 +298,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // 4-2. API: /api/draft (GET) - 회원별/회차별 임시 작성 답안 불러오기
-  if (pathname === '/api/draft' && req.method === 'GET') {
-    const username = parsedUrl.query.username;
-    const examId = parsedUrl.query.examId;
+  // 4-2. API: /api/draft (GET) - 회원별/회차별 임시 작성 답안 및 O/X/△ 채점 도장 불러오기
+  if ((pathname === '/api/draft' || pathname === '/api/drafts' || pathname.startsWith('/api/drafts/')) && req.method === 'GET') {
+    let username = parsedUrl.query.username || parsedUrl.query.studentNo;
+    let examId = parsedUrl.query.examId;
+
+    if (pathname.startsWith('/api/drafts/')) {
+      const parts = pathname.replace('/api/drafts/', '').split('/');
+      if (parts.length >= 2) {
+        username = parts[0];
+        examId = parts[1];
+      }
+    }
+
     if (!username || !examId) {
       res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
       return res.end(JSON.stringify({ success: false, message: 'username과 examId가 필요합니다.' }));
