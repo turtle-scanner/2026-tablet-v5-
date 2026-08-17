@@ -1419,6 +1419,22 @@ body {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+/* 🔺 노란색 삼각형 채점 도장 표식 (사용자 캡처 이미지와 100% 동일) */
+.omr-mark-triangle {
+  width: 86px;
+  height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: popMark 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.omr-mark-triangle svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
+}
+
 @keyframes popMark {
   0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
   70% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }

@@ -900,6 +900,17 @@ document.addEventListener('DOMContentLoaded', () => {
       b.className = 'omr-mark-badge';
       b.innerHTML = '<div class="omr-mark-x"></div>';
       qCell.appendChild(b);
+    } else if (currentState === 'TRIANGLE') {
+      const b = document.createElement('div');
+      b.className = 'omr-mark-badge';
+      b.innerHTML = `
+        <div class="omr-mark-triangle">
+          <svg viewBox="0 0 100 100">
+            <polygon points="50,10 92,86 8,86" fill="none" stroke="#f59e0b" stroke-width="12" stroke-linejoin="round" />
+          </svg>
+        </div>
+      `;
+      qCell.appendChild(b);
     }
   }
 
@@ -907,6 +918,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const current = omrMarksMap[qNum];
     if (!current) omrMarksMap[qNum] = 'O';
     else if (current === 'O') omrMarksMap[qNum] = 'X';
+    else if (current === 'X') omrMarksMap[qNum] = 'TRIANGLE';
     else omrMarksMap[qNum] = null;
 
     updateOMRMarkDisplay(qNum, qCell);
