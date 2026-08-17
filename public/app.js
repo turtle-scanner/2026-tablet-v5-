@@ -955,7 +955,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
-  // 💾 OMR 답안 & O/X/△ 채점 도장 & 글자별 개별 서식 HTML 영구 저장 및 복원
+  // 💾 OMR 답안 & O/X/△ 채점 도장 & 글자별 개별 서식 HTML 영구 저장 및 완벽 복원
   // =========================================================
   async function saveDraftAnswers() {
     const userKey = currentUser ? (currentUser.studentNo || currentUser.username) : 'guest';
@@ -977,6 +977,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           studentNo: userKey,
+          username: userKey,
           examId: currentExamId,
           userAnswers,
           userAnswersHtmlMap,
@@ -993,30 +994,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const userKey = currentUser ? (currentUser.studentNo || currentUser.username) : 'guest';
     const draftKey = `draft_${userKey}_${currentExamId}`;
 
-    try {
-      const res = await fetch(`/api/drafts/${userKey}/${currentExamId}`);
-      const data = await res.json();
-      if (data.success && data.draft) {
-        userAnswers = data.draft.userAnswers || {};
-        userAnswersHtmlMap = data.draft.userAnswersHtmlMap || {};
-        omrMarksMap = data.draft.omrMarksMap || {};
-        qPenColorMap = data.draft.qPenColorMap || {};
-        return;
-      }
-    } catch (e) {}
-
+    // 1차: 로컬스토리지에서 즉시 100% 복원하여 딜레이 방지
     try {
       const localItem = localStorage.getItem(draftKey);
       if (localItem) {
         const parsed = JSON.parse(localItem);
-        userAnswers = parsed.userAnswers || {};
-        userAnswersHtmlMap = parsed.userAnswersHtmlMap || {};
-        omrMarksMap = parsed.omrMarksMap || {};
-        qPenColorMap = parsed.qPenColorMap || {};
+        if (parsed.userAnswers) userAnswers = { ...parsed.userAnswers };
+        if (parsed.userAnswersHtmlMap) userAnswersHtmlMap = { ...parsed.userAnswersHtmlMap };
+        if (parsed.omrMarksMap) omrMarksMap = { ...parsed.omrMarksMap };
+        if (parsed.qPenColorMap) qPenColorMap = { ...parsed.qPenColorMap };
       }
     } catch (e) {
       console.error(e);
     }
+
+    // 2차: 백엔드 서버 API에 저장된 내역 병합 복원
+    try {
+      const res = await fetch(`/api/drafts/${userKey}/${currentExamId}`);
+      const data = await res.json();
+      if (data.success && data.draft) {
+        if (data.draft.userAnswers) userAnswers = { ...userAnswers, ...data.draft.userAnswers };
+        if (data.draft.userAnswersHtmlMap) userAnswersHtmlMap = { ...userAnswersHtmlMap, ...data.draft.userAnswersHtmlMap };
+        if (data.draft.omrMarksMap) omrMarksMap = { ...omrMarksMap, ...data.draft.omrMarksMap };
+        if (data.draft.qPenColorMap) qPenColorMap = { ...qPenColorMap, ...data.draft.qPenColorMap };
+      }
+    } catch (e) {}
   }
 
   function renderOMRForm(questions) {

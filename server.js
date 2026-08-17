@@ -272,7 +272,7 @@ const server = http.createServer((req, res) => {
     req.on('data', chunk => { body += chunk.toString(); });
     req.on('end', () => {
       try {
-        const { username, studentNo, examId, userAnswers, omrMarksMap } = JSON.parse(body || '{}');
+        const { username, studentNo, examId, userAnswers, userAnswersHtmlMap, omrMarksMap, qPenColorMap } = JSON.parse(body || '{}');
         const uKey = username || studentNo;
         if (!uKey || !examId) {
           res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
@@ -284,7 +284,9 @@ const server = http.createServer((req, res) => {
           username: uKey,
           examId,
           userAnswers: userAnswers || {},
+          userAnswersHtmlMap: userAnswersHtmlMap || {},
           omrMarksMap: omrMarksMap || {},
+          qPenColorMap: qPenColorMap || {},
           updatedAt: new Date().toLocaleString('ko-KR')
         };
         saveDraftsData(drafts);
