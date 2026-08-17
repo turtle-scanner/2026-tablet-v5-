@@ -838,9 +838,18 @@ document.addEventListener('DOMContentLoaded', () => {
         rubricHtml = `<div class="q-rubric">${rubricText}</div>`;
       }
 
+      let formattedPassage = q.passage || '';
+      if (formattedPassage) {
+        // 대화 축어록 지문에서 대화 사람이 새로 시작할 때는 반드시 다음줄(\n)에 시작하도록 처리
+        const speakerNames = "상담교사|담임교사|경력 교사|신임 교사|김 교사|지혜|민우|승호|유진|수진|민지|현수|민호|재민|성민|성준|아버지|준서|집단원 A|집단원 B|내담자|수검자|보호자|내담자 민우|내담자 현수|내담자 민호|내담자 서연이|내담 아동";
+        const dialogueRegex = new RegExp(`([\\"\\.\\?!\\)\\s])\\s*(${speakerNames})\\s*:`, 'g');
+        formattedPassage = formattedPassage.replace(dialogueRegex, '$1\n$2:');
+        formattedPassage = formattedPassage.replace(/\n{3,}/g, '\n\n').trim();
+      }
+
       qEl.innerHTML = `
         <div class="q-title">${titleText}</div>
-        ${q.passage ? `<div class="q-passage">${q.passage}</div>` : ''}
+        ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
         ${rubricHtml}
       `;
       paperBody.appendChild(qEl);
