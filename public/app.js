@@ -487,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
       paperSectionTitle.textContent = '교육학';
       if (tableSectionName) tableSectionName.textContent = '1교시 교육학';
       if (tableQSpec) tableQSpec.textContent = '1문항 20점';
-      if (tableTimeSpec) tableTimeSpec.textContent = '시험 시간 60분';
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 40}분`;
       omrTitleText.textContent = '✏️ 오른쪽 1교시 교육학 논술 작성란 (20점 만점 / 1200~1500자)';
       btnCompleteCurrentSec.textContent = '🚀 1교시 교육학 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
