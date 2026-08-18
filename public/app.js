@@ -820,11 +820,12 @@ document.addEventListener('DOMContentLoaded', () => {
       qEl.id = `paper-q-${q.id}`;
 
       let titleText = q.title || '';
-      // [문항 A-1] 해결중심 단기상담 (단답형 2점) 등 힌트 개념 명칭 정밀 제거 -> 오직 [문항 A-1], [문항 B-1] 형태만 노출!
+      const qScore = q.points || q.score || (qIdx < 4 ? 2 : 4);
+      // 개념명(집단상담, 성격심리학 등)을 완전히 제거하고 오직 [문항 A-N] (N점) 형식만 표출!
       if (titleText.includes('[문항 A-')) {
-        titleText = titleText.replace(/(\[문항 A-\d+\]).*/, '$1');
+        titleText = titleText.replace(/(\[문항 A-\d+\]).*/, '$1') + ` (${qScore}점)`;
       } else if (titleText.includes('[문항 B-')) {
-        titleText = titleText.replace(/(\[문항 B-\d+\]).*/, '$1');
+        titleText = titleText.replace(/(\[문항 B-\d+\]).*/, '$1') + ` (${qScore}점)`;
       }
 
       let rubricText = q.rubric || '';
