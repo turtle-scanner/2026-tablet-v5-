@@ -1043,13 +1043,14 @@ document.addEventListener('DOMContentLoaded', () => {
     omrAnswerContainer.innerHTML = '';
     questions.forEach((q, idx) => {
       const isPed = (currentSectionKey === 'P');
+      const isSecB = (currentSectionKey === 'B');
       const qNum = q.id || q.number || q.no || (idx + 1);
       const ansKey = getAnswerKey(qNum);
       const qScore = q.points || q.score || (isPed ? 20 : (idx < 4 ? 2 : 4));
       const qColor = qPenColorMap[ansKey] || qPenColorMap[qNum] || 'black';
 
       const box = document.createElement('div');
-      box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''}`;
+      box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''} ${isSecB ? 'section-b-box' : ''}`;
       box.id = `omr-card-${qNum}`;
 
       const savedHtml = userAnswersHtmlMap[ansKey] || userAnswersHtmlMap[qNum] || userAnswers[ansKey] || userAnswers[qNum] || '';
@@ -1070,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="pink-char-counter" id="char-count-${qNum}" style="margin:0;">${savedText.length} 자${isPed ? '' : ' (최대 4줄)'}</div>
           </div>
-          <div id="ans-text-${qNum}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''}" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${qNum}번 서술형 답안을 4줄에 작성하세요.`}">${savedHtml}</div>
+          <div id="ans-text-${qNum}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isSecB ? 'section-b-textarea' : ''}" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${qNum}번 서술형 답안을 4줄에 작성하세요.`}">${savedHtml}</div>
         </div>
       `;
 

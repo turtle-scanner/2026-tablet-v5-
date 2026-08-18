@@ -915,6 +915,35 @@ body {
   font-weight: 500;
 }
 
+/* 3교시 전공 B형 파란색 줄노트 및 전용 파란색 양식 스타일 */
+.pink-omr-box.section-b-box {
+  border: 2px solid #2563eb !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.12) !important;
+}
+
+.pink-omr-box.section-b-box .pink-q-cell {
+  border-right-color: #3b82f6 !important;
+  background: #eff6ff !important;
+}
+
+.pink-omr-box.section-b-box .pink-q-num {
+  color: #1e40af !important;
+}
+
+.pink-omr-box.section-b-box .pink-q-score {
+  color: #1d4ed8 !important;
+}
+
+.section-b-textarea, .pink-rich-textarea.section-b-textarea {
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, #3b82f6 46px, #3b82f6 48px) !important;
+  background-size: 100% 48px !important;
+}
+
+.pink-omr-box.section-b-box .pink-char-counter {
+  color: #1d4ed8 !important;
+  border-top-color: #93c5fd !important;
+}
+
 .pedagogy-textarea {
   height: 1350px !important;
   min-height: 1350px !important;
