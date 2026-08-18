@@ -1,33 +1,33 @@
 import json
 import os
-import re
 import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-# 문맥별  깨진 단어 정밀 복원 사전
-dict_rep = [
-    (r'생\s*+\s*에', '생각에'),
-    (r'생\s*+', '생각'),
-    (r'것\s*+\s*아도', '것 같아도'),
-    (r'학교\s*+\s*마음', '학교 갈 마음'),
-    (r'학교\s*+', '학교 갈'),
-    (r'했거든\s*+\s*요', '했거든요'),
-    (r'했거든\s*+', '했거든요'),
-    (r'짓눌려\s*있는\s*+', '짓눌려 있는 감옥'),
-    (r'상담교사\s*+', '상담교사 소견'),
-    (r'내담자\s*+', '내담자 민우'),
-    (r'+\s*처럼', '감옥처럼'),
-    (r'+\s*아도', '같아도'),
-    (r'+\s*요', '요'),
-    (r'+', '') # 남은 모든 U+FFFD 기호 깔끔 삭제
+# 문맥별  깨진 단어 정밀 복원 사전 (단순 문자열 replace)
+replacements = [
+    ("생에", "생각에"),
+    ("생", "생각"),
+    ("것 아도", "것 같아도"),
+    ("학교  마음", "학교 갈 마음"),
+    ("학교 ", "학교 갈"),
+    ("했거든 요", "했거든요"),
+    ("했거든 요", "했거든요"),
+    ("했거든 ", "했거든요"),
+    ("짓눌려 있는 처럼", "짓눌려 있는 감옥처럼"),
+    ("상담교사 ", "상담교사 소견"),
+    ("내담자 ", "내담자 민우"),
+    ("보원의 ", "보원의"),
+    ("처럼", "감옥처럼"),
+    ("아도", "같아도"),
+    ("", "") # 남은 모든 U+FFFD 기호 깔끔 삭제
 ]
 
 def fix_text(text):
     if not isinstance(text, str) or not text:
         return text
-    for pattern, repl in dict_rep:
-        text = re.sub(pattern, repl, text)
+    for corrupted, fixed in replacements:
+        text = text.replace(corrupted, fixed)
     return text
 
 def fix_obj(obj):
