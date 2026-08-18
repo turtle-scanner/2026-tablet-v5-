@@ -241,5 +241,24 @@
       "12": "blue"
     },
     "updatedAt": "2026. 8. 18. AM 9:24:55"
+  },
+  "ADMIN-2027_exam-60": {
+    "username": "ADMIN-2027",
+    "examId": "exam-60",
+    "userAnswers": {
+      "1": "ㄱ: 저항",
+      "3": "1.  r",
+      "B_1": "ㄱ: 저항",
+      "B_3": "1.  r"
+    },
+    "userAnswersHtmlMap": {
+      "1": "ㄱ: 저항",
+      "3": "1.  r",
+      "B_1": "ㄱ: 저항",
+      "B_3": "1.  r"
+    },
+    "omrMarksMap": {},
+    "qPenColorMap": {},
+    "updatedAt": "2026. 8. 18. AM 9:32:56"
   }
 }
