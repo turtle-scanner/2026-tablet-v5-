@@ -487,9 +487,15 @@ document.addEventListener('DOMContentLoaded', () => {
     await loadDraftAnswers();
     const secData = currentExam.sections[secKey];
 
+    // 교시별 시험시간 자동 연동 세팅 (1교시: 60분, 2교시: 90분, 3교시: 90분)
     if (secKey === 'P') {
-      secData.timeLimit = 37;
+      sectionTimeLeft = 60 * 60;
+    } else if (secKey === 'A') {
+      sectionTimeLeft = 90 * 60;
+    } else if (secKey === 'B') {
+      sectionTimeLeft = 90 * 60;
     }
+    updateTimerDisplay();
 
     updateSectionTabUI();
 
@@ -965,10 +971,24 @@ document.addEventListener('DOMContentLoaded', () => {
     saveDraftAnswers(); // 🔴 O, 🔵 X, 🟡 △ 채점 도장 실시간 자동 영구 저장!
   }
 
+  let autoSaveTimeout = null;
+  function triggerAutoSaveBadge() {
+    const el = document.getElementById('autoSaveIndicator');
+    if (el) {
+      el.classList.add('show');
+      if (autoSaveTimeout) clearTimeout(autoSaveTimeout);
+      autoSaveTimeout = setTimeout(() => {
+        el.classList.remove('show');
+      }, 1500);
+    }
+  }
+
   // =========================================================
   // 💾 OMR 답안 & O/X/△ 채점 도장 & 글자별 개별 서식 HTML 영구 저장 및 완벽 복원
   // =========================================================
   async function saveDraftAnswers() {
+    triggerAutoSaveBadge(); // 🟢 실시간 자동 저장 불빛 뱃지 작동!
+
     const userKey = currentUser ? (currentUser.studentNo || currentUser.username) : 'guest';
     const draftKey = `draft_${userKey}_${currentExamId}`;
 
@@ -1652,6 +1672,75 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // =========================================================
+  // 📊 V5 회차별 O/X/△ 채점 통계 및 약점 분석 대시보드 모달
+  // =========================================================
+  const v5StatsModal = document.getElementById('v5StatsModal');
+  const btnOpenV5Stats = document.getElementById('btnOpenV5Stats');
+  const btnCloseV5StatsModal = document.getElementById('btnCloseV5StatsModal');
+  const btnCloseV5StatsFooter = document.getElementById('btnCloseV5StatsFooter');
+
+  function openV5StatsModal() {
+    let countO = 0;
+    let countTri = 0;
+    let countX = 0;
+
+    Object.values(omrMarksMap).forEach(mark => {
+      if (mark === 'O') countO++;
+      else if (mark === 'TRIANGLE') countTri++;
+      else if (mark === 'X') countX++;
+    });
+
+    const totalMarked = countO + countTri + countX;
+    let scoreRatio = 0;
+    if (totalMarked > 0) {
+      scoreRatio = Math.round(((countO * 1 + countTri * 0.5) / totalMarked) * 100);
+    }
+
+    const elO = document.getElementById('v5CountO');
+    const elTri = document.getElementById('v5CountTri');
+    const elX = document.getElementById('v5CountX');
+    const elRatio = document.getElementById('v5ScoreRatio');
+    const barO = document.getElementById('v5BarO');
+    const barTri = document.getElementById('v5BarTri');
+    const barX = document.getElementById('v5BarX');
+    const advice = document.getElementById('v5WeaknessAdvice');
+
+    if (elO) elO.textContent = `${countO}개`;
+    if (elTri) elTri.textContent = `${countTri}개`;
+    if (elX) elX.textContent = `${countX}개`;
+    if (elRatio) elRatio.textContent = `${scoreRatio}%`;
+
+    if (totalMarked > 0) {
+      const pctO = Math.round((countO / totalMarked) * 100);
+      const pctTri = Math.round((countTri / totalMarked) * 100);
+      const pctX = 100 - pctO - pctTri;
+
+      if (barO) barO.style.width = `${pctO}%`;
+      if (barTri) barTri.style.width = `${pctTri}%`;
+      if (barX) barX.style.width = `${pctX}%`;
+
+      if (pctO >= 80) {
+        advice.innerHTML = `🌟 <strong>최상위 수석 합격권!</strong> O 도장 비율이 ${pctO}%로 개념 파악과 서술형 작성 키워드가 완벽합니다. 이 페이스를 수능 당일까지 고수하세요!`;
+      } else if (pctTri + pctX > 40) {
+        advice.innerHTML = `⚠️ <strong>보완 필요 영역 감지:</strong> 부분점수(△) 및 오답(X) 비율이 ${pctTri + pctX}%입니다. 특히 4점 서술형 문항의 핵심 키워드 정식 명칭을 다시 한번 확실히 암기하세요!`;
+      } else {
+        advice.innerHTML = `👍 <strong>안정적 합격선 유지 중:</strong> 약점 문항을 오답노트에 정리하시고 실전 시뮬레이션을 계속 진행해 보세요!`;
+      }
+    } else {
+      if (barO) barO.style.width = '0%';
+      if (barTri) barTri.style.width = '0%';
+      if (barX) barX.style.width = '0%';
+      advice.textContent = 'OMR 문항 라벨을 클릭하여 🔴 O, 🟡 △, 🔵 X 채점 도장을 찍으시면 실시간으로 약점 리포트가 완성됩니다.';
+    }
+
+    if (v5StatsModal) v5StatsModal.classList.remove('hidden');
+  }
+
+  if (btnOpenV5Stats) btnOpenV5Stats.addEventListener('click', openV5StatsModal);
+  if (btnCloseV5StatsModal) btnCloseV5StatsModal.addEventListener('click', () => v5StatsModal.classList.add('hidden'));
+  if (btnCloseV5StatsFooter) btnCloseV5StatsFooter.addEventListener('click', () => v5StatsModal.classList.add('hidden'));
 
   // 페이지 초기 진입 시 드롭다운 동적 생성 즉시 실행
   setupExamRoundDropdownOptions();

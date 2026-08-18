@@ -1458,8 +1458,8 @@ body {
 
 /* 🔺 노란색 삼각형 채점 도장 표식 (사용자 캡처 이미지와 100% 동일) */
 .omr-mark-triangle {
-  width: 86px;
-  height: 86px;
+  width: 78px;
+  height: 78px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1467,16 +1467,105 @@ body {
 }
 
 .omr-mark-triangle svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
+  width: 78px;
+  height: 78px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
 }
 
 @keyframes popMark {
-  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
-  70% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  0% { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
+
+/* =========================================================
+   V5 실시간 자동 저장 뱃지 & 성적/채점 통계 대시보드 모달
+   ========================================================= */
+
+/* 🟢 실시간 자동 저장 뱃지 */
+.auto-save-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #86efac;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.15);
+}
+
+.auto-save-indicator.show {
+  opacity: 1;
+}
+
+.auto-save-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulseSave 1.5s infinite;
+}
+
+@keyframes pulseSave {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* 📊 V5 회차별 O/X/△ 채점 통계 및 약점 분석 대시보드 모달 */
+.v5-stats-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.v5-stat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.v5-stat-card.card-o { border-top: 4px solid #dc2626; background: #fff5f5; }
+.v5-stat-card.card-triangle { border-top: 4px solid #f59e0b; background: #fffbe0; }
+.v5-stat-card.card-x { border-top: 4px solid #2563eb; background: #eff6ff; }
+.v5-stat-card.card-score { border-top: 4px solid #10b981; background: #ecfdf5; }
+
+.v5-stat-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.v5-stat-value {
+  font-size: 26px;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.v5-progress-bar-container {
+  background: #e2e8f0;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  margin-top: 10px;
+}
+
+.v5-progress-o { background: #dc2626; height: 100%; transition: width 0.4s ease; }
+.v5-progress-tri { background: #f59e0b; height: 100%; transition: width 0.4s ease; }
+.v5-progress-x { background: #2563eb; height: 100%; transition: width 0.4s ease; }
 
 /* ✒️ 펜 글씨 색상 선택 스위처 툴바 (검정, 빨강, 파랑) */
 .pen-color-toolbar {
