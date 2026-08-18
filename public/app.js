@@ -893,6 +893,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const qNum = targetQNum || activeQuestionId;
     if (qNum) {
+      const ansKey = getAnswerKey(qNum);
+      qPenColorMap[ansKey] = colorName;
       qPenColorMap[qNum] = colorName;
       const el = document.getElementById(`ans-text-${qNum}`);
       if (el) {
@@ -902,7 +904,9 @@ document.addEventListener('DOMContentLoaded', () => {
           document.execCommand('foreColor', false, hexColor);
         } catch (e) {}
 
+        userAnswers[ansKey] = el.innerText.trim();
         userAnswers[qNum] = el.innerText.trim();
+        userAnswersHtmlMap[ansKey] = el.innerHTML;
         userAnswersHtmlMap[qNum] = el.innerHTML;
         saveDraftAnswers();
       }
@@ -1027,23 +1031,31 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
   }
 
+  // 교시별 답안 고유 키 생성 도우미 (2교시 전공A_1과 3교시 전공B_1 답안지 완전 분리!)
+  function getAnswerKey(qNum) {
+    const sec = currentSectionKey || 'A';
+    if (String(qNum).startsWith(`${sec}_`)) return String(qNum);
+    return `${sec}_${qNum}`;
+  }
+
   function renderOMRForm(questions) {
     omrAnswerContainer.innerHTML = '';
     questions.forEach((q, idx) => {
       const isPed = (currentSectionKey === 'P');
       const qNum = q.id || q.number || q.no || (idx + 1);
+      const ansKey = getAnswerKey(qNum);
       const qScore = q.points || q.score || (isPed ? 20 : (idx < 4 ? 2 : 4));
-      const qColor = qPenColorMap[qNum] || 'black';
+      const qColor = qPenColorMap[ansKey] || qPenColorMap[qNum] || 'black';
 
       const box = document.createElement('div');
       box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''}`;
       box.id = `omr-card-${qNum}`;
 
-      const savedHtml = userAnswersHtmlMap[qNum] || userAnswers[qNum] || '';
-      const savedText = userAnswers[qNum] || '';
+      const savedHtml = userAnswersHtmlMap[ansKey] || userAnswersHtmlMap[qNum] || userAnswers[ansKey] || userAnswers[qNum] || '';
+      const savedText = userAnswers[ansKey] || userAnswers[qNum] || '';
 
       box.innerHTML = `
-        <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNum}" title="클릭하여 O/X 도장을 찍으세요">
+        <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNum}" data-anskey="${ansKey}" title="클릭하여 O/X 도장을 찍으세요">
           <div class="pink-q-num">${isPed ? '교육학' : `문항 ${qNum}`}</div>
           <div class="pink-q-score">(${qScore}점)</div>
         </div>
@@ -1078,10 +1090,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const qCell = box.querySelector(`#q-label-cell-${qNum}`);
       if (qCell) {
-        updateOMRMarkDisplay(qNum, qCell);
+        updateOMRMarkDisplay(ansKey, qCell);
         qCell.addEventListener('click', (e) => {
           e.stopPropagation();
-          toggleOMRMark(qNum, qCell);
+          toggleOMRMark(ansKey, qCell);
         });
       }
 
@@ -1089,7 +1101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (ed) {
         ed.addEventListener('focus', () => {
           selectQuestion(qNum);
-          const curColor = qPenColorMap[qNum] || 'black';
+          const curColor = qPenColorMap[ansKey] || qPenColorMap[qNum] || 'black';
           if (btnPenBlack) btnPenBlack.classList.toggle('active-pen', curColor === 'black');
           if (btnPenRed) btnPenRed.classList.toggle('active-pen', curColor === 'red');
           if (btnPenBlue) btnPenBlue.classList.toggle('active-pen', curColor === 'blue');
@@ -1097,14 +1109,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ed.addEventListener('input', () => {
           const textVal = ed.innerText.trim();
-          if (!isPed) {
-            // 4줄 제한 적용
-            const lines = textVal.split('\n');
-            if (lines.length > 4) {
-              // 4줄 초과 제한 처리
-            }
-          }
-          userAnswers[qNum] = textVal;
+          userAnswers[ansKey] = textVal;
+          userAnswers[qNum] = textVal; // 하위 호환
+          userAnswersHtmlMap[ansKey] = ed.innerHTML;
           userAnswersHtmlMap[qNum] = ed.innerHTML;
           document.getElementById(`char-count-${qNum}`).textContent = `${textVal.length} 자${isPed ? '' : ' (최대 4줄)'}`;
           updateTotalCharCount();
