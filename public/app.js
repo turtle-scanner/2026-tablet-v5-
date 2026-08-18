@@ -820,13 +820,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderExamPaper(questions) {
     paperBody.innerHTML = '';
-    questions.forEach(q => {
+    questions.forEach((q, idx) => {
       const qEl = document.createElement('div');
       qEl.className = 'q-block';
       qEl.id = `paper-q-${q.id}`;
 
       let titleText = q.title || '';
-      const qScore = q.points || q.score || (qIdx < 4 ? 2 : 4);
+      const qScore = q.points || q.score || (idx < 4 ? 2 : 4);
       // 개념명(집단상담, 성격심리학 등)을 완전히 제거하고 오직 [문항 A-N] (N점) 형식만 표출!
       if (titleText.includes('[문항 A-')) {
         titleText = titleText.replace(/(\[문항 A-\d+\]).*/, '$1') + ` (${qScore}점)`;
