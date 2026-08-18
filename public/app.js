@@ -820,6 +820,12 @@ document.addEventListener('DOMContentLoaded', () => {
       qEl.id = `paper-q-${q.id}`;
 
       let titleText = q.title || '';
+      // [문항 A-1] 해결중심 단기상담 (단답형 2점) 등 힌트 개념 명칭 정밀 제거 -> 오직 [문항 A-1], [문항 B-1] 형태만 노출!
+      if (titleText.includes('[문항 A-')) {
+        titleText = titleText.replace(/(\[문항 A-\d+\]).*/, '$1');
+      } else if (titleText.includes('[문항 B-')) {
+        titleText = titleText.replace(/(\[문항 B-\d+\]).*/, '$1');
+      }
 
       let rubricText = q.rubric || '';
       // [정답 예시] 스포일러 방지를 위해 문제지 표출 시 정답 텍스트 완전 필터링
