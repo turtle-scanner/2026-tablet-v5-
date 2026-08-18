@@ -1005,7 +1005,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const userKey = currentUser ? (currentUser.studentNo || currentUser.username) : 'guest';
     const draftKey = `draft_${userKey}_${currentExamId}`;
 
-    // 1차: 로컬스토리지에서 즉시 100% 복원하여 딜레이 방지
+    // 회차 이동 시 전역 답안 메모리를 오직 해당 회차(currentExamId) 전용으로 깨끗하게 초기화
+    userAnswers = {};
+    userAnswersHtmlMap = {};
+    omrMarksMap = {};
+    qPenColorMap = {};
+
+    // 1차: 로컬스토리지에서 현재 회차(currentExamId) 전용 데이터만 100% 복원
     try {
       const localItem = localStorage.getItem(draftKey);
       if (localItem) {
@@ -1019,7 +1025,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error(e);
     }
 
-    // 2차: 백엔드 서버 API에 저장된 내역 병합 복원
+    // 2차: 백엔드 서버 API에 저장된 현재 회차 내역만 병합 복원
     try {
       const res = await fetch(`/api/drafts/${userKey}/${currentExamId}`);
       const data = await res.json();
@@ -1053,8 +1059,9 @@ document.addEventListener('DOMContentLoaded', () => {
       box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''} ${isSecB ? 'section-b-box' : ''}`;
       box.id = `omr-card-${qNum}`;
 
-      const savedHtml = userAnswersHtmlMap[ansKey] || userAnswersHtmlMap[qNum] || userAnswers[ansKey] || userAnswers[qNum] || '';
-      const savedText = userAnswers[ansKey] || userAnswers[qNum] || '';
+      // 오직 현재 교시 전용 고유 키(ansKey: A_1 vs B_1) 데이터만 조회하여 2교시 답안이 3교시로 딸려오는 현상 100% 원천 차단!
+      const savedHtml = userAnswersHtmlMap[ansKey] || userAnswers[ansKey] || '';
+      const savedText = userAnswers[ansKey] || '';
 
       box.innerHTML = `
         <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNum}" data-anskey="${ansKey}" title="클릭하여 O/X 도장을 찍으세요">
