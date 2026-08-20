@@ -1,5 +1,340 @@
 [
   {
+    "id": "sub_1787151073345",
+    "examId": "exam-81",
+    "examTitle": "📚 [제 81 회차] 2027 KICE 임용고시 통합 파이널 모의고사 (교육학+전공 A/B 24문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 19. PM 11:51:13",
+    "totalScore": 25.8,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "P-1",
+        "number": "1",
+        "section": "교육학",
+        "title": "[제 81회차 1교시 교육학 논술] (20점 만점)",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "백워드 설계 모형, 조나센 CLEs, 루브릭, 바스 변혁적 지도성",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 A-1] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "예외질문",
+        "modelAnswer": "예외질문",
+        "matchedKeywords": [
+          "예외질문"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 A-2] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "지배형",
+        "modelAnswer": "지배형",
+        "matchedKeywords": [
+          "지배형"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 A-3] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "ㄱ: 정적연습절차",
+        "modelAnswer": "정적 연습",
+        "matchedKeywords": [
+          "정적연습"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 A-4] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "동형찾기",
+        "modelAnswer": "동형찾기",
+        "matchedKeywords": [
+          "동형찾기"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 A-5] (4점)",
+        "score": 4,
+        "earnedScore": 1.1,
+        "userAnswer": "1. ㄱ. 탈억제 사회관이다.  탈억제 사회관여는 낯선 사람에 대해서 경계심의 억제가 풀려버렸다. (탈억제) 반면 반응성 애착장애은 양육자에 대해서 애정이 결핍되어 있고, 양육자가 다가와서 애정을 못 느끼고 피하려고 한다. \n2. 민지는 언어이해 지표 118, 시공간 지표 85로 33점 차이가 난다. 뇌는 좌뇌는 언어이해가 우뇌는 시공간에 영향을 미치는데, 좌우 불균형이며, 우뇌에 손상이 예상된다. 자살 위험성 평가 4대 핵심 요소는 자살의도, 자살장소, 자살날짜, 자살도구의 치명도이다.",
+        "modelAnswer": "탈억제 사회적 유대 장애",
+        "matchedKeywords": [
+          "탈억제",
+          "치명도"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 A-6] (4점)",
+        "score": 4,
+        "earnedScore": 1,
+        "userAnswer": "1. ㄱ 선택적 추상화, ㄴ 개인화이다. 자살 위험성 평가 4대 핵심 요소는 자살의도, 자살장소, 자살날짜, 자살무기의 치명도이다.\n2. 상담자는 내담자에게 사전안내로 자살은 비밀보장 예외사유임을 알기쉽게 설명하고, 안전신체서약서를 작성하고 학부모와 학교 위기관리위원회(학교관계자)에게 알린다.  ㄱ 선택적 추상화를 인지치료하기 위해서 대안설명제시를 사용한다. (\"지혜야, 100점 받은 9개의 과목의 의미는 무엇이니?\"  단지 1개 틀린거에 집중하지 말고 100점 받은 9개의 과목에 대해 의미를 더 두는게 좋을거 같아.\")",
+        "modelAnswer": "㉠ 정신적 여과, ㉡ 개인화",
+        "matchedKeywords": [
+          "개인화"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 A-7] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. 아버지 대사 (\"저는 어떤 순간에도 감정 따위에 휘둘리지 않습니다. 규칙과 객관적 논리, 데이터만 중요합니다.\")에서 아버지는 초이성형이다. 자신과 타인을 무시한다. \n2. 준서는 타인에 대한 당위성이다. 준서의 비합리적 신념을 깨뜨리기 위한 실증적 논박은 \"학급 친구들이 무조건 준서에게 잘해야 하는 이유나 증거가 있을까? \"라고 물어본다.",
+        "modelAnswer": "초이성형",
+        "matchedKeywords": [
+          "초이성형",
+          "자신",
+          "타인",
+          "타인에 대한 당위성",
+          "실증적 논박"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 A-8] (4점)",
+        "score": 4,
+        "earnedScore": 2.7,
+        "userAnswer": "1. 3단계 명칭은 사회적 지위 지향이다. 제한 4단계 전체 명칭은 1단계 힘과 크기 지향(3~5살), 2단계 성역할 지향 (6~8세), 3단계 사회적 지위 지향(9~13세), 4단계 고유 자아 지향(14세이상)이다. \n2. 내담자가 현실적 타협과정에서 가장 먼저 포기하는 요소는 흥미이고, 그다음 사회적 지위 지향이며, 마지막까지 사수하는 요소는 성역할 지향이다. 사회적 지위 고정관념은 롤모델 제시 및  대리경험 사례를 적용한다.",
+        "modelAnswer": "사회적 가치 지향성",
+        "matchedKeywords": [
+          "흥미",
+          "성역할"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 A-9] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1. RC2는 무가치감, 만성적 우울과 불안이며, INTR은 내향적이고, 타인에 대한 소극적 태도와 사회적 위축이다. \n2. 상담사는 성민이의 우울과 사회적 위축을 수용하고, 성민이와의 자기 효능감을 상승시키기 위해서, 무조건적인 긍정적 존중과 공감적 이해, 진실성, 경청을 사용하여, 성민이와 라포를 형성하고, 향후 치료을 위해 조력한다. 기존 MMPI-2 임상척도는 정신증상과 정서적 증상을 하나의 척도로 평가했는데, MMPI-2-RF에서 정신적 증상, 정서적 증상을 나눠서 평가하므로 더 정확해졌다.",
+        "modelAnswer": "RC2 저긍정성 정서, INTR 내향성",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 A-10] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1. 지문에서 (\"약 2개월 전인 지난 6개월부터 \")에서 기간이 6개월 전이므로 조현양성장애이다. A군은 어린 시절 또래 관계 형성이나 언어적 상호작용 장애 선행 이력이 전무하므로 자폐스펙트럼장애가 아니다. \n2. 학폭법 17조 제1항은 피해자에 대한 서면사과이다. 제6호는 교육 및 심리치료이다.  피해학생 보호 조치 제1호는 심리상담 및 조율 조치이다.",
+        "modelAnswer": "조현양상장애",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 A-11] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "ㄱ 내사, ㄴ 융합이다.  내사를 해소하기 위해서는 타인의 말을 모두 받아들이는 대신에 비판적이고 논리적인 말만 걸러서 받아들여야 한다.  필요없는 말은 버려야 한다. (스프뱉기)\n2. 자해는 비밀보장 예외원칙이므로 내담자에게 이해하기 쉽게 설명하고, 신체안전 서약서를 작성하고, 학교위기관리위원회와 학부모에게 보고한다.  자해를 하고 싶을 때에는 감정을 신체에 해소하는 것이 아닌 손에 얼음쥐기 기법을 사용해서 감정을 다스리는 방법을 알려준다.",
+        "modelAnswer": "㉠ 내사, ㉡ 융합",
+        "matchedKeywords": [
+          "내사",
+          "융합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-12",
+        "number": "12",
+        "section": "전공",
+        "title": "[문항 A-12] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. ㄱ 동화이다. ㄴ 미세모욕은 무의식 중에 말한 내용이 다문화 집단 전체에 대한 은연중에 무시를 하는 것을 말한다. \n2. 통합은 모문화와 이주문화를 모두 수용하고, 균형을 이루는 것을 말한다. 상담사는  민호의 건강한 이중문화 정체성 형성을 위해, 모문화에 대한 장점에 대해 의견을 나누고, 학습해서 모문화와 이주문화를 모두 수용하여 균형을 이루도록 조력한다.",
+        "modelAnswer": "동화",
+        "matchedKeywords": [
+          "동화",
+          "미세모욕",
+          "통합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 B-1] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "저항",
+        "modelAnswer": "저항",
+        "matchedKeywords": [
+          "저항"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 B-2] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "소거",
+        "modelAnswer": "소거",
+        "matchedKeywords": [
+          "소거"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 B-3] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 가족 투사 과정, ㉡ 부모-자녀 연합",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 B-4] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "수치심 방지 기법",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 B-5] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 진입 맥락 지지, ㉡ 개인적 목표",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 B-6] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "조현병",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 B-7] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "정동카타르시스",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 B-8] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "회피성 성격장애",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 B-9] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 충고하기, ㉡ 질문하기",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 B-10] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 배경 맥락, ㉡ 진입 맥락",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 B-11] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "제한 설정 ACT 모델",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
     "id": "sub_1787063463508",
     "examId": "exam-8",
     "examTitle": "[제 8 회차] 2027 KICE 기출 100% 동형 최고난이도 킬러 통합 모의고사 (전공 A/B 23문항)",
