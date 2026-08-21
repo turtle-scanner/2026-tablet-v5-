@@ -1,5 +1,333 @@
 [
   {
+    "id": "sub_1787307258313",
+    "examId": "exam-77",
+    "examTitle": "📚 [제 77 회차] 2027 KICE 임용고시 통합 파이널 모의고사 (교육학+전공 A/B 24문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 21. PM 7:14:18",
+    "totalScore": 26.7,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "P-1",
+        "number": "1",
+        "section": "교육학",
+        "title": "[제 77회차 1교시 교육학 논술] (20점 만점)",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "스킬백 SBCD, 조나센 CLEs & 메이거, 스크리븐 탈목표 평가, 카츠 개념적 기술",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 A-1] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "사회적으로 유용한 형",
+        "modelAnswer": "사회적으로 유용한 형",
+        "matchedKeywords": [
+          "사회적으로 유용한 형"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 A-2] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "정적처벌",
+        "modelAnswer": "부적 강화",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 A-3] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "공통성",
+        "modelAnswer": "공통성",
+        "matchedKeywords": [
+          "공통성"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 A-4] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "투렛장애",
+        "modelAnswer": "투렛 장애",
+        "matchedKeywords": [
+          "투렛장애"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 A-5] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. ㄱ 질병불안장애\n2. 신체증상장애는 현저하고 고통스러운 실제 신체증상이 존재하는 반면 질병불안장애는 신체 증상이 없거나 지극히 경미한데 자신이 중병에 걸렸다는 질병 자체에 고통스러워하는 집착이다.",
+        "modelAnswer": "질병불안장애",
+        "matchedKeywords": [
+          "질병불안장애",
+          "신체증상장애"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 A-6] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. 가상적 최종목표: 아들러의 가상적 최종목표란 인간이 과거의 원인에 의해서가 아니라 주관적으로 설정한 미래의 목표에 의해 행동한다는 목적론적 개념으로, 열등감을 극복하고 우월성을 추구하기 위해 자신이 만든 주관적 삶의 지향점이자 가상의 목적을 의미한다. \n2. ㄱ기법 명칭: 단추 누르기 기법\n치료적 의미: 내담자의 자신이 원하는 정서 상태를 언제든 스스로 주도적으로 선택하고 조절할 수 있음을 꺠닫게 한다.",
+        "modelAnswer": "단추 누르기 기법",
+        "matchedKeywords": [
+          "단추 누르기",
+          "단추 누르기 기법"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 A-7] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "1. 자신에 대한 당위성이다.  자신에 대한 비합리적 당위성 신념이며, 지훈이는 \"나는 절대로 남들 앞에서 창피를 당하거나 망신을 당해서는 안 된다.\"라는 자신에 대한 당위성을 가지고 있다.\n2.  ㄱ 수치심 격파 연습기법이다. \n치료적 의미: 내담자 자신이 원하는 정서 상태를 언제든 스스로 주도적으로 선택하고 조절할 수 있음을 깨닫게 한다.",
+        "modelAnswer": "자신에 대한 당위성, 수치심 방지 기법",
+        "matchedKeywords": [
+          "자신에 대한 당위성"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 A-8] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1.  고유자아 지향 단계 \n2. 직업포기 개념: 직업포기(제한): 자아개념 발달에 다라 부적합한 직업 대안을 경계선 밖으로 배제하는 과정이다. \n      타협: 진로를 결정할 때, 가장 먼저 흥미를 포기하고, 그 다음 사회적 지위(가치)를 포기하고, 성역할을 끝까지 포기 하지 않는 것을 말한다.",
+        "modelAnswer": "내적 고유 자아 지향성",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 A-9] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "1. BXD 척도 명칭: 행동/외면화 장애 RC4와 RC9 척도 동반상승 했을 때 반사회적 행동, 규칙을 위반하고, 경조증적 활성화 및 과잉 에너지를 보인다. \n2. 충동성이 있기 때문에 화가 났을 때 대응행동을 미리 계획하고 약속하고 실천하기로 한다.",
+        "modelAnswer": "행동적/외면화 장애",
+        "matchedKeywords": [
+          "외면화 장애"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 A-10] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "ㄱ. 지적장애\n1.DSM-5 심도 기준 변화: 과거 DSM-IV의 'IQ 점수 수치' 중심에서 개념적, 사회적, 실용적 적응 기능 수준 중심으로 변경되었다. \n2. [사례 2] 가해 제8호 ㄴ 명칭: 전학/피해 제4호 ㄷ 명칭: 치료 및 치료를 위한 요양",
+        "modelAnswer": "지적장애, 전학, 치료 및 치료를 위한 요양",
+        "matchedKeywords": [
+          "지적장애",
+          "전학",
+          "치료 및 치료를 위한 요양"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 A-11] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. 명칭:  ㄱ 내사, ㄴ: 융합\n2. 내사를 해소하기 위해서 비판적으로 객관적 논리적으로 자신에게 필요한 것을 받아들일 수 있도록 해야 한다. 그리고 수프뱉기 기법을 사용해서 자신논리적이지 않거나 타당하지 않으면 수용하지 말아야 한다.",
+        "modelAnswer": "㉠ 내사, ㉡ 융합",
+        "matchedKeywords": [
+          "내사",
+          "융합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-12",
+        "number": "12",
+        "section": "전공",
+        "title": "[문항 A-12] (4점)",
+        "score": 4,
+        "earnedScore": 2.7,
+        "userAnswer": "1. 구체성은 얼마나 자살에 대해 구체적인지, 치명성은 얼마나 자살에 대해서 치명적으로 생각하는지, 유용성은 자살 수단/도구가 손쉽게 확보되어 있는지르 ㄹ의미하낟. \n2. 신체안전 서약서, 한계점: 자살을 물리적-법적으로 완전히 차단하지 못하며, 내담자가 서약 후에도 충동적으로 자살을 감행할 수 있다.",
+        "modelAnswer": "구체성, 유용성, 비위해 서약서",
+        "matchedKeywords": [
+          "구체성",
+          "유용성"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 B-1] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "역전이",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 B-2] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "고정비율 강화계획",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 B-3] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 경직된 경계선, ㉡ 밀착된 경계선, 실연",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 B-4] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "자동적 사고, 역기능적 사고 기록지",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 B-5] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "수용형, 집착형, 회피형",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 B-6] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[사례 1] 주요우울장애, [사례 2] 지속성 우울장애",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 B-7] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 카타르시스, ㉡ 과도기 단계",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 B-8] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[사례 1] 반사회성 성격장애, [사례 2] 연극성 성격장애",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 B-9] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 하위집단 형성, ㉡ 연결하기",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 B-10] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "결정성, 독립성, 진로 능력",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 B-11] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "선택권 유임, 자율성 촉진",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
     "id": "sub_1787151073345",
     "examId": "exam-81",
     "examTitle": "📚 [제 81 회차] 2027 KICE 임용고시 통합 파이널 모의고사 (교육학+전공 A/B 24문항)",
