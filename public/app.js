@@ -341,6 +341,52 @@ document.addEventListener('DOMContentLoaded', () => {
     await startSection('P');
   });
 
+  const btnResetCurrentAnswers = document.getElementById('btnResetCurrentAnswers');
+  if (btnResetCurrentAnswers) {
+    btnResetCurrentAnswers.addEventListener('click', async () => {
+      if (!confirm(`🧹 [제 ${currentExamId.replace('exam-', '')} 회차] 의 모든 작성 답안과 O/X 채점 도장을 완전히 지우고 깨끗한 새 시험지로 시작하시겠습니까?`)) {
+        return;
+      }
+      userAnswers = {};
+      
+      // 1. 모든 로컬 스토리지 답안 삭제
+      if (currentUser) {
+        const username = currentUser.username;
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith(`draft_answers_${username}`)) {
+            localStorage.removeItem(key);
+          }
+        }
+      }
+      localStorage.clear();
+
+      // 2. 서버 드래프트 삭제 요청
+      if (currentUser && currentExamId) {
+        try {
+          await fetch('/api/draft', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              username: currentUser.username,
+              examId: currentExamId,
+              userAnswers: {}
+            })
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      // 3. 화면의 모든 textarea 및 input 값 강제 비우기
+      const allAreas = document.querySelectorAll('.omr-card textarea, .omr-card input');
+      allAreas.forEach(el => { el.value = ''; });
+
+      renderOMRForm();
+      alert('🧹 현재 회차 작성 답안 및 채점 표식이 100% 깔끔하게 지워졌습니다! 새 마음으로 작성해 보세요!');
+    });
+  }
+
   btnSecP.addEventListener('click', () => switchSection('P'));
   btnSecA.addEventListener('click', () => switchSection('A'));
   btnSecB.addEventListener('click', () => switchSection('B'));
