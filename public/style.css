@@ -791,46 +791,76 @@ body {
   line-height: 1.6;
 }
 
-/* 📰 실제 기출문제 2단(Two-Column) 레이아웃 (전공 A/B) */
-.paper-body {
-  column-count: 2;
-  column-gap: 32px;
-  column-rule: 1.5px solid #64748b;
-  line-height: 1.85;
-  font-size: 15.5px;
-  font-weight: 500;
+/* 📰 실제 기출문제 페이지 단위(Page-by-Page) 좌 1문제 / 우 1문제 레이아웃 */
+.kice-exam-page {
+  width: 100%;
+  max-width: 100%;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  border: 2px solid #333a45;
+  padding: 28px 36px 28px 36px;
+  min-height: 1050px;
   color: #2b2f38;
-  word-break: keep-all;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.kice-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 36px;
+  position: relative;
+  width: 100%;
+  flex: 1;
+  align-items: start;
+}
+
+/* 중앙 세로 실선 구분선 */
+.kice-page-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1.5px;
+  background: #333a45;
+  transform: translateX(-50%);
+}
+
+.kice-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.kice-col .q-block {
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 /* 📜 1교시 교육학 논술 전용 1단(Single Column) 풀 와이드 대형 시험지 레이아웃 */
-.paper-body.pedagogy-mode {
-  column-count: 1 !important;
-  column-rule: none !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-}
-
-.paper-body.pedagogy-mode .q-block {
+.kice-exam-page.pedagogy-page-mode .kice-page-grid {
+  display: block !important;
   width: 100% !important;
 }
 
-.paper-body.pedagogy-mode .q-title {
-  font-size: 16.5px;
-  line-height: 1.85;
-  margin-bottom: 16px;
+.kice-exam-page.pedagogy-page-mode .kice-page-grid::before {
+  display: none !important;
 }
 
-.paper-body.pedagogy-mode .q-passage {
+.kice-exam-page.pedagogy-page-mode .q-passage {
   font-size: 15.5px;
   line-height: 1.95;
   padding: 20px 24px;
   width: 100% !important;
 }
 
-.paper-body.pedagogy-mode .kice-rubric-box {
-  padding: 16px 22px;
+.kice-exam-page.pedagogy-page-mode .kice-rubric-box {
+  padding: 18px 24px;
   width: 100% !important;
 }
 

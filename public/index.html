@@ -131,6 +131,7 @@
 
         <span id="displayStudentInfo" class="user-badge">수험생: 홍길동 (2027-1004)</span>
         <button id="btnToggleSound" class="btn-sound-toggle">🔊 시험장 오디오 (ON)</button>
+        <button id="btnToggleEyeComfort" class="btn-sound-toggle" style="background: #78716c; border-color: #57534e; color: #ffffff;">👁️ 눈보호 모드 (OFF)</button>
         <span class="strict-exam-badge">⚡ KICE 실전 모드</span>
       </div>
 
@@ -220,40 +221,9 @@
           <span style="font-size:11px; color:#64748b; margin-left:auto;">💡 드래그 후 클릭 | 자동 저장 100% 지원</span>
         </div>
 
-        <!-- 평가원 시험지 서식 영역 -->
+        <!-- 평가원 시험지 서식 영역 (JS에서 2문항씩 완벽한 페이지별 2단 분할 렌더링) -->
         <div id="paperContainer" class="paper-container">
-          <div class="paper-page">
-            <div class="paper-header">
-              <div class="p-title">2027학년도 중등학교교사 임용후보자 선정경쟁시험</div>
-              <div id="paperSectionTitle" class="p-subject">전문상담</div>
-              <div class="p-user-info-row">
-                <span>수험 번호 : ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>
-                <span>성 &nbsp;&nbsp; 명 : ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>
-              </div>
-              <table class="p-meta-table">
-                <tr>
-                  <td>제1차 시험</td>
-                  <td id="tableSectionName">2교시 전공 A</td>
-                  <td id="tableQSpec">12문항 40점</td>
-                  <td id="tableTimeSpec">시험 시간 90분</td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="p-notice-banner">
-              ○ 문제지 전체 면수가 맞는지 확인하시오.<br>
-              ○ 모든 문항에는 배점이 표시되어 있습니다.
-            </div>
-
-            <div id="paperBody" class="paper-body">
-              <!-- JS에서 문제 렌더링 -->
-            </div>
-
-            <div class="paper-footer">
-              <span>🏛️ 한국교육과정평가원</span>
-              <span id="paperFooterPage">전문상담 [전공 A] (8면 중 1면)</span>
-            </div>
-          </div>
+          <!-- 페이지 단위 렌더링 -->
         </div>
       </section>
 

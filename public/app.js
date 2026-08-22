@@ -913,26 +913,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderExamPaper(questions) {
-    paperBody.innerHTML = '';
+    paperContainer.innerHTML = ''; // 페이지 단위 독립 렌더링
     const isPed = (currentSectionKey === 'P');
 
     if (isPed) {
-      paperBody.classList.add('pedagogy-mode');
-    } else {
-      paperBody.classList.remove('pedagogy-mode');
-    }
-
-    questions.forEach((q, qIdx) => {
-      const qEl = document.createElement('div');
-      qEl.className = 'q-block';
-      const qNumInt = qIdx + 1;
-      qEl.id = `paper-q-${qNumInt}`;
-
-      const qScore = q.points || q.score || (isPed ? 20 : (qIdx < 4 ? 2 : 4));
+      // 📜 1교시 교육학 논술 전용 대형 1단 페이지
+      const q = questions[0] || {};
+      const qNumInt = 1;
+      const qScore = q.points || q.score || 20;
 
       let rawTitle = q.title || '';
       rawTitle = rawTitle.replace(/\[문항 [AB]-\d+\]/g, '').replace(/\(\d+점\)/g, '').trim();
-      rawTitle = rawTitle.replace(/^\[.*?\]\s*/, '').trim(); // 과목명 태그 제거
+      rawTitle = rawTitle.replace(/^\[.*?\]\s*/, '').trim();
 
       let rubricText = q.rubric || '';
       if (rubricText.includes('[정답 예시]')) rubricText = rubricText.split('[정답 예시]')[0].trim();
@@ -941,85 +933,228 @@ document.addEventListener('DOMContentLoaded', () => {
       let mainQuestionText = '';
       let separateRubric = '';
 
-      if (isPed) {
-        // 지문 시작 부분에 발문("다음은 ... 논하시오.")이 포함되어 있으면 상단 단일 발문으로 추출!
-        let cleanPassage = formattedPassage;
-        const matchIntro = cleanPassage.match(/^(다음은\s+[\s\S]*?논하시오\.\s*(\[\d+점\])?)/);
-        if (matchIntro) {
-          mainQuestionText = matchIntro[1].trim();
-          if (!mainQuestionText.includes(`[${qScore}점]`)) mainQuestionText += ` [${qScore}점]`;
-          cleanPassage = cleanPassage.substring(matchIntro[0].length).trim();
-          cleanPassage = cleanPassage.replace(/^\[제시문\]\s*/i, '').trim();
-          formattedPassage = cleanPassage;
-        } else if (rawTitle && rawTitle.length > 10) {
-          mainQuestionText = `${formatKiceSymbols(rawTitle)} [${qScore}점]`;
-          separateRubric = rubricText;
-        } else if (rubricText && !rubricText.startsWith('<')) {
-          mainQuestionText = `${formatKiceSymbols(rubricText)} [${qScore}점]`;
-        } else {
-          mainQuestionText = `다음 내용을 읽고 지시사항에 따라 서론, 본론, 결론을 갖추어 논하시오. [${qScore}점]`;
-          separateRubric = rubricText;
-        }
+      let cleanPassage = formattedPassage;
+      const matchIntro = cleanPassage.match(/^(다음은\s+[\s\S]*?논하시오\.\s*(\[\d+점\])?)/);
+      if (matchIntro) {
+        mainQuestionText = matchIntro[1].trim();
+        if (!mainQuestionText.includes(`[${qScore}점]`)) mainQuestionText += ` [${qScore}점]`;
+        cleanPassage = cleanPassage.substring(matchIntro[0].length).trim();
+        cleanPassage = cleanPassage.replace(/^\[제시문\]\s*/i, '').trim();
+        formattedPassage = cleanPassage;
+      } else if (rawTitle && rawTitle.length > 10) {
+        mainQuestionText = `${formatKiceSymbols(rawTitle)} [${qScore}점]`;
+        separateRubric = rubricText;
+      } else if (rubricText && !rubricText.startsWith('<')) {
+        mainQuestionText = `${formatKiceSymbols(rubricText)} [${qScore}점]`;
       } else {
-        // 2/3교시 전공 정통 번호 발문 포맷
-        if (!q.passage && rubricText) {
-          mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rubricText)} [${qScore}점]`;
-        } else if (rawTitle && rawTitle.length > 5) {
-          mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rawTitle)} [${qScore}점]`;
-          separateRubric = rubricText;
-        } else if (rubricText) {
-          if (rubricText.startsWith('<작성 방법>') || rubricText.includes('○') || rubricText.includes('\n')) {
-            mainQuestionText = `${qNumInt}. 다음 사례를 읽고 &lt;작성 방법&gt;에 따라 서술하시오. [${qScore}점]`;
-            separateRubric = rubricText;
-          } else {
-            mainQuestionText = `${qNumInt}. 다음은 ... ${formatKiceSymbols(rubricText)} [${qScore}점]`;
-          }
-        } else {
-          mainQuestionText = `${qNumInt}. 다음 지문을 읽고 물음에 답하시오. [${qScore}점]`;
-        }
+        mainQuestionText = `다음 내용을 읽고 지시사항에 따라 서론, 본론, 결론을 갖추어 논하시오. [${qScore}점]`;
+        separateRubric = rubricText;
       }
 
-      // <작성 방법> 또는 <배 점> 박스 HTML 구성
       let rubricHtml = '';
       if (separateRubric) {
         let cleanRubric = separateRubric.replace(/^<(작성 방법|배\s*점)>\s*:?\s*/i, '').trim();
         const lines = cleanRubric.split('\n').map(l => l.trim()).filter(l => l.length > 0);
         const formattedLines = lines.map(l => {
           let text = l;
-          if (!text.startsWith('○') && !text.startsWith('-') && !text.startsWith('•') && !text.startsWith('※') && !text.startsWith('1.') && !text.startsWith('2.')) {
+          if (!text.startsWith('○') && !text.startsWith('-') && !text.startsWith('•') && !text.startsWith('※')) {
             text = `○ ${text}`;
-          } else if (text.startsWith('1.') || text.startsWith('2.') || text.startsWith('3.')) {
-            // "1. 지문 ㉠에..." 형태를 실제 시험지처럼 "○ 지문 ㉠에..." 또는 번호 형태로 깔끔하게 유지
-            text = text.replace(/^\d+\.\s*/, '○ ');
           }
           return `<div class="kice-rubric-item">${formatKiceSymbols(text)}</div>`;
         }).join('');
 
-        const rubricHeaderTitle = isPed ? '&lt;배 &nbsp; 점&gt;' : '&lt;작성 &nbsp; 방법&gt;';
         rubricHtml = `
           <div class="kice-rubric-box">
-            <div class="kice-rubric-header">${rubricHeaderTitle}</div>
+            <div class="kice-rubric-header">&lt;배 &nbsp; 점&gt;</div>
             <div class="kice-rubric-body">${formattedLines}</div>
           </div>
         `;
       }
 
       if (formattedPassage) {
-        const speakerNames = "상담교사|수퍼바이저|담임교사|경력 교사|신임 교사|김 교사|박 교사|이 교사|최 교사|지혜|민우|승호|유진|수진|민지|현수|민호|재민|성민|성준|아버지|어 머 니|어머니|준서|집단원 A|집단원 B|내담자|수검자|보호자|내담자 민우|내담자 현수|내담자 민호|내담자 서연이|내담 아동";
-        const dialogueRegex = new RegExp(`([\\"\\.\\?!\\)\\s])\\s*(${speakerNames})\\s*:`, 'g');
-        formattedPassage = formattedPassage.replace(dialogueRegex, '$1\n$2:');
-        formattedPassage = formattedPassage.replace(/\n{3,}/g, '\n\n').trim();
         formattedPassage = formatKiceSymbols(formattedPassage);
       }
 
-      qEl.innerHTML = `
-        <div class="q-title">${mainQuestionText}</div>
-        ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
-        ${rubricHtml}
-        ${isPed ? `<div class="pedagogy-congrats">&lt;수고하셨습니다.&gt;</div>` : ''}
+      const pageEl = document.createElement('div');
+      pageEl.className = 'kice-exam-page pedagogy-page-mode';
+      pageEl.id = 'exam-page-1';
+      pageEl.innerHTML = `
+        <div class="paper-header">
+          <div class="p-title">2027학년도 중등학교교사 임용후보자 선정경쟁시험</div>
+          <div class="p-subject">교 &nbsp; 육 &nbsp; 학</div>
+          <div class="p-user-info-row">
+            <span>수험 번호 : ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>
+            <span>성 &nbsp;&nbsp; 명 : ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>
+          </div>
+          <table class="p-meta-table">
+            <tr>
+              <td>제1차 시험</td>
+              <td>1교시</td>
+              <td>1문항 20점</td>
+              <td>시험 시간 60분</td>
+            </tr>
+          </table>
+        </div>
+        <div class="p-notice-banner">○ 문제지 전체 면수가 맞는지 확인하시오.</div>
+        <div class="kice-page-grid">
+          <div class="q-block" id="paper-q-1">
+            <div class="q-title">${mainQuestionText}</div>
+            ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
+            ${rubricHtml}
+            <div class="pedagogy-congrats">&lt;수고하셨습니다.&gt;</div>
+          </div>
+        </div>
+        <div class="paper-footer" style="display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid #333a45; padding-top:12px; margin-top:24px; font-weight:700;">
+          <span>🏛️ 한국교육과정평가원</span>
+          <span>교육학 (2면 중 2면)</span>
+        </div>
       `;
-      paperBody.appendChild(qEl);
-    });
+      paperContainer.appendChild(pageEl);
+    } else {
+      // 📰 2/3교시 전공 시험지: 페이지당 좌측 1문제 / 우측 1문제 정통 배치!
+      const totalPages = Math.ceil(questions.length / 2);
+
+      for (let pIdx = 0; pIdx < totalPages; pIdx++) {
+        const pageNo = pIdx + 1;
+        const leftQIdx = pIdx * 2;
+        const rightQIdx = pIdx * 2 + 1;
+        const leftQ = questions[leftQIdx];
+        const rightQ = (rightQIdx < questions.length) ? questions[rightQIdx] : null;
+
+        const pageEl = document.createElement('div');
+        pageEl.className = 'kice-exam-page';
+        pageEl.id = `exam-page-${pageNo}`;
+
+        // 1페이지일 때만 상단 정통 메타 헤더 표출, 2페이지부터는 간략한 상단 라인
+        let pageHeaderHtml = '';
+        if (pageNo === 1) {
+          const totalQCount = (currentSectionKey === 'A' ? 12 : 11);
+          pageHeaderHtml = `
+            <div class="paper-header">
+              <div class="p-title">2027학년도 중등학교교사 임용후보자 선정경쟁시험</div>
+              <div class="p-subject">전 &nbsp; 문 &nbsp; 상 &nbsp; 담</div>
+              <div class="p-user-info-row">
+                <span>수험 번호 : ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>
+                <span>성 &nbsp;&nbsp; 명 : ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>
+              </div>
+              <table class="p-meta-table">
+                <tr>
+                  <td>제1차 시험</td>
+                  <td>${currentSectionKey === 'A' ? '2교시 전공 A' : '3교시 전공 B'}</td>
+                  <td>${totalQCount}문항 40점</td>
+                  <td>시험 시간 90분</td>
+                </tr>
+              </table>
+            </div>
+            <div class="p-notice-banner">
+              ○ 문제지 전체 면수가 맞는지 확인하시오.<br>
+              ○ 모든 문항에는 배점이 표시되어 있습니다.
+            </div>
+          `;
+        } else {
+          pageHeaderHtml = `
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid #333a45; padding-bottom:8px; margin-bottom:20px; font-weight:700; font-size:13.5px; color:#64748b;">
+              <span>2027학년도 중등학교교사 임용후보자 선정경쟁시험</span>
+              <span>전문상담 [전공 ${currentSectionKey}]</span>
+            </div>
+          `;
+        }
+
+        // 개별 문제 렌더러 함수
+        const renderQuestionBlock = (q, qIndex) => {
+          if (!q) return '';
+          const qNumInt = qIndex + 1;
+          const isSecA = (currentSectionKey === 'A');
+          const isSecB = (currentSectionKey === 'B');
+          let isOneLine = false;
+          if (isSecA && qNumInt <= 4) isOneLine = true;
+          if (isSecB && qNumInt <= 2) isOneLine = true;
+
+          const qScore = q.points || q.score || (isOneLine ? 2 : 4);
+
+          let rawTitle = q.title || '';
+          rawTitle = rawTitle.replace(/\[문항 [AB]-\d+\]/g, '').replace(/\(\d+점\)/g, '').trim();
+          rawTitle = rawTitle.replace(/^\[.*?\]\s*/, '').trim();
+
+          let rubricText = q.rubric || '';
+          if (rubricText.includes('[정답 예시]')) rubricText = rubricText.split('[정답 예시]')[0].trim();
+          if (rubricText.includes('[정답]')) rubricText = rubricText.split('[정답]')[0].trim();
+          let formattedPassage = q.passage || '';
+          let mainQuestionText = '';
+          let separateRubric = '';
+
+          if (!formattedPassage && rubricText) {
+            mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rubricText)} [${qScore}점]`;
+          } else if (rawTitle && rawTitle.length > 5) {
+            mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rawTitle)} [${qScore}점]`;
+            separateRubric = rubricText;
+          } else if (rubricText) {
+            if (rubricText.startsWith('<작성 방법>') || rubricText.includes('○') || rubricText.includes('\n')) {
+              mainQuestionText = `${qNumInt}. 다음 사례를 읽고 &lt;작성 방법&gt;에 따라 서술하시오. [${qScore}점]`;
+              separateRubric = rubricText;
+            } else {
+              mainQuestionText = `${qNumInt}. 다음은 ... ${formatKiceSymbols(rubricText)} [${qScore}점]`;
+            }
+          } else {
+            mainQuestionText = `${qNumInt}. 다음 지문을 읽고 물음에 답하시오. [${qScore}점]`;
+          }
+
+          let rubricHtml = '';
+          if (separateRubric) {
+            let cleanRubric = separateRubric.replace(/^<(작성 방법|배\s*점)>\s*:?\s*/i, '').trim();
+            const lines = cleanRubric.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const formattedLines = lines.map(l => {
+              let text = l;
+              if (!text.startsWith('○') && !text.startsWith('-') && !text.startsWith('•') && !text.startsWith('※') && !text.startsWith('1.') && !text.startsWith('2.')) {
+                text = `○ ${text}`;
+              } else if (text.startsWith('1.') || text.startsWith('2.') || text.startsWith('3.')) {
+                text = text.replace(/^\d+\.\s*/, '○ ');
+              }
+              return `<div class="kice-rubric-item">${formatKiceSymbols(text)}</div>`;
+            }).join('');
+
+            rubricHtml = `
+              <div class="kice-rubric-box">
+                <div class="kice-rubric-header">&lt;작성 &nbsp; 방법&gt;</div>
+                <div class="kice-rubric-body">${formattedLines}</div>
+              </div>
+            `;
+          }
+
+          if (formattedPassage) {
+            const speakerNames = "상담교사|수퍼바이저|담임교사|경력 교사|신임 교사|김 교사|박 교사|이 교사|최 교사|지혜|민우|승호|유진|수진|민지|현수|민호|재민|성민|성준|아버지|어 머 니|어머니|준서|집단원 A|집단원 B|내담자|수검자|보호자|내담자 민우|내담자 현수|내담자 민호|내담자 서연이|내담 아동";
+            const dialogueRegex = new RegExp(`([\\"\\.\\?!\\)\\s])\\s*(${speakerNames})\\s*:`, 'g');
+            formattedPassage = formattedPassage.replace(dialogueRegex, '$1\n$2:');
+            formattedPassage = formattedPassage.replace(/\n{3,}/g, '\n\n').trim();
+            formattedPassage = formatKiceSymbols(formattedPassage);
+          }
+
+          return `
+            <div class="q-block" id="paper-q-${qNumInt}">
+              <div class="q-title">${mainQuestionText}</div>
+              ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
+              ${rubricHtml}
+            </div>
+          `;
+        };
+
+        const leftColHtml = renderQuestionBlock(leftQ, leftQIdx);
+        const rightColHtml = rightQ ? renderQuestionBlock(rightQ, rightQIdx) : '';
+
+        pageEl.innerHTML = `
+          ${pageHeaderHtml}
+          <div class="kice-page-grid">
+            <div class="kice-col kice-col-left">${leftColHtml}</div>
+            <div class="kice-col kice-col-right">${rightColHtml}</div>
+          </div>
+          <div class="paper-footer" style="display:flex; justify-content:space-between; align-items:center; border-top:1.5px solid #333a45; padding-top:12px; margin-top:24px; font-weight:700;">
+            <span>🏛️ 한국교육과정평가원</span>
+            <span>전문상담 [전공 ${currentSectionKey}] (8면 중 ${pageNo}면)</span>
+          </div>
+        `;
+        paperContainer.appendChild(pageEl);
+      }
+    }
 
     restorePassageHighlightState();
   }
