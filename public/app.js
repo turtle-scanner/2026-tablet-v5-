@@ -622,6 +622,28 @@ document.addEventListener('DOMContentLoaded', () => {
     btnToggleSound.classList.add('sound-on');
   }
 
+  // 👀 눈보호 소프트 크림 모드 토글
+  const btnToggleEyeComfort = document.getElementById('btnToggleEyeComfort');
+  let eyeComfortEnabled = false;
+
+  if (btnToggleEyeComfort) {
+    btnToggleEyeComfort.addEventListener('click', () => {
+      eyeComfortEnabled = !eyeComfortEnabled;
+      const paperContainer = document.getElementById('paperContainer');
+      if (eyeComfortEnabled) {
+        if (paperContainer) paperContainer.classList.add('eye-comfort-active');
+        btnToggleEyeComfort.textContent = '👁️ 눈보호 모드 (ON)';
+        btnToggleEyeComfort.style.background = '#d97706';
+        btnToggleEyeComfort.style.borderColor = '#b45309';
+      } else {
+        if (paperContainer) paperContainer.classList.remove('eye-comfort-active');
+        btnToggleEyeComfort.textContent = '👁️ 눈보호 모드 (OFF)';
+        btnToggleEyeComfort.style.background = '#78716c';
+        btnToggleEyeComfort.style.borderColor = '#57534e';
+      }
+    });
+  }
+
   // 아날로그 시계 초침 째깍 소리 (Tik-Tok)
   function playTickSound(isCritical = false) {
     if (!soundEnabled) return;
@@ -1010,13 +1032,6 @@ document.addEventListener('DOMContentLoaded', () => {
         userAnswersHtmlMap[qNum] = el.innerHTML;
         saveDraftAnswers();
       }
-
-      const miniToolbar = document.getElementById(`mini-pen-toolbar-${qNum}`);
-      if (miniToolbar) {
-        miniToolbar.querySelectorAll('.btn-pen-color').forEach(btn => {
-          btn.classList.toggle('active-pen', btn.dataset.color === colorName);
-        });
-      }
     }
   }
 
@@ -1211,13 +1226,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="pink-q-score">(${qScore}점)</div>
         </div>
         <div class="pink-input-cell">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-            <div id="mini-pen-toolbar-${qNum}" class="pen-color-toolbar" style="margin-left:0; padding:2px 6px; scale:0.9;">
-              <span class="pen-color-label" style="font-size:10px;">✒️ 펜색상:</span>
-              <button type="button" class="btn-pen-color btn-pen-black ${qColor==='black'?'active-pen':''}" data-color="black" title="검정색"></button>
-              <button type="button" class="btn-pen-color btn-pen-red ${qColor==='red'?'active-pen':''}" data-color="red" title="빨간색"></button>
-              <button type="button" class="btn-pen-color btn-pen-blue ${qColor==='blue'?'active-pen':''}" data-color="blue" title="파란색"></button>
-            </div>
+          <div style="display:flex; justify-content:flex-end; align-items:center; margin-bottom:4px;">
             <div class="pink-char-counter" id="char-count-${qNum}" style="margin:0;">${savedText.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}</div>
           </div>
           <div id="ans-text-${qNum}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isOneLine ? 'oneline-textarea' : 'fourline-textarea'} ${colorThemeClass}-textarea" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : (isOneLine ? `문항 ${qNumInt}번 단답형 답안을 1줄에 작성하세요.` : `문항 ${qNumInt}번 서술형 답안을 4줄에 작성하세요.`)}">${savedHtml}</div>
@@ -1225,19 +1234,6 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       omrAnswerContainer.appendChild(box);
-
-      // 개별 미니 툴바 버튼 이벤트
-      const miniTb = box.querySelector(`#mini-pen-toolbar-${qNum}`);
-      if (miniTb) {
-        miniTb.querySelectorAll('.btn-pen-color').forEach(b => {
-          b.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const color = b.dataset.color;
-            activeQuestionId = qNum;
-            applyRichTextColor(color, qNum);
-          });
-        });
-      }
 
       const qCell = box.querySelector(`#q-label-cell-${qNum}`);
       if (qCell) {
