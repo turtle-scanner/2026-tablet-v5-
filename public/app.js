@@ -937,14 +937,21 @@ document.addEventListener('DOMContentLoaded', () => {
       let rubricText = q.rubric || '';
       if (rubricText.includes('[정답 예시]')) rubricText = rubricText.split('[정답 예시]')[0].trim();
       if (rubricText.includes('[정답]')) rubricText = rubricText.split('[정답]')[0].trim();
-      if (rubricText.includes('[모범 답안]')) rubricText = rubricText.split('[모범 답안]')[0].trim();
-
+      let formattedPassage = q.passage || '';
       let mainQuestionText = '';
       let separateRubric = '';
 
       if (isPed) {
-        // 1교시 교육학 정통 발문 포맷
-        if (rawTitle && rawTitle.length > 10) {
+        // 지문 시작 부분에 발문("다음은 ... 논하시오.")이 포함되어 있으면 상단 단일 발문으로 추출!
+        let cleanPassage = formattedPassage;
+        const matchIntro = cleanPassage.match(/^(다음은\s+[\s\S]*?논하시오\.\s*(\[\d+점\])?)/);
+        if (matchIntro) {
+          mainQuestionText = matchIntro[1].trim();
+          if (!mainQuestionText.includes(`[${qScore}점]`)) mainQuestionText += ` [${qScore}점]`;
+          cleanPassage = cleanPassage.substring(matchIntro[0].length).trim();
+          cleanPassage = cleanPassage.replace(/^\[제시문\]\s*/i, '').trim();
+          formattedPassage = cleanPassage;
+        } else if (rawTitle && rawTitle.length > 10) {
           mainQuestionText = `${formatKiceSymbols(rawTitle)} [${qScore}점]`;
           separateRubric = rubricText;
         } else if (rubricText && !rubricText.startsWith('<')) {
@@ -993,7 +1000,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       }
 
-      let formattedPassage = q.passage || '';
       if (formattedPassage) {
         const speakerNames = "상담교사|수퍼바이저|담임교사|경력 교사|신임 교사|김 교사|박 교사|이 교사|최 교사|지혜|민우|승호|유진|수진|민지|현수|민호|재민|성민|성준|아버지|어 머 니|어머니|준서|집단원 A|집단원 B|내담자|수검자|보호자|내담자 민우|내담자 현수|내담자 민호|내담자 서연이|내담 아동";
         const dialogueRegex = new RegExp(`([\\"\\.\\?!\\)\\s])\\s*(${speakerNames})\\s*:`, 'g');

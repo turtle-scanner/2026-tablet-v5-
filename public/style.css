@@ -803,22 +803,35 @@ body {
   word-break: keep-all;
 }
 
-/* 📜 1교시 교육학 논술 전용 1단(Single Column) 대형 시험지 레이아웃 */
+/* 📜 1교시 교육학 논술 전용 1단(Single Column) 풀 와이드 대형 시험지 레이아웃 */
 .paper-body.pedagogy-mode {
   column-count: 1 !important;
   column-rule: none !important;
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.paper-body.pedagogy-mode .q-block {
+  width: 100% !important;
+}
+
+.paper-body.pedagogy-mode .q-title {
+  font-size: 16.5px;
+  line-height: 1.85;
+  margin-bottom: 16px;
 }
 
 .paper-body.pedagogy-mode .q-passage {
-  font-size: 16px;
-  line-height: 1.9;
+  font-size: 15.5px;
+  line-height: 1.95;
   padding: 20px 24px;
+  width: 100% !important;
 }
 
 .paper-body.pedagogy-mode .kice-rubric-box {
-  padding: 16px 20px;
+  padding: 16px 22px;
+  width: 100% !important;
 }
 
 .pedagogy-congrats {
