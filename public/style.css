@@ -706,12 +706,12 @@ body {
 }
 
 .paper-container {
-  flex: 1;
+  flex: 1.2;
   overflow-y: auto;
-  padding: 12px 15px;
+  padding: 16px 20px;
   background: #edf0f4;
-  display: flex;
-  justify-content: center;
+  display: block;
+  width: 100%;
   border-right: 1.5px solid #cbd5e1;
 }
 
@@ -791,7 +791,7 @@ body {
   line-height: 1.6;
 }
 
-/* 📰 실제 기출문제 페이지 단위(Page-by-Page) 좌 1문제 / 우 1문제 레이아웃 */
+/* 📰 실제 기출문제 페이지 단위(Page-by-Page) 좌 1문제 / 우 1문제 레이아웃 (화면엔 오직 선택된 1개 페이지만 꽉 차게 노출!) */
 .kice-exam-page {
   width: 100%;
   max-width: 100%;
@@ -799,12 +799,54 @@ body {
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
   border: 2px solid #333a45;
   padding: 28px 36px 28px 36px;
-  min-height: 1050px;
+  min-height: 1000px;
   color: #2b2f38;
-  margin-bottom: 36px;
-  display: flex;
+  margin-bottom: 24px;
+  display: none; /* 오직 활성화된 페이지만 노출! */
   flex-direction: column;
   justify-content: space-between;
+}
+
+.kice-exam-page.active-page {
+  display: flex !important;
+}
+
+/* 📄 상단/하단 페이지 전환 네비게이터 바 */
+.kice-page-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.kice-page-btn {
+  background: #f1f5f9;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.kice-page-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.kice-page-btn.active {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
 }
 
 .kice-page-grid {

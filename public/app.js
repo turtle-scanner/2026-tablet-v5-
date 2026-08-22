@@ -871,9 +871,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (qRemainingSecs > 60) qTimerDisplay.style.color = '#facc15';
   }
 
+  let currentExamPageNo = 1;
+
+  function selectExamPage(pageNo) {
+    currentExamPageNo = pageNo;
+    document.querySelectorAll('.kice-exam-page').forEach(p => {
+      p.classList.toggle('active-page', p.id === `exam-page-${pageNo}`);
+    });
+    document.querySelectorAll('.kice-page-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.page == pageNo);
+    });
+    const activePageEl = document.getElementById(`exam-page-${pageNo}`);
+    if (activePageEl) activePageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   function selectQuestion(qId) {
     activeQuestionId = qId;
     startQuestionTimer();
+
+    const qNumInt = parseInt(qId, 10) || 1;
+    if (currentSectionKey !== 'P') {
+      const targetPageNo = Math.ceil(qNumInt / 2);
+      selectExamPage(targetPageNo);
+    }
 
     document.querySelectorAll('.q-tab').forEach(t => {
       t.classList.toggle('active', t.dataset.qid == qId);
@@ -885,7 +905,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const paperQ = document.getElementById(`paper-q-${qId}`);
     const omrQ = document.getElementById(`omr-card-${qId}`);
-    if (paperQ) paperQ.scrollIntoView({ behavior: 'smooth' });
+    if (paperQ) paperQ.scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (omrQ) omrQ.scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -976,7 +996,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const pageEl = document.createElement('div');
-      pageEl.className = 'kice-exam-page pedagogy-page-mode';
+      pageEl.className = 'kice-exam-page pedagogy-page-mode active-page';
       pageEl.id = 'exam-page-1';
       pageEl.innerHTML = `
         <div class="paper-header">
@@ -1014,6 +1034,47 @@ document.addEventListener('DOMContentLoaded', () => {
       // 📰 2/3교시 전공 시험지: 페이지당 좌측 1문제 / 우측 1문제 정통 배치!
       const totalPages = Math.ceil(questions.length / 2);
 
+      // 📄 상단 페이지 이동 네비게이션 바 생성
+      const navBar = document.createElement('div');
+      navBar.className = 'kice-page-nav-bar';
+      
+      let navButtonsHtml = `
+        <button type="button" class="kice-page-btn" id="btnPrevPage">◀ 이전 면</button>
+      `;
+
+      for (let i = 1; i <= totalPages; i++) {
+        const qStart = (i - 1) * 2 + 1;
+        const qEnd = Math.min(i * 2, questions.length);
+        const pageLabel = (qStart === qEnd) ? `${i}면 (${qStart}번)` : `${i}면 (${qStart}·${qEnd}번)`;
+        navButtonsHtml += `<button type="button" class="kice-page-btn ${i === 1 ? 'active' : ''}" data-page="${i}">${pageLabel}</button>`;
+      }
+
+      navButtonsHtml += `
+        <button type="button" class="kice-page-btn" id="btnNextPage">다음 면 ▶</button>
+      `;
+      navBar.innerHTML = navButtonsHtml;
+      paperContainer.appendChild(navBar);
+
+      navBar.querySelectorAll('[data-page]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const p = parseInt(btn.dataset.page, 10);
+          selectExamPage(p);
+        });
+      });
+
+      const btnPrev = navBar.querySelector('#btnPrevPage');
+      if (btnPrev) {
+        btnPrev.addEventListener('click', () => {
+          if (currentExamPageNo > 1) selectExamPage(currentExamPageNo - 1);
+        });
+      }
+      const btnNext = navBar.querySelector('#btnNextPage');
+      if (btnNext) {
+        btnNext.addEventListener('click', () => {
+          if (currentExamPageNo < totalPages) selectExamPage(currentExamPageNo + 1);
+        });
+      }
+
       for (let pIdx = 0; pIdx < totalPages; pIdx++) {
         const pageNo = pIdx + 1;
         const leftQIdx = pIdx * 2;
@@ -1022,7 +1083,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rightQ = (rightQIdx < questions.length) ? questions[rightQIdx] : null;
 
         const pageEl = document.createElement('div');
-        pageEl.className = 'kice-exam-page';
+        pageEl.className = `kice-exam-page ${pageNo === 1 ? 'active-page' : ''}`;
         pageEl.id = `exam-page-${pageNo}`;
 
         // 1페이지일 때만 상단 정통 메타 헤더 표출, 2페이지부터는 간략한 상단 라인
