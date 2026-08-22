@@ -794,7 +794,7 @@ body {
   line-height: 1.6;
 }
 
-/* 📰 실제 기출문제 2단(Two-Column) 레이아웃 */
+/* 📰 실제 기출문제 2단(Two-Column) 레이아웃 (전공 A/B) */
 .paper-body {
   column-count: 2;
   column-gap: 32px;
@@ -804,6 +804,34 @@ body {
   font-weight: 600;
   color: #111827;
   word-break: keep-all;
+}
+
+/* 📜 1교시 교육학 논술 전용 1단(Single Column) 대형 시험지 레이아웃 */
+.paper-body.pedagogy-mode {
+  column-count: 1 !important;
+  column-rule: none !important;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.paper-body.pedagogy-mode .q-passage {
+  font-size: 16.5px;
+  line-height: 2.05;
+  padding: 20px 24px;
+}
+
+.paper-body.pedagogy-mode .kice-rubric-box {
+  padding: 16px 20px;
+}
+
+.pedagogy-congrats {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: #000000;
+  letter-spacing: 4px;
+  margin: 35px 0 20px 0;
+  font-family: 'Times New Roman', '신명조', '바탕체', serif !important;
 }
 
 .q-block {

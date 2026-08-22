@@ -540,34 +540,38 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSectionTabUI();
 
     const paperFooterPage = document.getElementById('paperFooterPage');
+    const noticeBanner = document.querySelector('.p-notice-banner');
 
     if (secKey === 'P') {
-      if (paperSectionTitle) paperSectionTitle.textContent = '교육학';
-      if (tableSectionName) tableSectionName.textContent = '1교시 교육학';
+      if (paperSectionTitle) paperSectionTitle.innerHTML = '교 &nbsp; 육 &nbsp; 학';
+      if (tableSectionName) tableSectionName.textContent = '1교시';
       if (tableQSpec) tableQSpec.textContent = '1문항 20점';
       if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 60분`;
-      if (paperFooterPage) paperFooterPage.textContent = '교육학 [논술] (8면 중 1면)';
+      if (paperFooterPage) paperFooterPage.textContent = '교육학 (2면 중 2면)';
+      if (noticeBanner) noticeBanner.innerHTML = '○ 문제지 전체 면수가 맞는지 확인하시오.';
       omrTitleText.textContent = '✏️ 오른쪽 1교시 교육학 논술 작성란 (20점 만점 / 1200~1500자)';
       btnCompleteCurrentSec.textContent = '🚀 1교시 교육학 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
       btnSubmitExam.classList.add('hidden'); // 1교시엔 전체 최종 제출 버튼 숨김!
     } else if (secKey === 'A') {
-      if (paperSectionTitle) paperSectionTitle.textContent = '전문상담';
+      if (paperSectionTitle) paperSectionTitle.innerHTML = '전 &nbsp; 문 &nbsp; 상 &nbsp; 담';
       if (tableSectionName) tableSectionName.textContent = '2교시 전공 A';
       if (tableQSpec) tableQSpec.textContent = '12문항 40점';
       if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 90분`;
-      if (paperFooterPage) paperFooterPage.textContent = '전문상담 [전공 A] (8면 중 1면)';
+      if (paperFooterPage) paperFooterPage.textContent = '전문상담 [전공 A] (8면 중 4면)';
+      if (noticeBanner) noticeBanner.innerHTML = '○ 문제지 전체 면수가 맞는지 확인하시오.<br>○ 모든 문항에는 배점이 표시되어 있습니다.';
       omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 실전 양식)';
       btnCompleteCurrentSec.textContent = '🚀 2교시 전공A 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
       btnSubmitExam.classList.add('hidden'); // 2교시엔 전체 최종 제출 버튼 숨김!
     } else {
       // 3교시 전공 B형일 때만 전체 최종 제출 버튼 노출!
-      if (paperSectionTitle) paperSectionTitle.textContent = '전문상담';
+      if (paperSectionTitle) paperSectionTitle.innerHTML = '전 &nbsp; 문 &nbsp; 상 &nbsp; 담';
       if (tableSectionName) tableSectionName.textContent = '3교시 전공 B';
       if (tableQSpec) tableQSpec.textContent = '11문항 40점';
       if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 90분`;
-      if (paperFooterPage) paperFooterPage.textContent = '전문상담 [전공 B] (8면 중 1면)';
+      if (paperFooterPage) paperFooterPage.textContent = '전문상담 [전공 B] (8면 중 6면)';
+      if (noticeBanner) noticeBanner.innerHTML = '○ 문제지 전체 면수가 맞는지 확인하시오.<br>○ 모든 문항에는 배점이 표시되어 있습니다.';
       omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 실전 양식)';
       btnCompleteCurrentSec.classList.add('hidden');
       btnSubmitExam.classList.remove('hidden'); // 마지막 B형에서만 노출!
@@ -910,15 +914,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderExamPaper(questions) {
     paperBody.innerHTML = '';
+    const isPed = (currentSectionKey === 'P');
+
+    if (isPed) {
+      paperBody.classList.add('pedagogy-mode');
+    } else {
+      paperBody.classList.remove('pedagogy-mode');
+    }
+
     questions.forEach((q, qIdx) => {
       const qEl = document.createElement('div');
       qEl.className = 'q-block';
       const qNumInt = qIdx + 1;
       qEl.id = `paper-q-${qNumInt}`;
 
-      const qScore = q.points || q.score || (currentSectionKey === 'P' ? 20 : (qIdx < 4 ? 2 : 4));
+      const qScore = q.points || q.score || (isPed ? 20 : (qIdx < 4 ? 2 : 4));
 
-      // 실제 기출문제 발문 포맷: "1. 다음은 ... 쓰시오. [2점]"
       let rawTitle = q.title || '';
       rawTitle = rawTitle.replace(/\[문항 [AB]-\d+\]/g, '').replace(/\(\d+점\)/g, '').trim();
       rawTitle = rawTitle.replace(/^\[.*?\]\s*/, '').trim(); // 과목명 태그 제거
@@ -931,37 +942,52 @@ document.addEventListener('DOMContentLoaded', () => {
       let mainQuestionText = '';
       let separateRubric = '';
 
-      if (!q.passage && rubricText) {
-        mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rubricText)} [${qScore}점]`;
-      } else if (rawTitle && rawTitle.length > 5) {
-        mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rawTitle)} [${qScore}점]`;
-        separateRubric = rubricText;
-      } else if (rubricText) {
-        if (rubricText.startsWith('<작성 방법>') || rubricText.includes('○') || rubricText.includes('\n')) {
-          mainQuestionText = `${qNumInt}. 다음 사례를 읽고 &lt;작성 방법&gt;에 따라 서술하시오. [${qScore}점]`;
+      if (isPed) {
+        // 1교시 교육학 정통 발문 포맷
+        if (rawTitle && rawTitle.length > 10) {
+          mainQuestionText = `${formatKiceSymbols(rawTitle)} [${qScore}점]`;
           separateRubric = rubricText;
+        } else if (rubricText && !rubricText.startsWith('<')) {
+          mainQuestionText = `${formatKiceSymbols(rubricText)} [${qScore}점]`;
         } else {
-          mainQuestionText = `${qNumInt}. 다음은 ... ${formatKiceSymbols(rubricText)} [${qScore}점]`;
+          mainQuestionText = `다음 내용을 읽고 지시사항에 따라 서론, 본론, 결론을 갖추어 논하시오. [${qScore}점]`;
+          separateRubric = rubricText;
         }
       } else {
-        mainQuestionText = `${qNumInt}. 다음 지문을 읽고 물음에 답하시오. [${qScore}점]`;
+        // 2/3교시 전공 정통 번호 발문 포맷
+        if (!q.passage && rubricText) {
+          mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rubricText)} [${qScore}점]`;
+        } else if (rawTitle && rawTitle.length > 5) {
+          mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rawTitle)} [${qScore}점]`;
+          separateRubric = rubricText;
+        } else if (rubricText) {
+          if (rubricText.startsWith('<작성 방법>') || rubricText.includes('○') || rubricText.includes('\n')) {
+            mainQuestionText = `${qNumInt}. 다음 사례를 읽고 &lt;작성 방법&gt;에 따라 서술하시오. [${qScore}점]`;
+            separateRubric = rubricText;
+          } else {
+            mainQuestionText = `${qNumInt}. 다음은 ... ${formatKiceSymbols(rubricText)} [${qScore}점]`;
+          }
+        } else {
+          mainQuestionText = `${qNumInt}. 다음 지문을 읽고 물음에 답하시오. [${qScore}점]`;
+        }
       }
 
-      // <작성 방법> 박스 HTML 구성
+      // <작성 방법> 또는 <배 점> 박스 HTML 구성
       let rubricHtml = '';
       if (separateRubric) {
-        let cleanRubric = separateRubric.replace(/^<작성 방법>\s*:?\s*/i, '').trim();
+        let cleanRubric = separateRubric.replace(/^<(작성 방법|배\s*점)>\s*:?\s*/i, '').trim();
         const lines = cleanRubric.split('\n').map(l => l.trim()).filter(l => l.length > 0);
         const formattedLines = lines.map(l => {
-          if (!l.startsWith('○') && !l.startsWith('-') && !l.startsWith('•')) {
+          if (!l.startsWith('○') && !l.startsWith('-') && !l.startsWith('•') && !l.startsWith('※')) {
             return `○ ${formatKiceSymbols(l)}`;
           }
           return formatKiceSymbols(l);
         }).join('<br>');
 
+        const rubricHeaderTitle = isPed ? '&lt;배 &nbsp; 점&gt;' : '&lt;작성 방법&gt;';
         rubricHtml = `
           <div class="kice-rubric-box">
-            <div class="kice-rubric-header">&lt;작성 방법&gt;</div>
+            <div class="kice-rubric-header">${rubricHeaderTitle}</div>
             <div class="kice-rubric-body">${formattedLines}</div>
           </div>
         `;
@@ -980,6 +1006,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="q-title">${mainQuestionText}</div>
         ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
         ${rubricHtml}
+        ${isPed ? `<div class="pedagogy-congrats">&lt;수고하셨습니다.&gt;</div>` : ''}
       `;
       paperBody.appendChild(qEl);
     });
