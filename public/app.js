@@ -914,7 +914,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const qEl = document.createElement('div');
       qEl.className = 'q-block';
       const qNumInt = qIdx + 1;
-      qEl.id = `paper-q-${q.id || qNumInt}`;
+      qEl.id = `paper-q-${qNumInt}`;
 
       const qScore = q.points || q.score || (currentSectionKey === 'P' ? 20 : (qIdx < 4 ? 2 : 4));
 
@@ -1182,18 +1182,15 @@ document.addEventListener('DOMContentLoaded', () => {
     omrAnswerContainer.appendChild(omrTopHeader);
 
     questions.forEach((q, idx) => {
-      const qNumRaw = q.id || q.number || q.no || (idx + 1);
-      // 숫자 번호 추출 (A-1 -> 1, B-5 -> 5 등)
-      const numMatch = String(qNumRaw).match(/\d+/);
-      const qNumInt = numMatch ? parseInt(numMatch[0], 10) : (idx + 1);
-      const qNum = qNumRaw;
-      const ansKey = getAnswerKey(qNum);
+      const qNumInt = idx + 1; // 🎯 교시 내 실제 문항 번호 (1번, 2번, 3번...)
+      const qNum = qNumInt;
+      const ansKey = getAnswerKey(qNumInt);
       const qScore = q.points || q.score || (isPed ? 20 : (isSecA ? (qNumInt <= 4 ? 2 : 4) : (qNumInt <= 2 ? 2 : 4)));
       const qColor = qPenColorMap[ansKey] || qPenColorMap[qNum] || 'black';
 
-      // 1줄 vs 4줄 판정
-      // A형: 1~4번은 1줄, 5~12번은 4줄
-      // B형: 1~2번은 1줄, 3~11번은 4줄
+      // 1줄 vs 4줄 판정:
+      // A형: 1~4번은 1줄(단답형 2점), 5~12번은 4줄(서술형 4점)
+      // B형: 1~2번은 1줄(단답형 2점), 3~11번은 4줄(서술형 4점)
       let isOneLine = false;
       if (isSecA && qNumInt <= 4) isOneLine = true;
       if (isSecB && qNumInt <= 2) isOneLine = true;
@@ -1215,27 +1212,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const box = document.createElement('div');
       box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''} ${isOneLine ? 'oneline-omr-box' : 'fourline-omr-box'} ${colorThemeClass}`;
-      box.id = `omr-card-${qNum}`;
+      box.id = `omr-card-${qNumInt}`;
 
       const savedHtml = userAnswersHtmlMap[ansKey] || userAnswers[ansKey] || '';
       const savedText = userAnswers[ansKey] || '';
 
       box.innerHTML = `
-        <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNum}" data-anskey="${ansKey}" title="클릭하여 O/X 도장을 찍으세요">
+        <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNumInt}" data-anskey="${ansKey}" title="클릭하여 O/X 도장을 찍으세요">
           <div class="pink-q-num">${isPed ? '교육학' : `문항 ${qNumInt}`}</div>
           <div class="pink-q-score">(${qScore}점)</div>
         </div>
         <div class="pink-input-cell">
           <div style="display:flex; justify-content:flex-end; align-items:center; margin-bottom:4px;">
-            <div class="pink-char-counter" id="char-count-${qNum}" style="margin:0;">${savedText.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}</div>
+            <div class="pink-char-counter" id="char-count-${qNumInt}" style="margin:0;">${savedText.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}</div>
           </div>
-          <div id="ans-text-${qNum}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isOneLine ? 'oneline-textarea' : 'fourline-textarea'} ${colorThemeClass}-textarea" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : (isOneLine ? `문항 ${qNumInt}번 단답형 답안을 1줄에 작성하세요.` : `문항 ${qNumInt}번 서술형 답안을 4줄에 작성하세요.`)}">${savedHtml}</div>
+          <div id="ans-text-${qNumInt}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isOneLine ? 'oneline-textarea' : 'fourline-textarea'} ${colorThemeClass}-textarea" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : (isOneLine ? `문항 ${qNumInt}번 단답형 답안을 1줄에 작성하세요.` : `문항 ${qNumInt}번 서술형 답안을 4줄에 작성하세요.`)}">${savedHtml}</div>
         </div>
       `;
 
       omrAnswerContainer.appendChild(box);
 
-      const qCell = box.querySelector(`#q-label-cell-${qNum}`);
+      const qCell = box.querySelector(`#q-label-cell-${qNumInt}`);
       if (qCell) {
         updateOMRMarkDisplay(ansKey, qCell);
         qCell.addEventListener('click', (e) => {
@@ -1244,11 +1241,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      const ed = box.querySelector(`#ans-text-${qNum}`);
+      const ed = box.querySelector(`#ans-text-${qNumInt}`);
       if (ed) {
         ed.addEventListener('focus', () => {
-          selectQuestion(qNum);
-          const curColor = qPenColorMap[ansKey] || qPenColorMap[qNum] || 'black';
+          selectQuestion(qNumInt);
+          const curColor = qPenColorMap[ansKey] || qPenColorMap[qNumInt] || 'black';
           if (btnPenBlack) btnPenBlack.classList.toggle('active-pen', curColor === 'black');
           if (btnPenRed) btnPenRed.classList.toggle('active-pen', curColor === 'red');
           if (btnPenBlue) btnPenBlue.classList.toggle('active-pen', curColor === 'blue');
@@ -1257,10 +1254,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ed.addEventListener('input', () => {
           const textVal = ed.innerText.trim();
           userAnswers[ansKey] = textVal;
-          userAnswers[qNum] = textVal; // 하위 호환
+          userAnswers[qNumInt] = textVal; // 하위 호환
           userAnswersHtmlMap[ansKey] = ed.innerHTML;
-          userAnswersHtmlMap[qNum] = ed.innerHTML;
-          document.getElementById(`char-count-${qNum}`).textContent = `${textVal.length} 자${isPed ? '' : ' (최대 4줄)'}`;
+          userAnswersHtmlMap[qNumInt] = ed.innerHTML;
+          const counterEl = document.getElementById(`char-count-${qNumInt}`);
+          if (counterEl) counterEl.textContent = `${textVal.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}`;
           updateTotalCharCount();
           saveDraftAnswers(); // 실시간 회원별 영구 저장!
         });
@@ -1272,15 +1270,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderTabs(questions) {
     questionTabs.innerHTML = '';
     questions.forEach((q, idx) => {
-      const qNum = q.id || q.number || q.no || (idx + 1);
-      const qScore = q.points || q.score || (currentSectionKey === 'P' ? 20 : (idx < 4 ? 2 : 4));
-      const qType = q.type || (currentSectionKey === 'P' ? '논술형' : (idx < 4 ? '단답형' : '서술형'));
+      const qNumInt = idx + 1;
+      const isSecA = (currentSectionKey === 'A');
+      const isSecB = (currentSectionKey === 'B');
+      let isOneLine = false;
+      if (isSecA && qNumInt <= 4) isOneLine = true;
+      if (isSecB && qNumInt <= 2) isOneLine = true;
+
+      const qScore = q.points || q.score || (currentSectionKey === 'P' ? 20 : (isOneLine ? 2 : 4));
+      const qType = isOneLine ? '단답형' : '서술형';
 
       const btn = document.createElement('button');
       btn.className = 'q-tab';
-      btn.dataset.qid = qNum;
-      btn.textContent = currentSectionKey === 'P' ? '1교시 교육학 논술 (20점)' : `문항 ${qNum}번 [${qScore}점] (${qType})`;
-      btn.addEventListener('click', () => selectQuestion(qNum));
+      btn.dataset.qid = qNumInt;
+      btn.textContent = currentSectionKey === 'P' ? '1교시 교육학 논술 (20점)' : `문항 ${qNumInt}번 [${qScore}점] (${qType})`;
+      btn.addEventListener('click', () => selectQuestion(qNumInt));
       questionTabs.appendChild(btn);
     });
   }
