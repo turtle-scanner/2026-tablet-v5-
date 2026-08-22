@@ -858,6 +858,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (omrQ) omrQ.scrollIntoView({ behavior: 'smooth' });
   }
 
+  // 📝 (ㄱ), (ㄴ), ㉠, ㉡ 등의 기호에 실제 평가원 시험지 스타일의 선명한 밑줄을 자동 적용하는 함수
+  function formatKiceSymbols(text) {
+    if (!text) return '';
+    let res = text;
+
+    // 1. (ㄱ), (ㄴ), (ㄷ), (ㄹ), (ㅁ) 형태 밑줄 처리 -> <u>(ㄱ)</u>
+    res = res.replace(/\((ㄱ|ㄴ|ㄷ|ㄹ|ㅁ|ㅂ|ㅅ|ㅇ|ㅈ|ㅊ|ㅋ|ㅌ|ㅍ|ㅎ)\)/g, '<u>($1)</u>');
+
+    // 2. ( ㉠ ), ( ㉡ ), ( ㉢ ), ( ㉣ ), ( ㉤ ) 형태 밑줄 처리 -> <u>( ㉠ )</u>
+    res = res.replace(/\(\s*(㉠|㉡|㉢|㉣|㉤|㉥|㉦|㉧|㉨|㉩|㉪|㉫|㉬|㉭)\s*\)/g, '<u>( $1 )</u>');
+
+    // 3. (㉠), (㉡), (㉢) 형태 밑줄 처리 -> <u>(㉠)</u>
+    res = res.replace(/\((㉠|㉡|㉢|㉣|㉤|㉥|㉦|㉧|㉨|㉩|㉪|㉫|㉬|㉭)\)/g, '<u>($1)</u>');
+
+    // 4. 단독 ㉠, ㉡, ㉢, ㉣, ㉤ 중 이미 <u>로 감싸지지 않은 부분 밑줄 처리
+    res = res.replace(/(?<!<u>\s*\(?\s*)(㉠|㉡|㉢|㉣|㉤|㉥|㉦|㉧|㉨|㉩|㉪|㉫|㉬|㉭)(?!\s*\)?\s*<\/u>)/g, '<u>$1</u>');
+
+    // 5. (a), (b), (c), (d), (e) 소문자 알파벳 괄호 기호 밑줄 처리
+    res = res.replace(/\((a|b|c|d|e|f|g)\)/gi, '<u>($1)</u>');
+
+    return res;
+  }
+
   function renderExamPaper(questions) {
     paperBody.innerHTML = '';
     questions.forEach(q => {
@@ -888,7 +911,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let rubricHtml = '';
       if (rubricText) {
-        rubricHtml = `<div class="q-rubric">${rubricText}</div>`;
+        rubricHtml = `<div class="q-rubric">${formatKiceSymbols(rubricText)}</div>`;
       }
 
       let formattedPassage = q.passage || '';
@@ -898,6 +921,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dialogueRegex = new RegExp(`([\\"\\.\\?!\\)\\s])\\s*(${speakerNames})\\s*:`, 'g');
         formattedPassage = formattedPassage.replace(dialogueRegex, '$1\n$2:');
         formattedPassage = formattedPassage.replace(/\n{3,}/g, '\n\n').trim();
+        formattedPassage = formatKiceSymbols(formattedPassage);
       }
 
       qEl.innerHTML = `

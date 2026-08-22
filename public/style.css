@@ -827,6 +827,17 @@ body {
   text-shadow: 0.15px 0 0 #000000;
 }
 
+/* 📝 평가원 기출문제 공식 밑줄 서식 (선명하고 굵은 2px 밑줄) */
+.q-passage u, .q-rubric u, .kice-underline {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2.5px !important;
+  text-underline-offset: 4.5px !important;
+  text-decoration-color: #000000 !important;
+  font-weight: 900 !important;
+  display: inline-block;
+  padding: 0 1px;
+}
+
 /* =========================================================
    3. B4 대형 답안지 규격 (우측 답안지 약한 크림 노란색 배경 & KICE 실전 테마)
    ========================================================= */
