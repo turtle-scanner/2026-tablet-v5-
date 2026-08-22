@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   let currentUser = null;
   let currentExam = null;
-  let currentExamId = 'exam-100';
+  let currentExamId = 'exam-101';
   let currentSectionKey = 'P'; // P: 1교시 교육학, A: 2교시 전공A, B: 3교시 전공B
   let activeQuestionId = 1;
   let userAnswers = {};
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function setupExamRoundDropdownOptions() {
     if (!selectExamRound) return;
-    const savedVal = currentExamId || 'exam-100';
+    const savedVal = currentExamId || 'exam-101';
 
     autoSyncFallbackExamsWithServer();
 
