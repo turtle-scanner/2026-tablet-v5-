@@ -985,13 +985,17 @@ document.addEventListener('DOMContentLoaded', () => {
         let cleanRubric = separateRubric.replace(/^<(작성 방법|배\s*점)>\s*:?\s*/i, '').trim();
         const lines = cleanRubric.split('\n').map(l => l.trim()).filter(l => l.length > 0);
         const formattedLines = lines.map(l => {
-          if (!l.startsWith('○') && !l.startsWith('-') && !l.startsWith('•') && !l.startsWith('※')) {
-            return `○ ${formatKiceSymbols(l)}`;
+          let text = l;
+          if (!text.startsWith('○') && !text.startsWith('-') && !text.startsWith('•') && !text.startsWith('※') && !text.startsWith('1.') && !text.startsWith('2.')) {
+            text = `○ ${text}`;
+          } else if (text.startsWith('1.') || text.startsWith('2.') || text.startsWith('3.')) {
+            // "1. 지문 ㉠에..." 형태를 실제 시험지처럼 "○ 지문 ㉠에..." 또는 번호 형태로 깔끔하게 유지
+            text = text.replace(/^\d+\.\s*/, '○ ');
           }
-          return formatKiceSymbols(l);
-        }).join('<br>');
+          return `<div class="kice-rubric-item">${formatKiceSymbols(text)}</div>`;
+        }).join('');
 
-        const rubricHeaderTitle = isPed ? '&lt;배 &nbsp; 점&gt;' : '&lt;작성 방법&gt;';
+        const rubricHeaderTitle = isPed ? '&lt;배 &nbsp; 점&gt;' : '&lt;작성 &nbsp; 방법&gt;';
         rubricHtml = `
           <div class="kice-rubric-box">
             <div class="kice-rubric-header">${rubricHeaderTitle}</div>

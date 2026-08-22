@@ -881,36 +881,51 @@ body {
   word-break: keep-all;
 }
 
-/* 📋 실제 기출문제 <작성 방법> 박스 (부드러운 소프트 크림 배경) */
+/* 📋 실제 기출문제 정통 <작성 방법> / <배 점> 박스 (상단 선 걸침 디자인) */
 .kice-rubric-box {
   width: 100%;
-  border: 1.5px solid #475569;
-  padding: 12px 16px 10px 16px;
-  background: #fdfcf9;
-  margin-top: 10px;
-  margin-bottom: 14px;
+  border: 1.5px solid #333a45;
+  padding: 18px 20px 14px 20px;
+  background: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 18px;
   position: relative;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 .kice-rubric-header {
-  text-align: center;
-  font-size: 14.5px;
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 0 12px;
+  font-size: 15px;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
 }
 
 .kice-rubric-body {
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.8;
+  line-height: 1.9;
   color: #2b2f38 !important;
   letter-spacing: -0.01em;
-  white-space: pre-wrap;
   text-align: justify;
   word-break: keep-all;
+}
+
+.kice-rubric-item {
+  position: relative;
+  padding-left: 20px;
+  text-indent: -20px;
+  margin-bottom: 10px;
+}
+
+.kice-rubric-item:last-child {
+  margin-bottom: 0;
 }
 
 /* 📝 기출문제 공식 밑줄 서식 (눈이 편안한 차콜 2px 밑줄) */
