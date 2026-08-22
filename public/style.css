@@ -715,9 +715,10 @@ body {
   border-right: 1.5px solid #cbd5e1;
 }
 
-/* 실제 평가원 느낌의 깔끔하고 눈이 편안한 명조체 폰트 설정 */
+/* 실제 평가원 기출문제 공식 명조체 / 바탕체 폰트 설정 (선명하고 굵은 실전 서체) */
 .paper-container, .paper-page, .paper-header, .p-title, .p-subject, .p-meta-table td, .paper-body, .q-block, .q-title, .q-passage, .q-rubric {
-  font-family: 'Nanum Myeongjo', '신명조', '한양바탕', 'Batang', serif !important;
+  font-family: 'Nanum Myeongjo', 'KoPubWorldBatang', 'KoPub Batang', 'BatangChe', 'Batang', serif !important;
+  -webkit-font-smoothing: antialiased;
 }
 
 .paper-page {
@@ -729,7 +730,7 @@ body {
   border-radius: var(--radius-sm);
   padding: 24px 28px;
   min-height: 1200px;
-  color: #0f172a;
+  color: #000000;
 }
 
 .paper-header {
@@ -739,11 +740,11 @@ body {
   text-align: center;
 }
 
-.p-title { font-size: 21px; font-weight: 700; letter-spacing: 1px; color: #000000; }
+.p-title { font-size: 22px; font-weight: 800; letter-spacing: 1px; color: #000000; }
 
 .p-subject {
   font-size: 38px;
-  font-weight: 800;
+  font-weight: 900;
   margin: 8px 0 16px 0;
   letter-spacing: 4px;
   color: #000000;
@@ -758,13 +759,13 @@ body {
 .p-meta-table td {
   border: 1.5px solid #000000;
   padding: 8px;
-  font-size: 14.5px;
+  font-size: 15px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 800;
   color: #000000;
 }
 
-.paper-body { line-height: 1.9; font-size: 18.5px; font-weight: 600; color: #0f172a; }
+.paper-body { line-height: 2.0; font-size: 19.5px; font-weight: 800; color: #000000; }
 
 .q-block {
   margin-bottom: 40px;
@@ -773,8 +774,8 @@ body {
 }
 
 .q-title {
-  font-size: 20.5px;
-  font-weight: 800;
+  font-size: 22px;
+  font-weight: 900;
   margin-bottom: 16px;
   line-height: 1.6;
   color: #000000;
@@ -783,32 +784,33 @@ body {
 
 .q-passage {
   width: 100%;
-  border: 2.5px solid #1e293b;
+  border: 2.5px solid #000000;
   padding: 22px 26px;
   background: #bcb9b3;
-  font-size: 18.5px;
-  font-weight: 700;
+  font-size: 19.5px;
+  font-weight: 800;
   white-space: pre-wrap;
   margin-bottom: 20px;
-  line-height: 1.95;
-  color: #0f172a;
+  line-height: 2.05;
+  color: #000000 !important;
   letter-spacing: -0.2px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  text-rendering: optimizeLegibility;
 }
 
 .q-rubric {
   width: 100%;
-  border: 2px solid #334155;
+  border: 2.5px solid #000000;
   padding: 18px 22px;
   background: #e5e3de;
-  font-size: 17.5px;
-  font-weight: 700;
+  font-size: 18.5px;
+  font-weight: 800;
   white-space: pre-wrap;
   margin-top: 15px;
   margin-bottom: 25px;
-  line-height: 1.85;
-  color: #1e293b;
+  line-height: 1.95;
+  color: #000000 !important;
   letter-spacing: -0.2px;
   border-radius: 4px;
 }
