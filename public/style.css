@@ -715,12 +715,11 @@ body {
   border-right: 1.5px solid #cbd5e1;
 }
 
-/* 실제 평가원 기출문제 공식 명조체 / 바탕체 / Times New Roman 폰트 설정 */
-.paper-container, .paper-page, .paper-header, .p-title, .p-subject, .p-meta-table td, .paper-body, .q-block, .q-title, .q-passage, .q-rubric {
-  font-family: 'Times New Roman', '신명조', 'Shin Myeongjo', '바탕체', 'BatangChe', '한컴바탕', 'Hancom Batang', 'KoPubWorldBatang', 'Nanum Myeongjo', 'Batang', serif !important;
+/* 🌿 눈이 가장 편안한 맑은 고딕 서체 및 소프트 차콜 가독성 최적화 */
+.paper-container, .paper-page, .paper-header, .p-title, .p-subject, .p-meta-table td, .paper-body, .q-block, .q-title, .q-passage, .q-rubric, .kice-rubric-box, .kice-rubric-header, .kice-rubric-body {
+  font-family: '맑은 고딕', 'Malgun Gothic', 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif !important;
   -webkit-font-smoothing: antialiased;
-  letter-spacing: -0.03em !important; /* 자간: -3% (정확한 -5%~0% 범위) */
-  font-stretch: 98% !important; /* 장평: 98% (95%~100% 범위) */
+  letter-spacing: -0.01em !important;
 }
 
 .paper-page {
@@ -728,44 +727,42 @@ body {
   max-width: 100%;
   background: #ffffff;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-  border: 2px solid #000000;
+  border: 2px solid #333a45;
   border-radius: 0px;
   padding: 28px 36px 36px 36px;
   min-height: 1200px;
-  color: #000000;
+  color: #2b2f38;
 }
 
 .paper-header {
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid #333a45;
   padding-bottom: 14px;
   margin-bottom: 22px;
   text-align: center;
 }
 
 .p-title {
-  font-size: 23px;
-  font-weight: 800;
+  font-size: 22px;
+  font-weight: 700;
   letter-spacing: 0.5px;
-  color: #000000;
-  font-family: 'Times New Roman', '신명조', '바탕체', serif !important;
+  color: #2b2f38;
 }
 
 .p-subject {
-  font-size: 42px;
-  font-weight: 900;
+  font-size: 40px;
+  font-weight: 800;
   margin: 10px 0 16px 0;
   letter-spacing: 6px;
-  color: #000000;
-  font-family: 'Times New Roman', '신명조', '바탕체', serif !important;
+  color: #2b2f38;
 }
 
 .p-user-info-row {
   display: flex;
   justify-content: space-around;
   margin-bottom: 12px;
-  font-size: 16px;
-  font-weight: 800;
-  color: #000000;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #2b2f38;
 }
 
 .p-meta-table {
@@ -775,22 +772,22 @@ body {
 }
 
 .p-meta-table td {
-  border: 1.5px solid #000000;
+  border: 1.5px solid #333a45;
   padding: 6px 10px;
-  font-size: 15px;
+  font-size: 14.5px;
   text-align: center;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: #2b2f38;
+  letter-spacing: -0.01em;
 }
 
 .p-notice-banner {
-  border-bottom: 1.5px solid #000000;
+  border-bottom: 1.5px solid #333a45;
   padding: 8px 12px 10px 12px;
   margin-bottom: 20px;
   font-size: 14px;
-  font-weight: 800;
-  color: #000000;
+  font-weight: 600;
+  color: #2b2f38;
   line-height: 1.6;
 }
 
@@ -798,11 +795,11 @@ body {
 .paper-body {
   column-count: 2;
   column-gap: 32px;
-  column-rule: 1.5px solid #334155;
-  line-height: 1.95;
-  font-size: 16px;
-  font-weight: 600;
-  color: #111827;
+  column-rule: 1.5px solid #64748b;
+  line-height: 1.85;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #2b2f38;
   word-break: keep-all;
 }
 
@@ -815,8 +812,8 @@ body {
 }
 
 .paper-body.pedagogy-mode .q-passage {
-  font-size: 16.5px;
-  line-height: 2.05;
+  font-size: 16px;
+  line-height: 1.9;
   padding: 20px 24px;
 }
 
@@ -826,91 +823,91 @@ body {
 
 .pedagogy-congrats {
   text-align: center;
-  font-size: 20px;
-  font-weight: 900;
-  color: #000000;
+  font-size: 19px;
+  font-weight: 700;
+  color: #2b2f38;
   letter-spacing: 4px;
   margin: 35px 0 20px 0;
-  font-family: 'Times New Roman', '신명조', '바탕체', serif !important;
 }
 
 .q-block {
   break-inside: avoid;
   page-break-inside: avoid;
-  margin-bottom: 28px;
-  padding-bottom: 14px;
+  margin-bottom: 26px;
+  padding-bottom: 12px;
 }
 
 /* 실제 기출문제 번호 & 발문 */
 .q-title {
-  font-size: 16.5px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 12px;
   line-height: 1.75;
-  color: #111827;
+  color: #1e293b;
   letter-spacing: -0.01em;
   text-align: justify;
   word-break: keep-all;
 }
 
-/* 📄 실제 기출문제 지문 박스 (눈이 편안한 부드러운 소프트 화이트 배경 & 선명한 실선) */
+/* 📄 실제 기출문제 지문 박스 (눈 피로 0% 부드러운 소프트 아이보리 배경 & 차콜 500 폰트) */
 .q-passage {
   width: 100%;
-  border: 1.5px solid #111827;
+  border: 1.5px solid #475569;
   padding: 16px 18px;
-  background: #ffffff;
-  font-size: 15.5px;
-  font-weight: 600;
+  background: #faf8f5;
+  font-size: 15px;
+  font-weight: 500;
   white-space: pre-wrap;
   margin-bottom: 14px;
-  line-height: 1.95;
-  color: #111827 !important;
+  line-height: 1.85;
+  color: #2b2f38 !important;
   letter-spacing: -0.01em;
-  border-radius: 0px;
-  box-shadow: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   text-align: justify;
   word-break: keep-all;
 }
 
-/* 📋 실제 기출문제 <작성 방법> 박스 */
+/* 📋 실제 기출문제 <작성 방법> 박스 (부드러운 소프트 크림 배경) */
 .kice-rubric-box {
   width: 100%;
-  border: 1.5px solid #111827;
-  padding: 12px 14px 10px 14px;
-  background: #fdfdfd;
+  border: 1.5px solid #475569;
+  padding: 12px 16px 10px 16px;
+  background: #fdfcf9;
   margin-top: 10px;
   margin-bottom: 14px;
   position: relative;
+  border-radius: 4px;
 }
 
 .kice-rubric-header {
   text-align: center;
-  font-size: 15px;
-  font-weight: 800;
-  color: #111827;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1e293b;
   margin-bottom: 8px;
   letter-spacing: -0.01em;
 }
 
 .kice-rubric-body {
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.85;
-  color: #111827 !important;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.8;
+  color: #2b2f38 !important;
   letter-spacing: -0.01em;
   white-space: pre-wrap;
   text-align: justify;
   word-break: keep-all;
 }
 
-/* 📝 기출문제 공식 밑줄 서식 (선명하고 또렷한 굵은 밑줄) */
+/* 📝 기출문제 공식 밑줄 서식 (눈이 편안한 차콜 2px 밑줄) */
 .q-passage u, .kice-rubric-body u, .q-title u, .kice-underline {
   text-decoration: underline !important;
   text-decoration-thickness: 2px !important;
   text-underline-offset: 3.5px !important;
-  text-decoration-color: #111827 !important;
-  font-weight: 800 !important;
-  color: #111827 !important;
+  text-decoration-color: #2b2f38 !important;
+  font-weight: 700 !important;
+  color: #2b2f38 !important;
 }
 
 /* 👀 눈보호 소프트 크림 모드 (Eye-Comfort Mode) */
