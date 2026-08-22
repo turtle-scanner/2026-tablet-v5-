@@ -909,7 +909,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (omrQ) omrQ.scrollIntoView({ behavior: 'smooth' });
   }
 
-  // 📝 (ㄱ), (ㄴ), ㉠, ㉡ 등의 기호에 실제 평가원 시험지 스타일의 선명한 밑줄을 자동 적용하는 함수
+  // 📝 (ㄱ), (ㄴ), ㉠, ㉡ 및 "아닌 것", "않는", "아닌" 등 부정형 핵심 용어에 평가원 기출 밑줄을 자동 적용하는 함수
   function formatKiceSymbols(text) {
     if (!text) return '';
     let res = text;
@@ -928,6 +928,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. (a), (b), (c), (d), (e) 소문자 알파벳 괄호 기호 밑줄 처리
     res = res.replace(/\((a|b|c|d|e|f|g)\)/gi, '<u>($1)</u>');
+
+    // 6. 🎯 평가원 기출 공식 부정형 핵심 강조 표현 밑줄 처리 ("아닌 것", "않는", "아닌", "않은 것", "틀린 것" 등)
+    const negativeKeywords = [
+      '적절하지 않은 것', '적절하지 않은', '적절하지 않는',
+      '부합하지 않는 것', '부합하지 않는', '부합하지 않은',
+      '해당하지 않는 것', '해당하지 않는', '해당하지 않은',
+      '잘못된 것', '잘못된',
+      '부적절한 것', '부적절한',
+      '틀린 것', '틀린',
+      '아닌 것', '아니한 것', '아니한', '아닌', '아니며', '아니고', '아니라',
+      '않은 것', '않는 것', '않은', '않는', '않으며', '않고', '않도록', '않거나'
+    ];
+
+    negativeKeywords.forEach(kw => {
+      const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(?<!<u>)(${escaped})(?!<\/u>)`, 'g');
+      res = res.replace(regex, '<u>$1</u>');
+    });
 
     return res;
   }
