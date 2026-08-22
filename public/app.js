@@ -539,31 +539,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSectionTabUI();
 
+    const paperFooterPage = document.getElementById('paperFooterPage');
+
     if (secKey === 'P') {
-      paperSectionTitle.textContent = '교육학';
+      if (paperSectionTitle) paperSectionTitle.textContent = '교육학';
       if (tableSectionName) tableSectionName.textContent = '1교시 교육학';
       if (tableQSpec) tableQSpec.textContent = '1문항 20점';
-      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 37분`;
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 60분`;
+      if (paperFooterPage) paperFooterPage.textContent = '교육학 [논술] (8면 중 1면)';
       omrTitleText.textContent = '✏️ 오른쪽 1교시 교육학 논술 작성란 (20점 만점 / 1200~1500자)';
       btnCompleteCurrentSec.textContent = '🚀 1교시 교육학 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
       btnSubmitExam.classList.add('hidden'); // 1교시엔 전체 최종 제출 버튼 숨김!
     } else if (secKey === 'A') {
-      paperSectionTitle.textContent = '전문상담 [전공 A]';
+      if (paperSectionTitle) paperSectionTitle.textContent = '전문상담';
       if (tableSectionName) tableSectionName.textContent = '2교시 전공 A';
       if (tableQSpec) tableQSpec.textContent = '12문항 40점';
-      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 35}분`;
-      omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 핑크 4줄 양식)';
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 90분`;
+      if (paperFooterPage) paperFooterPage.textContent = '전문상담 [전공 A] (8면 중 1면)';
+      omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 실전 양식)';
       btnCompleteCurrentSec.textContent = '🚀 2교시 전공A 제출 및 답안 확인';
       btnCompleteCurrentSec.classList.remove('hidden');
       btnSubmitExam.classList.add('hidden'); // 2교시엔 전체 최종 제출 버튼 숨김!
     } else {
       // 3교시 전공 B형일 때만 전체 최종 제출 버튼 노출!
-      paperSectionTitle.textContent = '전문상담 [전공 B]';
+      if (paperSectionTitle) paperSectionTitle.textContent = '전문상담';
       if (tableSectionName) tableSectionName.textContent = '3교시 전공 B';
       if (tableQSpec) tableQSpec.textContent = '11문항 40점';
-      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 ${secData.timeLimit || 35}분`;
-      omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 핑크 4줄 양식)';
+      if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 90분`;
+      if (paperFooterPage) paperFooterPage.textContent = '전문상담 [전공 B] (8면 중 1면)';
+      omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 실전 양식)';
       btnCompleteCurrentSec.classList.add('hidden');
       btnSubmitExam.classList.remove('hidden'); // 마지막 B형에서만 노출!
       btnSubmitExam.textContent = '📝 3교시 B형 완료 및 전체 최종 제출';
@@ -883,41 +888,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderExamPaper(questions) {
     paperBody.innerHTML = '';
-    questions.forEach(q => {
+    questions.forEach((q, qIdx) => {
       const qEl = document.createElement('div');
       qEl.className = 'q-block';
-      qEl.id = `paper-q-${q.id}`;
+      const qNumInt = qIdx + 1;
+      qEl.id = `paper-q-${q.id || qNumInt}`;
 
-      let titleText = q.title || '';
-      const qScore = q.points || q.score || (qIdx < 4 ? 2 : 4);
-      // 개념명(집단상담, 성격심리학 등)을 완전히 제거하고 오직 [문항 A-N] (N점) 형식만 표출!
-      if (titleText.includes('[문항 A-')) {
-        titleText = titleText.replace(/(\[문항 A-\d+\]).*/, '$1') + ` (${qScore}점)`;
-      } else if (titleText.includes('[문항 B-')) {
-        titleText = titleText.replace(/(\[문항 B-\d+\]).*/, '$1') + ` (${qScore}점)`;
-      }
+      const qScore = q.points || q.score || (currentSectionKey === 'P' ? 20 : (qIdx < 4 ? 2 : 4));
+
+      // 실제 기출문제 발문 포맷: "1. 다음은 ... 쓰시오. [2점]"
+      let rawTitle = q.title || '';
+      rawTitle = rawTitle.replace(/\[문항 [AB]-\d+\]/g, '').replace(/\(\d+점\)/g, '').trim();
+      rawTitle = rawTitle.replace(/^\[.*?\]\s*/, '').trim(); // 과목명 태그 제거
 
       let rubricText = q.rubric || '';
-      // [정답 예시] 스포일러 방지를 위해 문제지 표출 시 정답 텍스트 완전 필터링
-      if (rubricText.includes('[정답 예시]')) {
-        rubricText = rubricText.split('[정답 예시]')[0].trim();
-      }
-      if (rubricText.includes('[정답]')) {
-        rubricText = rubricText.split('[정답]')[0].trim();
-      }
-      if (rubricText.includes('[모범 답안]')) {
-        rubricText = rubricText.split('[모범 답안]')[0].trim();
+      if (rubricText.includes('[정답 예시]')) rubricText = rubricText.split('[정답 예시]')[0].trim();
+      if (rubricText.includes('[정답]')) rubricText = rubricText.split('[정답]')[0].trim();
+      if (rubricText.includes('[모범 답안]')) rubricText = rubricText.split('[모범 답안]')[0].trim();
+
+      let mainQuestionText = '';
+      let separateRubric = '';
+
+      if (!q.passage && rubricText) {
+        mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rubricText)} [${qScore}점]`;
+      } else if (rawTitle && rawTitle.length > 5) {
+        mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rawTitle)} [${qScore}점]`;
+        separateRubric = rubricText;
+      } else if (rubricText) {
+        if (rubricText.startsWith('<작성 방법>') || rubricText.includes('○') || rubricText.includes('\n')) {
+          mainQuestionText = `${qNumInt}. 다음 사례를 읽고 &lt;작성 방법&gt;에 따라 서술하시오. [${qScore}점]`;
+          separateRubric = rubricText;
+        } else {
+          mainQuestionText = `${qNumInt}. 다음은 ... ${formatKiceSymbols(rubricText)} [${qScore}점]`;
+        }
+      } else {
+        mainQuestionText = `${qNumInt}. 다음 지문을 읽고 물음에 답하시오. [${qScore}점]`;
       }
 
+      // <작성 방법> 박스 HTML 구성
       let rubricHtml = '';
-      if (rubricText) {
-        rubricHtml = `<div class="q-rubric">${formatKiceSymbols(rubricText)}</div>`;
+      if (separateRubric) {
+        let cleanRubric = separateRubric.replace(/^<작성 방법>\s*:?\s*/i, '').trim();
+        const lines = cleanRubric.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+        const formattedLines = lines.map(l => {
+          if (!l.startsWith('○') && !l.startsWith('-') && !l.startsWith('•')) {
+            return `○ ${formatKiceSymbols(l)}`;
+          }
+          return formatKiceSymbols(l);
+        }).join('<br>');
+
+        rubricHtml = `
+          <div class="kice-rubric-box">
+            <div class="kice-rubric-header">&lt;작성 방법&gt;</div>
+            <div class="kice-rubric-body">${formattedLines}</div>
+          </div>
+        `;
       }
 
       let formattedPassage = q.passage || '';
       if (formattedPassage) {
-        // 대화 축어록 지문에서 대화 사람이 새로 시작할 때는 반드시 다음줄(\n)에 시작하도록 처리
-        const speakerNames = "상담교사|담임교사|경력 교사|신임 교사|김 교사|지혜|민우|승호|유진|수진|민지|현수|민호|재민|성민|성준|아버지|준서|집단원 A|집단원 B|내담자|수검자|보호자|내담자 민우|내담자 현수|내담자 민호|내담자 서연이|내담 아동";
+        const speakerNames = "상담교사|수퍼바이저|담임교사|경력 교사|신임 교사|김 교사|박 교사|이 교사|최 교사|지혜|민우|승호|유진|수진|민지|현수|민호|재민|성민|성준|아버지|어 머 니|어머니|준서|집단원 A|집단원 B|내담자|수검자|보호자|내담자 민우|내담자 현수|내담자 민호|내담자 서연이|내담 아동";
         const dialogueRegex = new RegExp(`([\\"\\.\\?!\\)\\s])\\s*(${speakerNames})\\s*:`, 'g');
         formattedPassage = formattedPassage.replace(dialogueRegex, '$1\n$2:');
         formattedPassage = formattedPassage.replace(/\n{3,}/g, '\n\n').trim();
@@ -925,14 +955,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       qEl.innerHTML = `
-        <div class="q-title">${titleText}</div>
+        <div class="q-title">${mainQuestionText}</div>
         ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
         ${rubricHtml}
       `;
       paperBody.appendChild(qEl);
     });
 
-    // 🖍️ 지문 형광펜/펜 색칠 내역 자동 복원
     restorePassageHighlightState();
   }
 

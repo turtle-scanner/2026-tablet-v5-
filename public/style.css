@@ -726,116 +726,171 @@ body {
 .paper-page {
   width: 100%;
   max-width: 100%;
-  background: #edf0f4;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1.5px solid #94a3b8;
-  border-radius: var(--radius-sm);
-  padding: 24px 28px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  border: 2px solid #000000;
+  border-radius: 0px;
+  padding: 28px 36px 36px 36px;
   min-height: 1200px;
   color: #000000;
 }
 
 .paper-header {
-  border-bottom: 2.5px solid #000000;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 14px;
+  margin-bottom: 22px;
   text-align: center;
 }
 
-.p-title { font-size: 22px; font-weight: 900; letter-spacing: -0.02em; color: #000000; }
+.p-title {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #000000;
+  font-family: 'Times New Roman', '신명조', '바탕체', serif !important;
+}
 
 .p-subject {
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 900;
-  margin: 8px 0 16px 0;
-  letter-spacing: 2px;
+  margin: 10px 0 16px 0;
+  letter-spacing: 6px;
+  color: #000000;
+  font-family: 'Times New Roman', '신명조', '바탕체', serif !important;
+}
+
+.p-user-info-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 800;
   color: #000000;
 }
 
 .p-meta-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .p-meta-table td {
   border: 1.5px solid #000000;
-  padding: 8px;
-  font-size: 15.5px;
+  padding: 6px 10px;
+  font-size: 15px;
   text-align: center;
   font-weight: 800;
   color: #000000;
   letter-spacing: -0.02em;
 }
 
-.paper-body {
-  line-height: 2.0;
-  font-size: 20px;
+.p-notice-banner {
+  border-bottom: 1.5px solid #000000;
+  padding: 8px 12px 10px 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
   font-weight: 800;
   color: #000000;
-  letter-spacing: -0.03em;
+  line-height: 1.6;
+}
+
+/* 📰 실제 기출문제 2단(Two-Column) 레이아웃 */
+.paper-body {
+  column-count: 2;
+  column-gap: 32px;
+  column-rule: 1.5px solid #000000;
+  line-height: 1.85;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #000000;
 }
 
 .q-block {
-  margin-bottom: 40px;
-  padding-bottom: 25px;
-  border-bottom: 2px dashed #94a3b8;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
 }
 
+/* 실제 기출문제 번호 & 발문 */
 .q-title {
-  font-size: 22.5px;
-  font-weight: 900;
-  margin-bottom: 16px;
-  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.7;
   color: #000000;
   letter-spacing: -0.03em;
-  text-shadow: 0.15px 0 0 #000000;
+  text-align: justify;
 }
 
+/* 📄 실제 기출문제 지문 박스 (깔끔한 1.5px 검정 실선 테두리) */
 .q-passage {
   width: 100%;
-  border: 2.5px solid #000000;
-  padding: 22px 26px;
-  background: #c8c5be;
-  font-size: 20px;
+  border: 1.5px solid #000000;
+  padding: 14px 16px;
+  background: #ffffff;
+  font-size: 15px;
   font-weight: 800;
   white-space: pre-wrap;
-  margin-bottom: 20px;
-  line-height: 2.05;
+  margin-bottom: 14px;
+  line-height: 1.85;
   color: #000000 !important;
   letter-spacing: -0.03em;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06), 0 3px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  text-rendering: optimizeLegibility;
-  text-shadow: 0.2px 0 0 #000000; /* 인쇄 활자처럼 짙고 또렷한 잉크 질감 */
+  border-radius: 0px;
+  box-shadow: none;
+  text-align: justify;
 }
 
-.q-rubric {
+/* 📋 실제 기출문제 <작성 방법> 박스 */
+.kice-rubric-box {
   width: 100%;
-  border: 2.5px solid #000000;
-  padding: 18px 22px;
-  background: #ebe8e3;
-  font-size: 19px;
-  font-weight: 800;
-  white-space: pre-wrap;
-  margin-top: 15px;
-  margin-bottom: 25px;
-  line-height: 1.95;
-  color: #000000 !important;
-  letter-spacing: -0.03em;
-  border-radius: 4px;
-  text-shadow: 0.15px 0 0 #000000;
+  border: 1.5px solid #000000;
+  padding: 12px 14px 10px 14px;
+  background: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  position: relative;
 }
 
-/* 📝 평가원 기출문제 공식 밑줄 서식 (선명하고 굵은 2px 밑줄) */
-.q-passage u, .q-rubric u, .kice-underline {
+.kice-rubric-header {
+  text-align: center;
+  font-size: 14.5px;
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.kice-rubric-body {
+  font-size: 14.5px;
+  font-weight: 800;
+  line-height: 1.75;
+  color: #000000 !important;
+  letter-spacing: -0.03em;
+  white-space: pre-wrap;
+  text-align: justify;
+}
+
+/* 📝 기출문제 공식 밑줄 서식 (2.5px 굵은 밑줄) */
+.q-passage u, .kice-rubric-body u, .q-title u, .kice-underline {
   text-decoration: underline !important;
-  text-decoration-thickness: 2.5px !important;
-  text-underline-offset: 4.5px !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3.5px !important;
   text-decoration-color: #000000 !important;
   font-weight: 900 !important;
-  display: inline-block;
-  padding: 0 1px;
+}
+
+/* 시험지 하단 공식 푸터 */
+.paper-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #000000;
+  padding-top: 14px;
+  margin-top: 30px;
+  font-size: 14.5px;
+  font-weight: 900;
+  color: #000000;
 }
 
 /* =========================================================
