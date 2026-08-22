@@ -814,81 +814,196 @@ body {
 }
 
 /* =========================================================
-   3. B4 대형 답안지 규격 (우측 답안지 약한 크림 노란색 배경)
+   3. B4 대형 답안지 규격 (우측 답안지 약한 크림 노란색 배경 & KICE 실전 테마)
    ========================================================= */
 .omr-container {
   flex: 1;
   overflow-y: scroll;
-  padding: 25px;
+  padding: 20px 24px;
   background: #eeeacb;
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 22px;
 }
 
+/* KICE 실전 상단 OMR 마킹 안내 헤더 */
+.kice-omr-header-box {
+  background: #faf8ee;
+  border: 2px solid #b91c1c;
+  border-radius: 4px;
+  padding: 12px 16px;
+  box-shadow: 0 3px 10px rgba(160, 150, 100, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kice-omr-header-box.theme-a {
+  border-color: #b91c1c;
+}
+
+.kice-omr-header-box.theme-b {
+  border-color: #0369a1;
+}
+
+.kice-omr-header-box.theme-ped {
+  border-color: #1e40af;
+}
+
+.kice-header-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kice-sec-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1.5px solid currentColor;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.kice-omr-header-box.theme-a .kice-sec-badge { color: #b91c1c; }
+.kice-omr-header-box.theme-b .kice-sec-badge { color: #0369a1; }
+.kice-omr-header-box.theme-ped .kice-sec-badge { color: #1e40af; }
+
+.kice-exam-main-title {
+  font-size: 15px;
+  font-weight: 900;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+}
+
+.kice-notice-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #475569;
+  border-top: 1px solid #cbd5e1;
+  padding-top: 6px;
+}
+
+/* OMR 공통 박스 규격 */
 .pink-omr-box {
   display: flex;
-  height: 260px;
-  min-height: 260px;
-  border: 2px solid var(--accent-rose);
   border-radius: var(--radius-sm);
   background: #faf8ee;
-  box-shadow: 0 4px 12px rgba(160, 150, 100, 0.15);
+  box-shadow: 0 3px 8px rgba(160, 150, 100, 0.12);
   overflow: hidden;
   flex-shrink: 0;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+/* 1줄 단답형 박스 (A형 1~4번, B형 1~2번) */
+.pink-omr-box.oneline-omr-box {
+  height: 90px;
+  min-height: 90px;
+}
+
+/* 4줄 서술형 박스 (A형 5~12번, B형 3~11번) */
+.pink-omr-box.fourline-omr-box {
+  height: 245px;
+  min-height: 245px;
+}
+
+/* 교육학 대형 박스 */
 .pink-omr-box.pedagogy-box {
   height: 1400px !important;
   min-height: 1400px !important;
-  border: 3px solid var(--primary-blue);
+  border: 3px solid #1e40af !important;
   background: #faf8ee;
-  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 8px 30px rgba(30, 64, 175, 0.15);
 }
 
-.pink-omr-box.active-omr {
-  border: 3px solid var(--accent-pink);
-  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.25);
+/* 🔴 1. 붉은색 테마 (A형 1~7번, B형 1~6번) */
+.pink-omr-box.theme-red {
+  border: 2px solid #dc2626;
+}
+.pink-omr-box.theme-red .pink-q-cell {
+  background: #fef2f2;
+  border-right: 2px solid #dc2626;
+}
+.pink-omr-box.theme-red .pink-q-num,
+.pink-omr-box.theme-red .pink-q-score {
+  color: #b91c1c;
+}
+.pink-omr-box.theme-red .pink-char-counter {
+  color: #b91c1c;
+}
+
+/* ⚪ 2. 차분한 회색 테마 (A형 8~12번 - 2번째 사진) */
+.pink-omr-box.theme-gray {
+  border: 2px solid #64748b;
+}
+.pink-omr-box.theme-gray .pink-q-cell {
+  background: #f1f5f9;
+  border-right: 2px solid #64748b;
+}
+.pink-omr-box.theme-gray .pink-q-num,
+.pink-omr-box.theme-gray .pink-q-score {
+  color: #334155;
+}
+.pink-omr-box.theme-gray .pink-char-counter {
+  color: #334155;
+}
+
+/* 🔵 3. 청록색/시안 테마 (B형 7~11번 - 4번째 사진) */
+.pink-omr-box.theme-cyan {
+  border: 2px solid #0284c7;
+}
+.pink-omr-box.theme-cyan .pink-q-cell {
+  background: #f0f9ff;
+  border-right: 2px solid #0284c7;
+}
+.pink-omr-box.theme-cyan .pink-q-num,
+.pink-omr-box.theme-cyan .pink-q-score {
+  color: #0369a1;
+}
+.pink-omr-box.theme-cyan .pink-char-counter {
+  color: #0369a1;
+}
+
+/* 🔷 4. 교육학 블루 테마 */
+.pink-omr-box.theme-ped {
+  border: 3px solid #1e40af;
+}
+.pink-omr-box.theme-ped .pink-q-cell {
+  background: #eff6ff;
+  border-right: 3px solid #1e40af;
+}
+.pink-omr-box.theme-ped .pink-q-num,
+.pink-omr-box.theme-ped .pink-q-score {
+  color: #1e40af;
 }
 
 .pink-q-cell {
-  width: 120px;
-  min-width: 120px;
+  width: 110px;
+  min-width: 110px;
   height: 100%;
-  background: #faf8ee;
-  border-right: 2px solid var(--accent-rose);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px 10px;
+  padding: 10px 8px;
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
-}
-
-.pink-omr-box.pedagogy-box .pink-q-cell {
-  border-right-color: var(--primary-blue);
-  background: #eef4ff;
+  cursor: pointer;
 }
 
 .pink-q-num {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
-  color: var(--accent-pink);
-  line-height: 1.3;
+  line-height: 1.2;
 }
-
-.pink-omr-box.pedagogy-box .pink-q-num { color: #1e40af; font-size: 24px; font-weight: 900; }
 
 .pink-q-score {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 900;
-  color: var(--accent-pink);
-  margin-top: 6px;
+  margin-top: 4px;
 }
-
-.pink-omr-box.pedagogy-box .pink-q-score { color: #1e40af; font-weight: 900; }
 
 .pink-input-cell {
   flex: 1;
@@ -897,72 +1012,84 @@ body {
   flex-direction: column;
   position: relative;
   background: #faf8ee;
+  padding: 6px 14px;
 }
 
-.pink-4line-textarea, .pink-rich-textarea {
+.pink-rich-textarea {
   width: 100%;
-  height: 190px;
-  min-height: 190px;
-  max-height: 190px;
-  padding: 4px 18px;
-  font-size: 19px;
+  padding: 2px 10px;
+  font-size: 18.5px;
   font-weight: 800;
-  line-height: 48px;
   border: none;
   outline: none;
   resize: none;
   overflow-y: auto;
   color: #000000;
   background-attachment: local;
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, var(--accent-rose) 46px, var(--accent-rose) 48px);
-  background-size: 100% 48px;
   font-family: 'Noto Sans KR', sans-serif;
   white-space: pre-wrap;
   word-break: break-all;
   background-color: #faf8ee;
 }
 
+/* 1줄 단답형 텍스트에어리어 (높이 48px, 1줄 가이드선) */
+.pink-rich-textarea.oneline-textarea {
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  line-height: 44px;
+}
+
+.theme-red-textarea.oneline-textarea {
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 42px, #f87171 42px, #f87171 44px);
+  background-size: 100% 44px;
+}
+
+.theme-gray-textarea.oneline-textarea {
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 42px, #94a3b8 42px, #94a3b8 44px);
+  background-size: 100% 44px;
+}
+
+.theme-cyan-textarea.oneline-textarea {
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 42px, #38bdf8 42px, #38bdf8 44px);
+  background-size: 100% 44px;
+}
+
+/* 4줄 서술형 텍스트에어리어 (높이 192px, 4줄 가이드선) */
+.pink-rich-textarea.fourline-textarea {
+  height: 192px;
+  min-height: 192px;
+  max-height: 192px;
+  line-height: 48px;
+}
+
+.theme-red-textarea.fourline-textarea {
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, #f87171 46px, #f87171 48px);
+  background-size: 100% 48px;
+}
+
+.theme-gray-textarea.fourline-textarea {
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, #94a3b8 46px, #94a3b8 48px);
+  background-size: 100% 48px;
+}
+
+.theme-cyan-textarea.fourline-textarea {
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, #38bdf8 46px, #38bdf8 48px);
+  background-size: 100% 48px;
+}
+
 .pink-rich-textarea[contenteditable]:empty::before {
   content: attr(data-placeholder);
   color: #94a3b8;
   font-weight: 500;
-}
-
-/* 3교시 전공 B형 파란색 줄노트 및 전용 파란색 양식 스타일 */
-.pink-omr-box.section-b-box {
-  border: 2px solid #2563eb !important;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.12) !important;
-}
-
-.pink-omr-box.section-b-box .pink-q-cell {
-  border-right-color: #3b82f6 !important;
-  background: #eef4ff !important;
-}
-
-.pink-omr-box.section-b-box .pink-q-num {
-  color: #1e40af !important;
-}
-
-.pink-omr-box.section-b-box .pink-q-score {
-  color: #1d4ed8 !important;
-}
-
-.section-b-textarea, .pink-rich-textarea.section-b-textarea {
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, #3b82f6 46px, #3b82f6 48px) !important;
-  background-size: 100% 48px !important;
-  background-color: #faf8ee !important;
-}
-
-.pink-omr-box.section-b-box .pink-char-counter {
-  color: #1d4ed8 !important;
-  border-top-color: #93c5fd !important;
+  font-size: 16px;
 }
 
 .pedagogy-textarea {
   height: 1350px !important;
   min-height: 1350px !important;
   line-height: 45px !important;
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 43px, #93c5fd 43px, #93c5fd 45px) !important;
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 43px, #60a5fa 43px, #60a5fa 45px) !important;
   background-size: 100% 45px !important;
   overflow-y: auto !important;
   font-size: 20px !important;

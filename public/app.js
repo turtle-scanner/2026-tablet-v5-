@@ -1093,25 +1093,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderOMRForm(questions) {
     omrAnswerContainer.innerHTML = '';
+    
+    // 실제 KICE 평가원 답안지 상단 OMR 마킹 안내 헤더 삽입
+    const isPed = (currentSectionKey === 'P');
+    const isSecA = (currentSectionKey === 'A');
+    const isSecB = (currentSectionKey === 'B');
+    
+    const omrTopHeader = document.createElement('div');
+    omrTopHeader.className = `kice-omr-header-box ${isPed ? 'theme-ped' : isSecA ? 'theme-a' : 'theme-b'}`;
+    omrTopHeader.innerHTML = `
+      <div class="kice-header-title-row">
+        <div class="kice-sec-badge">${isPed ? '1교시' : isSecA ? '2교시' : '3교시'}</div>
+        <div class="kice-exam-main-title">2027학년도 중등학교교사 임용후보자 선정경쟁시험 제1차 시험 답안지</div>
+      </div>
+      <div class="kice-notice-banner">
+        <span>1. 수험 번호 및 성명을 확인 후 작성하십시오.</span>
+        <span>2. 답안은 지워지거나 번지지 않는 검은색 펜을 사용하여 작성하십시오.</span>
+      </div>
+    `;
+    omrAnswerContainer.appendChild(omrTopHeader);
+
     questions.forEach((q, idx) => {
-      const isPed = (currentSectionKey === 'P');
-      const isSecB = (currentSectionKey === 'B');
-      const qNum = q.id || q.number || q.no || (idx + 1);
+      const qNumRaw = q.id || q.number || q.no || (idx + 1);
+      // 숫자 번호 추출 (A-1 -> 1, B-5 -> 5 등)
+      const numMatch = String(qNumRaw).match(/\d+/);
+      const qNumInt = numMatch ? parseInt(numMatch[0], 10) : (idx + 1);
+      const qNum = qNumRaw;
       const ansKey = getAnswerKey(qNum);
-      const qScore = q.points || q.score || (isPed ? 20 : (idx < 4 ? 2 : 4));
+      const qScore = q.points || q.score || (isPed ? 20 : (isSecA ? (qNumInt <= 4 ? 2 : 4) : (qNumInt <= 2 ? 2 : 4)));
       const qColor = qPenColorMap[ansKey] || qPenColorMap[qNum] || 'black';
 
+      // 1줄 vs 4줄 판정
+      // A형: 1~4번은 1줄, 5~12번은 4줄
+      // B형: 1~2번은 1줄, 3~11번은 4줄
+      let isOneLine = false;
+      if (isSecA && qNumInt <= 4) isOneLine = true;
+      if (isSecB && qNumInt <= 2) isOneLine = true;
+
+      // 색상 테마 클래스 판정:
+      // A형: 1~7번 red-theme (약간 빨간색), 8~12번 gray-theme (회색/슬레이트)
+      // B형: 1~6번 red-theme (약간 빨간색), 7~11번 cyan-theme (청록/틸)
+      // 교육학: ped-theme (블루)
+      let colorThemeClass = 'theme-red';
+      if (isPed) {
+        colorThemeClass = 'theme-ped';
+      } else if (isSecA) {
+        if (qNumInt >= 8) colorThemeClass = 'theme-gray';
+        else colorThemeClass = 'theme-red';
+      } else if (isSecB) {
+        if (qNumInt >= 7) colorThemeClass = 'theme-cyan';
+        else colorThemeClass = 'theme-red';
+      }
+
       const box = document.createElement('div');
-      box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''} ${isSecB ? 'section-b-box' : ''}`;
+      box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''} ${isOneLine ? 'oneline-omr-box' : 'fourline-omr-box'} ${colorThemeClass}`;
       box.id = `omr-card-${qNum}`;
 
-      // 오직 현재 교시 전용 고유 키(ansKey: A_1 vs B_1) 데이터만 조회하여 2교시 답안이 3교시로 딸려오는 현상 100% 원천 차단!
       const savedHtml = userAnswersHtmlMap[ansKey] || userAnswers[ansKey] || '';
       const savedText = userAnswers[ansKey] || '';
 
       box.innerHTML = `
         <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNum}" data-anskey="${ansKey}" title="클릭하여 O/X 도장을 찍으세요">
-          <div class="pink-q-num">${isPed ? '교육학' : `문항 ${qNum}`}</div>
+          <div class="pink-q-num">${isPed ? '교육학' : `문항 ${qNumInt}`}</div>
           <div class="pink-q-score">(${qScore}점)</div>
         </div>
         <div class="pink-input-cell">
@@ -1122,9 +1165,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <button type="button" class="btn-pen-color btn-pen-red ${qColor==='red'?'active-pen':''}" data-color="red" title="빨간색"></button>
               <button type="button" class="btn-pen-color btn-pen-blue ${qColor==='blue'?'active-pen':''}" data-color="blue" title="파란색"></button>
             </div>
-            <div class="pink-char-counter" id="char-count-${qNum}" style="margin:0;">${savedText.length} 자${isPed ? '' : ' (최대 4줄)'}</div>
+            <div class="pink-char-counter" id="char-count-${qNum}" style="margin:0;">${savedText.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}</div>
           </div>
-          <div id="ans-text-${qNum}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isSecB ? 'section-b-textarea' : ''}" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : `${qNum}번 서술형 답안을 4줄에 작성하세요.`}">${savedHtml}</div>
+          <div id="ans-text-${qNum}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isOneLine ? 'oneline-textarea' : 'fourline-textarea'} ${colorThemeClass}-textarea" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : (isOneLine ? `문항 ${qNumInt}번 단답형 답안을 1줄에 작성하세요.` : `문항 ${qNumInt}번 서술형 답안을 4줄에 작성하세요.`)}">${savedHtml}</div>
         </div>
       `;
 
