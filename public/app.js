@@ -972,39 +972,48 @@ document.addEventListener('DOMContentLoaded', () => {
       let separateRubric = '';
 
       let cleanPassage = formattedPassage;
+      // 1. 발문(Intro) 추출: "다음은 ... 논하시오. [20점]"
       const matchIntro = cleanPassage.match(/^(다음은\s+[\s\S]*?논하시오\.\s*(\[\d+점\])?)/);
       if (matchIntro) {
         mainQuestionText = matchIntro[1].trim();
         if (!mainQuestionText.includes(`[${qScore}점]`)) mainQuestionText += ` [${qScore}점]`;
         cleanPassage = cleanPassage.substring(matchIntro[0].length).trim();
-        cleanPassage = cleanPassage.replace(/^\[제시문\]\s*/i, '').trim();
-        formattedPassage = cleanPassage;
       } else if (rawTitle && rawTitle.length > 10) {
         mainQuestionText = `${formatKiceSymbols(rawTitle)} [${qScore}점]`;
-        separateRubric = rubricText;
-      } else if (rubricText && !rubricText.startsWith('<')) {
-        mainQuestionText = `${formatKiceSymbols(rubricText)} [${qScore}점]`;
       } else {
         mainQuestionText = `다음 내용을 읽고 지시사항에 따라 서론, 본론, 결론을 갖추어 논하시오. [${qScore}점]`;
+      }
+
+      cleanPassage = cleanPassage.replace(/^\[제시문\]\s*/i, '').trim();
+
+      // 2. passage 안에 <배 점> 또는 <작성 방법>이 포함되어 있는지 검사하여 지문과 배점 박스를 명확히 분리!
+      const rubricMatchInPassage = cleanPassage.match(/<(배\s*점|작성\s*방법)>([\s\S]*)/i);
+      if (rubricMatchInPassage) {
+        separateRubric = rubricMatchInPassage[0];
+        cleanPassage = cleanPassage.substring(0, rubricMatchInPassage.index).trim();
+      } else if (rubricText) {
         separateRubric = rubricText;
       }
 
+      // 3. 지문 끝에 붙은 <수고하셨습니다.> 제거
+      cleanPassage = cleanPassage.replace(/<수고하셨습니다\.?>/g, '').replace(/─{5,}/g, '').trim();
+      formattedPassage = cleanPassage;
+
+      // 4. <배 점> 박스 HTML 깔끔하게 생성
       let rubricHtml = '';
       if (separateRubric) {
-        let cleanRubric = separateRubric.replace(/^<(작성 방법|배\s*점)>\s*:?\s*/i, '').trim();
+        let cleanRubric = separateRubric.replace(/<수고하셨습니다\.?>/g, '').replace(/─{5,}/g, '').trim();
+        cleanRubric = cleanRubric.replace(/^<(작성\s*방법|배\s*점)>\s*:?\s*/i, '').trim();
         const lines = cleanRubric.split('\n').map(l => l.trim()).filter(l => l.length > 0);
         const formattedLines = lines.map(l => {
           let text = l;
-          if (!text.startsWith('○') && !text.startsWith('-') && !text.startsWith('•') && !text.startsWith('※')) {
-            text = `○ ${text}`;
-          }
           return `<div class="kice-rubric-item">${formatKiceSymbols(text)}</div>`;
         }).join('');
 
         rubricHtml = `
-          <div class="kice-rubric-box">
-            <div class="kice-rubric-header">&lt;배 &nbsp; 점&gt;</div>
-            <div class="kice-rubric-body">${formattedLines}</div>
+          <div class="kice-rubric-box" style="margin-top: 24px; border: 1.5px solid #222; background: #fff; padding: 14px 18px; border-radius: 4px;">
+            <div class="kice-rubric-header" style="text-align: center; font-weight: 800; font-size: 15px; margin-bottom: 10px; color: #111;">&lt;배 &nbsp; 점&gt;</div>
+            <div class="kice-rubric-body" style="font-size: 13.5px; line-height: 1.8; color: #222;">${formattedLines}</div>
           </div>
         `;
       }
