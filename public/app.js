@@ -1633,6 +1633,10 @@ document.addEventListener('DOMContentLoaded', () => {
       box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''} ${isOneLine ? 'oneline-omr-box' : 'fourline-omr-box'} ${colorThemeClass}`;
       box.id = `omr-card-${qNumInt}`;
 
+      const savedHtml = userAnswersHtmlMap[ansKey] || userAnswers[ansKey] || '';
+      const savedText = userAnswers[ansKey] || '';
+      const curMark = omrMarksMap[ansKey] || null;
+
       const earnedScore = getEarnedScoreByMark(qScore, curMark);
       const earnedTagText = curMark ? `[+${earnedScore.toFixed(1)}점]` : '';
       const tagClass = curMark === 'O' ? 'tag-full' : curMark === 'TRIANGLE' ? 'tag-half' : curMark === 'X' ? 'tag-zero' : '';
