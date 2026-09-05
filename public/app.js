@@ -2290,12 +2290,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   const btnToggleViewMode = document.getElementById('btnToggleViewMode');
   const btnOpenOmrDrawer = document.getElementById('btnOpenOmrDrawer');
-  const btnFloatingOmr = document.getElementById('btnFloatingOmr');
+  const btnRightOmrStrip = document.getElementById('btnRightOmrStrip');
   const btnCloseOmrDrawer = document.getElementById('btnCloseOmrDrawer');
   const omrBackdrop = document.getElementById('omrBackdrop');
   const floatingScoreBadge = document.getElementById('floatingScoreBadge');
 
-  let isPopupOmrMode = false;
+  let isPopupOmrMode = true;
 
   function setViewMode(popupMode) {
     isPopupOmrMode = popupMode;
@@ -2309,8 +2309,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnOpenOmrDrawer) {
       btnOpenOmrDrawer.style.display = isPopupOmrMode ? 'inline-block' : 'none';
     }
-    if (btnFloatingOmr) {
-      btnFloatingOmr.style.display = isPopupOmrMode ? 'flex' : (window.innerWidth <= 1100 ? 'flex' : 'none');
+    if (btnRightOmrStrip) {
+      btnRightOmrStrip.style.display = isPopupOmrMode ? 'flex' : 'none';
     }
     if (!isPopupOmrMode) {
       closeOmrDrawer();
@@ -2351,7 +2351,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (btnOpenOmrDrawer) {
       btnOpenOmrDrawer.textContent = '📝 답안지 팝업';
-      btnOpenOmrDrawer.style.background = 'linear-gradient(135deg, #e11d48 0%, #be123c 100%)';
+      btnOpenOmrDrawer.style.background = '#0e7490';
     }
   }
 
@@ -2386,7 +2386,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (btnOpenOmrDrawer) btnOpenOmrDrawer.addEventListener('click', toggleOmrDrawer);
-  if (btnFloatingOmr) btnFloatingOmr.addEventListener('click', toggleOmrDrawer);
+  if (btnRightOmrStrip) btnRightOmrStrip.addEventListener('click', toggleOmrDrawer);
   if (btnCloseOmrDrawer) btnCloseOmrDrawer.addEventListener('click', closeOmrDrawer);
   if (omrBackdrop) omrBackdrop.addEventListener('click', closeOmrDrawer);
 
