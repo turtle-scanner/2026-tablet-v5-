@@ -1400,6 +1400,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!bannerEl) return;
 
     const scores = calculateSelfGradingScores();
+    if (floatingScoreBadge) {
+      floatingScoreBadge.textContent = `${scores.totalScore.toFixed(1)}/100점`;
+    }
     bannerEl.innerHTML = `
       <div class="score-banner-title">
         <span>🎯 <strong>실시간 자가채점 스코어보드</strong> (진행: ${scores.gradedCount}/${scores.totalQuestions}문항 | ⭕:${scores.countO} 🔺:${scores.countTri} ❌:${scores.countX})</span>
@@ -2248,23 +2251,105 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ↔️ 문제지 - 답안지 반응형 5:5 비율 조절 및 리사이저 드래그 엔합
-  const paneLeft = document.getElementById('paneLeft');
-  const paneRight = document.getElementById('paneRight');
-  const resizer = document.getElementById('resizer');
-  const splitMain = document.querySelector('.split-main');
+  // =========================================================
+  // 📱 아이패드 10.1 & 태블릿 & 모바일 전용 팝업 OMR 답안지 드로어 컨트롤러
+  // =========================================================
+  const btnToggleViewMode = document.getElementById('btnToggleViewMode');
+  const btnOpenOmrDrawer = document.getElementById('btnOpenOmrDrawer');
+  const btnFloatingOmr = document.getElementById('btnFloatingOmr');
+  const btnCloseOmrDrawer = document.getElementById('btnCloseOmrDrawer');
+  const omrBackdrop = document.getElementById('omrBackdrop');
+  const floatingScoreBadge = document.getElementById('floatingScoreBadge');
 
+  let isPopupOmrMode = false;
+
+  function setViewMode(popupMode) {
+    isPopupOmrMode = popupMode;
+    if (splitMain) {
+      splitMain.classList.toggle('mode-popup-omr', isPopupOmrMode);
+    }
+    if (btnToggleViewMode) {
+      btnToggleViewMode.textContent = isPopupOmrMode ? '🖥️ 좌우 분할 뷰' : '📱 답안지 팝업 모드';
+      btnToggleViewMode.style.background = isPopupOmrMode ? '#059669' : '#4338ca';
+    }
+    if (btnOpenOmrDrawer) {
+      btnOpenOmrDrawer.style.display = isPopupOmrMode ? 'inline-block' : 'none';
+    }
+    if (btnFloatingOmr) {
+      btnFloatingOmr.style.display = isPopupOmrMode ? 'flex' : (window.innerWidth <= 1100 ? 'flex' : 'none');
+    }
+    if (!isPopupOmrMode) {
+      closeOmrDrawer();
+      if (paneLeft && paneRight && window.innerWidth >= 1100) {
+        paneLeft.style.flex = '1 1 50%';
+        paneRight.style.flex = '1 1 50%';
+      }
+    } else {
+      if (paneLeft) {
+        paneLeft.style.flex = '1 1 100%';
+      }
+    }
+    try {
+      localStorage.setItem('user_pref_popup_mode', isPopupOmrMode ? 'true' : 'false');
+    } catch(e) {}
+  }
+
+  function openOmrDrawer() {
+    if (paneRight) {
+      paneRight.classList.add('omr-drawer-open');
+    }
+    if (omrBackdrop) {
+      omrBackdrop.classList.remove('hidden');
+    }
+  }
+
+  function closeOmrDrawer() {
+    if (paneRight) {
+      paneRight.classList.remove('omr-drawer-open');
+    }
+    if (omrBackdrop) {
+      omrBackdrop.classList.add('hidden');
+    }
+  }
+
+  if (btnToggleViewMode) {
+    btnToggleViewMode.addEventListener('click', () => {
+      setViewMode(!isPopupOmrMode);
+    });
+  }
+
+  if (btnOpenOmrDrawer) btnOpenOmrDrawer.addEventListener('click', openOmrDrawer);
+  if (btnFloatingOmr) btnFloatingOmr.addEventListener('click', openOmrDrawer);
+  if (btnCloseOmrDrawer) btnCloseOmrDrawer.addEventListener('click', closeOmrDrawer);
+  if (omrBackdrop) omrBackdrop.addEventListener('click', closeOmrDrawer);
+
+  // 화면 폭이 1150px 이하(아이패드 10.1, 태블릿, 모바일)이면 자동으로 팝업 답안지 모드로 시작!
+  const savedPrefMode = localStorage.getItem('user_pref_popup_mode');
+  if (savedPrefMode !== null) {
+    setViewMode(savedPrefMode === 'true');
+  } else if (window.innerWidth <= 1150) {
+    setViewMode(true);
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth <= 1100 && !isPopupOmrMode) {
+      setViewMode(true);
+    }
+  });
+
+  // ↔️ 문제지 - 답안지 반응형 5:5 비율 조절 및 리사이저 드래그 엔진
   if (resizer && paneLeft && paneRight && splitMain) {
     let isResizing = false;
 
     resizer.addEventListener('mousedown', (e) => {
+      if (isPopupOmrMode) return;
       isResizing = true;
       document.body.style.cursor = 'col-resize';
       document.body.style.userSelect = 'none';
     });
 
     document.addEventListener('mousemove', (e) => {
-      if (!isResizing) return;
+      if (!isResizing || isPopupOmrMode) return;
       const containerRect = splitMain.getBoundingClientRect();
       const leftWidth = e.clientX - containerRect.left;
       const totalWidth = containerRect.width;
@@ -2284,23 +2369,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.userSelect = 'auto';
       }
     });
-
-    // 윈도우 창 크기 변경 시 비율 유지
-    window.addEventListener('resize', () => {
-      if (window.innerWidth < 768) {
-        paneLeft.style.flex = '1 1 100%';
-        paneRight.style.flex = '1 1 100%';
-      } else {
-        if (!paneLeft.style.flex || paneLeft.style.flex.includes('100%')) {
-          paneLeft.style.flex = '1 1 50%';
-          paneRight.style.flex = '1 1 50%';
-        }
-      }
-    });
   }
 
   // 페이지 초기 진입 시 드롭다운 동적 생성 즉시 실행
   setupExamRoundDropdownOptions();
 });
+
 
 

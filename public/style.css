@@ -1519,8 +1519,190 @@ body {
 .btn-admin-save:hover { opacity: 0.95; }
 
 /* =========================================================
-   4. 스마트폰 / 모바일 반응형 UX 최적화 (Mobile Responsive)
+   📱 4. 아이패드 10.1 & 태블릿 & 모바일 전용 팝업 답안지 & 스마트 반응형 시스템
    ========================================================= */
+
+/* 📱 우측 하단 플로팅 OMR 답안지 열기 버튼 */
+.floating-omr-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 25px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+  color: #ffffff;
+  border: 2px solid #fda4af;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 900;
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: floatBounce 2.5s infinite ease-in-out;
+}
+
+.floating-omr-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(225, 29, 72, 0.55);
+}
+
+.omr-float-icon { font-size: 18px; }
+.omr-float-text { letter-spacing: -0.3px; }
+.omr-float-badge {
+  background: #ffffff;
+  color: #e11d48;
+  font-size: 11.5px;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* 팝업 백드롭 오버레이 */
+.omr-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+  transition: opacity 0.3s;
+}
+
+/* 닫기 버튼 */
+.btn-close-drawer {
+  display: none;
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  font-size: 12.5px;
+  font-weight: 800;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 📱 팝업 답안지 모드 (.mode-popup-omr) 활성화 시 */
+.mode-popup-omr #paneLeft {
+  flex: 1 1 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.mode-popup-omr #resizer {
+  display: none !important;
+}
+
+.mode-popup-omr #paneRight {
+  display: none;
+}
+
+/* 팝업 답안지가 열렸을 때 (화면 위 팝업 모달/바텀시트) */
+.mode-popup-omr #paneRight.omr-drawer-open {
+  display: flex !important;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 680px;
+  height: 85vh;
+  z-index: 1001;
+  background: #ffffff;
+  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.35);
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border: 2px solid #fda4af;
+  animation: slideUpDrawer 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mode-popup-omr .btn-close-drawer {
+  display: inline-block !important;
+}
+
+@keyframes slideUpDrawer {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* 📱 1100px 이하 (아이패드 10.1 가로/세로, 태블릿, 모바일) 반응형 최적화 */
+@media (max-width: 1100px) {
+  .exam-top-bar {
+    height: auto !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  
+  .user-goal-banner {
+    display: none !important; /* 화면 높이 확보 */
+  }
+
+  .incheon-cutoff-container {
+    padding: 4px 8px !important;
+    gap: 6px !important;
+    margin: 2px 0 !important;
+  }
+
+  .cutoff-badge-item {
+    font-size: 11px !important;
+    padding: 2px 6px !important;
+  }
+
+  .bar-left, .bar-center, .bar-right {
+    gap: 6px !important;
+  }
+
+  .select-round {
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    max-width: 220px !important;
+  }
+
+  .btn-sec-tab {
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+  }
+
+  .timer-box {
+    padding: 4px 10px !important;
+    font-size: 11.5px !important;
+  }
+  .timer-time { font-size: 16px !important; }
+  .q-timer-time { font-size: 16px !important; }
+
+  .btn-section-complete, .btn-primary, .btn-secondary {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
+
+  /* 문제지 페이지 2단 그리드를 1단 쾌적 뷰로 래핑 */
+  .kice-page-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .kice-col-left {
+    border-right: none !important;
+    padding-right: 0 !important;
+    border-bottom: 2px dashed #cbd5e1;
+    padding-bottom: 20px;
+  }
+  .kice-col-right {
+    padding-left: 0 !important;
+  }
+
+  .paper-page {
+    padding: 18px 16px !important;
+    min-height: auto !important;
+  }
+}
+
+/* 📱 768px 이하 (스마트폰 최적화) */
 @media (max-width: 768px) {
   body, .view-container {
     overflow-y: auto !important;
@@ -1528,83 +1710,55 @@ body {
     min-height: 100vh;
   }
 
-  /* 로그인 모바일 배치 */
-  .login-wrapper { padding: 10px; gap: 20px; }
-  .green-title-box { padding: 20px 15px; }
-  .green-title-box h1 { font-size: 28px; }
-  .green-title-box .sub-title { font-size: 22px; }
-  .login-content-grid { grid-template-columns: 1fr; gap: 20px; }
-  
-  /* 헤더 모바일 정렬 */
-  .exam-top-bar {
-    height: auto;
-    flex-direction: column;
-    padding: 12px 15px;
-    gap: 12px;
-  }
-  .bar-left, .bar-center, .bar-right {
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  .mode-popup-omr #paneRight.omr-drawer-open {
+    max-width: 100% !important;
+    height: 92vh !important;
+    border-radius: 16px 16px 0 0 !important;
   }
 
-  /* 실전 분할 화면 모바일 최적화 (상하 스크롤 배치) */
-  #examView { height: auto !important; overflow-y: auto !important; }
-  .split-main {
+  .floating-omr-btn {
+    right: 15px;
+    bottom: 15px;
+    padding: 10px 16px;
+    font-size: 13.5px;
+  }
+
+  .incheon-cutoff-container {
+    display: none !important; /* 스마트폰은 헤더 극소화 */
+  }
+
+  .bar-center {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .passage-toolbar {
+    padding: 6px 8px !important;
+    gap: 4px !important;
+  }
+  .passage-toolbar button {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .pink-omr-box {
     flex-direction: column !important;
     height: auto !important;
-    overflow: visible !important;
-  }
-  .resizer { display: none !important; }
-  .pane {
-    width: 100% !important;
-    flex: none !important;
-    height: auto !important;
-    min-height: 500px;
+    min-height: 280px !important;
   }
   
-  /* 모바일 문제지 뷰어 */
-  .paper-container { padding: 15px 10px; }
-  .paper-page {
-    padding: 22px 16px;
-    min-height: auto;
-    font-size: 17px;
-  }
-  .q-title { font-size: 19px; }
-  .q-passage {
-    font-size: 17.5px;
-    padding: 16px 14px;
-    line-height: 1.8;
-  }
-
-  /* 모바일 답안지 OMR 카드리사이징 */
-  .omr-container { padding: 15px 10px; gap: 20px; }
-  .pink-omr-box {
-    flex-direction: column;
-    height: auto !important;
-    min-height: 320px;
-  }
   .pink-q-cell {
-    width: 100%;
-    min-width: 100%;
-    height: 50px;
-    border-right: none;
-    border-bottom: 2px solid var(--accent-rose);
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 8px 20px;
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 44px !important;
+    border-right: none !important;
+    border-bottom: 2px solid var(--accent-rose) !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    padding: 6px 14px !important;
   }
-  .pink-4line-textarea {
-    font-size: 18px !important;
-    line-height: 44px !important;
-    height: 240px !important;
-  }
-  .pedagogy-textarea {
-    font-size: 18.5px !important;
-    height: 900px !important;
-  }
-  .modal-card { width: 96%; margin: 10px; }
 }
+
 
 /* =========================================================
    실제 KICE 임용 시험장 긴장감 연출 UI/UX (Atmosphere System)
