@@ -939,18 +939,22 @@ body {
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
   border: 1.5px solid #333a45;
   border-radius: 0px;
-  padding: 20px 24px;
+  padding: 24px 32px;
   min-height: auto;
-  color: #2b2f38;
+  color: #1e293b;
 }
 
 .paper-header {
   border-bottom: 2px solid #333a45;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+}
+
 .p-title {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.5px;
-  color: #2b2f38;
+  color: #1e293b;
 }
 
 .p-subject {
