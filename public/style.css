@@ -1761,24 +1761,26 @@ body {
 }
 
 /* 🎯 팝업 답안지가 열렸을 때 (화면 우측 정확히 50% 절반 오버레이 패널) */
+#paneRight.omr-drawer-open,
 .mode-popup-omr #paneRight.omr-drawer-open {
   display: flex !important;
-  position: fixed;
-  top: 52px; /* 상단 슬림바 바로 아래부터 */
-  bottom: 0;
-  right: 0;
+  position: fixed !important;
+  top: 52px !important; /* 상단 슬림바 바로 아래부터 */
+  bottom: 0 !important;
+  right: 0 !important;
   width: 50% !important;
   max-width: 50% !important;
-  min-width: 380px;
+  min-width: 360px !important;
   height: calc(100vh - 52px) !important;
-  z-index: 1001;
-  background: #ffffff;
-  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.4);
-  border-left: 3px solid #fda4af;
-  border-top-left-radius: 12px;
-  animation: slideRightIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1001 !important;
+  background: #ffffff !important;
+  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.4) !important;
+  border-left: 3px solid #fda4af !important;
+  border-top-left-radius: 12px !important;
+  animation: slideRightIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+#paneRight.omr-drawer-open .btn-close-drawer,
 .mode-popup-omr .btn-close-drawer {
   display: inline-block !important;
 }

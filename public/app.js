@@ -2295,11 +2295,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openOmrDrawer() {
+    if (splitMain) splitMain.classList.add('mode-popup-omr');
     if (paneRight) {
       paneRight.classList.add('omr-drawer-open');
     }
     if (omrBackdrop) {
       omrBackdrop.classList.remove('hidden');
+    }
+    if (btnOpenOmrDrawer) {
+      btnOpenOmrDrawer.textContent = '✕ 답안지 닫기';
+      btnOpenOmrDrawer.style.background = '#475569';
     }
   }
 
@@ -2309,6 +2314,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (omrBackdrop) {
       omrBackdrop.classList.add('hidden');
+    }
+    if (btnOpenOmrDrawer) {
+      btnOpenOmrDrawer.textContent = '📝 답안지 팝업';
+      btnOpenOmrDrawer.style.background = 'linear-gradient(135deg, #e11d48 0%, #be123c 100%)';
     }
   }
 
