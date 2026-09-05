@@ -884,20 +884,15 @@ body {
   max-width: 100%;
   background: #ffffff;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-  border: 2px solid #333a45;
+  border: 1.5px solid #333a45;
   border-radius: 0px;
-  padding: 28px 36px 36px 36px;
-  min-height: 1200px;
+  padding: 20px 24px;
+  min-height: auto;
   color: #2b2f38;
 }
 
 .paper-header {
   border-bottom: 2px solid #333a45;
-  padding-bottom: 14px;
-  margin-bottom: 22px;
-  text-align: center;
-}
-
 .p-title {
   font-size: 22px;
   font-weight: 700;
@@ -1761,6 +1756,7 @@ body {
 }
 
 /* 🎯 팝업 답안지가 열렸을 때 (화면 우측 정확히 50% 절반 오버레이 패널) */
+/* 🎯 팝업 답안지가 열렸을 때 (화면 우측 62% 넉넉하고 시원한 와이드 오버레이 패널) */
 #paneRight.omr-drawer-open,
 .mode-popup-omr #paneRight.omr-drawer-open {
   display: flex !important;
@@ -1768,13 +1764,13 @@ body {
   top: 52px !important; /* 상단 슬림바 바로 아래부터 */
   bottom: 0 !important;
   right: 0 !important;
-  width: 50% !important;
-  max-width: 50% !important;
-  min-width: 360px !important;
+  width: 62% !important;
+  max-width: 65% !important;
+  min-width: 480px !important;
   height: calc(100vh - 52px) !important;
   z-index: 1001 !important;
   background: #ffffff !important;
-  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.45) !important;
   border-left: 3px solid #fda4af !important;
   border-top-left-radius: 12px !important;
   animation: slideRightIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
