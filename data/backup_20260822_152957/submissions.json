@@ -1,0 +1,3450 @@
+[
+  {
+    "id": "sub_1787307258313",
+    "examId": "exam-77",
+    "examTitle": "📚 [제 77 회차] 2027 KICE 임용고시 통합 파이널 모의고사 (교육학+전공 A/B 24문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 21. PM 7:14:18",
+    "totalScore": 26.7,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "P-1",
+        "number": "1",
+        "section": "교육학",
+        "title": "[제 77회차 1교시 교육학 논술] (20점 만점)",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "스킬백 SBCD, 조나센 CLEs & 메이거, 스크리븐 탈목표 평가, 카츠 개념적 기술",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 A-1] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "사회적으로 유용한 형",
+        "modelAnswer": "사회적으로 유용한 형",
+        "matchedKeywords": [
+          "사회적으로 유용한 형"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 A-2] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "정적처벌",
+        "modelAnswer": "부적 강화",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 A-3] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "공통성",
+        "modelAnswer": "공통성",
+        "matchedKeywords": [
+          "공통성"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 A-4] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "투렛장애",
+        "modelAnswer": "투렛 장애",
+        "matchedKeywords": [
+          "투렛장애"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 A-5] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. ㄱ 질병불안장애\n2. 신체증상장애는 현저하고 고통스러운 실제 신체증상이 존재하는 반면 질병불안장애는 신체 증상이 없거나 지극히 경미한데 자신이 중병에 걸렸다는 질병 자체에 고통스러워하는 집착이다.",
+        "modelAnswer": "질병불안장애",
+        "matchedKeywords": [
+          "질병불안장애",
+          "신체증상장애"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 A-6] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. 가상적 최종목표: 아들러의 가상적 최종목표란 인간이 과거의 원인에 의해서가 아니라 주관적으로 설정한 미래의 목표에 의해 행동한다는 목적론적 개념으로, 열등감을 극복하고 우월성을 추구하기 위해 자신이 만든 주관적 삶의 지향점이자 가상의 목적을 의미한다. \n2. ㄱ기법 명칭: 단추 누르기 기법\n치료적 의미: 내담자의 자신이 원하는 정서 상태를 언제든 스스로 주도적으로 선택하고 조절할 수 있음을 꺠닫게 한다.",
+        "modelAnswer": "단추 누르기 기법",
+        "matchedKeywords": [
+          "단추 누르기",
+          "단추 누르기 기법"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 A-7] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "1. 자신에 대한 당위성이다.  자신에 대한 비합리적 당위성 신념이며, 지훈이는 \"나는 절대로 남들 앞에서 창피를 당하거나 망신을 당해서는 안 된다.\"라는 자신에 대한 당위성을 가지고 있다.\n2.  ㄱ 수치심 격파 연습기법이다. \n치료적 의미: 내담자 자신이 원하는 정서 상태를 언제든 스스로 주도적으로 선택하고 조절할 수 있음을 깨닫게 한다.",
+        "modelAnswer": "자신에 대한 당위성, 수치심 방지 기법",
+        "matchedKeywords": [
+          "자신에 대한 당위성"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 A-8] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1.  고유자아 지향 단계 \n2. 직업포기 개념: 직업포기(제한): 자아개념 발달에 다라 부적합한 직업 대안을 경계선 밖으로 배제하는 과정이다. \n      타협: 진로를 결정할 때, 가장 먼저 흥미를 포기하고, 그 다음 사회적 지위(가치)를 포기하고, 성역할을 끝까지 포기 하지 않는 것을 말한다.",
+        "modelAnswer": "내적 고유 자아 지향성",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 A-9] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "1. BXD 척도 명칭: 행동/외면화 장애 RC4와 RC9 척도 동반상승 했을 때 반사회적 행동, 규칙을 위반하고, 경조증적 활성화 및 과잉 에너지를 보인다. \n2. 충동성이 있기 때문에 화가 났을 때 대응행동을 미리 계획하고 약속하고 실천하기로 한다.",
+        "modelAnswer": "행동적/외면화 장애",
+        "matchedKeywords": [
+          "외면화 장애"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 A-10] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "ㄱ. 지적장애\n1.DSM-5 심도 기준 변화: 과거 DSM-IV의 'IQ 점수 수치' 중심에서 개념적, 사회적, 실용적 적응 기능 수준 중심으로 변경되었다. \n2. [사례 2] 가해 제8호 ㄴ 명칭: 전학/피해 제4호 ㄷ 명칭: 치료 및 치료를 위한 요양",
+        "modelAnswer": "지적장애, 전학, 치료 및 치료를 위한 요양",
+        "matchedKeywords": [
+          "지적장애",
+          "전학",
+          "치료 및 치료를 위한 요양"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 A-11] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. 명칭:  ㄱ 내사, ㄴ: 융합\n2. 내사를 해소하기 위해서 비판적으로 객관적 논리적으로 자신에게 필요한 것을 받아들일 수 있도록 해야 한다. 그리고 수프뱉기 기법을 사용해서 자신논리적이지 않거나 타당하지 않으면 수용하지 말아야 한다.",
+        "modelAnswer": "㉠ 내사, ㉡ 융합",
+        "matchedKeywords": [
+          "내사",
+          "융합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-12",
+        "number": "12",
+        "section": "전공",
+        "title": "[문항 A-12] (4점)",
+        "score": 4,
+        "earnedScore": 2.7,
+        "userAnswer": "1. 구체성은 얼마나 자살에 대해 구체적인지, 치명성은 얼마나 자살에 대해서 치명적으로 생각하는지, 유용성은 자살 수단/도구가 손쉽게 확보되어 있는지르 ㄹ의미하낟. \n2. 신체안전 서약서, 한계점: 자살을 물리적-법적으로 완전히 차단하지 못하며, 내담자가 서약 후에도 충동적으로 자살을 감행할 수 있다.",
+        "modelAnswer": "구체성, 유용성, 비위해 서약서",
+        "matchedKeywords": [
+          "구체성",
+          "유용성"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 B-1] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "역전이",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 B-2] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "고정비율 강화계획",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 B-3] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 경직된 경계선, ㉡ 밀착된 경계선, 실연",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 B-4] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "자동적 사고, 역기능적 사고 기록지",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 B-5] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "수용형, 집착형, 회피형",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 B-6] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[사례 1] 주요우울장애, [사례 2] 지속성 우울장애",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 B-7] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 카타르시스, ㉡ 과도기 단계",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 B-8] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[사례 1] 반사회성 성격장애, [사례 2] 연극성 성격장애",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 B-9] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 하위집단 형성, ㉡ 연결하기",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 B-10] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "결정성, 독립성, 진로 능력",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 B-11] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "선택권 유임, 자율성 촉진",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1787151073345",
+    "examId": "exam-81",
+    "examTitle": "📚 [제 81 회차] 2027 KICE 임용고시 통합 파이널 모의고사 (교육학+전공 A/B 24문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 19. PM 11:51:13",
+    "totalScore": 25.8,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "P-1",
+        "number": "1",
+        "section": "교육학",
+        "title": "[제 81회차 1교시 교육학 논술] (20점 만점)",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "백워드 설계 모형, 조나센 CLEs, 루브릭, 바스 변혁적 지도성",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 A-1] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "예외질문",
+        "modelAnswer": "예외질문",
+        "matchedKeywords": [
+          "예외질문"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 A-2] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "지배형",
+        "modelAnswer": "지배형",
+        "matchedKeywords": [
+          "지배형"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 A-3] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "ㄱ: 정적연습절차",
+        "modelAnswer": "정적 연습",
+        "matchedKeywords": [
+          "정적연습"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 A-4] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "동형찾기",
+        "modelAnswer": "동형찾기",
+        "matchedKeywords": [
+          "동형찾기"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 A-5] (4점)",
+        "score": 4,
+        "earnedScore": 1.1,
+        "userAnswer": "1. ㄱ. 탈억제 사회관이다.  탈억제 사회관여는 낯선 사람에 대해서 경계심의 억제가 풀려버렸다. (탈억제) 반면 반응성 애착장애은 양육자에 대해서 애정이 결핍되어 있고, 양육자가 다가와서 애정을 못 느끼고 피하려고 한다. \n2. 민지는 언어이해 지표 118, 시공간 지표 85로 33점 차이가 난다. 뇌는 좌뇌는 언어이해가 우뇌는 시공간에 영향을 미치는데, 좌우 불균형이며, 우뇌에 손상이 예상된다. 자살 위험성 평가 4대 핵심 요소는 자살의도, 자살장소, 자살날짜, 자살도구의 치명도이다.",
+        "modelAnswer": "탈억제 사회적 유대 장애",
+        "matchedKeywords": [
+          "탈억제",
+          "치명도"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 A-6] (4점)",
+        "score": 4,
+        "earnedScore": 1,
+        "userAnswer": "1. ㄱ 선택적 추상화, ㄴ 개인화이다. 자살 위험성 평가 4대 핵심 요소는 자살의도, 자살장소, 자살날짜, 자살무기의 치명도이다.\n2. 상담자는 내담자에게 사전안내로 자살은 비밀보장 예외사유임을 알기쉽게 설명하고, 안전신체서약서를 작성하고 학부모와 학교 위기관리위원회(학교관계자)에게 알린다.  ㄱ 선택적 추상화를 인지치료하기 위해서 대안설명제시를 사용한다. (\"지혜야, 100점 받은 9개의 과목의 의미는 무엇이니?\"  단지 1개 틀린거에 집중하지 말고 100점 받은 9개의 과목에 대해 의미를 더 두는게 좋을거 같아.\")",
+        "modelAnswer": "㉠ 정신적 여과, ㉡ 개인화",
+        "matchedKeywords": [
+          "개인화"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 A-7] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. 아버지 대사 (\"저는 어떤 순간에도 감정 따위에 휘둘리지 않습니다. 규칙과 객관적 논리, 데이터만 중요합니다.\")에서 아버지는 초이성형이다. 자신과 타인을 무시한다. \n2. 준서는 타인에 대한 당위성이다. 준서의 비합리적 신념을 깨뜨리기 위한 실증적 논박은 \"학급 친구들이 무조건 준서에게 잘해야 하는 이유나 증거가 있을까? \"라고 물어본다.",
+        "modelAnswer": "초이성형",
+        "matchedKeywords": [
+          "초이성형",
+          "자신",
+          "타인",
+          "타인에 대한 당위성",
+          "실증적 논박"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 A-8] (4점)",
+        "score": 4,
+        "earnedScore": 2.7,
+        "userAnswer": "1. 3단계 명칭은 사회적 지위 지향이다. 제한 4단계 전체 명칭은 1단계 힘과 크기 지향(3~5살), 2단계 성역할 지향 (6~8세), 3단계 사회적 지위 지향(9~13세), 4단계 고유 자아 지향(14세이상)이다. \n2. 내담자가 현실적 타협과정에서 가장 먼저 포기하는 요소는 흥미이고, 그다음 사회적 지위 지향이며, 마지막까지 사수하는 요소는 성역할 지향이다. 사회적 지위 고정관념은 롤모델 제시 및  대리경험 사례를 적용한다.",
+        "modelAnswer": "사회적 가치 지향성",
+        "matchedKeywords": [
+          "흥미",
+          "성역할"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 A-9] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1. RC2는 무가치감, 만성적 우울과 불안이며, INTR은 내향적이고, 타인에 대한 소극적 태도와 사회적 위축이다. \n2. 상담사는 성민이의 우울과 사회적 위축을 수용하고, 성민이와의 자기 효능감을 상승시키기 위해서, 무조건적인 긍정적 존중과 공감적 이해, 진실성, 경청을 사용하여, 성민이와 라포를 형성하고, 향후 치료을 위해 조력한다. 기존 MMPI-2 임상척도는 정신증상과 정서적 증상을 하나의 척도로 평가했는데, MMPI-2-RF에서 정신적 증상, 정서적 증상을 나눠서 평가하므로 더 정확해졌다.",
+        "modelAnswer": "RC2 저긍정성 정서, INTR 내향성",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 A-10] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1. 지문에서 (\"약 2개월 전인 지난 6개월부터 \")에서 기간이 6개월 전이므로 조현양성장애이다. A군은 어린 시절 또래 관계 형성이나 언어적 상호작용 장애 선행 이력이 전무하므로 자폐스펙트럼장애가 아니다. \n2. 학폭법 17조 제1항은 피해자에 대한 서면사과이다. 제6호는 교육 및 심리치료이다.  피해학생 보호 조치 제1호는 심리상담 및 조율 조치이다.",
+        "modelAnswer": "조현양상장애",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 A-11] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "ㄱ 내사, ㄴ 융합이다.  내사를 해소하기 위해서는 타인의 말을 모두 받아들이는 대신에 비판적이고 논리적인 말만 걸러서 받아들여야 한다.  필요없는 말은 버려야 한다. (스프뱉기)\n2. 자해는 비밀보장 예외원칙이므로 내담자에게 이해하기 쉽게 설명하고, 신체안전 서약서를 작성하고, 학교위기관리위원회와 학부모에게 보고한다.  자해를 하고 싶을 때에는 감정을 신체에 해소하는 것이 아닌 손에 얼음쥐기 기법을 사용해서 감정을 다스리는 방법을 알려준다.",
+        "modelAnswer": "㉠ 내사, ㉡ 융합",
+        "matchedKeywords": [
+          "내사",
+          "융합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-12",
+        "number": "12",
+        "section": "전공",
+        "title": "[문항 A-12] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. ㄱ 동화이다. ㄴ 미세모욕은 무의식 중에 말한 내용이 다문화 집단 전체에 대한 은연중에 무시를 하는 것을 말한다. \n2. 통합은 모문화와 이주문화를 모두 수용하고, 균형을 이루는 것을 말한다. 상담사는  민호의 건강한 이중문화 정체성 형성을 위해, 모문화에 대한 장점에 대해 의견을 나누고, 학습해서 모문화와 이주문화를 모두 수용하여 균형을 이루도록 조력한다.",
+        "modelAnswer": "동화",
+        "matchedKeywords": [
+          "동화",
+          "미세모욕",
+          "통합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 B-1] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "저항",
+        "modelAnswer": "저항",
+        "matchedKeywords": [
+          "저항"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 B-2] (2점)",
+        "score": 2,
+        "earnedScore": 2,
+        "userAnswer": "소거",
+        "modelAnswer": "소거",
+        "matchedKeywords": [
+          "소거"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 B-3] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 가족 투사 과정, ㉡ 부모-자녀 연합",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 B-4] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "수치심 방지 기법",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 B-5] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 진입 맥락 지지, ㉡ 개인적 목표",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 B-6] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "조현병",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 B-7] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "정동카타르시스",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 B-8] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "회피성 성격장애",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 B-9] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 충고하기, ㉡ 질문하기",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 B-10] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 배경 맥락, ㉡ 진입 맥락",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 B-11] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "제한 설정 ACT 모델",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1787063463508",
+    "examId": "exam-8",
+    "examTitle": "[제 8 회차] 2027 KICE 기출 100% 동형 최고난이도 킬러 통합 모의고사 (전공 A/B 23문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 18. PM 11:31:03",
+    "totalScore": 35.5,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "P-1",
+        "number": "1",
+        "section": "교육학",
+        "title": "[1교시 교육학 논술] (20점)",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "교육학 모범 답안 예시",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 A-1] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "예외질문",
+        "modelAnswer": "예외질문",
+        "matchedKeywords": [
+          "예외질문"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 A-2] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "독재형",
+        "modelAnswer": "지배형",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 A-3] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "정적 연습 절차",
+        "modelAnswer": "정적 연습",
+        "matchedKeywords": [
+          "정적 연습"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 A-4] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "동형찾기",
+        "modelAnswer": "동형찾기",
+        "matchedKeywords": [
+          "동형찾기"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 A-5] (4점)",
+        "score": 4,
+        "earnedScore": 1.5,
+        "userAnswer": "1. ㄱ: 탈억제 사회관여 장애, 탈억제 사회관여 장애은 낯선 사람에 대한 경계심이 탈억제된 것이고, 반응성 애착장애는 양육자에 대한 애정이 결핍되어서 친근하게 다가가지 못하는 것이다. \n2. 뇌의 좌뇌는 언어이해를 담당하고, 우뇌는 시공간을 담당한다. 현재 언어이해와 시공간 지수의 차이가 33점으로 불균형하며, 오른쪽 뇌의 손상이 의심된다.  자살 위험성 평가 4대 핵심요소는 자살의 의도, 자살장소, 자살시간, 자살 도구의 치명도이다.",
+        "modelAnswer": "탈억제 사회적 유대 장애 (Disinhibited Social Engagement Disorder)",
+        "matchedKeywords": [
+          "탈억제",
+          "반응성 애착장애",
+          "치명도"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 A-6] (4점)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. ㄱ. 선택적 추상화이다. ㄴ 개인화이며, 자살 위험성 평가 4대 핵심요소는 자살의도, 자살장소, 자살시간, 자살 도구의 치명도이다 \n2. 내담자에게 사전동의 때 작성했던 내용대로 비밀보장 예외원칙에 의해서 자살은 지혜의 안전과 생명이 최우선이므로 학교관계자와 부모님께 알려야 함을 이해하기 쉽게 설명해준다. 그리고 신체안전 서약서를 작성하고 지혜를 보호한다. 선택적 추상화는 아론벡의 대안의지 설명을 통해서 질문한다. (100점 받은 9개의 과목은 너한테 어떤 의미가 있을까?  과학 시험 1문제 틀린 것은 누구나 실수할 수 있다. 오히려 엄청난 성적을 받았음을 알려준다.)",
+        "modelAnswer": "㉠ 정신적 여과(선택적 추론), ㉡ 개인화",
+        "matchedKeywords": [
+          "개인화",
+          "사전동의"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 A-7] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. 아버지 대사(\"저는 규칙과 객곤적 논리, 데이터만이 중요합니다.\")에서 초이성형임을 알 수 있다. 자신과 타인을 무시한다. \n2. 준서는 타인에 대한 당위성이다. 실증적 논박(\"왜 친구들이 준서에게 무조건 친절해야 하는 이유나 증거가 있을까? \")을 통해 비합리적 신념을 고쳐준다.",
+        "modelAnswer": "초이성형 (Super-reasonable)",
+        "matchedKeywords": [
+          "초이성형",
+          "자신",
+          "타인",
+          "타인에 대한 당위성",
+          "실증적 논박"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 A-8] (4점)",
+        "score": 4,
+        "earnedScore": 1.7,
+        "userAnswer": "1. 3단계: 사회적 지위 지향이다. 제한 4단계 전체 명칭: 1단계 힘과 크기 지향(3~5세), 2단계 성역할 지향(6~8세), 3단계 사회적 지위지향(9~13), 14세 고유자아 지향)이다. \n2. 현실적 타형과정에서 가장 먼저 포기하는 것은 흥미이고, 끝까지 사수하는 것은 성역할 지향이다. 사회적 지위 고정관념을 해소하기 위한 진로상담 개입방안은 롤모델 제시, 대리경험을 통해서 사회적 지위 고정관념을 깬다.",
+        "modelAnswer": "3단계: 사회적 가치 지향성 (Social Valuation)",
+        "matchedKeywords": [
+          "힘과 크기",
+          "성역할",
+          "흥미"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 A-9] (4점)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. RC2 척도 심리적 특성: 만정적 우울감, 무가치감, 사회적 위축이 나타난다. PSY-INTR척도에서는 내향성/저긍정성 척도에서는 대인관계에서 소극적이고 사회적 위축, 대인관계 회피 행동을 보인다. \n2. 성민이의 우울과 사회적 위축에 대해 수용하고, 무조건적 긍정적 태도와 공감적 이해, 경청, 솔직하게 대해서 이해를 높이고, 라포을 형성한다. \n MMPI-2-RF는 MMPI-2 보다 국소적으로 정서적과 정신적 부분을 나누어나서 전반적으로 나오던 것을 부분적으로 정확도를 높였다.",
+        "modelAnswer": "RC2: 저긍정성 정서 (Low Positive Emotions)",
+        "matchedKeywords": [
+          "우울감",
+          "사회적 위축"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 A-10] (4점)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. 지문에서(\"1학년  A군은 약 2개월 전인 6월부터 환청, 피해망을 보였다\"에서 조현양성장애이다. 어린시절 또래 관계 형성이나 언어적 상호작용 장애 선행이력이 전무하기 때문에 자폐 스펙트럼 장애는 감별 배제되었다. \n2. 제6호 가해학생 출석정치 조치는  출석정지이다. 출석은 미인정 결석이다. (인정안된다). 피해학생 보호조치 제1호는 심리상담 및 조율 조치이다.",
+        "modelAnswer": "조현양상장애 (Schizophreniform Disorder)",
+        "matchedKeywords": [
+          "출석정지",
+          "미인정 결석"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 A-11] (4점)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. ㄱ 내사이고,  2. 융합이다.     내사를 해소하기 위해서는 현수가 타인의 말을 비판적, 논리적으로 본인에게 필요한 것만 받아들여야 한다. 수프뱉기처럼 검증되지 않은 말은 다시 뱉어서 버려야 한다. \n2. 자해행동은 비밀보장 예외사유로 학부모와 학교 위기해결위원회와 학교 관리자에게 보고해야 한다. 안전신체서약서 작성 후 자해를 하고 싶을 때는 손에 얼음 쥐기 기법을 알려줘서 불안과 우울을 얼음쥐기로 올바르게 해소하도록 조력한다.",
+        "modelAnswer": "㉠ 내사 (Introjection), ㉡ 융합 (Confluence)",
+        "matchedKeywords": [
+          "내사",
+          "융합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-12",
+        "number": "12",
+        "section": "전공",
+        "title": "[문항 A-12] (4점)",
+        "score": 4,
+        "earnedScore": 3,
+        "userAnswer": "1. 민호는 동화이다. ㄴ 미세모욕은 무의식중에 칭찬처럼 말하지만 다문화 집단 전체에 대한 은연주으이 무시하는 것을 미세 모욕이라고 한다. \n2. 통합은 모문화와 이주문화 모두를 존중하여 조화를 이루는 것을 말한다. 상담자는 민호의 모문화에 대한 장점을 함께 찾아보고, 민호가 모문화를 존중하고 받아 들일 수 있도록 조력한다.",
+        "modelAnswer": "동화 (Assimilation)",
+        "matchedKeywords": [
+          "동화",
+          "미세모욕",
+          "통합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 B-1] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "저항",
+        "modelAnswer": "저항",
+        "matchedKeywords": [
+          "저항"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 B-2] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "소거",
+        "modelAnswer": "소거",
+        "matchedKeywords": [
+          "소거"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 B-3] (4점)",
+        "score": 4,
+        "earnedScore": 1,
+        "userAnswer": "1.   ㄱ 다세대 가족구조.            ㄴ 부모-자녀 연합  \n2. 부모-자녀 연합은 가족중 한 사람을 공격하기 위해서 함께 힘을 보태는 것이고, 삼각관계는 부부사이의 불안을 해소하기 위해 어린 자녀인 제3자를 끌여들어 불안을 해소하는 것이다. 서연이의 우울 및 위계 문제를 해결하기 위해 어머니와 서연이의 경계선을 재설정하여 명확한 경계선으로 만들어서 서연이의 독립성을 보장해주어야 한다.",
+        "modelAnswer": "㉠ 가족 투사 과정, ㉡ 부모-자녀 연합",
+        "matchedKeywords": [
+          "부모-자녀 연합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 B-4] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "1. 망신당하기 기법이다. 적절한 정서는 비합리적인 신념에서 실패에 대한 아쉬움 및 노력부족에 대한 아쉬움이다. 반면 부적절한 정서에서는 화냄, 분노, 절망, 우울, 불안등이다. \n2. 실패상황(시험낙방)에서 부적절한 정서는 실패에 대한 아쉬움이고, 다시 해보겠다는 결심 등이고 부적절한 정선는 실패에 대한 좌절, 분노 등이다.",
+        "modelAnswer": "수치심 방지 기법 (Shame-attacking Exercise)",
+        "matchedKeywords": [
+          "적절한 정서",
+          "부적절한 정서",
+          "우울"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 B-5] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "1. ㄱ: 진입진로맥락의 장벽이다.  ㄴ 개인적 목표는 자기 효능감과 결과기대가 합쳐져서 개인이 하고 싶은 목표를 설정하는 단계이다. 진로 행동전 단계이다. \n2. 결과기대가 낮으면 개인적 목표와 진로 행동을 정할 수 없다.   자기 효능감와 결과기대가 합쳐져서 개인적 목표가 이루어 진다. 환경적 장벽을 겪는 내담자를 위해서 결과기대를 높일 수 있도록 예술가에 대한 롤모델을 제시하고, 대리경험 및 언어적 설득으로 결과기대를 높인다.",
+        "modelAnswer": "㉠ 진입 맥락 지지 (Contextual Supports), ㉡ 개인적 목표 (Personal Goals)",
+        "matchedKeywords": [
+          "개인적 목표",
+          "결과기대"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 B-6] (4점)",
+        "score": 4,
+        "earnedScore": 1.6,
+        "userAnswer": "1. 조현병이다. 최소지속기간 6개월인데 현재 8개월이 되었다. MMPI-2 6-8코드(편집증-조현병)  피해망상과 타인의 극심한 의심, 피해의식, 환각, 사회적 고립감 등이 있다. \n2. 내담자과 의견충돌과 대립하지 말고, 내담자의 아픔을 공감하고, 내담자가 현실을 비판적으로 판단할 수 있는 힘을 키울 수 있도록 조언하고, 정상으로 돌아올 수 있도록 조력한다.",
+        "modelAnswer": "조현병 (Schizophrenia)",
+        "matchedKeywords": [
+          "조현병",
+          "편집증"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 B-7] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1. 지도자는 과도기 저항을 수용하고, 집단원들의 집단원들의 내면에 있는 의견을 자유롭게 말할 수 있도록 돕니다. 지도자가 자기개방을 하면 집단역동과 분위기가 마련된다. \n2. ㄱ: 보편성이다.  지도자는 과도기 저항을 수용하고, 집단원들의 집단원들의 내면에 있는 의견을 자유롭게 말할 수 있도록 돕니다. 지도자가 자기개방을 하면 집단역동과 분위기가 마련된다.",
+        "modelAnswer": "정동카타르시스 (Catharsis)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 B-8] (4점)",
+        "score": 4,
+        "earnedScore": 3,
+        "userAnswer": "1. ㄱ: 회피성 성격장애이다. 회피성 성격장애는 타인과 친밀하고 싶지만, 성격으로 인해서 힘들어서 피하는 것이고, 조현성 성격장애는 타인가 친밀하고 싶은 마음이 없다. \n2. 회피성 성격장애는 대인관계 회피는 모든 범주에 들어가지만, 사회불안장애는 발표 등 특정한 영역에만 포함된다. 혜진이의 대인관계 두려움을 다루기 위해서 마이켄바움의 자기지도치료를 사용해서 자신감을 얻을 수 있다.",
+        "modelAnswer": "회피성 성격장애 (Avoidant Personality Disorder)",
+        "matchedKeywords": [
+          "회피성 성격장애",
+          "조현성 성격장애",
+          "사회불안장애"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 B-9] (4점)",
+        "score": 4,
+        "earnedScore": 2,
+        "userAnswer": "1. 충고하기 행동은 집단원 발표자의 말을 끝까지 할 수 없게 만들고, 발표자의 정화(자기치료)를 막는다. 또한 발표자가 충고하기 행동을 하는 사람에게 의존적 성향이 될 수 있다. \n2. ㄴ 질문하기 행동을 하는 집단원은 직면으로 질문을 바로 차단하고, 나-전달법을 사용해서 질문하기 말고, 본인의 이야기를 들려달라고 요청해서 자기 개방을 유도 해야 한다. (\"저는 이제 질문하기는 그만두고, 본인의 이야기를 들려주면 좋겠습니다.\"",
+        "modelAnswer": "㉠ 충고하기, ㉡ 질문하기",
+        "matchedKeywords": [
+          "충고하기",
+          "질문하기"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 B-10] (4점)",
+        "score": 4,
+        "earnedScore": 1.1,
+        "userAnswer": "ㄱ 배경맥락은 어린시절부터 생성된 진로 환경, 신체상태, 집안 배경, 부모님의 학벌 등이 진로에 직접적, 간접적으로 영향을 미치는 것을 말한다. 진입맥락은 진로 결정 전에 부모님의 반대, 연봉, 직업환경, 등록금 등 진로로 직접적으로 영향을 미치는 것을 말한다. \n2. 결정성, 참여도,  지원성, 타협성, 독립성이다.     독립성은 내담자 본인이 주변환경에 영향을 받지 않고 스스로 독립을 유지하여 진로에 결정하는 것을 말한다.",
+        "modelAnswer": "㉠ 배경 맥락 (Background Contextual Affordances), ㉡ 진입 맥락 (Contextual Affordances Proximal to Choice)",
+        "matchedKeywords": [
+          "독립성",
+          "타협성"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 B-11] (4점)",
+        "score": 4,
+        "earnedScore": 2.4,
+        "userAnswer": "1. 제한 설정은 첫째, 아이의 안전을 위해서이고, 둘째, 선생님의 안전을 위해서 제한을 설정해야 한다. \n2.  A 감정 수용:  너가 화가 난 이유에 대해서는 알거 같아.  C  제한 전달: 하지만 선생님을 때려서는 안돼!      T 대안 제시: 대신에 저기 있는 샌드백 인형은 때려도 된다.",
+        "modelAnswer": "ACT 모델 (Acknowledge, Communicate, Target)",
+        "matchedKeywords": [
+          "제한 설정",
+          "제한 전달",
+          "대안 제시"
+        ],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1787056471367",
+    "examId": "exam-8",
+    "examTitle": "[제 8 회차] 2027 KICE 기출 100% 동형 최고난이도 킬러 통합 모의고사 (전공 A/B 23문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 18. PM 9:34:31",
+    "totalScore": 18.400000000000002,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "P-1",
+        "number": "1",
+        "section": "교육학",
+        "title": "[1교시 교육학 논술] (20점)",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "교육학 모범 답안 예시",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 A-1] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "예외질문",
+        "modelAnswer": "예외질문",
+        "matchedKeywords": [
+          "예외질문"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 A-2] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "독재형",
+        "modelAnswer": "지배형",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 A-3] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "정적 연습 절차",
+        "modelAnswer": "정적 연습",
+        "matchedKeywords": [
+          "정적 연습"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 A-4] (2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "동형찾기",
+        "modelAnswer": "동형찾기",
+        "matchedKeywords": [
+          "동형찾기"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 A-5] (4점)",
+        "score": 4,
+        "earnedScore": 1.5,
+        "userAnswer": "1. ㄱ: 탈억제 사회관여 장애, 탈억제 사회관여 장애은 낯선 사람에 대한 경계심이 탈억제된 것이고, 반응성 애착장애는 양육자에 대한 애정이 결핍되어서 친근하게 다가가지 못하는 것이다. \n2. 뇌의 좌뇌는 언어이해를 담당하고, 우뇌는 시공간을 담당한다. 현재 언어이해와 시공간 지수의 차이가 33점으로 불균형하며, 오른쪽 뇌의 손상이 의심된다.  자살 위험성 평가 4대 핵심요소는 자살의 의도, 자살장소, 자살시간, 자살 도구의 치명도이다.",
+        "modelAnswer": "탈억제 사회적 유대 장애 (Disinhibited Social Engagement Disorder)",
+        "matchedKeywords": [
+          "탈억제",
+          "반응성 애착장애",
+          "치명도"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 A-6] (4점)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. ㄱ. 선택적 추상화이다. ㄴ 개인화이며, 자살 위험성 평가 4대 핵심요소는 자살의도, 자살장소, 자살시간, 자살 도구의 치명도이다 \n2. 내담자에게 사전동의 때 작성했던 내용대로 비밀보장 예외원칙에 의해서 자살은 지혜의 안전과 생명이 최우선이므로 학교관계자와 부모님께 알려야 함을 이해하기 쉽게 설명해준다. 그리고 신체안전 서약서를 작성하고 지혜를 보호한다. 선택적 추상화는 아론벡의 대안의지 설명을 통해서 질문한다. (100점 받은 9개의 과목은 너한테 어떤 의미가 있을까?  과학 시험 1문제 틀린 것은 누구나 실수할 수 있다. 오히려 엄청난 성적을 받았음을 알려준다.)",
+        "modelAnswer": "㉠ 정신적 여과(선택적 추론), ㉡ 개인화",
+        "matchedKeywords": [
+          "개인화",
+          "사전동의"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 A-7] (4점)",
+        "score": 4,
+        "earnedScore": 4,
+        "userAnswer": "1. 아버지 대사(\"저는 규칙과 객곤적 논리, 데이터만이 중요합니다.\")에서 초이성형임을 알 수 있다. 자신과 타인을 무시한다. \n2. 준서는 타인에 대한 당위성이다. 실증적 논박(\"왜 친구들이 준서에게 무조건 친절해야 하는 이유나 증거가 있을까? \")을 통해 비합리적 신념을 고쳐준다.",
+        "modelAnswer": "초이성형 (Super-reasonable)",
+        "matchedKeywords": [
+          "초이성형",
+          "자신",
+          "타인",
+          "타인에 대한 당위성",
+          "실증적 논박"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 A-8] (4점)",
+        "score": 4,
+        "earnedScore": 1.7,
+        "userAnswer": "1. 3단계: 사회적 지위 지향이다. 제한 4단계 전체 명칭: 1단계 힘과 크기 지향(3~5세), 2단계 성역할 지향(6~8세), 3단계 사회적 지위지향(9~13), 14세 고유자아 지향)이다. \n2. 현실적 타형과정에서 가장 먼저 포기하는 것은 흥미이고, 끝까지 사수하는 것은 성역할 지향이다. 사회적 지위 고정관념을 해소하기 위한 진로상담 개입방안은 롤모델 제시, 대리경험을 통해서 사회적 지위 고정관념을 깬다.",
+        "modelAnswer": "3단계: 사회적 가치 지향성 (Social Valuation)",
+        "matchedKeywords": [
+          "힘과 크기",
+          "성역할",
+          "흥미"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 A-9] (4점)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. RC2 척도 심리적 특성: 만정적 우울감, 무가치감, 사회적 위축이 나타난다. PSY-INTR척도에서는 내향성/저긍정성 척도에서는 대인관계에서 소극적이고 사회적 위축, 대인관계 회피 행동을 보인다. \n2. 성민이의 우울과 사회적 위축에 대해 수용하고, 무조건적 긍정적 태도와 공감적 이해, 경청, 솔직하게 대해서 이해를 높이고, 라포을 형성한다. \n MMPI-2-RF는 MMPI-2 보다 국소적으로 정서적과 정신적 부분을 나누어나서 전반적으로 나오던 것을 부분적으로 정확도를 높였다.",
+        "modelAnswer": "RC2: 저긍정성 정서 (Low Positive Emotions)",
+        "matchedKeywords": [
+          "우울감",
+          "사회적 위축"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 A-10] (4점)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. 지문에서(\"1학년  A군은 약 2개월 전인 6월부터 환청, 피해망을 보였다\"에서 조현양성장애이다. 어린시절 또래 관계 형성이나 언어적 상호작용 장애 선행이력이 전무하기 때문에 자폐 스펙트럼 장애는 감별 배제되었다. \n2. 제6호 가해학생 출석정치 조치는  출석정지이다. 출석은 미인정 결석이다. (인정안된다). 피해학생 보호조치 제1호는 심리상담 및 조율 조치이다.",
+        "modelAnswer": "조현양상장애 (Schizophreniform Disorder)",
+        "matchedKeywords": [
+          "출석정지",
+          "미인정 결석"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 A-11] (4점)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. ㄱ 내사이고,  2. 융합이다.     내사를 해소하기 위해서는 현수가 타인의 말을 비판적, 논리적으로 본인에게 필요한 것만 받아들여야 한다. 수프뱉기처럼 검증되지 않은 말은 다시 뱉어서 버려야 한다. \n2. 자해행동은 비밀보장 예외사유로 학부모와 학교 위기해결위원회와 학교 관리자에게 보고해야 한다. 안전신체서약서 작성 후 자해를 하고 싶을 때는 손에 얼음 쥐기 기법을 알려줘서 불안과 우울을 얼음쥐기로 올바르게 해소하도록 조력한다.",
+        "modelAnswer": "㉠ 내사 (Introjection), ㉡ 융합 (Confluence)",
+        "matchedKeywords": [
+          "내사",
+          "융합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "A-12",
+        "number": "12",
+        "section": "전공",
+        "title": "[문항 A-12] (4점)",
+        "score": 4,
+        "earnedScore": 3,
+        "userAnswer": "1. 민호는 동화이다. ㄴ 미세모욕은 무의식중에 칭찬처럼 말하지만 다문화 집단 전체에 대한 은연주으이 무시하는 것을 미세 모욕이라고 한다. \n2. 통합은 모문화와 이주문화 모두를 존중하여 조화를 이루는 것을 말한다. 상담자는 민호의 모문화에 대한 장점을 함께 찾아보고, 민호가 모문화를 존중하고 받아 들일 수 있도록 조력한다.",
+        "modelAnswer": "동화 (Assimilation)",
+        "matchedKeywords": [
+          "동화",
+          "미세모욕",
+          "통합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 B-1] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "저항",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 B-2] (2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "소거",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 B-3] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 가족 투사 과정, ㉡ 부모-자녀 연합",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 B-4] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "수치심 방지 기법 (Shame-attacking Exercise)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 B-5] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 진입 맥락 지지 (Contextual Supports), ㉡ 개인적 목표 (Personal Goals)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 B-6] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "조현병 (Schizophrenia)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 B-7] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "정동카타르시스 (Catharsis)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 B-8] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "회피성 성격장애 (Avoidant Personality Disorder)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 B-9] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 충고하기, ㉡ 질문하기",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 B-10] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠ 배경 맥락 (Background Contextual Affordances), ㉡ 진입 맥락 (Contextual Affordances Proximal to Choice)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "B-11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 B-11] (4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "ACT 모델 (Acknowledge, Communicate, Target)",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1786971287606",
+    "examId": "exam-60",
+    "examTitle": "[제 60 회차] 2027 KICE 기출 1순위 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항 화면 자름 방지 최적화 판)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 17. PM 9:54:47",
+    "totalScore": 0,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "P-1",
+        "number": "P-1",
+        "section": "교육학",
+        "title": "[1교시 교육학 논술]",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 A-1]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 A-2]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 A-3]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 A-4]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 A-5]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 A-6]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 A-7]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 A-8]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 A-9]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 A-10]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 A-11]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "12",
+        "number": "12",
+        "section": "전공",
+        "title": "[문항 A-12]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "1",
+        "number": "1",
+        "section": "전공",
+        "title": "[문항 B-1]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "2",
+        "number": "2",
+        "section": "전공",
+        "title": "[문항 B-2]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "3",
+        "number": "3",
+        "section": "전공",
+        "title": "[문항 B-3]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "4",
+        "number": "4",
+        "section": "전공",
+        "title": "[문항 B-4]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "5",
+        "number": "5",
+        "section": "전공",
+        "title": "[문항 B-5]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "6",
+        "number": "6",
+        "section": "전공",
+        "title": "[문항 B-6]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "7",
+        "number": "7",
+        "section": "전공",
+        "title": "[문항 B-7]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "8",
+        "number": "8",
+        "section": "전공",
+        "title": "[문항 B-8]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "9",
+        "number": "9",
+        "section": "전공",
+        "title": "[문항 B-9]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "10",
+        "number": "10",
+        "section": "전공",
+        "title": "[문항 B-10]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "11",
+        "number": "11",
+        "section": "전공",
+        "title": "[문항 B-11]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1786967032485",
+    "examId": "exam-26",
+    "examTitle": "🏆 [제 26 회차] 2027 KICE 전문상담 1차 통합 모의고사 (전공 A/B 23문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 17. PM 8:43:52",
+    "totalScore": 3.8000000000000003,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "26-P-1",
+        "number": "26-P-1",
+        "section": "교육학",
+        "title": "[주제: 2022 개정 교육과정 기반 깊이 있는 학습과 디지털·맞춤형 수업·평가 및 학교 조직 변혁을 추구하는 교사]",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[교육과정 - 4점] 백워드 설계 심화 기제\n- 영속적 이해: 단순 사실 기억을 넘어 학문의 핵심 개념과 원리에 대한 깊이 있는 이해로, 시간이 지나도 잊히지 않고 새로운 삶의 맥락에 전이(Transfer)되는 이해\n- 평가 과제 특징: 실제적 맥락(Authentic context)에서 학습자의 이해를 증명할 수 있는 수행평가 과제 및 정밀 루브릭 수립\n- 3단계 교수 계획 특징: 2단계 평가 과제를 성공적으로 수행하도록 돕는 목표 지향적 학습 활동 설계 (WHERETO 원리: 방향성 안내, 주의집중, 탐구, 재고, 평가, 맞춤화, 조직화)\n- 타일러 극복 기제: 평가를 교수-학습 활동보다 먼저 계획함으로써 교육 목표와 평가 간의 일치도(수업-평가 일체화)를 확보하고 평가의 사후 수단화를 극복함\n\n[교수방법 - 3점] 플립드 러닝 심화 전략\n- 사전 학습 미이행 대책: 수업 시작 직후 5분 간 사전 개념 점검 상호작용 퀴즈 실시, 사전 요약 가이드북 제공, 또래 지도 짝 구성\n- 테크놀로지 집중 전략: 영상 중간 대화형 상호작용 퀴즈(Edpuzzle 등) 삽입, 5~10분 이내 마이크로 러닝 영상 제작, LMS 진도율 자동 알림 시스템 활용\n- 교사 조력자 역할: 일방적 지식 전달자가 아닌 모둠 활동 퍼실리테이터(촉진자), 탐구 과제 조력자, 1:1 맞춤형 진단 및 즉각적 피드백 제공자\n\n[교육평가 - 4점] 루브릭 & 형성평가 피드백 심화\n- 루브릭 명칭: 루브릭 (Rubric / 세부 채점 기준표)\n- 피드백 즉시성 중요성: 학습 오류 발생 직후 즉시 교정적 피드백을 제공해야 오류가 장기기억에 고착화되는 것을 막고 학습 개선 효과를 극대화할 수 있음\n- 성취 수준 구분 이유: 채점자의 주관적·감정적 평가를 차단하여 채점자 간/채점자 내 신뢰도를 높이고, 학생에게 도착점 목표 기준을 명확히 제시함\n- 사전 공유/훈련 절차: 평가 실시 전 학생들과 루브릭 기준을 함께 읽고 해석하며, 샘플 답안을 활용한 예시 채점 사전 훈련을 실시하여 채점 공정성을 확보함\n\n[교육행정 - 4점] 변혁적 지도성 & PLC 심화\n- 지적 자극: 기존의 관습과 통념에 의문을 제기하고, 문제 발생 시 창의적이고 혁신적인 방법으로 문제를 해결하도록 장려함\n- 개별적 배려: 구성원 개개인의 성취 욕구와 잠재력에 깊은 관심을 기울이고, 개인별 필요에 맞춘 1:1 코칭과 성장을 지원함\n- 조직 몰입 영향: 교사들에게 자율성과 인정을 부여하여 직무 만족도를 제고하고 자발적인 학교 혁신과 조직 성장에 몰입하도록 이끎\n- PLC 지원 방안: 동료 장학 및 수업 공유를 위한 교사 간 공동 공강 시간(시간적 지원) 확보, 전용 협의실(공간적 지원) 마련, 연수비 지원 및 행정 업무 경감",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-1",
+        "number": "26-A-1",
+        "section": "전공",
+        "title": "[문항 A-1] 성격심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "ㄱ: 역할 구념 평가",
+        "modelAnswer": "역할수행목록 검사 (Role Construct Repertory Test / Rep Test / 렙 검사)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-2",
+        "number": "26-A-2",
+        "section": "전공",
+        "title": "[문항 A-2] 학습심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0.8,
+        "userAnswer": "변동비율 강화계획",
+        "modelAnswer": "변동비율 강화계획 (Variable-Ratio Schedule / VR)",
+        "matchedKeywords": [
+          "변동비율 강화계획",
+          "변동비율"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-3",
+        "number": "26-A-3",
+        "section": "전공",
+        "title": "[문항 A-3] 집단상담 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "ㄱ: 집단응집력",
+        "modelAnswer": "집단 응집력 (Group Cohesiveness / 집단응집성)",
+        "matchedKeywords": [
+          "집단응집력",
+          "응집력"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-4",
+        "number": "26-A-4",
+        "section": "전공",
+        "title": "[문항 A-4] 심리검사 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0.4,
+        "userAnswer": "ㄱ 유동추론",
+        "modelAnswer": "유동추론 지표 (Fluid Reasoning Index / FRI)",
+        "matchedKeywords": [
+          "유동추론"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-5",
+        "number": "26-A-5",
+        "section": "전공",
+        "title": "[문항 A-5] 이상심리학 + 심리검사 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 1.6,
+        "userAnswer": "1. 태우 정신장애 진단명은 파괴적 기분조절 장애이다.  진단근거: 주당 평균 3회이상 (지문의 주3~4회 이상 수치명시) (1년이상 지속), (발작없는 날에도 성마른 기분)\n2.저조한 지표는 유동추론 지표이다. \n3. 이 지표 저하는 비구어적 자극의 추상적 규칙과 논리적 원리를 추론하는 능력이 부족함을 의미한다. \n4. 개입방안으로 시각적 상황 단서와 소크라테스식 질문을 활용하여 분노사고를 대안 사고로 재구성하는 인지재구조화를 적용한다.",
+        "modelAnswer": "1. 태우의 DSM-5-TR 정식 진단명은 '파괴적 기분조절곤란장애(Disruptive Mood Dysregulation Disorder / DMDD)'이다. 진단 근거가 되는 분노 발작의 최소 발생 횟수 조건은 '주당 평균 3회 이상' 발생하는 것으로, 태우는 지문에서 주당 평균 3~4회 이상 분노 발작을 일으켜 14개월간 지속되었으므로 해당 진단 기준을 충족한다.\n2. 태우가 76점으로 저조한 지표는 '유동추론 지표(FRI)'이다. 이 지표 저하는 시각적 자극의 추상적 규칙과 논리적 원리를 추론하는 비구어적 논리 능력이 부족함을 의미한다. 상담교사는 시각적 상황 카드를 활용하여 상황 간 인과관계를 차근차근 따져보도록 유도하는 소크라테스식 질문과 인지재구조화 기법을 적용할 수 있다.",
+        "matchedKeywords": [
+          "유동추론 지표",
+          "인지재구조화"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-6",
+        "number": "26-A-6",
+        "section": "전공",
+        "title": "[문항 A-6] 상담이론 + 위기/윤리 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1. ㄱ 파국화   (수학 중간고사82점으로 완전히 망했고, 인생이 끝났다고 생각한다.)\n2. 자살은 비밀보장 예외사유이다. 상담 비밀보다 지민이의 생명과 안전이 제일 중요하기 때문이다. 긴급 안전 조치로, 첫째, 상담교사는 즉시 직입적으로 자살에 대해서 구체적으로 물어봐야한다. 자살의 목적, 자살방법, 자살의 심각성을 물어본다. 둘째, 부모님과 학교관계자에게 이 사실을 알린다.",
+        "modelAnswer": "1. ㉠에 나타난 인지적 오류는 '과도한 일반화(Overgeneralization)' 또는 '재앙화(Catastrophizing)'이다. 수학 시험 단 한 번의 점수 하락(82점)이라는 단편적 사건을 지민이 삶 전체의 파괴 및 인생의 실패로 확대 해석하는 왜곡을 보이고 있다.\n2. 비밀보장 파기의 윤리적 근거는 내담자 자신(지민)의 생명과 신체적 안전에 극심한 위험(자살 위험 및 자해 시도)이 존재하는 경우 비밀보장 원칙보다 생명 보호의 의무가 우선한다는 점이다. 구체적 긴급 안전 조치로는 ① 즉시 보호자(부모)에게 위기 상황을 통보하여 신병을 인도하고, ② 학교 위기관리위원회 가동 및 전문 치료기관(소아정신과/자살예방센터)에 긴급 연계하고 안전 서약서를 작성한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-7",
+        "number": "26-A-7",
+        "section": "전공",
+        "title": "[문항 A-7] 가족치료 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 의사소통 유형은 '회유형(Placating)'이며, 사티어의 삼자 요소(자신, 타인, 상황) 중 현수가 완전히 무시하고 있는 요소는 '자신(Self)'이다.\n2. ㉡의 신념은 당위성의 3가지 범주 중 '타인에 대한 당위성(또는 타인이 나를 인정해야 한다는 당위)'에 해당한다. 상담자는 소크라테스식 논박(실증적/논리적 질문)을 통해 \"타인을 섭섭하지 않게 하지 않으면 반드시 파멸한다는 현실적 증거가 있는가?\"라고 질문하여 비합리성을 자각시키고, 자신의 감정과 타인, 상황을 모두 존중하여 표현하는 '일치형(Congruent)' 행동 시연을 연습시킨다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-8",
+        "number": "26-A-8",
+        "section": "전공",
+        "title": "[문항 A-8] 상담이론 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 접촉경계 장애 명칭은 '내사(Introjection)'이다. 내사는 외부 타인의 가치나 기준을 비판 없이 무조건 수용하여 자신의 것으로 받아들이는 역동인 반면, '투사(Projection)'는 자신의 받아들일 수 없는 욕구, 감정, 책임을 외부 타인의 탓으로 돌리는 역동이라는 점에서 차이가 있다.\n2. '빈 의자 기법'의 적용 절차는 맞은편 빈 의자에 내사의 대상(어머니)이나 내면의 한 인격을 상상하여 자리에 앉히고, 그 대상과 직접 대화를 주고받는 역할을 교대로 수행하게 한다. 치료적 효과는 과거 억압했던 어머니에 대한 미해결 과제와 정서를 안전하게 발산(정화)하고 내면화된 인격을 자각하여 통합을 이루게 돕는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-9",
+        "number": "26-A-9",
+        "section": "전공",
+        "title": "[문항 A-9] 발달심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 에릭슨 5단계 명칭은 '자아정체감 대 정체감 혼란(Identity vs. Role Confusion)' 단계이다. 이 위기를 성공적으로 극복했을 때 획득하는 자아 강도(덕목)는 '충성심(Fidelity)'이다.\n2. '심리사회적 유예기'란 성인으로서의 책임과 의무를 성급하게 지지 않고 다양한 사회적 역할과 가능성을 자유롭게 탐색하도록 사회가 허용하는 유예 기간이다. 마르샤의 정체성 지위 중 민성의 상태는 '정체성 유예(Moratorium)' 지위에 해당하며, 이는 정체성 위기/탐색 차원은 존재(유)하지만 아직 특정 진로나 가치관에 대한 헌신 차원은 이루어지지 않은(무) 상태를 의미한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-10",
+        "number": "26-A-10",
+        "section": "전공",
+        "title": "[문항 A-10] 심리검사 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. F 척도가 80T 이상으로 높고 L, K 척도가 저하된 역V자 패턴의 의미는 ① 수검자의 자아 방어 기제가 완전히 붕괴되어 극심한 정서적 고통을 느끼고 있음과 ② 상담자에게 자신의 고통을 솔직히 호소하며 도움을 바라는 '도움 요청(Help-seeking)' 태도를 반영한다.\n2. 4-9 / 9-4 코드 수검자의 특성은 충동적이고 반사회적인 행동, 낮은 사회적 억제력과 자제력 부족, 타인의 권리 무시 및 공격성 표출이다. 상담 구조화 개입으로는 상담 시간, 횟수, 무단결석 및 돌발 행동에 대한 명확한 규칙과 한계를 설정하고 상담 계약서를 작성하여 세션을 엄격히 구조화해야 한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-11",
+        "number": "26-A-11",
+        "section": "전공",
+        "title": "[문항 A-11] 학교상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 3차 예방(사후 개입)의 치료적 목적 2가지는 ① 자살 사건으로 인한 학생 및 교직원의 집단적 심리 트라우마 발생을 방지하고 안정을 도모하는 것과 ② 2차적 모방 자살(베르테르 효과)의 파급을 차단하는 것이다.\n2. 3차 예방 대상 생존자 범주 2가지는 ① 사건을 직접 목격했거나 고인과 매우 친밀했던 핵심 또래 및 가족, ② 해당 학급 구성원 및 동료 교사이다. 시행 가능한 구체적 사후 개입 활동으로는 '고인 학급 대상 긴급 애도 집단상담' 및 '자살 충격 반응 스크리닝 및 개별 위기 상담'을 진행할 수 있다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-12",
+        "number": "26-A-12",
+        "section": "전공",
+        "title": "[문항 A-12] 다문화상담 + 성격/진로 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 문화적응 유형은 '동화(Assimilation)'이다. 동화는 새로운 주류(지배) 문화에 대해서는 적극적으로 수용하는 반면, 자신의 원문화와 정체성에 대해서는 완전히 포기하거나 거부하는 형태의 문화적응을 의미한다.\n2. 미세침해는 SCCT 모델에서 진로 목표를 행동으로 실행하는 시점에 부정적 영향을 미치는 '진입 맥락/환경적 장벽(Contextual influences proximal to choice behavior)' 변인으로 작용한다. 상담교사는 지지적 관계를 제공하여 문화적 자존감을 회복시키고 성공적인 진로 이행 성취 경험을 확대하도록 돕는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-1",
+        "number": "26-B-1",
+        "section": "전공",
+        "title": "[문항 B-1] 상담이론 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "저항 (Resistance)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-2",
+        "number": "26-B-2",
+        "section": "전공",
+        "title": "[문항 B-2] 학습심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "소거 (Extinction)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-3",
+        "number": "26-B-3",
+        "section": "전공",
+        "title": "[문항 B-3] 가족치료 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 삼각관계 형성과정은 부부 2인 체계의 정서적 불안과 갈등이 고조될 때 이를 해소하기 위해 제3자인 자녀(민우)를 얽어매어 불안을 분산시키는 역동이다. '자기분화'의 2가지 측면은 ① 정신적 측면: 감정과 사고를 분리하여 지적 사고에 따라 행동하는 능력, ② 대인관계적 측면: 타인(가족)과의 정서적 융합에서 벗어나 자신과 ��인을 분리하는 독립적 능력이다.\n2. 부��와 자녀 간 설정해야 하는 건강한 경계선은 '명확한 경계선(Clear Boundary)'이다. 상담자 개입 방안으로는 부모 하위체계와 자녀 하위체계 간의 침범을 막고 각각의 역할과 자율성을 존중하는 경계선 설정 기법(나-전달법 유도, 부부만의 대화 시간 확보)을 시행한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-4",
+        "number": "26-B-4",
+        "section": "전공",
+        "title": "[문항 B-4] 성격심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 핵심 성격 구조 명칭은 '생활양식(Life Style)'이다. 생활양식은 약 4~5세 경 어린 시절에 형성되며, 개인이 가진 신체적·심리적 열등감을 극복하고 우월성을 추구하는 과정에서 삶의 과제에 대처하기 위해 스스로 구축하는 독특한 인지적 지도로 형성된다.\n2. '사회적 관심'이란 개인이 타인과 공감하고 공동체의 사회적 이익에 기여하며 타인과 협력하고자 하는 태도 및 이타적 각성이다. 동수처럼 활동성은 높으나 사회적 관심이 낮은 생활양식 유형은 '지배형(Ruling Type)'이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-5",
+        "number": "26-B-5",
+        "section": "전공",
+        "title": "[문항 B-5] 진로상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '제한'의 4단계 순서는 ① 1단계: 힘과 크기 지향성 (3~5세), ② 2단계: 성역할 지향성 (6~8세), ③ 3단계: 사회적 가치 지향성 (9~13세), ④ 4단계: 고유한 자기 지향성 (14세 이상)이다.\n2. 진로 타협 상황 발생 시 가장 먼저 포기하는 요인은 '흥미'이며, 끝까지 보호하고 유지하려는 요인은 '성역할'이다. 그 이유는 성역할 지향성이 2단계(6~8세)로 가장 이른 아동기 발달 단계에서 형성되어 자아개념의 핵심으로 깊이 내면화되어 있는 반면, 흥미는 가장 나중 단계(4단계, 14세 이상)에서 형성되었기 때문이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-6",
+        "number": "26-B-6",
+        "section": "전공",
+        "title": "[문항 B-6] 이상심리학 + 심리검사 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 민혁이에게 내릴 수 있는 정식 진단명은 '조현양상장애(Schizophreniform Disorder)'이다. 이 장애는 증상의 총 지속 기간이 '1개월 이상 6개월 미만'이어야 하므로, 6개월 이상 지속되어야 하는 조현병과 감별된다. 민혁이는 3개월째 지속 중이므로 조현양상장애에 해당한다.\n2. 2-7 / 7-2 코드 수검자의 특성은 만성적인 불안, 우울, 과도한 걱정과 신체화 호소, 높은 완벽주의적 성향이다. 상담자 개입 방안으로는 망상 내용을 직접 비판하거나 논쟁하지 않고 민혁이가 느끼는 불안 정서에 충분히 공감해 주면서, 비판단적 수용 자세로 현재의 구체적 현실 자극에 집중하도록 돕는 현실 검증성 개입을 시행한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-7",
+        "number": "26-B-7",
+        "section": "전공",
+        "title": "[문항 B-7] 이상심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 주요우울장애 진단을 위해 필요한 2가지 핵심 증상은 ① 우울한 기분, ② 흥미나 즐거움의 현저한 저하(상실)이다. 증상의 최소 지속 기간 조건은 이 중 적어도 하나의 증상을 포함한 5가지 이상의 우울 증상이 '최소 2주 이상 거의 매일 지속'되어야 한다.\n2. 조증 삽화와 경조증 삽화의 2가지 차이점은 ① 최소 지속 기간: 조증 삽화는 최소 1주일 이상 지속되어야 하는 반면, 경조증 삽화는 최소 4일 이상 지속되면 된다. ② 임상적 심각도 및 입원: 조증 삽화는 직업적·사회적 기능에 현저한 장애를 일으키고 환각/망상 동반 또는 입원이 필요할 정도로 심각한 반면, 경조증 삽화는 기능 저하가 심각하지 않으며 입원이 필요하지 않고 정신병적 양상이 동반되지 않는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-8",
+        "number": "26-B-8",
+        "section": "전공",
+        "title": "[문항 B-8] 학교위기 + 법령 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠ '보호입원'은 보호의무자 2명 이상의 신청(동의)과 서로 다른 정신건강의학과 전문의 2명 이상의 일치된 입원 진단이 필요하다. 반면 ㉡ '행정입원'은 보호의무자의 동의 없이 정신건강의학과 전문의 2명 이상의 진단에 따라 특별자치시장·특별자치도지사·시장·군수·구청장(지방자치단체의 장)의 결정 및 주체로 입원이 진행된다.\n2. 피해학생 보호(제16조) 조치 예시 1가지는 '학내외 전문가에 의한 심리상담 및 조언' 또는 '치료 및 치료를 위한 요양'이다. 가해학생 조치(제17조) 중 제1호 조치는 '피해학생에 대한 서면사과', 제2호 조치는 '피해학생 및 신고·고발 학생에 대한 접촉, 협박 및 보복행위의 금지'이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-9",
+        "number": "26-B-9",
+        "section": "전공",
+        "title": "[문항 B-9] 집단상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '충고하기' 행동의 부정적 영향 2가지는 ① 충고를 받는 집단원이 자신의 깊은 정서를 충분히 탐색하고 성찰할 기회를 방해하며, ② 충고 제공자에게 의존하게 만들거나 피상적인 해결책에 그치게 하여 집단원의 자율적 변화를 저해한다.\n2. '질문하기' 행동을 보이는 집단원에 대한 개입 방안은 지도자가 질문 행동을 즉시 차단하고, \"질문 뒤에 있는 B군의 솔직한 느낌이나 감정을 '나(I)'를 주어로 하여 '나-전달법(I-message)' 진술문으로 바꾸어 고백하도록\" 유도하여 안전하게 자기개방을 할 수 있도록 개입한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-10",
+        "number": "26-B-10",
+        "section": "전공",
+        "title": "[문항 B-10] 진로상담 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '배경 맥락'은 유년기 및 과거 성장 과정에서 학습 경험(성취, 대리 학습 등)을 형성하여 자기효능감 및 결과기대에 간접적·인과적으로 영향을 미치는 반면, '진입 맥락'은 실제 진로를 선택하고 실행하는 현재 시점에서 환경적 지지나 장벽으로 작용하여 진로 선택과 행동에 직접적·즉각적으로 영향을 미친다.\n2. CMI 태도 척도 5가지 요소는 '결정성, 참여도, 독립성, 지향성, 타협성'이다. '독립성'이란 진로를 결정하고 선택하는 과정에서 타인이나 부모의 의견에 과도하게 의존하지 않고 스스로 자신의 진로를 결정하려는 독립적 태도의 정도이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-11",
+        "number": "26-B-11",
+        "section": "전공",
+        "title": "[문항 B-11] 아동상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 놀이치료에서 제한 설정의 치료적 목적 2가지는 ① 아동과 치료자의 물리적·정서적 안전과 현실감을 유지시키는 것이며, ② 허용된 범위 내에서 아동의 자기통제력, 책임감, 의사결정 능력을 촉진하는 것이다.\n2. ACT 3단계 모델은 ① A (Acknowledge feelings - 감정 수용): \"네가 나에게 화가 난 마음은 잘 알고 있단다\", ② C (Communicate the limit - 제한 전달): \"하지만 선생님을 때려서는 안 된단다\", ③ T (Target acceptable alternatives - 대안 제시): \"대신 저기 있는 샌드백 인형을 세게 때릴 수는 있단다\"로 구체적 언어적 개입을 매칭한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1786966906225",
+    "examId": "exam-26",
+    "examTitle": "🏆 [제 26 회차] 2027 KICE 전문상담 1차 통합 모의고사 (전공 A/B 23문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 17. PM 8:41:46",
+    "totalScore": 3.8000000000000003,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "26-P-1",
+        "number": "26-P-1",
+        "section": "교육학",
+        "title": "[주제: 2022 개정 교육과정 기반 깊이 있는 학습과 디지털·맞춤형 수업·평가 및 학교 조직 변혁을 추구하는 교사]",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[교육과정 - 4점] 백워드 설계 심화 기제\n- 영속적 이해: 단순 사실 기억을 넘어 학문의 핵심 개념과 원리에 대한 깊이 있는 이해로, 시간이 지나도 잊히지 않고 새로운 삶의 맥락에 전이(Transfer)되는 이해\n- 평가 과제 특징: 실제적 맥락(Authentic context)에서 학습자의 이해를 증명할 수 있는 수행평가 과제 및 정밀 루브릭 수립\n- 3단계 교수 계획 특징: 2단계 평가 과제를 성공적으로 수행하도록 돕는 목표 지향적 학습 활동 설계 (WHERETO 원리: 방향성 안내, 주의집중, 탐구, 재고, 평가, 맞춤화, 조직화)\n- 타일러 극복 기제: 평가를 교수-학습 활동보다 먼저 계획함으로써 교육 목표와 평가 간의 일치도(수업-평가 일체화)를 확보하고 평가의 사후 수단화를 극복함\n\n[교수방법 - 3점] 플립드 러닝 심화 전략\n- 사전 학습 미이행 대책: 수업 시작 직후 5분 간 사전 개념 점검 상호작용 퀴즈 실시, 사전 요약 가이드북 제공, 또래 지도 짝 구성\n- 테크놀로지 집중 전략: 영상 중간 대화형 상호작용 퀴즈(Edpuzzle 등) 삽입, 5~10분 이내 마이크로 러닝 영상 제작, LMS 진도율 자동 알림 시스템 활용\n- 교사 조력자 역할: 일방적 지식 전달자가 아닌 모둠 활동 퍼실리테이터(촉진자), 탐구 과제 조력자, 1:1 맞춤형 진단 및 즉각적 피드백 제공자\n\n[교육평가 - 4점] 루브릭 & 형성평가 피드백 심화\n- 루브릭 명칭: 루브릭 (Rubric / 세부 채점 기준표)\n- 피드백 즉시성 중요성: 학습 오류 발생 직후 즉시 교정적 피드백을 제공해야 오류가 장기기억에 고착화되는 것을 막고 학습 개선 효과를 극대화할 수 있음\n- 성취 수준 구분 이유: 채점자의 주관적·감정적 평가를 차단하여 채점자 간/채점자 내 신뢰도를 높이고, 학생에게 도착점 목표 기준을 명확히 제시함\n- 사전 공유/훈련 절차: 평가 실시 전 학생들과 루브릭 기준을 함께 읽고 해석하며, 샘플 답안을 활용한 예시 채점 사전 훈련을 실시하여 채점 공정성을 확보함\n\n[교육행정 - 4점] 변혁적 지도성 & PLC 심화\n- 지적 자극: 기존의 관습과 통념에 의문을 제기하고, 문제 발생 시 창의적이고 혁신적인 방법으로 문제를 해결하도록 장려함\n- 개별적 배려: 구성원 개개인의 성취 욕구와 잠재력에 깊은 관심을 기울이고, 개인별 필요에 맞춘 1:1 코칭과 성장을 지원함\n- 조직 몰입 영향: 교사들에게 자율성과 인정을 부여하여 직무 만족도를 제고하고 자발적인 학교 혁신과 조직 성장에 몰입하도록 이끎\n- PLC 지원 방안: 동료 장학 및 수업 공유를 위한 교사 간 공동 공강 시간(시간적 지원) 확보, 전용 협의실(공간적 지원) 마련, 연수비 지원 및 행정 업무 경감",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-1",
+        "number": "26-A-1",
+        "section": "전공",
+        "title": "[문항 A-1] 성격심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "ㄱ: 역할 구념 평가",
+        "modelAnswer": "역할수행목록 검사 (Role Construct Repertory Test / Rep Test / 렙 검사)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-2",
+        "number": "26-A-2",
+        "section": "전공",
+        "title": "[문항 A-2] 학습심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0.8,
+        "userAnswer": "변동비율 강화계획",
+        "modelAnswer": "변동비율 강화계획 (Variable-Ratio Schedule / VR)",
+        "matchedKeywords": [
+          "변동비율 강화계획",
+          "변동비율"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-3",
+        "number": "26-A-3",
+        "section": "전공",
+        "title": "[문항 A-3] 집단상담 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "ㄱ: 집단응집력",
+        "modelAnswer": "집단 응집력 (Group Cohesiveness / 집단응집성)",
+        "matchedKeywords": [
+          "집단응집력",
+          "응집력"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-4",
+        "number": "26-A-4",
+        "section": "전공",
+        "title": "[문항 A-4] 심리검사 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0.4,
+        "userAnswer": "ㄱ 유동추론",
+        "modelAnswer": "유동추론 지표 (Fluid Reasoning Index / FRI)",
+        "matchedKeywords": [
+          "유동추론"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-5",
+        "number": "26-A-5",
+        "section": "전공",
+        "title": "[문항 A-5] 이상심리학 + 심리검사 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 1.6,
+        "userAnswer": "1. 태우 정신장애 진단명은 파괴적 기분조절 장애이다.  진단근거: 주당 평균 3회이상 (지문의 주3~4회 이상 수치명시) (1년이상 지속), (발작없는 날에도 성마른 기분)\n2.저조한 지표는 유동추론 지표이다. \n3. 이 지표 저하는 비구어적 자극의 추상적 규칙과 논리적 원리를 추론하는 능력이 부족함을 의미한다. \n4. 개입방안으로 시각적 상황 단서와 소크라테스식 질문을 활용하여 분노사고를 대안 사고로 재구성하는 인지재구조화를 적용한다.",
+        "modelAnswer": "1. 태우의 DSM-5-TR 정식 진단명은 '파괴적 기분조절곤란장애(Disruptive Mood Dysregulation Disorder / DMDD)'이다. 진단 근거가 되는 분노 발작의 최소 발생 횟수 조건은 '주당 평균 3회 이상' 발생하는 것으로, 태우는 지문에서 주당 평균 3~4회 이상 분노 발작을 일으켜 14개월간 지속되었으므로 해당 진단 기준을 충족한다.\n2. 태우가 76점으로 저조한 지표는 '유동추론 지표(FRI)'이다. 이 지표 저하는 시각적 자극의 추상적 규칙과 논리적 원리를 추론하는 비구어적 논리 능력이 부족함을 의미한다. 상담교사는 시각적 상황 카드를 활용하여 상황 간 인과관계를 차근차근 따져보도록 유도하는 소크라테스식 질문과 인지재구조화 기법을 적용할 수 있다.",
+        "matchedKeywords": [
+          "유동추론 지표",
+          "인지재구조화"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-6",
+        "number": "26-A-6",
+        "section": "전공",
+        "title": "[문항 A-6] 상담이론 + 위기/윤리 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1. ㄱ 파국화   (수학 중간고사82점으로 완전히 망했고, 인생이 끝났다고 생각한다.)\n2. 자살은 비밀보장 예외사유이다. 상담 비밀보다 지민이의 생명과 안전이 제일 중요하기 때문이다. 긴급 안전 조치로, 첫째, 상담교사는 즉시 직입적으로 자살에 대해서 구체적으로 물어봐야한다. 자살의 목적, 자살방법, 자살의 심각성을 물어본다. 둘째, 부모님과 학교관계자에게 이 사실을 알린다.",
+        "modelAnswer": "1. ㉠에 나타난 인지적 오류는 '과도한 일반화(Overgeneralization)' 또는 '재앙화(Catastrophizing)'이다. 수학 시험 단 한 번의 점수 하락(82점)이라는 단편적 사건을 지민이 삶 전체의 파괴 및 인생의 실패로 확대 해석하는 왜곡을 보이고 있다.\n2. 비밀보장 파기의 윤리적 근거는 내담자 자신(지민)의 생명과 신체적 안전에 극심한 위험(자살 위험 및 자해 시도)이 존재하는 경우 비밀보장 원칙보다 생명 보호의 의무가 우선한다는 점이다. 구체적 긴급 안전 조치로는 ① 즉시 보호자(부모)에게 위기 상황을 통보하여 신병을 인도하고, ② 학교 위기관리위원회 가동 및 전문 치료기관(소아정신과/자살예방센터)에 긴급 연계하고 안전 서약서를 작성한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-7",
+        "number": "26-A-7",
+        "section": "전공",
+        "title": "[문항 A-7] 가족치료 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 의사소통 유형은 '회유형(Placating)'이며, 사티어의 삼자 요소(자신, 타인, 상황) 중 현수가 완전히 무시하고 있는 요소는 '자신(Self)'이다.\n2. ㉡의 신념은 당위성의 3가지 범주 중 '타인에 대한 당위성(또는 타인이 나를 인정해야 한다는 당위)'에 해당한다. 상담자는 소크라테스식 논박(실증적/논리적 질문)을 통해 \"타인을 섭섭하지 않게 하지 않으면 반드시 파멸한다는 현실적 증거가 있는가?\"라고 질문하여 비합리성을 자각시키고, 자신의 감정과 타인, 상황을 모두 존중하여 표현하는 '일치형(Congruent)' 행동 시연을 연습시킨다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-8",
+        "number": "26-A-8",
+        "section": "전공",
+        "title": "[문항 A-8] 상담이론 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 접촉경계 장애 명칭은 '내사(Introjection)'이다. 내사는 외부 타인의 가치나 기준을 비판 없이 무조건 수용하여 자신의 것으로 받아들이는 역동인 반면, '투사(Projection)'는 자신의 받아들일 수 없는 욕구, 감정, 책임을 외부 타인의 탓으로 돌리는 역동이라는 점에서 차이가 있다.\n2. '빈 의자 기법'의 적용 절차는 맞은편 빈 의자에 내사의 대상(어머니)이나 내면의 한 인격을 상상하여 자리에 앉히고, 그 대상과 직접 대화를 주고받는 역할을 교대로 수행하게 한다. 치료적 효과는 과거 억압했던 어머니에 대한 미해결 과제와 정서를 안전하게 발산(정화)하고 내면화된 인격을 자각하여 통합을 이루게 돕는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-9",
+        "number": "26-A-9",
+        "section": "전공",
+        "title": "[문항 A-9] 발달심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 에릭슨 5단계 명칭은 '자아정체감 대 정체감 혼란(Identity vs. Role Confusion)' 단계이다. 이 위기를 성공적으로 극복했을 때 획득하는 자아 강도(덕목)는 '충성심(Fidelity)'이다.\n2. '심리사회적 유예기'란 성인으로서의 책임과 의무를 성급하게 지지 않고 다양한 사회적 역할과 가능성을 자유롭게 탐색하도록 사회가 허용하는 유예 기간이다. 마르샤의 정체성 지위 중 민성의 상태는 '정체성 유예(Moratorium)' 지위에 해당하며, 이는 정체성 위기/탐색 차원은 존재(유)하지만 아직 특정 진로나 가치관에 대한 헌신 차원은 이루어지지 않은(무) 상태를 의미한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-10",
+        "number": "26-A-10",
+        "section": "전공",
+        "title": "[문항 A-10] 심리검사 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. F 척도가 80T 이상으로 높고 L, K 척도가 저하된 역V자 패턴의 의미는 ① 수검자의 자아 방어 기제가 완전히 붕괴되어 극심한 정서적 고통을 느끼고 있음과 ② 상담자에게 자신의 고통을 솔직히 호소하며 도움을 바라는 '도움 요청(Help-seeking)' 태도를 반영한다.\n2. 4-9 / 9-4 코드 수검자의 특성은 충동적이고 반사회적인 행동, 낮은 사회적 억제력과 자제력 부족, 타인의 권리 무시 및 공격성 표출이다. 상담 구조화 개입으로는 상담 시간, 횟수, 무단결석 및 돌발 행동에 대한 명확한 규칙과 한계를 설정하고 상담 계약서를 작성하여 세션을 엄격히 구조화해야 한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-11",
+        "number": "26-A-11",
+        "section": "전공",
+        "title": "[문항 A-11] 학교상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 3차 예방(사후 개입)의 치료적 목적 2가지는 ① 자살 사건으로 인한 학생 및 교직원의 집단적 심리 트라우마 발생을 방지하고 안정을 도모하는 것과 ② 2차적 모방 자살(베르테르 효과)의 파급을 차단하는 것이다.\n2. 3차 예방 대상 생존자 범주 2가지는 ① 사건을 직접 목격했거나 고인과 매우 친밀했던 핵심 또래 및 가족, ② 해당 학급 구성원 및 동료 교사이다. 시행 가능한 구체적 사후 개입 활동으로는 '고인 학급 대상 긴급 애도 집단상담' 및 '자살 충격 반응 스크리닝 및 개별 위기 상담'을 진행할 수 있다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-12",
+        "number": "26-A-12",
+        "section": "전공",
+        "title": "[문항 A-12] 다문화상담 + 성격/진로 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 문화적응 유형은 '동화(Assimilation)'이다. 동화는 새로운 주류(지배) 문화에 대해서는 적극적으로 수용하는 반면, 자신의 원문화와 정체성에 대해서는 완전히 포기하거나 거부하는 형태의 문화적응을 의미한다.\n2. 미세침해는 SCCT 모델에서 진로 목표를 행동으로 실행하는 시점에 부정적 영향을 미치는 '진입 맥락/환경적 장벽(Contextual influences proximal to choice behavior)' 변인으로 작용한다. 상담교사는 지지적 관계를 제공하여 문화적 자존감을 회복시키고 성공적인 진로 이행 성취 경험을 확대하도록 돕는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-1",
+        "number": "26-B-1",
+        "section": "전공",
+        "title": "[문항 B-1] 상담이론 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "저항 (Resistance)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-2",
+        "number": "26-B-2",
+        "section": "전공",
+        "title": "[문항 B-2] 학습심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "소거 (Extinction)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-3",
+        "number": "26-B-3",
+        "section": "전공",
+        "title": "[문항 B-3] 가족치료 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 삼각관계 형성과정은 부부 2인 체계의 정서적 불안과 갈등이 고조될 때 이를 해소하기 위해 제3자인 자녀(민우)를 얽어매어 불안을 분산시키는 역동이다. '자기분화'의 2가지 측면은 ① 정신적 측면: 감정과 사고를 분리하여 지적 사고에 따라 행동하는 능력, ② 대인관계적 측면: 타인(가족)과의 정서적 융합에서 벗어나 자신과 타인을 분리하는 독립적 능력이다.\n2. 부��와 자녀 간 설정해야 하는 건강한 경계선은 '명확한 경계선(Clear Boundary)'이다. 상담자 개입 방안으로는 부모 하위체계와 자녀 하위체계 간의 침범을 막고 각각의 역할과 자율성을 존중하는 경계선 설정 기법(나-전달법 유도, 부부만의 대화 시간 확보)을 시행한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-4",
+        "number": "26-B-4",
+        "section": "전공",
+        "title": "[문항 B-4] 성격심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 핵심 성격 구조 명칭은 '생활양식(Life Style)'이다. 생활양식은 약 4~5세 경 어린 시절에 형성되며, 개인이 가진 신체적·심리적 열등감을 극복하고 우월성을 추구하는 과정에서 삶의 과제에 대처하기 위해 스스로 구축하는 독특한 인지적 지도로 형성된다.\n2. '사회적 관심'이란 개인이 타인과 공감하고 공동체의 사회적 이익에 기여하며 타인과 협력하고자 하는 태도 및 이타적 각성이다. 동수처럼 활동성은 높으나 사회적 관심이 낮은 생활양식 유형은 '지배형(Ruling Type)'이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-5",
+        "number": "26-B-5",
+        "section": "전공",
+        "title": "[문항 B-5] 진로상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '제한'의 4단계 순서는 ① 1단계: 힘과 크기 지향성 (3~5세), ② 2단계: 성역할 지향성 (6~8세), ③ 3단계: 사회적 가치 지향성 (9~13세), ④ 4단계: 고유한 자기 지향성 (14세 이상)이다.\n2. 진로 타협 상황 발생 시 가장 먼저 포기하는 요인은 '흥미'이며, 끝까지 보호하고 유지하려는 요인은 '성역할'이다. 그 이유는 성역할 지향성이 2단계(6~8세)로 가장 이른 아동기 발달 단계에서 형성되어 자아개념의 핵심으로 깊이 내면화되어 있는 반면, 흥미는 가장 나중 단계(4단계, 14세 이상)에서 형성되었기 때문이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-6",
+        "number": "26-B-6",
+        "section": "전공",
+        "title": "[문항 B-6] 이상심리학 + 심리검사 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 민혁이에게 내릴 수 있는 정식 진단명은 '조현양상장애(Schizophreniform Disorder)'이다. 이 장애는 증상의 총 지속 기간이 '1개월 이상 6개월 미만'이어야 하므로, 6개월 이상 지속되어야 하는 조현병과 감별된다. 민혁이는 3개월째 지속 중이므로 조현양상장애에 해당한다.\n2. 2-7 / 7-2 코드 수검자의 특성은 만성적인 불안, 우울, 과도한 걱정과 신체화 호소, 높은 완벽주의적 성향이다. 상담자 개입 방안으로는 망상 내용을 직접 비판하거나 논쟁하지 않고 민혁이가 느끼는 불안 정서에 충분히 공감해 주면서, 비판단적 수용 자세로 현재의 구체적 현실 자극에 집중하도록 돕는 현실 검증성 개입을 시행한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-7",
+        "number": "26-B-7",
+        "section": "전공",
+        "title": "[문항 B-7] 이상심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 주요우울장애 진단을 위해 필요한 2가지 핵심 증상은 ① 우울한 기분, ② 흥미나 즐거움의 현저한 저하(상실)이다. 증상의 최소 지속 기간 조건은 이 중 적어도 하나의 증상을 포함한 5가지 이상의 우울 증상이 '최소 2주 이상 거의 매일 지속'되어야 한다.\n2. 조증 삽화와 경조증 삽화의 2가지 차이점은 ① 최소 지속 기간: 조증 삽화는 최소 1주일 이상 지속되어야 하는 반면, 경조증 삽화는 최소 4일 이상 지속되면 된다. ② 임상적 심각도 및 입원: 조증 삽화는 직업적·사회적 기능에 현저한 장애를 일으키고 환각/망상 동반 또는 입원이 필요할 정도로 심각한 반면, 경조증 삽화는 기능 저하가 심각하지 않으며 입원이 필요하지 않고 정신병적 양상이 동반되지 않는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-8",
+        "number": "26-B-8",
+        "section": "전공",
+        "title": "[문항 B-8] 학교위기 + 법령 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠ '보호입원'은 보호의무자 2명 이상의 신청(동의)과 서로 다른 정신건강의학과 전문의 2명 이상의 일치된 입원 진단이 필요하다. 반면 ㉡ '행정입원'은 보호의무자의 동의 없이 정신건강의학과 전문의 2명 이상의 진단에 따라 특별자치시장·특별자치도지사·시장·군수·구청장(지방자치단체의 장)의 결정 및 주체로 입원이 진행된다.\n2. 피해학생 보호(제16조) 조치 예시 1가지는 '학내외 전문가에 의한 심리상담 및 조언' 또는 '치료 및 치료를 위한 요양'이다. 가해학생 조치(제17조) 중 제1호 조치는 '피해학생에 대한 서면사과', 제2호 조치는 '피해학생 및 신고·고발 학생에 대한 접촉, 협박 및 보복행위의 금지'이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-9",
+        "number": "26-B-9",
+        "section": "전공",
+        "title": "[문항 B-9] 집단상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '충고하기' 행동의 부정적 영향 2가지는 ① 충고를 받는 집단원이 자신의 깊은 정서를 충분히 탐색하고 성찰할 기회를 방해하며, ② 충고 제공자에게 의존하게 만들거나 피상적인 해결책에 그치게 하여 집단원의 자율적 변화를 저해한다.\n2. '질문하기' 행동을 보이는 집단원에 대한 개입 방안은 지도자가 질문 행동을 즉시 차단하고, \"질문 뒤에 있는 B군의 솔직한 느낌이나 감정을 '나(I)'를 주어로 하여 '나-전달법(I-message)' 진술문으로 바꾸어 고백하도록\" 유도하여 안전하게 자기개방을 할 수 있도록 개입한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-10",
+        "number": "26-B-10",
+        "section": "전공",
+        "title": "[문항 B-10] 진로상담 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '배경 맥락'은 유년기 및 과거 성장 과정에서 학습 경험(성취, 대리 학습 등)을 형성하여 자기효능감 및 결과기대에 간접적·인과적으로 영향을 미치는 반면, '진입 맥락'은 실제 진로를 선택하고 실행하는 현재 시점에서 환경적 지지나 장벽으로 작용하여 진로 선택과 행동에 직접적·즉각적으로 영향을 미친다.\n2. CMI 태도 척도 5가지 요소는 '결정성, 참여도, 독립성, 지향성, 타협성'이다. '독립성'이란 진로를 결정하고 선택하는 과정에서 타인이나 부모의 의견에 과도하게 의존하지 않고 스스로 자신의 진로를 결정하려는 독립적 태도의 정도이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-11",
+        "number": "26-B-11",
+        "section": "전공",
+        "title": "[문항 B-11] 아동상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 놀이치료에서 제한 설정의 치료적 목적 2가지는 ① 아동과 치료자의 물리적·정서적 안전과 현실감을 유지시키는 것이며, ② 허용된 범위 내에서 아동의 자기통제력, 책임감, 의사결정 능력을 촉진하는 것이다.\n2. ACT 3단계 모델은 ① A (Acknowledge feelings - 감정 수용): \"네가 나에게 화가 난 마음은 잘 알고 있단다\", ② C (Communicate the limit - 제한 전달): \"하지만 선생님을 때려서는 안 된단다\", ③ T (Target acceptable alternatives - 대안 제시): \"대신 저기 있는 샌드백 인형을 세게 때릴 수는 있단다\"로 구체적 언어적 개입을 매칭한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1786962823080",
+    "examId": "exam-26",
+    "examTitle": "🏆 [제 26 회차] 2027 KICE 전문상담 1차 통합 모의고사 (전공 A/B 23문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 17. PM 7:33:43",
+    "totalScore": 3.8000000000000003,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": "26-P-1",
+        "number": 1,
+        "section": "교육학",
+        "title": "[주제: 2022 개정 교육과정 기반 깊이 있는 학습과 디지털·맞춤형 수업·평가 및 학교 조직 변혁을 추구하는 교사]",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[교육과정 - 4점] 백워드 설계 심화 기제\n- 영속적 이해: 단순 사실 기억을 넘어 학문의 핵심 개념과 원리에 대한 깊이 있는 이해로, 시간이 지나도 잊히지 않고 새로운 삶의 맥락에 전이(Transfer)되는 이해\n- 평가 과제 특징: 실제적 맥락(Authentic context)에서 학습자의 이해를 증명할 수 있는 수행평가 과제 및 정밀 루브릭 수립\n- 3단계 교수 계획 특징: 2단계 평가 과제를 성공적으로 수행하도록 돕는 목표 지향적 학습 활동 설계 (WHERETO 원리: 방향성 안내, 주의집중, 탐구, 재고, 평가, 맞춤화, 조직화)\n- 타일러 극복 기제: 평가를 교수-학습 활동보다 먼저 계획함으로써 교육 목표와 평가 간의 일치도(수업-평가 일체화)를 확보하고 평가의 사후 수단화를 극복함\n\n[교수방법 - 3점] 플립드 러닝 심화 전략\n- 사전 학습 미이행 대책: 수업 시작 직후 5분 간 사전 개념 점검 상호작용 퀴즈 실시, 사전 요약 가이드북 제공, 또래 지도 짝 구성\n- 테크놀로지 집중 전략: 영상 중간 대화형 상호작용 퀴즈(Edpuzzle 등) 삽입, 5~10분 이내 마이크로 러닝 영상 제작, LMS 진도율 자동 알림 시스템 활용\n- 교사 조력자 역할: 일방적 지식 전달자가 아닌 모둠 활동 퍼실리테이터(촉진자), 탐구 과제 조력자, 1:1 맞춤형 진단 및 즉각적 피드백 제공자\n\n[교육평가 - 4점] 루브릭 & 형성평가 피드백 심화\n- 루브릭 명칭: 루브릭 (Rubric / 세부 채점 기준표)\n- 피드백 즉시성 중요성: 학습 오류 발생 직후 즉시 교정적 피드백을 제공해야 오류가 장기기억에 고착화되는 것을 막고 학습 개선 효과를 극대화할 수 있음\n- 성취 수준 구분 이유: 채점자의 주관적·감정적 평가를 차단하여 채점자 간/채점자 내 신뢰도를 높이고, 학생에게 도착점 목표 기준을 명확히 제시함\n- 사전 공유/훈련 절차: 평가 실시 전 학생들과 루브릭 기준을 함께 읽고 해석하며, 샘플 답안을 활용한 예시 채점 사전 훈련을 실시하여 채점 공정성을 확보함\n\n[교육행정 - 4점] 변혁적 지도성 & PLC 심화\n- 지적 자극: 기존의 관습과 통념에 의문을 제기하고, 문제 발생 시 창의적이고 혁신적인 방법으로 문제를 해결하도록 장려함\n- 개별적 배려: 구성원 개개인의 성취 욕구와 잠재력에 깊은 관심을 기울이고, 개인별 필요에 맞춘 1:1 코칭과 성장을 지원함\n- 조직 몰입 영향: 교사들에게 자율성과 인정을 부여하여 직무 만족도를 제고하고 자발적인 학교 혁신과 조직 성장에 몰입하도록 이끎\n- PLC 지원 방안: 동료 장학 및 수업 공유를 위한 교사 간 공동 공강 시간(시간적 지원) 확보, 전용 협의실(공간적 지원) 마련, 연수비 지원 및 행정 업무 경감",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-1",
+        "number": 1,
+        "section": "전공",
+        "title": "[문항 A-1] 성격심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "ㄱ: 역할 구념 평가",
+        "modelAnswer": "역할수행목록 검사 (Role Construct Repertory Test / Rep Test / 렙 검사)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-2",
+        "number": 2,
+        "section": "전공",
+        "title": "[문항 A-2] 학습심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0.8,
+        "userAnswer": "변동비율 강화계획",
+        "modelAnswer": "변동비율 강화계획 (Variable-Ratio Schedule / VR)",
+        "matchedKeywords": [
+          "변동비율 강화계획",
+          "변동비율"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-3",
+        "number": 3,
+        "section": "전공",
+        "title": "[문항 A-3] 집단상담 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 1,
+        "userAnswer": "ㄱ: 집단응집력",
+        "modelAnswer": "집단 응집력 (Group Cohesiveness / 집단응집성)",
+        "matchedKeywords": [
+          "집단응집력",
+          "응집력"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-4",
+        "number": 4,
+        "section": "전공",
+        "title": "[문항 A-4] 심리검사 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0.4,
+        "userAnswer": "ㄱ 유동추론",
+        "modelAnswer": "유동추론 지표 (Fluid Reasoning Index / FRI)",
+        "matchedKeywords": [
+          "유동추론"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-5",
+        "number": 5,
+        "section": "전공",
+        "title": "[문항 A-5] 이상심리학 + 심리검사 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 1.6,
+        "userAnswer": "1. 태우 정신장애 진단명은 파괴적 기분조절 장애이다.  진단근거: 주당 평균 3회이상 (지문의 주3~4회 이상 수치명시) (1년이상 지속), (발작없는 날에도 성마른 기분)\n2.저조한 지표는 유동추론 지표이다. \n3. 이 지표 저하는 비구어적 자극의 추상적 규칙과 논리적 원리를 추론하는 능력이 부족함을 의미한다. \n4. 개입방안으로 시각적 상황 단서와 소크라테스식 질문을 활용하여 분노사고를 대안 사고로 재구성하는 인지재구조화를 적용한다.",
+        "modelAnswer": "1. 태우의 DSM-5-TR 정식 진단명은 '파괴적 기분조절곤란장애(Disruptive Mood Dysregulation Disorder / DMDD)'이다. 진단 근거가 되는 분노 발작의 최소 발생 횟수 조건은 '주당 평균 3회 이상' 발생하는 것으로, 태우는 지문에서 주당 평균 3~4회 이상 분노 발작을 일으켜 14개월간 지속되었으므로 해당 진단 기준을 충족한다.\n2. 태우가 76점으로 저조한 지표는 '유동추론 지표(FRI)'이다. 이 지표 저하는 시각적 자극의 추상적 규칙과 논리적 원리를 추론하는 비구어적 논리 능력이 부족함을 의미한다. 상담교사는 시각적 상황 카드를 활용하여 상황 간 인과관계를 차근차근 따져보도록 유도하는 소크라테스식 질문과 인지재구조화 기법을 적용할 수 있다.",
+        "matchedKeywords": [
+          "유동추론 지표",
+          "인지재구조화"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-6",
+        "number": 6,
+        "section": "전공",
+        "title": "[문항 A-6] 상담이론 + 위기/윤리 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "1. ㄱ 파국화   (수학 중간고사82점으로 완전히 망했고, 인생이 끝났다고 생각한다.)\n2. 자살은 비밀보장 예외사유이다. 상담 비밀보다 지민이의 생명과 안전이 제일 중요하기 때문이다. 긴급 안전 조치로, 첫째, 상담교사는 즉시 직입적으로 자살에 대해서 구체적으로 물어봐야한다. 자살의 목적, 자살방법, 자살의 심각성을 물어본다. 둘째, 부모님과 학교관계자에게 이 사실을 알린다.",
+        "modelAnswer": "1. ㉠에 나타난 인지적 오류는 '과도한 일반화(Overgeneralization)' 또는 '재앙화(Catastrophizing)'이다. 수학 시험 단 한 번의 점수 하락(82점)이라는 단편적 사건을 지민이 삶 전체의 파괴 및 인생의 실패로 확대 해석하는 왜곡을 보이고 있다.\n2. 비밀보장 파기의 윤리적 근거는 내담자 자신(지민)의 생명과 신체적 안전에 극심한 위험(자살 위험 및 자해 시도)이 존재하는 경우 비밀보장 원칙보다 생명 보호의 의무가 우선한다는 점이다. 구체적 긴급 안전 조치로는 ① 즉시 보호자(부모)에게 위기 상황을 통보하여 신병을 인도하고, ② 학교 위기관리위원회 가동 및 전문 치료기관(소아정신과/자살예방센터)에 긴급 연계하고 안전 서약서를 작성한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-7",
+        "number": 7,
+        "section": "전공",
+        "title": "[문항 A-7] 가족치료 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 의사소통 유형은 '회유형(Placating)'이며, 사티어의 삼자 요소(자신, 타인, 상황) 중 현수가 완전히 무시하고 있는 요소는 '자신(Self)'이다.\n2. ㉡의 신념은 당위성의 3가지 범주 중 '타인에 대한 당위성(또는 타인이 나를 인정해야 한다는 당위)'에 해당한다. 상담자는 소크라테스식 논박(실증적/논리적 질문)을 통해 \"타인을 섭섭하지 않게 하지 않으면 반드시 파멸한다는 현실적 증거가 있는가?\"라고 질문하여 비합리성을 자각시키고, 자신의 감정과 타인, 상황을 모두 존중하여 표현하는 '일치형(Congruent)' 행동 시연을 연습시킨다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-8",
+        "number": 8,
+        "section": "전공",
+        "title": "[문항 A-8] 상담이론 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 접촉경계 장애 명칭은 '내사(Introjection)'이다. 내사는 외부 타인의 가치나 기준을 비판 없이 무조건 수용하여 자신의 것으로 받아들이는 역동인 반면, '투사(Projection)'는 자신의 받아들일 수 없는 욕구, 감정, 책임을 외부 타인의 탓으로 돌리는 역동이라는 점에서 차이가 있다.\n2. '빈 의자 기법'의 적용 절차는 맞은편 빈 의자에 내사의 대상(어머니)이나 내면의 한 인격을 상상하여 자리에 앉히고, 그 대상과 직접 대화를 주고받는 역할을 교대로 수행하게 한다. 치료적 효과는 과거 억압했던 어머니에 대한 미해결 과제와 정서를 안전하게 발산(정화)하고 내면화된 인격을 자각하여 통합을 이루게 돕는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-9",
+        "number": 9,
+        "section": "전공",
+        "title": "[문항 A-9] 발달심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 에릭슨 5단계 명칭은 '자아정체감 대 정체감 혼란(Identity vs. Role Confusion)' 단계이다. 이 위기를 성공적으로 극복했을 때 획득하는 자아 강도(덕목)는 '충성심(Fidelity)'이다.\n2. '심리사회적 유예기'란 성인으로서의 책임과 의무를 성급하게 지지 않고 다양한 사회적 역할과 가능성을 자유롭게 탐색하도록 사회가 허용하는 유예 기간이다. 마르샤의 정체성 지위 중 민성의 상태는 '정체성 유예(Moratorium)' 지위에 해당하며, 이는 정체성 위기/탐색 차원은 존재(유)하지만 아직 특정 진로나 가치관에 대한 헌신 차원은 이루어지지 않은(무) 상태를 의미한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-10",
+        "number": 10,
+        "section": "전공",
+        "title": "[문항 A-10] 심리검사 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. F 척도가 80T 이상으로 높고 L, K 척도가 저하된 역V자 패턴의 의미는 ① 수검자의 자아 방어 기제가 완전히 붕괴되어 극심한 정서적 고통을 느끼고 있음과 ② 상담자에게 자신의 고통을 솔직히 호소하며 도움을 바라는 '도움 요청(Help-seeking)' 태도를 반영한다.\n2. 4-9 / 9-4 코드 수검자의 특성은 충동적이고 반사회적인 행동, 낮은 사회적 억제력과 자제력 부족, 타인의 권리 무시 및 공격성 표출이다. 상담 구조화 개입으로는 상담 시간, 횟수, 무단결석 및 돌발 행동에 대한 명확한 규칙과 한계를 설정하고 상담 계약서를 작성하여 세션을 엄격히 구조화해야 한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-11",
+        "number": 11,
+        "section": "전공",
+        "title": "[문항 A-11] 학교상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 3차 예방(사후 개입)의 치료적 목적 2가지는 ① 자살 사건으로 인한 학생 및 교직원의 집단적 심리 트라우마 발생을 방지하고 안정을 도모하는 것과 ② 2차적 모방 자살(베르테르 효과)의 파급을 차단하는 것이다.\n2. 3차 예방 대상 생존자 범주 2가지는 ① 사건을 직접 목격했거나 고인과 매우 친밀했던 핵심 또래 및 가족, ② 해당 학급 구성원 및 동료 교사이다. 시행 가능한 구체적 사후 개입 활동으로는 '고인 학급 대상 긴급 애도 집단상담' 및 '자살 충격 반응 스크리닝 및 개별 위기 상담'을 진행할 수 있다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-A-12",
+        "number": 12,
+        "section": "전공",
+        "title": "[문항 A-12] 다문화상담 + 성격/진로 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 문화적응 유형은 '동화(Assimilation)'이다. 동화는 새로운 주류(지배) 문화에 대해서는 적극적으로 수용하는 반면, 자신의 원문화와 정체성에 대해서는 완전히 포기하거나 거부하는 형태의 문화적응을 의미한다.\n2. 미세침해는 SCCT 모델에서 진로 목표를 행동으로 실행하는 시점에 부정적 영향을 미치는 '진입 맥락/환경적 장벽(Contextual influences proximal to choice behavior)' 변인으로 작용한다. 상담교사는 지지적 관계를 제공하여 문화적 자존감을 회복시키고 성공적인 진로 이행 성취 경험을 확대하도록 돕는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-1",
+        "number": 1,
+        "section": "전공",
+        "title": "[문항 B-1] 상담이론 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "저항 (Resistance)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-2",
+        "number": 2,
+        "section": "전공",
+        "title": "[문항 B-2] 학습심리학 (단답형 2점)",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "소거 (Extinction)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-3",
+        "number": 3,
+        "section": "전공",
+        "title": "[문항 B-3] 가족치료 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 삼각관계 형성과정은 부부 2인 체계의 정서적 불안과 갈등이 고조될 때 이를 해소하기 위해 제3자인 자녀(민우)를 얽어매어 불안을 분산시키는 역동이다. '자기분화'의 2가지 측면은 ① 정신적 측면: 감정과 사고를 분리하여 지적 사고에 따라 행동하는 능력, ② 대인관계적 측면: 타인(가족)과의 정서적 융합에서 벗어나 자신과 타인을 분리하는 독립적 능력이다.\n2. 부모와 자녀 간 설정해야 하는 건강한 경계선은 '명확한 경계선(Clear Boundary)'이다. 상담자 개입 방안으로는 부모 하위체계와 자녀 하위체계 간의 침범을 막고 각각의 역할과 자율성을 존중하는 경계선 설정 기법(나-전달법 유도, 부부만의 대화 시간 확보)을 시행한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-4",
+        "number": 4,
+        "section": "전공",
+        "title": "[문항 B-4] 성격심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 핵심 성격 구조 명칭은 '생활양식(Life Style)'이다. 생활양식은 약 4~5세 경 어린 시절에 형성되며, 개인이 가진 신체적·심리적 열등감을 극복하고 우월성을 추구하는 과정에서 삶의 과제에 대처하기 위해 스스로 구축하는 독특한 인지적 지도로 형성된다.\n2. '사회적 관심'이란 개인이 타인과 공감하고 공동체의 사회적 이익에 기여하며 타인과 협력하고자 하는 태도 및 이타적 각성이다. 동수처럼 활동성은 높으나 사회적 관심이 낮은 생활양식 유형은 '지배형(Ruling Type)'이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-5",
+        "number": 5,
+        "section": "전공",
+        "title": "[문항 B-5] 진로상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '제한'의 4단계 순서는 ① 1단계: 힘과 크기 지향성 (3~5세), ② 2단계: 성역할 지향성 (6~8세), ③ 3단계: 사회적 가치 지향성 (9~13세), ④ 4단계: 고유한 자기 지향성 (14세 이상)이다.\n2. 진로 타협 상황 발생 시 가장 먼저 포기하는 요인은 '흥미'이며, 끝까지 보호하고 유지하려는 요인은 '성역할'이다. 그 이유는 성역할 지향성이 2단계(6~8세)로 가장 이른 아동기 발달 단계에서 형성되어 자아개념의 핵심으로 깊이 내면화되어 있는 반면, 흥미는 가장 나중 단계(4단계, 14세 이상)에서 형성되었기 때문이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-6",
+        "number": 6,
+        "section": "전공",
+        "title": "[문항 B-6] 이상심리학 + 심리검사 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠의 민혁이에게 내릴 수 있는 정식 진단명은 '조현양상장애(Schizophreniform Disorder)'이다. 이 장애는 증상의 총 지속 기간이 '1개월 이상 6개월 미만'이어야 하므로, 6개월 이상 지속되어야 하는 조현병과 감별된다. 민혁이는 3개월째 지속 중이므로 조현양상장애에 해당한다.\n2. 2-7 / 7-2 코드 수검자의 특성은 만성적인 불안, 우울, 과도한 걱정과 신체화 호소, 높은 완벽주의적 성향이다. 상담자 개입 방안으로는 망상 내용을 직접 비판하거나 논쟁하지 않고 민혁이가 느끼는 불안 정서에 충분히 공감해 주면서, 비판단적 수용 자세로 현재의 구체적 현실 자극에 집중하도록 돕는 현실 검증성 개입을 시행한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-7",
+        "number": 7,
+        "section": "전공",
+        "title": "[문항 B-7] 이상심리학 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 주요우울장애 진단을 위해 필요한 2가지 핵심 증상은 ① 우울한 기분, ② 흥미나 즐거움의 현저한 저하(상실)이다. 증상의 최소 지속 기간 조건은 이 중 적어도 하나의 증상을 포함한 5가지 이상의 우울 증상이 '최소 2주 이상 거의 매일 지속'되어야 한다.\n2. 조증 삽화와 경조증 삽화의 2가지 차이점은 ① 최소 지속 기간: 조증 삽화는 최소 1주일 이상 지속되어야 하는 반면, 경조증 삽화는 최소 4일 이상 지속되면 된다. ② 임상적 심각도 및 입원: 조증 삽화는 직업적·사회적 기능에 현저한 장애를 일으키고 환각/망상 동반 또는 입원이 필요할 정도로 심각한 반면, 경조증 삽화는 기능 저하가 심각하지 않으며 입원이 필요하지 않고 정신병적 양상이 동반되지 않는다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-8",
+        "number": 8,
+        "section": "전공",
+        "title": "[문항 B-8] 학교위기 + 법령 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. ㉠ '보호입원'은 보호의무자 2명 이상의 신청(동의)과 서로 다른 정신건강의학과 전문의 2명 이상의 일치된 입원 진단이 필요하다. 반면 ㉡ '행정입원'은 보호의무자의 동의 없이 정신건강의학과 전문의 2명 이상의 진단에 따라 특별자치시장·특별자치도지사·시장·군수·구청장(지방자치단체의 장)의 결정 및 주체로 입원이 진행된다.\n2. 피해학생 보호(제16조) 조치 예시 1가지는 '학내외 전문가에 의한 심리상담 및 조언' 또는 '치료 및 치료를 위한 요양'이다. 가해학생 조치(제17조) 중 제1호 조치는 '피해학생에 대한 서면사과', 제2호 조치는 '피해학생 및 신고·고발 학생에 대한 접촉, 협박 및 보복행위의 금지'이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-9",
+        "number": 9,
+        "section": "전공",
+        "title": "[문항 B-9] 집단상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '충고하기' 행동의 부정적 영향 2가지는 ① 충고를 받는 집단원이 자신의 깊은 정서를 충분히 탐색하고 성찰할 기회를 방해하며, ② 충고 제공자에게 의존하게 만들거나 피상적인 해결책에 그치게 하여 집단원의 자율적 변화를 저해한다.\n2. '질문하기' 행동을 보이는 집단원에 대한 개입 방안은 지도자가 질문 행동을 즉시 차단하고, \"질문 뒤에 있는 B군의 솔직한 느낌이나 감정을 '나(I)'를 주어로 하여 '나-전달법(I-message)' 진술문으로 바꾸어 고백하도록\" 유도하여 안전하게 자기개방을 할 수 있도록 개입한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-10",
+        "number": 10,
+        "section": "전공",
+        "title": "[문항 B-10] 진로상담 + 상담이론 [복합 서술형 4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. '배경 맥락'은 유년기 및 과거 성장 과정에서 학습 경험(성취, 대리 학습 등)을 형성하여 자기효능감 및 결과기대에 간접적·인과적으로 영향을 미치는 반면, '진입 맥락'은 실제 진로를 선택하고 실행하는 현재 시점에서 환경적 지지나 장벽으로 작용하여 진로 선택과 행동에 직접적·즉각적으로 영향을 미친다.\n2. CMI 태도 척도 5가지 요소는 '결정성, 참여도, 독립성, 지향성, 타협성'이다. '독립성'이란 진로를 결정하고 선택하는 과정에서 타인이나 부모의 의견에 과도하게 의존하지 않고 스스로 자신의 진로를 결정하려는 독립적 태도의 정도이다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": "26-B-11",
+        "number": 11,
+        "section": "전공",
+        "title": "[문항 B-11] 아동상담 (서술형 4점)",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. 놀이치료에서 제한 설정의 치료적 목적 2가지는 ① 아동과 치료자의 물리적·정서적 안전과 현실감을 유지시키는 것이며, ② 허용된 범위 내에서 아동의 자기통제력, 책임감, 의사결정 능력을 촉진하는 것이다.\n2. ACT 3단계 모델은 ① A (Acknowledge feelings - 감정 수용): \"네가 나에게 화가 난 마음은 잘 알고 있단다\", ② C (Communicate the limit - 제한 전달): \"하지만 선생님을 때려서는 안 된단다\", ③ T (Target acceptable alternatives - 대안 제시): \"대신 저기 있는 샌드백 인형을 세게 때릴 수는 있단다\"로 구체적 언어적 개입을 매칭한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1786954711124",
+    "examId": "exam-46",
+    "examTitle": "🏆 [제 46 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 17. PM 5:18:31",
+    "totalScore": 0,
+    "maxScore": null,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": 1,
+        "section": "전공",
+        "title": "[주제: 디지털 전환기 2022 개정 교육과정 실행과 학생 맞춤형 수업·평가 및 학교 조직 변혁을 추구하는 교사]",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 1,
+        "section": "전공",
+        "title": "[문항 A-1] 해결중심 단기상담 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 2,
+        "section": "전공",
+        "title": "[문항 A-2] 성격심리학 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 3,
+        "section": "전공",
+        "title": "[문항 A-3] 행동수정 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 4,
+        "section": "전공",
+        "title": "[문항 A-4] 심리검사 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 5,
+        "section": "전공",
+        "title": "[문항 A-5] 🔥 [초융합 킬러 1] RAD vs DSED 진단 + K-WISC-V 뇌 기능 사정 + 자살 위기 윤리 3중 초융합 (4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 6,
+        "section": "전공",
+        "title": "[문항 A-6] 인지치료 & 자살위기 윤리 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 7,
+        "section": "전공",
+        "title": "[문항 A-7] 가족상담 & REBT (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 8,
+        "section": "전공",
+        "title": "[문항 A-8] 진로상담 (서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 9,
+        "section": "전공",
+        "title": "[문항 A-9] 심리검사 (서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 10,
+        "section": "전공",
+        "title": "[문항 A-10] 상담윤리 및 법령 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 11,
+        "section": "전공",
+        "title": "[문항 A-11] 게슈탈트 치료 (서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 12,
+        "section": "전공",
+        "title": "[문항 A-12] 다문화상담 (서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 1,
+        "section": "전공",
+        "title": "[문항 B-1] 정신분석 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 2,
+        "section": "전공",
+        "title": "[문항 B-2] 학습심리학 (단답형 2점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 3,
+        "section": "전공",
+        "title": "[문항 B-3] 🔥 [초융합 킬러 2] Bowen 가족투사 & Minuchin 연합/삼각관계 + MMPI-2-RF RC2 3중 초융합 (4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 4,
+        "section": "전공",
+        "title": "[문항 B-4] REBT (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 5,
+        "section": "전공",
+        "title": "[문항 B-5] 진로상담/SCCT (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 6,
+        "section": "전공",
+        "title": "[문항 B-6] 이상심리 & MMPI-2 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 7,
+        "section": "전공",
+        "title": "[문항 B-7] 집단상담 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 8,
+        "section": "전공",
+        "title": "[문항 B-8] 법령 및 윤리 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 9,
+        "section": "전공",
+        "title": "[문항 B-9] 투사검사 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 10,
+        "section": "전공",
+        "title": "[문항 B-10] 진로 & ACT (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 11,
+        "section": "전공",
+        "title": "[문항 B-11] 영재/발달 (복합 서술형 4점)",
+        "earnedScore": 0,
+        "userAnswer": "",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1786788906381",
+    "examId": "exam-11",
+    "examTitle": "제 11 회 2027학년도 임용후보자 선정경쟁시험 통합 모의고사 (초장문 실전형)",
+    "username": "cntfed",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 15. PM 7:15:06",
+    "totalScore": 11.500000000000002,
+    "maxScore": 100,
+    "status": "자동채점완료",
+    "details": [
+      {
+        "questionId": 1,
+        "number": 1,
+        "section": "교육학",
+        "title": "[주제: 학생 역량 함양 및 자기주도적 성장을 위한 교육과정, 평가 및 행정 혁신]",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[서론]\n2027학년도 교육 현장에서는 학생의 역량 함양과 자율적 성장을 이끌어내기 위한 교사의 교육과정·방법·평가·행정적 융합 혁신이 강조된다. 본 글에서는 백워드 설계, 켈러 ARCS 모형, 과정중심평가, 허즈버그 동기-위생이론을 중심으로 논하고자 한다.\n\n[본론]\n1. 교육과정(백워드 설계): 백워드 모형은 ① 바람직한 결과 식별, ② 수락 가능한 증거 결정, ③ 학습 경험 및 수업 계획의 3단계를 거친다. 영속적 이해는 상세 내용을 잊은 후에도 유지되는 핵심 개념으로 자기주도성을 키운다.\n2. 교육방법(ARCS 모형): '관련성'을 위해 실생활 문제와 연계된 과제를 제시하고, '자신감'을 위해 성공 경험을 제공하며 비계를 설정한다.\n3. 교육평가(과정중심평가): 학습 과정 중 형성평가 및 수시 피드백을 제공하여 오개념을 수정하고 성장을 지원한다.\n4. 교육행정(허즈버그 동기-위생이론): 동기요인은 만족을 유발하는 성취, 인정, 성장 기회이다. 교사에게 자율성과 책무성을 부여하는 직무 풍요화를 추진한다.\n\n[결론]\n4대 핵심 영역의 유기적 연계를 통해 학생과 교사 모두 성장하는 학교 문화를 정착시켜야 한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 2,
+        "number": 1,
+        "section": "전공 A",
+        "title": "1. [상담자 윤리] 사전 동의 및 비밀보장의 한계 ㉠, ㉡ 명칭",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 사전 동의 (Informed Consent)\n㉡: 비밀보장 (Confidentiality)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 3,
+        "number": 2,
+        "section": "전공 A",
+        "title": "2. [발달심리] 에릭슨 청소년기 발달과업 및 유예기 ㉠, ㉡ 명칭",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 자아정체감 대 정체감 혼란 (Identity vs. Role Confusion)\n㉡: 심리사회적 유예기 (Psychosocial Moratorium)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 4,
+        "number": 3,
+        "section": "전공 A",
+        "title": "3. [생리심리] 변연계 공포반응 및 억제 뇌 구조 ㉠, ㉡ 명칭",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 편도체 (Amygdala)\n㉡: 전두엽 (또는 전전두피질 / Prefrontal Cortex)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 5,
+        "number": 4,
+        "section": "전공 A",
+        "title": "4. [이상심리] DSM-5-TR 외상 경험 후 3일~1개월 이내 장애 ㉠ 명칭",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 급성 스트레스 장애 (Acute Stress Disorder)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 6,
+        "number": 5,
+        "section": "전공 A",
+        "title": "5. [학습/동기] 데시와 라이언 자기결정성 이론(SDT) 및 동기 연속체",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. [A] ( ㉠ ): 관계성 (Relatedness)\n2. ( ㉡ ): 식별된 조절 (Identified Regulation)\n3. ( ㉢ ): 외적 조절 (External Regulation) / ( ㉣ ): 내재적 동기 (Intrinsic Motivation)\n- 차이점: ( ㉢ ) 외적 조절은 처벌 회피나 외부 보상 등 타율적 통제에 의해 유발되는 반면, ( ㉣ ) 내재적 동기는 과제 자체에 대한 순수한 흥미와 즐거움, 내부적 만족에 의해 자발적으로 유발된다는 본질적 차이가 있다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 7,
+        "number": 6,
+        "section": "전공 A",
+        "title": "6. [상담이론] 해결중심치료(SFBT) 질문 기법 및 예외상황 분석",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. [A] ( ㉠ ): 기적 질문 (Miracle Question) / [B] ( ㉡ ): 예외 질문 (Exception Question)\n2. [A] ( ㉠ ) 기적 질문의 치료적 의의: 내담자가 문제 자체에만 집착하던 시각에서 벗어나, 문제가 해결된 미래의 긍정적 변화 상태를 구체적으로 상상하게 함으로써 상담의 목표를 명확히 하고 변화에 대한 희망과 동기를 부여한다.\n3. ( ㉢ ) 예외 상황을 통해 발견하고자 하는 핵심 요소: 내담자가 이미 문제를 성공적으로 다루었거나 문제의 영향을 받지 않았던 성공 경험, 자원, 강점 및 대처 능력을 발견하고자 한다.\n4. ( ㉣ ): 척도 질문 (Scaling Question)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 8,
+        "number": 7,
+        "section": "전공 A",
+        "title": "7. [심리검사] K-WISC-V GAI 산출 조건 및 처리속도 소검사",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. [B] ( ㉠ ): 처리속도 지표 (Processing Speed Index, PSI) / ( ㉡ ): 일반능력지수 (General Ability Index, GAI)\n2. FSIQ 대신 GAI를 산출해야 하는 임상적 조건 2가지:\n   ① 지표 간 점수 차이가 1.5 표준편차(SD, 23점) 이상 크게 벌어지는 경우\n   ② 작업기억(WMI) 지표 또는 처리속도(PSI) 지표의 점수가 현저하게 저하되어 유효성이 손상된 경우\n3. ( ㉠ ) 처리속도 지표의 주요 소검사 ( ㉢ ), ( ㉣ ): 기호쓰기 (Coding), 동형찾기 (Symbol Search)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 9,
+        "number": 8,
+        "section": "전공 A",
+        "title": "8. [집단상담] 얄롬(Yalom) 치료적 요인 및 개입 기법",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. [A] ( ㉠ ): 보편성 (또는 보평성 / Universality)\n2. 치료적 효과 및 의의: 집단원들이 자신만의 고립된 고통과 부적응 문제에서 벗어나 타인도 유사한 갈등과 아픔을 겪고 있음을 깨달아 깊은 안도감을 느끼고, 외로움과 고립감을 해소하게 된다.\n3. ( ㉡ ): 연결하기 (Linking)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 10,
+        "number": 9,
+        "section": "전공 A",
+        "title": "9. [진로상담] SCCT 렌트와 브라운 핵심 변인 및 선택모형 경로 분석",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. [A] ㉠: 자기효능감 (Self-efficacy) / [B] ㉡: 결과기대 (Outcome expectations)\n2. 선택목표를 세우지 못하는 이유: SCCT 진로 선택 모형에서 '흥미'가 '선택목표( ㉢ )'로 직접 연결될 때, 낮은 결과기대( [B] ㉡ ) 및 부정적 진입 맥락 장벽(부모의 반대)이 조절·매개 변인으로 작용하여 흥미가 목표로 이행하는 경로를 차단하거나 약화시키기 때문이다.\n3. 진입 맥락 장벽 변인의 개념: 개인의 실제 진로 선택 및 행동 이행 시점에서 직접적인 영향을 미치는 환경적 장애 요인으로, 승우의 경우 부모님의 강력한 반대나 직업적 경제 불안정이 이에 해당한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 11,
+        "number": 10,
+        "section": "전공 A",
+        "title": "10. [학습/행동] 반두라(Bandura) 자기효능감 4가지 원천 및 조절 기법",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. [A] ㉠: 성취경험 (또는 수행성취 / Performance Accomplishments) / [B] ㉡: 대리경험 (Vicarious Experiences)\n2. 가장 강력한 원천 및 이유: [A] ㉠ 성취경험(수행성취)이다. 자신이 실제 과제를 스스로 해낸 직접적인 성공 경험에 기초하기 때문에 가장 명확하고 진정성 있는 인지적 증거를 제공하기 때문이다.\n3. ( ㉣ )을 조절하기 위한 행동 치료적 개입 방안: 깊고 천천히 숨을 쉬어 교감신경의 과각성을 낮추는 복식호흡 훈련이나 점진적 근육이완 훈련을 적용한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 12,
+        "number": 11,
+        "section": "전공 A",
+        "title": "11. [상담이론] 게슈탈트 접촉경계혼란 역동 및 빈 의자 기법",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. [A] ㉠: 반전 (Retroflection) / [B] ㉡: 편향 (Deflection)\n2. [A] ㉠ 반전의 작동 원리: 개체가 타인이나 환경을 향해 방출해야 할 에너지를 타인에게 표출하지 못하고 자기 자신에게로 방향을 돌려 표현하는 것으로, 유진이가 어머니에 대한 분노를 자신을 꼬집거나 머리를 쥐어박는 자해적 행동으로 신체화하는 것이 이에 해당한다.\n3. ( ㉢ ) 기법 명칭 및 개입 방법: 빈 의자 기법 (Empty Chair Technique)으로, 맞은편 빈 의자에 갈등 대상(어머니)이 앉아있다고 상상하게 한 후 내면의 미해결 감정과 분노를 언어적으로 직접 표현하도록 유도한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 13,
+        "number": 12,
+        "section": "전공 A",
+        "title": "12. [심리검사] TCI 기질과 신경전달물질 및 HTP 나무 옹이 상징",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1. [A] ㉠: 도파민 (Dopamine) / [B] ㉡: 세로토닌 (Serotonin)\n2. ( ㉢ ) 보상의존성 연관 신경전달물질: 노르에피네프린 (Norepinephrine)\n3. HTP 나무 그림 옹이·흉터( ㉣ )의 임상적 심리 상태: 내담자가 과거에 경험했던 심각한 정서적 외상(트라우마), 상처, 또는 심리적 손상을 무의식적으로 투사하고 있음을 추정할 수 있다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 14,
+        "number": 1,
+        "section": "전공 B",
+        "title": "1. [성격심리학] 프로이트(Freud) 무의식 방어기제 ㉠ 명칭",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "ㄱ 반동형성",
+        "modelAnswer": "㉠: 투사 (Projection)",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 15,
+        "number": 2,
+        "section": "전공 B",
+        "title": "2. [심리검사] MMPI-2 2번과 7번 상승 ㉠ 코드타입 명칭",
+        "score": 2,
+        "earnedScore": 0.8,
+        "userAnswer": "2-7 코드",
+        "modelAnswer": "㉠: 2-7 / 7-2 코드타입 (또는 2-7 코드)",
+        "matchedKeywords": [
+          "2-7",
+          "2-7 코드"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 16,
+        "number": 3,
+        "section": "전공 B",
+        "title": "3. [가족상담] 보웬(Bowen) 삼각관계 및 탈삼각화, 자기분화 2차원",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. ㄱ 삼각관계\n2.  탈삼각화    상담교사는 중립을 지키면서, 부부문제는 부부 둘이서 문제를 풀도록 한다. 민재(자녀)가 끼어들지 않도록 않도록 한다.\n3. 자아분화는 2가지 차원 :  첫째,   사고와 감정이고 둘째, 대인관계 (나와 타인)이다.",
+        "modelAnswer": "1. [A] ㉠: 삼각관계 (Triangulation)\n2. [B] ㉡ 명칭 및 개입 방법: 탈삼각화 (Detriangulation)로, 상담자가 중립적인 위치를 유지하면서 부부 갈등 상황에서 자녀(민재)를 정서적으로 분리시키고 부부 문제가 부부 이인체 간에서 직접 처리되도록 다리 역할을 차단한다.\n3. 자아분화 2가지 차원 ( ㉢ ), ( ㉣ ): 사고와 감정의 분리 (정신적 차원) / 자신과 타인의 분리 (대인관계적 차원)",
+        "matchedKeywords": [
+          "삼각관계",
+          "탈삼각화"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 17,
+        "number": 4,
+        "section": "전공 B",
+        "title": "4. [가족상담] 사티어 의사소통 유형 및 미누친 밀착된 경계선",
+        "score": 4,
+        "earnedScore": 1.7,
+        "userAnswer": "1. 회유형 의사소통 \n2. 밀착된 경계선\n3. 부모와 자녀의 하위체계의 경계선 설정을 다시한다.",
+        "modelAnswer": "1. [A] ㉠ 부적응적 유형: 회유형 (Placating) / 바람직한 유형: 일치형 (Congruent)\n2. [B] ㉡ 역기능적 경계선: 밀착된 경계선 (또는 유착된 경계선 / Enmeshed Boundary)\n3. 경계선 설정 개입 방법: 어머니와 딸 사이에 구체적인 개인적 공간과 사생활(일기장 불간섭 등)을 존중하도록 규칙을 세우고, 부모 하위체계와 자녀 하위체계 간의 적절한 위계구조와 독립성을 확보하도록 개입한다.",
+        "matchedKeywords": [
+          "회유형",
+          "밀착된 경계선",
+          "경계선 설정"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 18,
+        "number": 5,
+        "section": "전공 B",
+        "title": "5. [진로상담] 갓프레드슨(Gottfredson) 제한타협이론 및 타협 순서",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1.  ㄱ에 해당하는 제한 2단계는 성역할 지향단계이다. \n2. 가장 가장 먼저 포기하는 요소는 흥미이고, 마지막까지 지키려하는 요소는 성역할 경계선이다. \n     원리는  제일 마지막에 4단계에 형성된 흥미를 먼저 포기하고,  어릴적에 2단계에 형성된 성역활 경계선을 마지막까지 지키려고 한다. 자아와 가까울 수록 포기하기 어렵다.",
+        "modelAnswer": "1. [A] ㉠: 성역할 지향 단계 (Orientation to Sex Roles, 만 6~8세)\n2. ( ㉡ ) 가장 먼저 포기하는 요소: 흥미 (Interest) / ( ㉢ ) 가장 마지막까지 지키려 하는 요소: 성역할 (Sex Type)\n- 원리: 갓프레드슨의 타협 발달 원리에 따르면, 직업 선택의 현실적 타협 상황이 발생할 때 개인은 자신이 선호하는 '흥미'를 가장 먼저 포기하고, 그 다음 '사회적 지위'를 포기하며, 자신의 정체성과 직결된 '성역할(남성성/여성성)'을 가장 마지막까지 지키고 수호한다는 원리가 작동한다.",
+        "matchedKeywords": [
+          "흥미",
+          "성역할"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 19,
+        "number": 6,
+        "section": "전공 B",
+        "title": "6. [상담이론] 엘리스(Ellis) REBT 자신에 대한 당위성 및 논박",
+        "score": 4,
+        "earnedScore": 0.7,
+        "userAnswer": "1. 자신에 대한 타당성\n2. 소크라테스식 논박이다.  소크라테스식 논박을 통해서 내담자가 스스로 생각할 있도록 해서 비합리적 신념을 합리적 신념으로 바꾸는 것이 목적이다.",
+        "modelAnswer": "1. [A] ㉠: 자신에 대한 당위성 (Self-oriented Demands)\n2. [B] ㉡ 논박 단계 명칭 및 개입 목적: 소크라테스식 논박 (Socratic Questioning / 논리적·실증적 논박)으로, 내담자의 비합리적 신념에 논리적·실증적 질문을 던져 그 신념이 현실적 근거나 논리적 타당성이 없음을 스스로 자각하게 하고 합리적 신념으로 재구조화하도록 돕는 데 목적이 있다.",
+        "matchedKeywords": [
+          "소크라테스식 논박"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 20,
+        "number": 7,
+        "section": "전공 B",
+        "title": "7. [상담이론] ACT 인지적 융합 및 인지적 탈융합 개입 목적",
+        "score": 4,
+        "earnedScore": 1.6,
+        "userAnswer": "1.  ㄱ 인지적 융합  ㄴ 인지적 탈융합 \n2. 인지적 탈융합의 개입 목적은 자아와 감정를 분리하여, 거리를 두게 하고, 내면적 경험을 인정하고, 생각과 사고를 분리하여 문제가 문제라고 생각하여 감정에서 벗어나게 하는 것이다.",
+        "modelAnswer": "1. [A] ㉠: 인지적 융합 (Cognitive Fusion) / [B] ㉡: 인지적 탈융합 (Cognitive Defusion)\n2. [B] ㉡ 인지적 탈융합의 개입 목적: 내담자가 자신의 부정적 생각이나 정서를 사실(Fact)로 받아들여 통제당하지 않고, 생각은 단지 주관적인 언어적 현상일 뿐임을 깨달아 생각과 자신 사이에 거리를 두고 관조하게 함으로써 심리적 유연성을 확보하는 데 목적이 있다.",
+        "matchedKeywords": [
+          "인지적 융합",
+          "인지적 탈융합"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 21,
+        "number": 8,
+        "section": "전공 B",
+        "title": "8. [이상심리] DSM-5-TR 파괴적 기분조절곤란장애(DMDD) 진단기준",
+        "score": 4,
+        "earnedScore": 0.7,
+        "userAnswer": "1. 민우는 파괴적 기분조절장애이다. \n2. 발작횟수는 일주일에 3회 이상이고 1년이상 지속되어야 한다. \n3. 적대적 반항장애은 규칙에 저항하고, 권위자(교사)에게 반항하며, 6개월이상 지속하지만 폭력이나 재물파손 같은 문제는 일으키지 않는다.",
+        "modelAnswer": "1. 우울장애 하위 유형 명칭: 파괴적 기분조절곤란장애 (Disruptive Mood Dysregulation Disorder, DMDD)\n2. 핵심 진단 기준 2가지:\n   ① [A] ㉠ 발작 횟수: 고도의 분노 발작이 주 3회 이상 발생해야 함.\n   ② [B] ㉡ 지속 기간: 이러한 분노 발작 및 기분 장애 증상이 최소 12개월(1년) 이상 지속되어야 함.\n3. 감별 진단 대상 장애 명칭: 적대적 반항장애 (Oppositional Defiant Disorder, ODD)",
+        "matchedKeywords": [
+          "적대적 반항장애"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 22,
+        "number": 9,
+        "section": "전공 B",
+        "title": "9. [학교법령] 정신건강복지법 보호입원 및 학폭법 제1호 조치",
+        "score": 4,
+        "earnedScore": 0.8,
+        "userAnswer": "ㄱ. 보호입원\nㄴ. 피해학생에 대한 서명 사과",
+        "modelAnswer": "1. [A] ㉠ 입원 유형 명칭: 보호의무자에 의한 입원 (보호입원)\n2. [B] ㉡ 제1호 조치 명칭: 피해학생에 대한 서면사과 (학교폭력예방법 제17조 제1항 제1호)",
+        "matchedKeywords": [
+          "보호입원"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 23,
+        "number": 10,
+        "section": "전공 B",
+        "title": "10. [행동수정] ABA 상반행동 차별강화(DRI) 및 타행동 차별강화(DRO)",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. ㄱ 상반행동 차별강화, 타행동 차별강화\n2. 상반행동 차별강화의 작동원리는 동시에 할 수 없는 양립불가능한 행동을 하게 함으로써 잘못된 행동을 못하게 하는 것이다. 사례에서는 자리이탈하는 수호에게 행동과 동시에 할 수 없는 의자에 차분히 앉아있는 행동으로 사용하였다.",
+        "modelAnswer": "1. [A] ㉠: 상반행동 차별강화 (Differential Reinforcement of Incompatible Behavior, DRI) / [B] ㉡: 타행동 차별강화 (Differential Reinforcement of Other Behavior, DRO)\n2. [A] ㉠ DRI의 작동 원리: 표적 문제 행동(자리 이탈)과 신체적·물리적으로 동시 수행이 불가능한 바람직한 대안 행동(의자에 차분히 앉기)을 설정한 후, 상반되는 바람직한 행동이 일어날 때만 선별적으로 강화를 주어 문제 행동의 발생을 억제하고 대체하는 원리로 작동한다.",
+        "matchedKeywords": [
+          "상반행동 차별강화",
+          "타행동 차별강화"
+        ],
+        "feedback": ""
+      },
+      {
+        "questionId": 24,
+        "number": 11,
+        "section": "전공 B",
+        "title": "11. [이상/행동] 클락(Clark) 공황장애 모델 및 복식호흡 훈련",
+        "score": 4,
+        "earnedScore": 1.3,
+        "userAnswer": "1. ㄱ 파국적 오해석 ㄴ 예기불안 \n2. ㄷ 복식호흡훈련을 하는 것이다.  깊은 숨을 오래 마셨다가 숨을 천천히 내뱉는 훈련을 하는 것이다.",
+        "modelAnswer": "1. [A] ㉠: 파국적 해석 (Catastrophic Misinterpretation) / [B] ㉡: 예기불안 (Anticipatory Anxiety)\n2. ( ㉢ ) 명칭 및 구체적 개입 방법: 복식호흡 훈련 (Abdominal Breathing Training)으로, 횡격막을 이용하여 천천히 숨을 마시고 잠시 멈춘 후 길게 내쉬도록 지도함으로써 교감신경의 과각성(과다호흡)을 차단하고 생리적 이완을 유도한다.",
+        "matchedKeywords": [
+          "예기불안",
+          "복식호흡"
+        ],
+        "feedback": ""
+      }
+    ]
+  },
+  {
+    "id": "sub_1786453440090",
+    "examId": "exam-1",
+    "examTitle": "2027학년도 교육학 16대 킬러 마스터북 실전 모의고사 (제1회 - [1순위 적중 조합 (94.7%)])",
+    "studentName": "관리자(출제자)",
+    "studentNo": "ADMIN-2027",
+    "submittedAt": "2026. 8. 11. PM 10:04:00",
+    "totalScore": 0,
+    "maxScore": 100,
+    "status": "관리자수동채점완료",
+    "details": [
+      {
+        "questionId": 1,
+        "number": 1,
+        "section": "교육학",
+        "title": "1. 주제: [학생의 역량 함양과 자율적 성장을 위한 수업 및 조직 혁신 방안]",
+        "score": 20,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "[서론] 2027학년도 교육 현장에서는 학생의 역량 함양과 자율적 성장을 이끌어내기 위한 교사의 교육과정·방법·평가·행정적 융합 혁신이 강조된다. 본 글에서는 1순위 적중 조합인 백워드 설계, 켈러 ARCS 모형, 과정중심평가, 허즈버그 동기-위생이론을 중심으로 논하고자 한다.\n\n[본론]\n1. 교육과정(백워드 설계): 백워드 모형은 ① 바람직한 결과 식별, ② 수락 가능한 증거 결정, ③ 학습 경험 및 수업 계획의 3단계를 거친다. 평가를 목표 수립 직후 설계함으로써 목표-평가-수업 간의 유기적 일치성을 보장하고 영속적 이해를 도출한다.\n2. 교육방법(켈러 ARCS): '관련성' 유발을 위해 학생의 삶 및 실제적 경험과 연계된 과제를 제시하고, '자신감' 향상을 위해 쉬운 단계부터 차근차근 성취감을 맛보도록 비계를 설정한다.\n3. 교육평가(과정중심평가): 학습 과정 중에 이루어지는 AfL 평가는 학생의 오개념을 진단하고 지식의 성장을 돕는 수시 피드백을 지속적으로 제공한다.\n4. 교육행정(허즈버그 이론): 위생요인은 불만족을 제거하는 요소이며, 동기요인은 만족을 유발하는 요소이다. 교사에게 자율성과 책무성을 부여하는 직무 풍요화를 통해 수동적 교직 문화를 능동적 성장 문화로 전환한다.\n\n[결론] 4대 핵심 영역의 유기적 조화를 통해 학생과 교사 모두가 성장하는 교육 환경을 완성해야 한다.",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 1,
+        "number": 1,
+        "section": "A형",
+        "title": "1. 다음 (가) 지문의 괄호 ㉠과 ㉡에 들어갈 용어를 순서대로 쓰시오. [2점]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 위험회피\n㉡: 저항 애착",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 2,
+        "number": 2,
+        "section": "A형",
+        "title": "2. 다음 (가) 지문의 괄호 ㉠과 ㉡에 들어갈 용어를 순서대로 쓰시오. [2점]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 위험회피\n㉡: 저항 애착",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 3,
+        "number": 3,
+        "section": "A형",
+        "title": "3. 다음 (가) 지문의 괄호 ㉠과 ㉡에 들어갈 용어를 순서대로 쓰시오. [2점]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 위험회피\n㉡: 저항 애착",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 4,
+        "number": 4,
+        "section": "A형",
+        "title": "4. 다음 (가) 지문의 괄호 ㉠과 ㉡에 들어갈 용어를 순서대로 쓰시오. [2점]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 위험회피\n㉡: 저항 애착",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 5,
+        "number": 5,
+        "section": "A형",
+        "title": "5. 다음은 전문상담교사가 진행한 상담 및 사례 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 6,
+        "number": 6,
+        "section": "A형",
+        "title": "6. 다음은 전문상담교사가 진행한 상담 및 사례 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 7,
+        "number": 7,
+        "section": "A형",
+        "title": "7. 다음은 전문상담교사가 진행한 상담 및 사례 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 8,
+        "number": 8,
+        "section": "A형",
+        "title": "8. 다음은 전문상담교사가 진행한 상담 및 사례 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 9,
+        "number": 9,
+        "section": "A형",
+        "title": "9. 다음은 전문상담교사가 진행한 상담 및 사례 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 10,
+        "number": 10,
+        "section": "A형",
+        "title": "10. 다음은 전문상담교사가 진행한 상담 및 사례 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 11,
+        "number": 11,
+        "section": "A형",
+        "title": "11. 다음은 전문상담교사가 진행한 상담 및 사례 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 12,
+        "number": 12,
+        "section": "A형",
+        "title": "12. 다음은 전문상담교사가 진행한 상담 및 사례 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 13,
+        "number": 1,
+        "section": "B형",
+        "title": "1. 다음 (가) 지문의 괄호 ㉠과 ㉡에 들어갈 용어를 순서대로 쓰시오. [2점]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 위험회피\n㉡: 저항 애착",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 14,
+        "number": 2,
+        "section": "B형",
+        "title": "2. 다음 (가) 지문의 괄호 ㉠과 ㉡에 들어갈 용어를 순서대로 쓰시오. [2점]",
+        "score": 2,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "㉠: 위험회피\n㉡: 저항 애착",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 15,
+        "number": 3,
+        "section": "B형",
+        "title": "3. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 16,
+        "number": 4,
+        "section": "B형",
+        "title": "4. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 17,
+        "number": 5,
+        "section": "B형",
+        "title": "5. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 18,
+        "number": 6,
+        "section": "B형",
+        "title": "6. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 19,
+        "number": 7,
+        "section": "B형",
+        "title": "7. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 20,
+        "number": 8,
+        "section": "B형",
+        "title": "8. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 21,
+        "number": 9,
+        "section": "B형",
+        "title": "9. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 22,
+        "number": 10,
+        "section": "B형",
+        "title": "10. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      },
+      {
+        "questionId": 23,
+        "number": 11,
+        "section": "B형",
+        "title": "11. 다음은 전문상담교사들이 학교 간 학습공동체에서 토의한 내용의 일부이다. <작성 방법>에 따라 서술하시오. [4점]",
+        "score": 4,
+        "earnedScore": 0,
+        "userAnswer": "",
+        "modelAnswer": "1) ㉠ 기질 차원: 위험회피 (Harm Avoidance)\n2) ㉡ 애착 유형: 저항 애착 (양극성/불안-저항 애착, Ambivalent Attachment)\n3) ㉢ 기질: 정서성 (Emotionality) - 쉽게 인두적 자극을 받고 강하게 반응하는 성향\n   ㉣ 기질: 활동성 (Activity) - 신체적 에너지 소모의 빈도와 속도가 높은 성향",
+        "matchedKeywords": [],
+        "feedback": ""
+      }
+    ],
+    "gradedAt": "2026. 8. 15. PM 5:22:16"
+  }
+]
