@@ -78,76 +78,76 @@
   <!-- 2. 실전 분할 문제풀이 화면 -->
   <div id="examView" class="view-container hidden">
     
-    <!-- 🎯 초슬림 1줄 실전 헤더 (문제지 가림 제로 & 공간 100% 확보) -->
-    <header class="exam-top-bar slim-header">
-      <div class="slim-bar-container">
+    <!-- 🎯 V6 태블릿/아이패드 최적화 1줄 실전 헤더 (1교시/2교시/3교시 100% 노출 보장) -->
+    <header class="v6-top-navbar">
+      <div class="v6-nav-left">
         <!-- 1. 회차 선택 -->
-        <div class="slim-item">
-          <select id="selectExamRound" class="select-round slim-select">
-            <option value="exam-101" selected>🎯 [제 101 회] 2027 KICE 풀세트</option>
-            <option value="exam-100">👑 [제 100 회] 2027 KICE 기념판</option>
-            <option value="exam-0903_02">🔥 [제 0903_02 회] 2027 적중 1순위</option>
-            <option value="exam-0903_01">📚 [제 0903_01 회] 2027 기출예상</option>
-            <option value="exam-1">📚 [제 1 회] 2027 통합 모의고사</option>
-            <option value="exam-2">📚 [제 2 회] 2027 통합 모의고사</option>
-            <option value="exam-3">📚 [제 3 회] 2027 통합 모의고사</option>
-            <option value="exam-4">📚 [제 4 회] 2027 통합 모의고사</option>
-            <option value="exam-5">📚 [제 5 회] 2027 통합 모의고사</option>
-            <option value="exam-6">📚 [제 6 회] 2027 통합 모의고사</option>
-            <option value="exam-7">📚 [제 7 회] 2027 통합 모의고사</option>
-            <option value="exam-8">📚 [제 8 회] 2027 통합 모의고사</option>
-            <option value="exam-9">📚 [제 9 회] 2027 통합 모의고사</option>
-            <option value="exam-10">📚 [제 10 회] 2027 통합 모의고사</option>
-            <option value="exam-11">📚 [제 11 회] 2027 통합 모의고사</option>
-            <option value="exam-12">📚 [제 12 회] 2027 통합 모의고사</option>
-            <option value="exam-13">📚 [제 13 회] 2027 통합 모의고사</option>
-            <option value="exam-14">📚 [제 14 회] 2027 통합 모의고사</option>
-            <option value="exam-15">📚 [제 15 회] 2027 통합 모의고사</option>
-            <option value="exam-16">📚 [제 16 회] 2027 통합 모의고사</option>
-            <option value="exam-17">📚 [제 17 회] 2027 통합 모의고사</option>
-            <option value="exam-18">📚 [제 18 회] 2027 통합 모의고사</option>
-            <option value="exam-19">📚 [제 19 회] 2027 통합 모의고사</option>
-            <option value="exam-20">📚 [제 20 회] 2027 통합 모의고사</option>
-          </select>
-        </div>
+        <select id="selectExamRound" class="v6-round-select">
+          <option value="exam-101" selected>🎯 [제 101 회] 2027 KICE 풀세트</option>
+          <option value="exam-100">👑 [제 100 회] 2027 KICE 기념판</option>
+          <option value="exam-0903_02">🔥 [제 0903_02 회] 2027 적중 1순위</option>
+          <option value="exam-0903_01">📚 [제 0903_01 회] 2027 기출예상</option>
+          <option value="exam-1">📚 [제 1 회] 2027 통합 모의고사</option>
+          <option value="exam-2">📚 [제 2 회] 2027 통합 모의고사</option>
+          <option value="exam-3">📚 [제 3 회] 2027 통합 모의고사</option>
+          <option value="exam-4">📚 [제 4 회] 2027 통합 모의고사</option>
+          <option value="exam-5">📚 [제 5 회] 2027 통합 모의고사</option>
+          <option value="exam-6">📚 [제 6 회] 2027 통합 모의고사</option>
+          <option value="exam-7">📚 [제 7 회] 2027 통합 모의고사</option>
+          <option value="exam-8">📚 [제 8 회] 2027 통합 모의고사</option>
+          <option value="exam-9">📚 [제 9 회] 2027 통합 모의고사</option>
+          <option value="exam-10">📚 [제 10 회] 2027 통합 모의고사</option>
+          <option value="exam-11">📚 [제 11 회] 2027 통합 모의고사</option>
+          <option value="exam-12">📚 [제 12 회] 2027 통합 모의고사</option>
+          <option value="exam-13">📚 [제 13 회] 2027 통합 모의고사</option>
+          <option value="exam-14">📚 [제 14 회] 2027 통합 모의고사</option>
+          <option value="exam-15">📚 [제 15 회] 2027 통합 모의고사</option>
+          <option value="exam-16">📚 [제 16 회] 2027 통합 모의고사</option>
+          <option value="exam-17">📚 [제 17 회] 2027 통합 모의고사</option>
+          <option value="exam-18">📚 [제 18 회] 2027 통합 모의고사</option>
+          <option value="exam-19">📚 [제 19 회] 2027 통합 모의고사</option>
+          <option value="exam-20">📚 [제 20 회] 2027 통합 모의고사</option>
+        </select>
 
-        <!-- 2. 교시 선택 탭 -->
-        <div class="slim-item section-switch-group slim-sec-group">
-          <button id="btnSecP" class="btn-sec-tab slim-tab active-sec">1교시</button>
-          <button id="btnSecA" class="btn-sec-tab slim-tab locked-tab">2교시</button>
-          <button id="btnSecB" class="btn-sec-tab slim-tab locked-tab">3교시</button>
+        <!-- 2. 교시 선택 탭 (1교시 / 2교시(전공A) / 3교시(전공B)) -->
+        <div class="v6-period-tabs">
+          <button id="btnSecP" class="v6-period-tab active-sec">1교시 교육학</button>
+          <button id="btnSecA" class="v6-period-tab locked-tab">2교시 전공A</button>
+          <button id="btnSecB" class="v6-period-tab locked-tab">3교시 전공B</button>
         </div>
+      </div>
 
+      <div class="v6-nav-center">
         <!-- 3. 남은 시간 타이머 -->
-        <div class="slim-item timer-box slim-timer" id="sectionTimerBox">
-          <span class="timer-label">남은시간:</span>
-          <span id="sectionTimerDisplay" class="timer-time slim-time">60:00</span>
-          <button id="btnPauseTimer" class="btn-sub-action slim-pause-btn" title="일시정지">⏸️</button>
+        <div class="v6-timer-pill" id="sectionTimerBox">
+          <span class="v6-timer-tag">남은시간</span>
+          <span id="sectionTimerDisplay" class="v6-timer-digits">60:00</span>
+          <button id="btnPauseTimer" class="v6-pause-btn" title="일시정지">⏸️</button>
         </div>
+      </div>
 
-        <!-- 4. 임시저장 & 답안지 열기 & 제출 버튼 -->
-        <div class="slim-item slim-actions">
-          <button id="btnSaveTemp" class="btn-secondary slim-btn" title="현재 작성 답안 임시저장">💾 임시저장</button>
-          <button id="btnOpenOmrDrawer" class="btn-primary slim-omr-toggle-btn">📝 답안지 팝업</button>
-          <button id="btnCompleteCurrentSec" class="btn-section-complete slim-btn">🚀 1교시 제출</button>
-          <button id="btnSubmitExam" class="btn-primary slim-btn hidden">📝 최종제출</button>
-          
-          <!-- 보조 도구 드롭다운 토글 (오답노트, 오디오, 엑셀) -->
-          <div class="more-tools-dropdown">
-            <span id="displayStudentInfo" class="hidden">수험생: 홍길동 (2027-1004)</span>
-            <button id="btnMoreTools" class="btn-secondary slim-btn" type="button" title="부가 기능 (오답노트, 엑셀, 오디오, 커트라인)">⚙️</button>
-            <div id="moreToolsMenu" class="more-tools-menu hidden">
-              <button id="btnOpenWrongNotes" class="dropdown-item">📑 30대 오답노트 마스터 족보</button>
-              <button id="btnExportExcel" class="dropdown-item">📊 답안 엑셀 다운로드</button>
-              <button id="btnToggleSound" class="dropdown-item">🔊 시험장 오디오 토글</button>
-              <button id="btnToggleEyeComfort" class="dropdown-item">👁️ 눈보호 모드 토글</button>
-              <button id="btnToggleViewMode" class="dropdown-item">🖥️ 5:5 분할 ↔ 팝업 모드 전환</button>
-              <button id="btnAdminDashboardNav" class="dropdown-item hidden">👑 관리자 채점 센터</button>
-              <div class="dropdown-cutoff-info">
-                <div>🏛️ 인천 1차 컷: <strong>69.33점</strong></div>
-                <div>🥇 인천 1등 수석: <strong>78.67점</strong></div>
-                <div>🎯 내 합격 목표: <strong>75.00점+</strong></div>
-              </div>
+      <div class="v6-nav-right">
+        <!-- 4. 임시저장 & 팝업 답안지 열기 & 제출 버튼 -->
+        <button id="btnSaveTemp" class="v6-btn v6-btn-gray" title="답안 임시저장">💾 저장</button>
+        <button id="btnOpenOmrDrawer" class="v6-btn v6-btn-omr-highlight">📝 답안지 팝업</button>
+        <button id="btnCompleteCurrentSec" class="v6-btn v6-btn-green">🚀 1교시 제출</button>
+        <button id="btnSubmitExam" class="v6-btn v6-btn-blue hidden">📝 최종제출</button>
+        
+        <!-- 보조 도구 드롭다운 토글 -->
+        <div class="more-tools-dropdown">
+          <span id="displayStudentInfo" class="hidden">수험생: 홍길동</span>
+          <button id="btnMoreTools" class="v6-btn v6-btn-tool" type="button" title="부가 기능 (오답노트, 엑셀, 오디오, 커트라인)">⚙️</button>
+          <div id="moreToolsMenu" class="more-tools-menu hidden">
+            <button id="btnOpenWrongNotes" class="dropdown-item">📑 30대 오답노트 마스터 족보</button>
+            <button id="btnExportExcel" class="dropdown-item">📊 답안 엑셀 다운로드</button>
+            <button id="btnToggleSound" class="dropdown-item">🔊 시험장 오디오 토글</button>
+            <button id="btnToggleEyeComfort" class="dropdown-item">👁️ 눈보호 모드 토글</button>
+            <button id="btnToggleViewMode" class="dropdown-item">🖥️ 5:5 분할 ↔ 팝업 모드 전환</button>
+            <button id="btnAdminDashboardNav" class="dropdown-item hidden">👑 관리자 채점 센터</button>
+            <div class="dropdown-cutoff-info">
+              <div>🏛️ 인천 1차 컷: <strong>69.33점</strong></div>
+              <div>🥇 인천 1등 수석: <strong>78.67점</strong></div>
+              <div>🎯 내 합격 목표: <strong>75.00점+</strong></div>
             </div>
           </div>
         </div>
@@ -171,13 +171,13 @@
     <!-- 팝업 배경 백드롭 (클릭 시 닫힘) -->
     <div id="omrBackdrop" class="omr-backdrop hidden"></div>
 
-    <!-- 분할 화면 메인 영역 -->
+    <!-- 메인 시험 화면 영역 (문제지 100% 전면 뷰 & 팝업 답안지) -->
     <main class="split-main" id="splitMain">
       
-      <!-- ◀ 문제지 뷰어 (전체화면 지원) -->
-      <section class="pane left-pane" id="paneLeft">
+      <!-- 📄 문제지 뷰어 (전면 100% 뷰) -->
+      <section class="pane left-pane full-paper-pane" id="paneLeft">
         <div class="pane-header">
-          <h2>📄 문제지 (PDF 서식 뷰어)</h2>
+          <h2>📄 문제지 (2027 KICE 평가원 실전 양식)</h2>
           <div class="zoom-controls">
             <button id="btnZoomOut">A-</button>
             <span id="zoomLevel">100%</span>
@@ -191,14 +191,14 @@
 
         <!-- 🖍️ 4색 지문 형광펜 & 펜 색칠 & 수정테이프 & 노란 메모장 툴바 -->
         <div class="passage-toolbar">
-          <span style="font-weight:800; font-size:13px; color:#0f172a;">🖍️ 지문 분석 툴바:</span>
-          <button type="button" id="btnHlYellow" style="background:#eab308; color:#0f172a; font-weight:800; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12.5px;">🖍️ 형광펜</button>
-          <button type="button" id="btnHlRed" style="background:#e11d48; color:#ffffff; font-weight:800; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12.5px;">🖊️ 빨간펜</button>
-          <button type="button" id="btnHlGreen" style="background:#10b981; color:#ffffff; font-weight:800; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12.5px;">💚 초록펜</button>
-          <button type="button" id="btnHlBlue" style="background:#3b82f6; color:#ffffff; font-weight:800; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12.5px;">💙 파란펜</button>
-          <button type="button" id="btnHlStrike" style="background:#475569; color:#ffffff; font-weight:800; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12.5px;">✂️ 수정테이프</button>
-          <button type="button" id="btnToggleStickyNote" style="background:#ca8a04; color:#ffffff; font-weight:800; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12.5px;">📌 메모장</button>
-          <button type="button" id="btnClearHl" style="background:#334155; color:#ffffff; font-weight:700; border:none; padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12.5px;">🧹 지우기</button>
+          <span style="font-weight:800; font-size:12.5px; color:#0f172a;">🖍️ 지문 분석 툴바:</span>
+          <button type="button" id="btnHlYellow" style="background:#eab308; color:#0f172a; font-weight:800; border:none; padding:4px 9px; border-radius:5px; cursor:pointer; font-size:12px;">🖍️ 형광펜</button>
+          <button type="button" id="btnHlRed" style="background:#e11d48; color:#ffffff; font-weight:800; border:none; padding:4px 9px; border-radius:5px; cursor:pointer; font-size:12px;">🖊️ 빨간펜</button>
+          <button type="button" id="btnHlGreen" style="background:#10b981; color:#ffffff; font-weight:800; border:none; padding:4px 9px; border-radius:5px; cursor:pointer; font-size:12px;">💚 초록펜</button>
+          <button type="button" id="btnHlBlue" style="background:#3b82f6; color:#ffffff; font-weight:800; border:none; padding:4px 9px; border-radius:5px; cursor:pointer; font-size:12px;">💙 파란펜</button>
+          <button type="button" id="btnHlStrike" style="background:#475569; color:#ffffff; font-weight:800; border:none; padding:4px 9px; border-radius:5px; cursor:pointer; font-size:12px;">✂️ 수정테이프</button>
+          <button type="button" id="btnToggleStickyNote" style="background:#ca8a04; color:#ffffff; font-weight:800; border:none; padding:4px 9px; border-radius:5px; cursor:pointer; font-size:12px;">📌 메모장</button>
+          <button type="button" id="btnClearHl" style="background:#334155; color:#ffffff; font-weight:700; border:none; padding:4px 9px; border-radius:5px; cursor:pointer; font-size:12px;">🧹 지우기</button>
         </div>
 
         <!-- 평가원 시험지 서식 영역 (JS에서 2문항씩 완벽한 페이지별 2단 분할 렌더링) -->
@@ -210,23 +210,23 @@
       <!-- 캡 드래그 리사이저 -->
       <div id="resizer" class="resizer"></div>
 
-      <!-- ▶ OMR 서술형 답안지 (분할 뷰 & 팝업 드로어 모드 겸용) -->
-      <section class="pane right-pane" id="paneRight">
-        <div class="pane-header" style="flex-wrap:wrap; gap:8px;">
-          <h2 id="omrTitleText">✏️ 답안 작성란 (평가원 실전 양식)</h2>
+      <!-- 📝 팝업식 OMR 답안지 모달 (독립 팝업 카드) -->
+      <section class="pane right-pane popup-omr-modal" id="paneRight">
+        <div class="pane-header popup-omr-header">
+          <h2 id="omrTitleText">✏️ OMR 답안 작성 및 자가채점 (실시간 자동 합산)</h2>
           
-          <!-- ✒️ 답안 작성 및 채점 펜 색상 선택 스위처 (검정/빨강/파랑) & 새로 시작 버튼 -->
+          <!-- ✒️ 펜 색상 & 새로 시작 -->
           <div class="pen-color-toolbar">
-            <span class="pen-color-label">✒️ 펜 색상:</span>
-            <button type="button" id="btnPenBlack" class="btn-pen-color btn-pen-black active-pen" title="검정색 펜 글씨"></button>
-            <button type="button" id="btnPenRed" class="btn-pen-color btn-pen-red" title="빨간색 펜 글씨 (첨삭/오답)"></button>
-            <button type="button" id="btnPenBlue" class="btn-pen-color btn-pen-blue" title="파란색 펜 글씨"></button>
-            <button type="button" id="btnResetCurrentAnswers" style="background:#ef4444; color:#ffffff; font-weight:800; border:none; padding:4px 8px; border-radius:6px; cursor:pointer; font-size:11.5px; margin-left:6px;" title="현재 회차 답안지 초기화">🧹 지우기</button>
+            <span class="pen-color-label">✒️ 펜:</span>
+            <button type="button" id="btnPenBlack" class="btn-pen-color btn-pen-black active-pen" title="검정색 펜"></button>
+            <button type="button" id="btnPenRed" class="btn-pen-color btn-pen-red" title="빨간색 펜"></button>
+            <button type="button" id="btnPenBlue" class="btn-pen-color btn-pen-blue" title="파란색 펜"></button>
+            <button type="button" id="btnResetCurrentAnswers" style="background:#ef4444; color:#ffffff; font-weight:800; border:none; padding:3px 7px; border-radius:4px; cursor:pointer; font-size:11px; margin-left:4px;" title="답안 초기화">🧹 초기화</button>
           </div>
 
           <div class="answer-info" style="margin-left:auto; display:flex; align-items:center; gap:8px;">
             <span id="totalCharCount">글자 수: 0자</span>
-            <button id="btnCloseOmrDrawer" class="btn-close-drawer" title="답안지 팝업을 닫고 문제지를 넓게 봅니다.">✕ 닫기</button>
+            <button id="btnCloseOmrDrawer" class="btn-close-omr-modal" title="답안지 팝업을 닫고 문제지를 넓게 봅니다.">✕ 닫고 문제지 보기</button>
           </div>
         </div>
 

@@ -532,24 +532,31 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateSectionTabUI() {
     const isAdmin = currentUser && currentUser.isAdmin;
 
-    btnSecP.classList.toggle('active-sec', currentSectionKey === 'P');
+    if (btnSecP) {
+      btnSecP.textContent = '1교시 교육학';
+      btnSecP.classList.toggle('active-sec', currentSectionKey === 'P');
+    }
     
-    if (isAdmin || completedSections.P) {
-      btnSecA.classList.remove('locked-tab');
-      btnSecA.textContent = '2교시 전공 A (35분)';
-      btnSecA.classList.toggle('active-sec', currentSectionKey === 'A');
-    } else {
-      btnSecA.classList.add('locked-tab');
-      btnSecA.textContent = '🔒 2교시 전공 A (35분)';
+    if (btnSecA) {
+      if (isAdmin || completedSections.P) {
+        btnSecA.classList.remove('locked-tab');
+        btnSecA.textContent = '2교시 전공A';
+        btnSecA.classList.toggle('active-sec', currentSectionKey === 'A');
+      } else {
+        btnSecA.classList.add('locked-tab');
+        btnSecA.textContent = '🔒 2교시 전공A';
+      }
     }
 
-    if (isAdmin || completedSections.A) {
-      btnSecB.classList.remove('locked-tab');
-      btnSecB.textContent = '3교시 전공 B (35분)';
-      btnSecB.classList.toggle('active-sec', currentSectionKey === 'B');
-    } else {
-      btnSecB.classList.add('locked-tab');
-      btnSecB.textContent = '🔒 3교시 전공 B (35분)';
+    if (btnSecB) {
+      if (isAdmin || completedSections.A) {
+        btnSecB.classList.remove('locked-tab');
+        btnSecB.textContent = '3교시 전공B';
+        btnSecB.classList.toggle('active-sec', currentSectionKey === 'B');
+      } else {
+        btnSecB.classList.add('locked-tab');
+        btnSecB.textContent = '🔒 3교시 전공B';
+      }
     }
   }
 
@@ -601,10 +608,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 60분`;
       if (paperFooterPage) paperFooterPage.textContent = '교육학 (2면 중 2면)';
       if (noticeBanner) noticeBanner.innerHTML = '○ 문제지 전체 면수가 맞는지 확인하시오.';
-      omrTitleText.textContent = '✏️ 오른쪽 1교시 교육학 논술 작성란 (20점 만점 / 1200~1500자)';
-      btnCompleteCurrentSec.textContent = '🚀 1교시 교육학 제출 및 답안 확인';
-      btnCompleteCurrentSec.classList.remove('hidden');
-      btnSubmitExam.classList.add('hidden'); // 1교시엔 전체 최종 제출 버튼 숨김!
+      if (omrTitleText) omrTitleText.textContent = '✏️ 1교시 교육학 논술 작성란 (20점 만점 / 1200~1500자)';
+      if (btnCompleteCurrentSec) {
+        btnCompleteCurrentSec.textContent = '🚀 1교시 제출';
+        btnCompleteCurrentSec.classList.remove('hidden');
+      }
+      if (btnSubmitExam) btnSubmitExam.classList.add('hidden');
     } else if (secKey === 'A') {
       if (paperSectionTitle) paperSectionTitle.innerHTML = '전 &nbsp; 문 &nbsp; 상 &nbsp; 담';
       if (tableSectionName) tableSectionName.textContent = '2교시 전공 A';
@@ -612,10 +621,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 90분`;
       if (paperFooterPage) paperFooterPage.textContent = '전문상담 [전공 A] (8면 중 4면)';
       if (noticeBanner) noticeBanner.innerHTML = '○ 문제지 전체 면수가 맞는지 확인하시오.<br>○ 모든 문항에는 배점이 표시되어 있습니다.';
-      omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 실전 양식)';
-      btnCompleteCurrentSec.textContent = '🚀 2교시 전공A 제출 및 답안 확인';
-      btnCompleteCurrentSec.classList.remove('hidden');
-      btnSubmitExam.classList.add('hidden'); // 2교시엔 전체 최종 제출 버튼 숨김!
+      if (omrTitleText) omrTitleText.textContent = '✏️ 2교시 전공 A형 서술형 작성란 (40점 만점)';
+      if (btnCompleteCurrentSec) {
+        btnCompleteCurrentSec.textContent = '🚀 2교시 제출';
+        btnCompleteCurrentSec.classList.remove('hidden');
+      }
+      if (btnSubmitExam) btnSubmitExam.classList.add('hidden');
     } else {
       // 3교시 전공 B형일 때만 전체 최종 제출 버튼 노출!
       if (paperSectionTitle) paperSectionTitle.innerHTML = '전 &nbsp; 문 &nbsp; 상 &nbsp; 담';
@@ -624,10 +635,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (tableTimeSpec) tableTimeSpec.textContent = `시험 시간 90분`;
       if (paperFooterPage) paperFooterPage.textContent = '전문상담 [전공 B] (8면 중 6면)';
       if (noticeBanner) noticeBanner.innerHTML = '○ 문제지 전체 면수가 맞는지 확인하시오.<br>○ 모든 문항에는 배점이 표시되어 있습니다.';
-      omrTitleText.textContent = '✏️ 오른쪽 서술형 답안 작성란 (평가원 실전 양식)';
-      btnCompleteCurrentSec.classList.add('hidden');
-      btnSubmitExam.classList.remove('hidden'); // 마지막 B형에서만 노출!
-      btnSubmitExam.textContent = '📝 3교시 B형 완료 및 전체 최종 제출';
+      if (omrTitleText) omrTitleText.textContent = '✏️ 3교시 전공 B형 서술형 작성란 (40점 만점)';
+      if (btnCompleteCurrentSec) btnCompleteCurrentSec.classList.add('hidden');
+      if (btnSubmitExam) {
+        btnSubmitExam.classList.remove('hidden');
+        btnSubmitExam.textContent = '📝 3교시 최종 제출';
+      }
     }
 
     sectionRemainingSecs = (secKey === 'P' ? 37 : (secData.timeLimit || 35)) * 60;
