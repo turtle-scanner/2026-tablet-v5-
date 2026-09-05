@@ -1059,31 +1059,33 @@ body {
 }
 
 .kice-page-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 36px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
   flex: 1;
-  align-items: start;
+  align-items: stretch;
 }
 
-/* 중앙 세로 실선 구분선 */
+/* ❌ 가운데 세로선 완전 삭제 (텍스트 가림 방지 및 쾌적한 가독성 확보) */
 .kice-page-grid::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1.5px;
-  background: #333a45;
-  transform: translateX(-50%);
+  display: none !important;
+  content: none !important;
 }
 
 .kice-col {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 100%;
+}
+
+.kice-col-left:not(:empty) {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1.5px dashed #cbd5e1;
+}
+
+.kice-col-right:empty {
+  display: none;
 }
 
 .kice-col .q-block {
