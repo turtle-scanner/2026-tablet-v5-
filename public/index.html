@@ -78,113 +78,78 @@
   <!-- 2. 실전 분할 문제풀이 화면 -->
   <div id="examView" class="view-container hidden">
     
-    <!-- 상단 시험 컨트롤 헤더 -->
-    <header class="exam-top-bar">
-      <div class="bar-left">
-        <!-- 1~14회차 선택 드롭다운 -->
-        <select id="selectExamRound" class="select-round">
-          <option value="exam-101" selected>🎯 [제 101 회차] 2027 KICE 1:1 매칭 풀세트 실전 모의고사</option>
-          <option value="exam-100" >👑 [제 100 회차] 2027 KICE 실전 모의고사 (100회 기념 에디션)</option>
-          <option value="exam-1">📚 [제 1 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-2">📚 [제 2 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-3">📚 [제 3 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-4">📚 [제 4 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-5">📚 [제 5 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-6">📚 [제 6 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-7">📚 [제 7 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-8">📚 [제 8 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-9">📚 [제 9 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-10">📚 [제 10 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-11">📚 [제 11 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-12">📚 [제 12 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-13">📚 [제 13 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-14">📚 [제 14 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-15">📚 [제 15 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-16">📚 [제 16 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-17">📚 [제 17 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-18">📚 [제 18 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-19">📚 [제 19 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-20">📚 [제 20 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-21">📚 [제 21 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-22">📚 [제 22 회차] 2027 통합 모의고사 (교육학+전공)</option>
-          <option value="exam-23">📚 [제 23 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사</option>
-          <option value="exam-24">📚 [제 24 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사</option>
-          <option value="exam-25">📚 [제 25 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사</option>
-          <option value="exam-26">🏆 [제 26 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (전공 A/B 23문항)</option>
-          <option value="exam-27">🏆 [제 27 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (전공 A/B 23문항)</option>
-          <option value="exam-40">🏆 [제 40 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)</option>
-          <option value="exam-42">🏆 [제 42 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)</option>
-          <option value="exam-43">🏆 [제 43 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)</option>
-          <option value="exam-44">🏆 [제 44 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)</option>
-          <option value="exam-45">🏆 [제 45 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)</option>
-          <option value="exam-46">🏆 [제 46 회차] 2027 KICE 기출 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)</option>
-          <option value="exam-6">🏆 [제 6 회차] 2027 KICE 기출 1순위/2순위 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)</option>
-          <option value="exam-7" >🏆 [제 7 회차] 2027 KICE 기출 1순위/2순위 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항)</option>
-          <option value="exam-60">🏆 [제 60 회차] 2027 KICE 기출 1순위 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항 화면 자름 방지 최적화 판)</option>
-          <option value="exam-61">🏆 [제 61 회차] 2027 KICE 기출 1순위 100% 적중 파이널 킬러 통합 모의고사 (교육학+전공 A/B 23문항 화면 자름 방지 최적화 판)</option>
-        </select>
-        
-        <!-- 교시 선택 스위치 탭 -->
-        <div class="section-switch-group">
-          <button id="btnSecP" class="btn-sec-tab active-sec">1교시 교육학 (37분)</button>
-          <button id="btnSecA" class="btn-sec-tab locked-tab">🔒 2교시 전공 A (35분)</button>
-          <button id="btnSecB" class="btn-sec-tab locked-tab">🔒 3교시 전공 B (35분)</button>
+    <!-- 🎯 초슬림 1줄 실전 헤더 (문제지 가림 제로 & 공간 100% 확보) -->
+    <header class="exam-top-bar slim-header">
+      <div class="slim-bar-container">
+        <!-- 1. 회차 선택 -->
+        <div class="slim-item">
+          <select id="selectExamRound" class="select-round slim-select">
+            <option value="exam-101" selected>🎯 [제 101 회] 2027 KICE 풀세트</option>
+            <option value="exam-100">👑 [제 100 회] 2027 KICE 기념판</option>
+            <option value="exam-0903_02">🔥 [제 0903_02 회] 2027 적중 1순위</option>
+            <option value="exam-0903_01">📚 [제 0903_01 회] 2027 기출예상</option>
+            <option value="exam-1">📚 [제 1 회] 2027 통합 모의고사</option>
+            <option value="exam-2">📚 [제 2 회] 2027 통합 모의고사</option>
+            <option value="exam-3">📚 [제 3 회] 2027 통합 모의고사</option>
+            <option value="exam-4">📚 [제 4 회] 2027 통합 모의고사</option>
+            <option value="exam-5">📚 [제 5 회] 2027 통합 모의고사</option>
+            <option value="exam-6">📚 [제 6 회] 2027 통합 모의고사</option>
+            <option value="exam-7">📚 [제 7 회] 2027 통합 모의고사</option>
+            <option value="exam-8">📚 [제 8 회] 2027 통합 모의고사</option>
+            <option value="exam-9">📚 [제 9 회] 2027 통합 모의고사</option>
+            <option value="exam-10">📚 [제 10 회] 2027 통합 모의고사</option>
+            <option value="exam-11">📚 [제 11 회] 2027 통합 모의고사</option>
+            <option value="exam-12">📚 [제 12 회] 2027 통합 모의고사</option>
+            <option value="exam-13">📚 [제 13 회] 2027 통합 모의고사</option>
+            <option value="exam-14">📚 [제 14 회] 2027 통합 모의고사</option>
+            <option value="exam-15">📚 [제 15 회] 2027 통합 모의고사</option>
+            <option value="exam-16">📚 [제 16 회] 2027 통합 모의고사</option>
+            <option value="exam-17">📚 [제 17 회] 2027 통합 모의고사</option>
+            <option value="exam-18">📚 [제 18 회] 2027 통합 모의고사</option>
+            <option value="exam-19">📚 [제 19 회] 2027 통합 모의고사</option>
+            <option value="exam-20">📚 [제 20 회] 2027 통합 모의고사</option>
+          </select>
         </div>
 
-        <span id="displayStudentInfo" class="user-badge">수험생: 홍길동 (2027-1004)</span>
-        <button id="btnToggleSound" class="btn-sound-toggle">🔊 시험장 오디오 (ON)</button>
-        <button id="btnToggleEyeComfort" class="btn-sound-toggle" style="background: #78716c; border-color: #57534e; color: #ffffff;">👁️ 눈보호 모드 (OFF)</button>
-        <span class="strict-exam-badge">⚡ KICE 실전 모드</span>
-      </div>
-
-      <!-- 선생님 수석 합격 마인드셋 & 다짐 목표 배너 -->
-      <div class="user-goal-banner">
-        <span class="goal-text">🔥 2027 전문상담 임용고시 수석 합격! | "꼭 합격하자.. 남은 시간을 가치있는 삶에 전념하자.." 🔥</span>
-      </div>
-
-      <!-- 🏛️ 2026 인천광역시 합격 커트라인 & 1등 수석 합격자 점수 뱃지 패널 -->
-      <div class="incheon-cutoff-container">
-        <div class="cutoff-badge-item badge-incheon-cut" title="2026학년도 인천광역시 교육청 전문상담 1차 합격 커트라인">
-          <span>🏛️ 인천 1차 합격 커트라인:</span>
-          <span class="cutoff-val">69.33점</span>
-          <span style="font-size: 11px; opacity: 0.8;">(전공 49.33점)</span>
-        </div>
-        <div class="cutoff-badge-item badge-incheon-top" title="2026학년도 인천광역시 교육청 전문상담 1차 1등 수석 합격자 점수">
-          <span>🥇 인천 1등 수석 합격자 점수:</span>
-          <span class="cutoff-val">78.67점</span>
-          <span style="font-size: 11px; opacity: 0.8;">(전공 59.34점)</span>
-        </div>
-        <div class="cutoff-badge-item badge-incheon-target" title="2027 수석 합격을 위한 나의 모의고사 목표 안전선">
-          <span>🎯 내 수석 합격 목표선:</span>
-          <span class="cutoff-val">75.00점+</span>
-          <span style="font-size: 11px; opacity: 0.8;">(수석권 안착)</span>
-        </div>
-      </div>
-
-      <div class="bar-center">
-        <div id="sectionTimerBox" class="timer-box">
-          <span class="timer-label">교시 남은시간:</span>
-          <span id="sectionTimerDisplay" class="timer-time">60:00</span>
+        <!-- 2. 교시 선택 탭 -->
+        <div class="slim-item section-switch-group slim-sec-group">
+          <button id="btnSecP" class="btn-sec-tab slim-tab active-sec">1교시</button>
+          <button id="btnSecA" class="btn-sec-tab slim-tab locked-tab">2교시</button>
+          <button id="btnSecB" class="btn-sec-tab slim-tab locked-tab">3교시</button>
         </div>
 
-        <div class="timer-box q-timer-box">
-          <span class="q-timer-label">⏱️ 문항 타임어택:</span>
-          <span id="qTimerDisplay" class="q-timer-time">06:00</span>
+        <!-- 3. 남은 시간 타이머 -->
+        <div class="slim-item timer-box slim-timer" id="sectionTimerBox">
+          <span class="timer-label">남은시간:</span>
+          <span id="sectionTimerDisplay" class="timer-time slim-time">60:00</span>
+          <button id="btnPauseTimer" class="btn-sub-action slim-pause-btn" title="일시정지">⏸️</button>
         </div>
 
-        <button id="btnPauseTimer" class="btn-sub-action">일시정지</button>
-      </div>
-
-      <div class="bar-right">
-        <!-- 🖥️ 좌우 분할 ↔ 📱 문제지 전면+팝업 답안지 모드 토글 스위치 -->
-        <button id="btnToggleViewMode" class="btn-secondary" style="background: #4338ca; color: #ffffff; border-color: #3730a3; font-weight: 800;">📱 답안지 팝업 모드</button>
-        <button id="btnOpenOmrDrawer" class="btn-primary" style="background: linear-gradient(135deg, #f43f5e, #e11d48); font-weight: 900; box-shadow: 0 2px 8px rgba(244,63,94,0.4);">📝 답안지 열기</button>
-        <button id="btnOpenWrongNotes" class="btn-secondary" style="background: #0284c7; color: #ffffff; border-color: #0369a1; font-weight: 800;">📑 오답노트</button>
-        <button id="btnAdminDashboardNav" class="btn-admin-nav hidden">👑 관리자</button>
-        <button id="btnExportExcel" class="btn-secondary" style="background: #16a34a; color: #ffffff; border-color: #15803d;">📊 엑셀</button>
-        <button id="btnSaveTemp" class="btn-secondary">💾 임시저장</button>
-        <button id="btnCompleteCurrentSec" class="btn-section-complete">🚀 1교시 제출</button>
-        <button id="btnSubmitExam" class="btn-primary hidden">📝 최종 제출</button>
+        <!-- 4. 임시저장 & 답안지 열기 & 제출 버튼 -->
+        <div class="slim-item slim-actions">
+          <button id="btnSaveTemp" class="btn-secondary slim-btn" title="현재 작성 답안 임시저장">💾 임시저장</button>
+          <button id="btnOpenOmrDrawer" class="btn-primary slim-omr-toggle-btn">📝 답안지 팝업</button>
+          <button id="btnCompleteCurrentSec" class="btn-section-complete slim-btn">🚀 1교시 제출</button>
+          <button id="btnSubmitExam" class="btn-primary slim-btn hidden">📝 최종제출</button>
+          
+          <!-- 보조 도구 드롭다운 토글 (오답노트, 오디오, 엑셀) -->
+          <div class="more-tools-dropdown">
+            <button id="btnMoreTools" class="btn-secondary slim-btn" type="button" title="부가 기능 (오답노트, 엑셀, 오디오, 커트라인)">⚙️</button>
+            <div id="moreToolsMenu" class="more-tools-menu hidden">
+              <button id="btnOpenWrongNotes" class="dropdown-item">📑 30대 오답노트 마스터 족보</button>
+              <button id="btnExportExcel" class="dropdown-item">📊 답안 엑셀 다운로드</button>
+              <button id="btnToggleSound" class="dropdown-item">🔊 시험장 오디오 토글</button>
+              <button id="btnToggleEyeComfort" class="dropdown-item">👁️ 눈보호 모드 토글</button>
+              <button id="btnToggleViewMode" class="dropdown-item">🖥️ 5:5 분할 ↔ 팝업 모드 전환</button>
+              <button id="btnAdminDashboardNav" class="dropdown-item hidden">👑 관리자 채점 센터</button>
+              <div class="dropdown-cutoff-info">
+                <div>🏛️ 인천 1차 컷: <strong>69.33점</strong></div>
+                <div>🥇 인천 1등 수석: <strong>78.67점</strong></div>
+                <div>🎯 내 합격 목표: <strong>75.00점+</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 

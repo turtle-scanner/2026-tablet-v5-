@@ -2318,16 +2318,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (btnOpenOmrDrawer) btnOpenOmrDrawer.addEventListener('click', openOmrDrawer);
-  if (btnFloatingOmr) btnFloatingOmr.addEventListener('click', openOmrDrawer);
+  const btnMoreTools = document.getElementById('btnMoreTools');
+  const moreToolsMenu = document.getElementById('moreToolsMenu');
+
+  if (btnMoreTools && moreToolsMenu) {
+    btnMoreTools.addEventListener('click', (e) => {
+      e.stopPropagation();
+      moreToolsMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!moreToolsMenu.contains(e.target) && e.target !== btnMoreTools) {
+        moreToolsMenu.classList.add('hidden');
+      }
+    });
+  }
+
+  function toggleOmrDrawer() {
+    if (paneRight && paneRight.classList.contains('omr-drawer-open')) {
+      closeOmrDrawer();
+    } else {
+      openOmrDrawer();
+    }
+  }
+
+  if (btnOpenOmrDrawer) btnOpenOmrDrawer.addEventListener('click', toggleOmrDrawer);
+  if (btnFloatingOmr) btnFloatingOmr.addEventListener('click', toggleOmrDrawer);
   if (btnCloseOmrDrawer) btnCloseOmrDrawer.addEventListener('click', closeOmrDrawer);
   if (omrBackdrop) omrBackdrop.addEventListener('click', closeOmrDrawer);
 
-  // 화면 폭이 1150px 이하(아이패드 10.1, 태블릿, 모바일)이면 자동으로 팝업 답안지 모드로 시작!
+  // 기본적으로 팝업 답안지 모드를 기본 활성화하여 문제지가 100% 큼직하게 보이도록 설정!
   const savedPrefMode = localStorage.getItem('user_pref_popup_mode');
   if (savedPrefMode !== null) {
     setViewMode(savedPrefMode === 'true');
-  } else if (window.innerWidth <= 1150) {
+  } else {
+    // 모든 기기(아이패드, 태블릿, PC)에서 문제지가 시원하게 보이도록 팝업 모드를 기본으로 적용!
     setViewMode(true);
   }
 

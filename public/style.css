@@ -427,6 +427,163 @@ body {
   z-index: 10;
 }
 
+/* =========================================================
+   🎯 초슬림 1줄 실전 헤더 (높이 48px 컴팩트 디자인)
+   ========================================================= */
+.exam-top-bar.slim-header {
+  height: 52px;
+  min-height: 52px;
+  background: #0f172a;
+  border-bottom: 2px solid #334155;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.slim-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.slim-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slim-select {
+  padding: 5px 12px !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  height: 36px;
+  background: #1e293b;
+  color: #38bdf8;
+  border: 1.5px solid #38bdf8;
+  border-radius: 6px;
+}
+
+.slim-sec-group {
+  padding: 2px !important;
+  background: #1e293b;
+  border-radius: 6px;
+}
+
+.slim-tab {
+  padding: 5px 12px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+.slim-timer {
+  padding: 4px 12px !important;
+  height: 36px;
+  border-radius: 6px !important;
+  font-size: 12.5px !important;
+  background: #1e293b;
+}
+
+.slim-time {
+  font-size: 17px !important;
+  font-weight: 900 !important;
+}
+
+.slim-pause-btn {
+  padding: 2px 6px !important;
+  font-size: 11px !important;
+  background: #334155;
+  border: none;
+  border-radius: 4px;
+}
+
+.slim-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.slim-btn {
+  padding: 6px 12px !important;
+  font-size: 12.5px !important;
+  font-weight: 800 !important;
+  height: 36px;
+  border-radius: 6px !important;
+}
+
+.slim-omr-toggle-btn {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #fda4af !important;
+  padding: 6px 14px !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  height: 36px;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4);
+  cursor: pointer;
+}
+
+.slim-omr-toggle-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ⚙️ 더보기 드롭다운 메뉴 */
+.more-tools-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.more-tools-menu {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 250px;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 1050;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 10px 16px;
+  background: transparent;
+  color: #f1f5f9;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dropdown-item:hover {
+  background: #334155;
+  color: #38bdf8;
+}
+
+.dropdown-cutoff-info {
+  border-top: 1px solid #334155;
+  margin-top: 6px;
+  padding: 8px 16px;
+  font-size: 11.5px;
+  color: #94a3b8;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dropdown-cutoff-info strong { color: #facc15; }
+
 .bar-left {
   display: flex;
   align-items: center;
@@ -1603,31 +1760,32 @@ body {
   display: none;
 }
 
-/* 팝업 답안지가 열렸을 때 (화면 위 팝업 모달/바텀시트) */
+/* 🎯 팝업 답안지가 열렸을 때 (화면 우측 정확히 50% 절반 오버레이 패널) */
 .mode-popup-omr #paneRight.omr-drawer-open {
   display: flex !important;
   position: fixed;
+  top: 52px; /* 상단 슬림바 바로 아래부터 */
   bottom: 0;
   right: 0;
-  width: 100%;
-  max-width: 680px;
-  height: 85vh;
+  width: 50% !important;
+  max-width: 50% !important;
+  min-width: 380px;
+  height: calc(100vh - 52px) !important;
   z-index: 1001;
   background: #ffffff;
-  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.35);
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-  border: 2px solid #fda4af;
-  animation: slideUpDrawer 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -8px 0 35px rgba(0, 0, 0, 0.4);
+  border-left: 3px solid #fda4af;
+  border-top-left-radius: 12px;
+  animation: slideRightIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mode-popup-omr .btn-close-drawer {
   display: inline-block !important;
 }
 
-@keyframes slideUpDrawer {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes slideRightIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 /* 📱 1100px 이하 (아이패드 10.1 가로/세로, 태블릿, 모바일) 반응형 최적화 */
