@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   let currentUser = null;
   let currentExam = null;
-  let currentExamId = 'exam-101';
+  let currentExamId = 'exam-0905_01';
   let currentSectionKey = 'P'; // P: 1교시 교육학, A: 2교시 전공A, B: 3교시 전공B
   let activeQuestionId = 1;
   let userAnswers = {};
@@ -358,7 +358,8 @@ document.addEventListener('DOMContentLoaded', () => {
       examList.forEach(ex => {
         const opt = document.createElement('option');
         opt.value = ex.id;
-        opt.textContent = ex.title || `📚 [제 ${ex.id.replace('exam-', '')} 회차] 2027 통합 모의고사`;
+        const cleanId = ex.id.replace('exam-', '');
+        opt.textContent = `제 ${cleanId}`;
         selectExamRound.appendChild(opt);
       });
     } else {
@@ -366,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const exId = `exam-${i}`;
         const opt = document.createElement('option');
         opt.value = exId;
-        opt.textContent = `📚 [제 ${i} 회차] 2027 통합 모의고사`;
+        opt.textContent = `제 ${i}`;
         selectExamRound.appendChild(opt);
       }
     }
@@ -374,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectExamRound.querySelector(`option[value="${savedVal}"]`)) {
       selectExamRound.value = savedVal;
     } else if (selectExamRound.options.length > 0) {
-      selectExamRound.value = selectExamRound.options[selectExamRound.options.length - 1].value;
+      selectExamRound.value = selectExamRound.options[0].value;
       currentExamId = selectExamRound.value;
     }
   }
@@ -533,29 +534,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const isAdmin = currentUser && currentUser.isAdmin;
 
     if (btnSecP) {
-      btnSecP.textContent = '1교시 교육학';
+      btnSecP.textContent = '1교시';
       btnSecP.classList.toggle('active-sec', currentSectionKey === 'P');
     }
     
     if (btnSecA) {
       if (isAdmin || completedSections.P) {
         btnSecA.classList.remove('locked-tab');
-        btnSecA.textContent = '2교시 전공A';
+        btnSecA.textContent = '2교시';
         btnSecA.classList.toggle('active-sec', currentSectionKey === 'A');
       } else {
         btnSecA.classList.add('locked-tab');
-        btnSecA.textContent = '🔒 2교시 전공A';
+        btnSecA.textContent = '🔒 2교시';
       }
     }
 
     if (btnSecB) {
       if (isAdmin || completedSections.A) {
         btnSecB.classList.remove('locked-tab');
-        btnSecB.textContent = '3교시 전공B';
+        btnSecB.textContent = '3교시';
         btnSecB.classList.toggle('active-sec', currentSectionKey === 'B');
       } else {
         btnSecB.classList.add('locked-tab');
-        btnSecB.textContent = '🔒 3교시 전공B';
+        btnSecB.textContent = '🔒 3교시';
       }
     }
   }

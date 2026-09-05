@@ -78,42 +78,43 @@
   <!-- 2. 실전 분할 문제풀이 화면 -->
   <div id="examView" class="view-container hidden">
     
-    <!-- 🎯 V6 태블릿/아이패드 최적화 1줄 실전 헤더 (1교시/2교시/3교시 100% 노출 보장) -->
+    <!-- 🎯 V6 태블릿/아이패드 최적화 1줄 실전 헤더 (심플 콤팩트 디자인) -->
     <header class="v6-top-navbar">
       <div class="v6-nav-left">
         <!-- 1. 회차 선택 -->
-        <select id="selectExamRound" class="v6-round-select">
-          <option value="exam-101" selected>🎯 [제 101 회] 2027 KICE 풀세트</option>
-          <option value="exam-100">👑 [제 100 회] 2027 KICE 기념판</option>
-          <option value="exam-0903_02">🔥 [제 0903_02 회] 2027 적중 1순위</option>
-          <option value="exam-0903_01">📚 [제 0903_01 회] 2027 기출예상</option>
-          <option value="exam-1">📚 [제 1 회] 2027 통합 모의고사</option>
-          <option value="exam-2">📚 [제 2 회] 2027 통합 모의고사</option>
-          <option value="exam-3">📚 [제 3 회] 2027 통합 모의고사</option>
-          <option value="exam-4">📚 [제 4 회] 2027 통합 모의고사</option>
-          <option value="exam-5">📚 [제 5 회] 2027 통합 모의고사</option>
-          <option value="exam-6">📚 [제 6 회] 2027 통합 모의고사</option>
-          <option value="exam-7">📚 [제 7 회] 2027 통합 모의고사</option>
-          <option value="exam-8">📚 [제 8 회] 2027 통합 모의고사</option>
-          <option value="exam-9">📚 [제 9 회] 2027 통합 모의고사</option>
-          <option value="exam-10">📚 [제 10 회] 2027 통합 모의고사</option>
-          <option value="exam-11">📚 [제 11 회] 2027 통합 모의고사</option>
-          <option value="exam-12">📚 [제 12 회] 2027 통합 모의고사</option>
-          <option value="exam-13">📚 [제 13 회] 2027 통합 모의고사</option>
-          <option value="exam-14">📚 [제 14 회] 2027 통합 모의고사</option>
-          <option value="exam-15">📚 [제 15 회] 2027 통합 모의고사</option>
-          <option value="exam-16">📚 [제 16 회] 2027 통합 모의고사</option>
-          <option value="exam-17">📚 [제 17 회] 2027 통합 모의고사</option>
-          <option value="exam-18">📚 [제 18 회] 2027 통합 모의고사</option>
-          <option value="exam-19">📚 [제 19 회] 2027 통합 모의고사</option>
-          <option value="exam-20">📚 [제 20 회] 2027 통합 모의고사</option>
+        <select id="selectExamRound" class="v6-round-select" title="모의고사 회차 선택">
+          <option value="exam-0905_01" selected>제 0905_1</option>
+          <option value="exam-0903_01">제 0903_1</option>
+          <option value="exam-0903_02">제 0903_2</option>
+          <option value="exam-101">제 101 회</option>
+          <option value="exam-100">제 100 회</option>
+          <option value="exam-1">제 1 회</option>
+          <option value="exam-2">제 2 회</option>
+          <option value="exam-3">제 3 회</option>
+          <option value="exam-4">제 4 회</option>
+          <option value="exam-5">제 5 회</option>
+          <option value="exam-6">제 6 회</option>
+          <option value="exam-7">제 7 회</option>
+          <option value="exam-8">제 8 회</option>
+          <option value="exam-9">제 9 회</option>
+          <option value="exam-10">제 10 회</option>
+          <option value="exam-11">제 11 회</option>
+          <option value="exam-12">제 12 회</option>
+          <option value="exam-13">제 13 회</option>
+          <option value="exam-14">제 14 회</option>
+          <option value="exam-15">제 15 회</option>
+          <option value="exam-16">제 16 회</option>
+          <option value="exam-17">제 17 회</option>
+          <option value="exam-18">제 18 회</option>
+          <option value="exam-19">제 19 회</option>
+          <option value="exam-20">제 20 회</option>
         </select>
 
-        <!-- 2. 교시 선택 탭 (1교시 / 2교시(전공A) / 3교시(전공B)) -->
+        <!-- 2. 교시 선택 탭 (1교시 / 2교시 / 3교시) -->
         <div class="v6-period-tabs">
-          <button id="btnSecP" class="v6-period-tab active-sec">1교시 교육학</button>
-          <button id="btnSecA" class="v6-period-tab locked-tab">2교시 전공A</button>
-          <button id="btnSecB" class="v6-period-tab locked-tab">3교시 전공B</button>
+          <button id="btnSecP" class="v6-period-tab active-sec" title="1교시 교육학">1교시</button>
+          <button id="btnSecA" class="v6-period-tab locked-tab" title="2교시 전공A">2교시</button>
+          <button id="btnSecB" class="v6-period-tab locked-tab" title="3교시 전공B">3교시</button>
         </div>
       </div>
 
@@ -128,7 +129,7 @@
 
       <div class="v6-nav-right">
         <!-- 4. 임시저장 & 팝업 답안지 열기 & 제출 버튼 -->
-        <button id="btnSaveTemp" class="v6-btn v6-btn-gray" title="답안 임시저장">💾 저장</button>
+        <button id="btnSaveTemp" class="v6-btn v6-btn-save" title="답안 임시저장">임시저장</button>
         <button id="btnOpenOmrDrawer" class="v6-btn v6-btn-omr-highlight">📝 답안지 팝업</button>
         <button id="btnCompleteCurrentSec" class="v6-btn v6-btn-green">🚀 1교시 제출</button>
         <button id="btnSubmitExam" class="v6-btn v6-btn-blue hidden">📝 최종제출</button>

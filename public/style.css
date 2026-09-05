@@ -428,147 +428,162 @@ body {
 }
 
 /* =========================================================
-   🎯 V6 태블릿/아이패드 최적화 1줄 실전 헤더 (54px 슬림 네비바)
+   🎯 V6 태블릿/아이패드 최적화 1줄 실전 헤더 (심플 콤팩트 디자인)
    ========================================================= */
 .v6-top-navbar {
-  height: 54px;
-  min-height: 54px;
-  background: #0f172a;
-  border-bottom: 2px solid #334155;
-  padding: 0 16px;
+  height: 48px;
+  min-height: 48px;
+  background: #ffffff;
+  border-bottom: 2px solid #cbd5e1;
+  padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
   z-index: 100;
-  gap: 12px;
+  gap: 8px;
 }
 
 .v6-nav-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-shrink: 0;
 }
 
 .v6-round-select {
-  padding: 6px 10px;
+  padding: 4px 8px;
   font-size: 13px;
   font-weight: 800;
-  height: 36px;
-  background: #1e293b;
-  color: #38bdf8;
-  border: 1.5px solid #38bdf8;
+  height: 34px;
+  background: #ffffff;
+  color: #c2410c;
+  border: 1.5px solid #ea580c;
   border-radius: 6px;
   cursor: pointer;
-  max-width: 240px;
+  max-width: 140px;
 }
 
 .v6-period-tabs {
   display: flex;
-  gap: 4px;
-  background: #1e293b;
-  padding: 3px;
-  border-radius: 6px;
+  gap: 6px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 
 .v6-period-tab {
-  padding: 6px 14px;
+  padding: 4px 12px;
   font-size: 13px;
   font-weight: 800;
-  border-radius: 4px;
-  border: none;
-  background: transparent;
-  color: #94a3b8;
+  height: 34px;
+  border-radius: 6px;
+  border: 1.5px solid #8b5cf6;
+  background: #ffffff;
+  color: #6d28d9;
   cursor: pointer;
   transition: all 0.15s;
   white-space: nowrap;
 }
 
+.v6-period-tab:hover {
+  background: #f5f3ff;
+}
+
 .v6-period-tab.active-sec {
-  background: #2563eb !important;
-  color: #ffffff !important;
+  background: #ffffff !important;
+  color: #1d4ed8 !important;
+  border: 2px solid #2563eb !important;
   font-weight: 900 !important;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.45);
+  box-shadow: 0 0 0 1px #2563eb;
 }
 
 .v6-period-tab.locked-tab {
-  opacity: 0.65;
-  color: #64748b;
+  opacity: 0.5;
+  border-color: #cbd5e1;
+  color: #94a3b8;
   cursor: not-allowed;
 }
 
 .v6-nav-center {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .v6-timer-pill {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: #1e293b;
-  border: 1.5px solid #38bdf8;
-  padding: 4px 12px;
-  height: 36px;
+  gap: 6px;
+  background: #ffffff;
+  border: 1.5px solid #0284c7;
+  padding: 3px 10px;
+  height: 34px;
   border-radius: 6px;
 }
 
 .v6-timer-tag {
   font-size: 12px;
   font-weight: 800;
-  color: #94a3b8;
+  color: #0369a1;
 }
 
 .v6-timer-digits {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
-  color: #38bdf8;
+  color: #0284c7;
   font-family: monospace;
 }
 
 .v6-pause-btn {
-  background: #334155;
+  background: #e2e8f0;
   border: none;
-  padding: 2px 6px;
+  padding: 2px 5px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .v6-nav-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   margin-left: auto;
   flex-shrink: 0;
 }
 
 .v6-btn {
-  padding: 6px 14px;
+  padding: 4px 12px;
   font-size: 12.5px;
   font-weight: 800;
-  height: 36px;
+  height: 34px;
   border-radius: 6px;
-  border: none;
+  border: 1.5px solid transparent;
   cursor: pointer;
   white-space: nowrap;
   transition: transform 0.1s, opacity 0.1s;
 }
 .v6-btn:hover { opacity: 0.95; transform: translateY(-1px); }
 
-.v6-btn-gray { background: #334155; color: #ffffff; }
-.v6-btn-green { background: #10b981; color: #ffffff; font-weight: 900; box-shadow: 0 2px 6px rgba(16,185,129,0.3); }
+.v6-btn-save {
+  background: #ffffff;
+  border: 1.5px solid #0284c7;
+  color: #0369a1;
+  font-weight: 800;
+}
+.v6-btn-save:hover { background: #f0f9ff; }
+
+.v6-btn-gray { background: #475569; color: #ffffff; }
+.v6-btn-green { background: #10b981; color: #ffffff; font-weight: 900; }
 .v6-btn-blue { background: #2563eb; color: #ffffff; font-weight: 900; }
-.v6-btn-tool { background: #1e293b; color: #f1f5f9; border: 1px solid #475569; padding: 6px 10px; }
+.v6-btn-tool { background: #f8fafc; color: #334155; border: 1.5px solid #cbd5e1; padding: 4px 8px; }
 
 .v6-btn-omr-highlight {
-  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+  background: #0e7490 !important;
   color: #ffffff !important;
-  border: 1.5px solid #fda4af !important;
+  border: 1.5px solid #0891b2 !important;
   font-weight: 900 !important;
-  box-shadow: 0 3px 10px rgba(244, 63, 94, 0.45);
+  box-shadow: 0 2px 6px rgba(14, 116, 144, 0.35);
 }
 
 /* ⚙️ 더보기 드롭다운 메뉴 */
@@ -1305,93 +1320,87 @@ body {
   padding-top: 6px;
 }
 
-/* OMR 공통 박스 규격 */
+/* =========================================================
+   📝 2027 KICE 실전 답안지 (황갈색 크림 노트 줄눈/밑줄 완벽 구현)
+   ========================================================= */
 .pink-omr-box {
   display: flex;
-  border-radius: var(--radius-sm);
-  background: #faf8ee;
-  box-shadow: 0 3px 8px rgba(160, 150, 100, 0.12);
+  border-radius: 6px;
+  background: #fbf9ec;
+  border: 1.5px solid #a8a29e;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   flex-shrink: 0;
+  margin-bottom: 12px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 /* 1줄 단답형 박스 (A형 1~4번, B형 1~2번) */
 .pink-omr-box.oneline-omr-box {
-  height: 90px;
-  min-height: 90px;
+  height: 96px;
+  min-height: 96px;
 }
 
 /* 4줄 서술형 박스 (A형 5~12번, B형 3~11번) */
 .pink-omr-box.fourline-omr-box {
-  height: 245px;
-  min-height: 245px;
+  height: 228px;
+  min-height: 228px;
 }
 
 /* 교육학 대형 박스 */
 .pink-omr-box.pedagogy-box {
-  height: 1400px !important;
-  min-height: 1400px !important;
-  border: 3px solid #1e40af !important;
-  background: #faf8ee;
-  box-shadow: 0 8px 30px rgba(30, 64, 175, 0.15);
+  height: 1380px !important;
+  min-height: 1380px !important;
+  border: 2px solid #3b82f6 !important;
+  background: #fbf9ec;
 }
 
 /* 🔴 1. 붉은색 테마 (A형 1~7번, B형 1~6번) */
 .pink-omr-box.theme-red {
-  border: 2px solid #dc2626;
+  border: 1.5px solid #dc2626;
 }
 .pink-omr-box.theme-red .pink-q-cell {
   background: #fef2f2;
-  border-right: 2px solid #dc2626;
+  border-right: 1.5px solid #dc2626;
 }
 .pink-omr-box.theme-red .pink-q-num,
 .pink-omr-box.theme-red .pink-q-score {
-  color: #b91c1c;
-}
-.pink-omr-box.theme-red .pink-char-counter {
-  color: #b91c1c;
+  color: #991b1b;
 }
 
-/* ⚪ 2. 차분한 회색 테마 (A형 8~12번 - 2번째 사진) */
+/* ⚪ 2. 차분한 회색 테마 (A형 8~12번) */
 .pink-omr-box.theme-gray {
-  border: 2px solid #64748b;
+  border: 1.5px solid #78716c;
 }
 .pink-omr-box.theme-gray .pink-q-cell {
-  background: #f1f5f9;
-  border-right: 2px solid #64748b;
+  background: #ede9ce;
+  border-right: 1.5px solid #78716c;
 }
 .pink-omr-box.theme-gray .pink-q-num,
 .pink-omr-box.theme-gray .pink-q-score {
-  color: #334155;
-}
-.pink-omr-box.theme-gray .pink-char-counter {
-  color: #334155;
+  color: #44403c;
 }
 
-/* 🔵 3. 청록색/시안 테마 (B형 7~11번 - 4번째 사진) */
+/* 🔵 3. 청록색/시안 테마 (B형 7~11번) */
 .pink-omr-box.theme-cyan {
-  border: 2px solid #0284c7;
+  border: 1.5px solid #0284c7;
 }
 .pink-omr-box.theme-cyan .pink-q-cell {
   background: #f0f9ff;
-  border-right: 2px solid #0284c7;
+  border-right: 1.5px solid #0284c7;
 }
 .pink-omr-box.theme-cyan .pink-q-num,
 .pink-omr-box.theme-cyan .pink-q-score {
   color: #0369a1;
 }
-.pink-omr-box.theme-cyan .pink-char-counter {
-  color: #0369a1;
-}
 
 /* 🔷 4. 교육학 블루 테마 */
 .pink-omr-box.theme-ped {
-  border: 3px solid #1e40af;
+  border: 2px solid #1e40af;
 }
 .pink-omr-box.theme-ped .pink-q-cell {
   background: #eff6ff;
-  border-right: 3px solid #1e40af;
+  border-right: 2px solid #1e40af;
 }
 .pink-omr-box.theme-ped .pink-q-num,
 .pink-omr-box.theme-ped .pink-q-score {
@@ -1399,29 +1408,31 @@ body {
 }
 
 .pink-q-cell {
-  width: 110px;
-  min-width: 110px;
+  width: 100px;
+  min-width: 100px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 8px;
+  padding: 8px 6px;
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
   cursor: pointer;
+  background: #ede9ce;
+  border-right: 1.5px solid #a8a29e;
 }
 
 .pink-q-num {
-  font-size: 20px;
+  font-size: 16.5px;
   font-weight: 900;
   line-height: 1.2;
 }
 
 .pink-q-score {
-  font-size: 15px;
-  font-weight: 900;
-  margin-top: 4px;
+  font-size: 13.5px;
+  font-weight: 800;
+  margin-top: 3px;
 }
 
 .pink-input-cell {
@@ -1430,103 +1441,86 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  background: #faf8ee;
-  padding: 6px 14px;
+  background: #fbf9ec;
+  padding: 6px 12px;
 }
 
+/* 📜 실제 시험지 노트 줄눈/밑줄 (Ruled Underline Paper) */
 .pink-rich-textarea {
   width: 100%;
-  padding: 2px 10px;
-  font-size: 18.5px;
-  font-weight: 800;
+  padding: 2px 8px;
+  font-size: 16px;
+  font-weight: 700;
   border: none;
   outline: none;
   resize: none;
   overflow-y: auto;
-  color: #000000;
-  background-attachment: local;
+  color: #0f172a;
+  background-color: #fbf9ec !important;
   font-family: 'Noto Sans KR', sans-serif;
   white-space: pre-wrap;
   word-break: break-all;
-  background-color: #faf8ee;
+  line-height: 38px !important;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 37px,
+    #cbd5e1 37px,
+    #cbd5e1 38px
+  ) !important;
+  background-size: 100% 38px !important;
+  background-attachment: local !important;
 }
 
-/* 1줄 단답형 텍스트에어리어 (높이 48px, 1줄 가이드선) */
+/* 1줄 단답형 텍스트에어리어 (높이 44px, 1줄 가이드선) */
 .pink-rich-textarea.oneline-textarea {
-  height: 48px;
-  min-height: 48px;
-  max-height: 48px;
-  line-height: 44px;
+  height: 46px;
+  min-height: 46px;
+  max-height: 46px;
+  line-height: 38px;
 }
 
-.theme-red-textarea.oneline-textarea {
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 42px, #f87171 42px, #f87171 44px);
-  background-size: 100% 44px;
-}
-
-.theme-gray-textarea.oneline-textarea {
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 42px, #94a3b8 42px, #94a3b8 44px);
-  background-size: 100% 44px;
-}
-
-.theme-cyan-textarea.oneline-textarea {
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 42px, #38bdf8 42px, #38bdf8 44px);
-  background-size: 100% 44px;
-}
-
-/* 4줄 서술형 텍스트에어리어 (높이 192px, 4줄 가이드선) */
+/* 4줄 서술형 텍스트에어리어 (높이 156px, 4줄 가이드선) */
 .pink-rich-textarea.fourline-textarea {
-  height: 192px;
-  min-height: 192px;
-  max-height: 192px;
-  line-height: 48px;
-}
-
-.theme-red-textarea.fourline-textarea {
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, #f87171 46px, #f87171 48px);
-  background-size: 100% 48px;
-}
-
-.theme-gray-textarea.fourline-textarea {
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, #94a3b8 46px, #94a3b8 48px);
-  background-size: 100% 48px;
-}
-
-.theme-cyan-textarea.fourline-textarea {
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 46px, #38bdf8 46px, #38bdf8 48px);
-  background-size: 100% 48px;
+  height: 156px;
+  min-height: 156px;
+  max-height: 156px;
+  line-height: 38px;
 }
 
 .pink-rich-textarea[contenteditable]:empty::before {
   content: attr(data-placeholder);
   color: #94a3b8;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14.5px;
 }
 
 .pedagogy-textarea {
-  height: 1350px !important;
-  min-height: 1350px !important;
-  line-height: 45px !important;
-  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 43px, #60a5fa 43px, #60a5fa 45px) !important;
-  background-size: 100% 45px !important;
+  height: 1300px !important;
+  min-height: 1300px !important;
+  line-height: 38px !important;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 37px,
+    #93c5fd 37px,
+    #93c5fd 38px
+  ) !important;
+  background-size: 100% 38px !important;
   overflow-y: auto !important;
-  font-size: 20px !important;
-  font-weight: 900 !important;
-  padding: 10px 25px !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  padding: 6px 16px !important;
   color: #000000 !important;
 }
 
 .pink-char-counter {
-  height: 40px;
+  height: 28px;
   line-height: 28px;
   text-align: right;
-  font-size: 14px;
-  color: var(--accent-pink);
-  font-weight: 800;
-  padding: 6px 18px;
-  background: #ffffff;
-  border-top: 1.5px solid #fecdd3;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 700;
 }
 
 .pink-omr-box.pedagogy-box .pink-char-counter {
@@ -1802,38 +1796,40 @@ body {
 }
 
 /* 🎯 팝업 OMR 모달이 열렸을 때 (독립 플로팅 모달창) */
+/* 🎯 팝업 OMR 모달이 열렸을 때 (화면 2/3 너비 독립 플로팅 모달창) */
 .pane.right-pane.popup-omr-modal.omr-drawer-open,
 #paneRight.omr-drawer-open {
   display: flex !important;
   position: fixed !important;
-  top: 60px !important;
-  right: 20px !important;
-  width: 700px !important;
-  max-width: calc(100vw - 40px) !important;
-  height: calc(100vh - 80px) !important;
+  top: 52px !important;
+  right: 10px !important;
+  width: 67vw !important;
+  min-width: 320px !important;
+  max-width: calc(100vw - 20px) !important;
+  height: calc(100vh - 60px) !important;
   z-index: 1050 !important;
-  background: #ffffff !important;
-  border-radius: 14px !important;
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.55), 0 0 0 2px #fda4af !important;
+  background: #fbf9ec !important;
+  border-radius: 10px !important;
+  box-shadow: -8px 12px 35px rgba(0, 0, 0, 0.4), 0 0 0 2px #cbd5e1 !important;
   animation: popInModal 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
   overflow: hidden !important;
 }
 
 @keyframes popInModal {
-  0% { transform: translateY(20px) scale(0.97); opacity: 0; }
+  0% { transform: translateY(15px) scale(0.98); opacity: 0; }
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
 .popup-omr-header {
-  background: #fdf2f8 !important;
-  border-bottom: 2px solid #fbcfe8 !important;
-  padding: 10px 18px !important;
+  background: #ede9ce !important;
+  border-bottom: 2px solid #cbd5e1 !important;
+  padding: 8px 16px !important;
 }
 
 .popup-omr-header h2 {
-  font-size: 14.5px !important;
+  font-size: 14px !important;
   font-weight: 900 !important;
-  color: #9d174d !important;
+  color: #1e293b !important;
 }
 
 .btn-close-omr-modal {
