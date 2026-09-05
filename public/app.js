@@ -232,28 +232,38 @@ document.addEventListener('DOMContentLoaded', () => {
       if (data.success) {
         currentUser = data.user;
         currentUser.isAdmin = data.isAdmin || (username === 'cntfed');
-        inputStudentNo.value = currentUser.studentNo;
-        displayStudentInfo.textContent = `${currentUser.isAdmin ? '👑 관리자' : '수험생'}: ${currentUser.name} (${currentUser.studentNo})`;
+        if (inputStudentNo) inputStudentNo.value = currentUser.studentNo;
+        if (displayStudentInfo) displayStudentInfo.textContent = `${currentUser.isAdmin ? '👑 관리자' : '수험생'}: ${currentUser.name} (${currentUser.studentNo})`;
+
+        if (btnAdminDashboardNav) {
+          if (currentUser.isAdmin) {
+            btnAdminDashboardNav.classList.remove('hidden');
+          } else {
+            btnAdminDashboardNav.classList.add('hidden');
+          }
+        }
 
         if (currentUser.isAdmin) {
-          btnAdminDashboardNav.classList.remove('hidden');
           completedSections.P = true;
           completedSections.A = true;
           completedSections.B = true;
         } else {
-          btnAdminDashboardNav.classList.add('hidden');
           completedSections.P = false;
           completedSections.A = false;
           completedSections.B = false;
         }
 
-        await setupExamRoundDropdownOptions();
+        try {
+          await setupExamRoundDropdownOptions();
+        } catch(e) { console.warn(e); }
 
-        loginView.classList.add('hidden');
-        examView.classList.remove('hidden');
+        if (loginView) loginView.classList.add('hidden');
+        if (examView) examView.classList.remove('hidden');
 
-        await loadExamData(currentExamId);
-        await startSection('P');
+        try {
+          await loadExamData(currentExamId);
+          await startSection('P');
+        } catch(e) { console.error('loadExamData error:', e); }
       } else {
         alert(data.message || '로그인 실패: 아이디 또는 비밀번호가 일치하지 않습니다.');
       }
@@ -270,28 +280,38 @@ document.addEventListener('DOMContentLoaded', () => {
       
       currentUser = user;
       currentUser.isAdmin = isAdmin;
-      inputStudentNo.value = currentUser.studentNo;
-      displayStudentInfo.textContent = `${currentUser.isAdmin ? '👑 관리자' : '수험생'}: ${currentUser.name} (${currentUser.studentNo})`;
+      if (inputStudentNo) inputStudentNo.value = currentUser.studentNo;
+      if (displayStudentInfo) displayStudentInfo.textContent = `${currentUser.isAdmin ? '👑 관리자' : '수험생'}: ${currentUser.name} (${currentUser.studentNo})`;
+
+      if (btnAdminDashboardNav) {
+        if (currentUser.isAdmin) {
+          btnAdminDashboardNav.classList.remove('hidden');
+        } else {
+          btnAdminDashboardNav.classList.add('hidden');
+        }
+      }
 
       if (currentUser.isAdmin) {
-        btnAdminDashboardNav.classList.remove('hidden');
         completedSections.P = true;
         completedSections.A = true;
         completedSections.B = true;
       } else {
-        btnAdminDashboardNav.classList.add('hidden');
         completedSections.P = false;
         completedSections.A = false;
         completedSections.B = false;
       }
 
-      await setupExamRoundDropdownOptions();
+      try {
+        await setupExamRoundDropdownOptions();
+      } catch(e) { console.warn(e); }
 
-      loginView.classList.add('hidden');
-      examView.classList.remove('hidden');
+      if (loginView) loginView.classList.add('hidden');
+      if (examView) examView.classList.remove('hidden');
 
-      await loadExamData(currentExamId);
-      await startSection('P');
+      try {
+        await loadExamData(currentExamId);
+        await startSection('P');
+      } catch(e) { console.error('loadExamData offline error:', e); }
     }
   }
 
