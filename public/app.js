@@ -637,18 +637,14 @@ document.addEventListener('DOMContentLoaded', () => {
     startSectionTimer();
 
     const qs = (secData && secData.questions) ? secData.questions : [];
-    renderExamPaper(qs);
-    renderOMRForm(qs);
-    renderTabs(qs);
-    renderTabletQuickJumpChips(qs);
-    initTabletTouchSwipe();
+    try { renderExamPaper(qs); } catch (e) { console.error('Error in renderExamPaper:', e); }
+    try { renderOMRForm(qs); } catch (e) { console.error('Error in renderOMRForm:', e); }
+    try { renderTabs(qs); } catch (e) { console.error('Error in renderTabs:', e); }
+    try { renderTabletQuickJumpChips(qs); } catch (e) { console.error('Error in renderTabletQuickJumpChips:', e); }
+    try { initTabletTouchSwipe(); } catch (e) { console.error('Error in initTabletTouchSwipe:', e); }
 
     // 🎯 시험지 첫 번째 페이지 활성화 보장
-    const firstPage = document.querySelector('.kice-exam-page');
-    if (firstPage) {
-      firstPage.classList.add('active-page');
-    }
-
+    selectExamPage(1);
     if (qs.length > 0) {
       selectQuestion(1);
     }
@@ -938,14 +934,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function selectExamPage(pageNo) {
     currentExamPageNo = pageNo;
-    document.querySelectorAll('.kice-exam-page').forEach(p => {
-      p.classList.toggle('active-page', p.id === `exam-page-${pageNo}`);
+    const pages = document.querySelectorAll('.kice-exam-page');
+    pages.forEach((p, idx) => {
+      const isTarget = (currentSectionKey === 'P') ? (idx === 0) : ((idx + 1) === pageNo || p.id === `exam-page-${pageNo}`);
+      p.classList.toggle('active-page', isTarget);
+      if (isTarget) {
+        p.style.setProperty('display', 'flex', 'important');
+        p.style.setProperty('visibility', 'visible', 'important');
+        p.style.setProperty('opacity', '1', 'important');
+      } else {
+        p.style.setProperty('display', 'none', 'important');
+      }
     });
     document.querySelectorAll('.kice-page-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.page == pageNo);
     });
     const activePageEl = document.getElementById(`exam-page-${pageNo}`);
-    if (activePageEl) activePageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (activePageEl) {
+      activePageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   function selectQuestion(qId) {
@@ -1206,81 +1213,94 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // 개별 문제 렌더러 함수
+        // 개별 문제 렌더러 함수
         const renderQuestionBlock = (q, qIndex) => {
           if (!q) return '';
-          const qNumInt = qIndex + 1;
-          const isSecA = (currentSectionKey === 'A');
-          const isSecB = (currentSectionKey === 'B');
-          let isOneLine = false;
-          if (isSecA && qNumInt <= 4) isOneLine = true;
-          if (isSecB && qNumInt <= 2) isOneLine = true;
+          try {
+            const qNumInt = qIndex + 1;
+            const isSecA = (currentSectionKey === 'A');
+            const isSecB = (currentSectionKey === 'B');
+            let isOneLine = false;
+            if (isSecA && qNumInt <= 4) isOneLine = true;
+            if (isSecB && qNumInt <= 2) isOneLine = true;
 
-          const qScore = q.points || q.score || (isOneLine ? 2 : 4);
+            const qScore = q.points || q.score || (isOneLine ? 2 : 4);
 
-          let rawTitle = q.title || '';
-          rawTitle = rawTitle.replace(/\[문항 [AB]-\d+\]/g, '').replace(/\(\d+점\)/g, '').trim();
-          rawTitle = rawTitle.replace(/^\[.*?\]\s*/, '').trim();
+            let rawTitle = (q.title || '').toString();
+            rawTitle = rawTitle.replace(/\[문항 [AB]-\d+\]/g, '').replace(/\(\d+점\)/g, '').trim();
+            rawTitle = rawTitle.replace(/^\[.*?\]\s*/, '').trim();
 
-          let rubricText = q.rubric || '';
-          if (rubricText.includes('[정답 예시]')) rubricText = rubricText.split('[정답 예시]')[0].trim();
-          if (rubricText.includes('[정답]')) rubricText = rubricText.split('[정답]')[0].trim();
-          let formattedPassage = q.passage || '';
-          let mainQuestionText = '';
-          let separateRubric = '';
+            let rubricText = (q.rubric || '').toString();
+            if (rubricText.includes('[정답 예시]')) rubricText = rubricText.split('[정답 예시]')[0].trim();
+            if (rubricText.includes('[정답]')) rubricText = rubricText.split('[정답]')[0].trim();
+            let formattedPassage = (q.passage || '').toString();
+            let mainQuestionText = '';
+            let separateRubric = '';
 
-          if (!formattedPassage && rubricText) {
-            mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rubricText)} [${qScore}점]`;
-          } else if (rawTitle && rawTitle.length > 5) {
-            mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rawTitle)} [${qScore}점]`;
-            separateRubric = rubricText;
-          } else if (rubricText) {
-            if (rubricText.startsWith('<작성 방법>') || rubricText.includes('○') || rubricText.includes('\n')) {
-              mainQuestionText = `${qNumInt}. 다음 사례를 읽고 &lt;작성 방법&gt;에 따라 서술하시오. [${qScore}점]`;
+            if (!formattedPassage && rubricText) {
+              mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rubricText)} [${qScore}점]`;
+            } else if (rawTitle && rawTitle.length > 5) {
+              mainQuestionText = `${qNumInt}. ${formatKiceSymbols(rawTitle)} [${qScore}점]`;
               separateRubric = rubricText;
-            } else {
-              mainQuestionText = `${qNumInt}. 다음은 ... ${formatKiceSymbols(rubricText)} [${qScore}점]`;
-            }
-          } else {
-            mainQuestionText = `${qNumInt}. 다음 지문을 읽고 물음에 답하시오. [${qScore}점]`;
-          }
-
-          let rubricHtml = '';
-          if (separateRubric) {
-            let cleanRubric = separateRubric.replace(/^<(작성 방법|배\s*점)>\s*:?\s*/i, '').trim();
-            const lines = cleanRubric.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-            const formattedLines = lines.map(l => {
-              let text = l;
-              if (!text.startsWith('○') && !text.startsWith('-') && !text.startsWith('•') && !text.startsWith('※') && !text.startsWith('1.') && !text.startsWith('2.')) {
-                text = `○ ${text}`;
-              } else if (text.startsWith('1.') || text.startsWith('2.') || text.startsWith('3.')) {
-                text = text.replace(/^\d+\.\s*/, '○ ');
+            } else if (rubricText) {
+              if (rubricText.startsWith('<작성 방법>') || rubricText.includes('○') || rubricText.includes('\n')) {
+                mainQuestionText = `${qNumInt}. 다음 사례를 읽고 &lt;작성 방법&gt;에 따라 서술하시오. [${qScore}점]`;
+                separateRubric = rubricText;
+              } else {
+                mainQuestionText = `${qNumInt}. 다음은 ... ${formatKiceSymbols(rubricText)} [${qScore}점]`;
               }
-              return `<div class="kice-rubric-item">${formatKiceSymbols(text)}</div>`;
-            }).join('');
+            } else {
+              mainQuestionText = `${qNumInt}. 다음 지문을 읽고 물음에 답하시오. [${qScore}점]`;
+            }
 
-            rubricHtml = `
-              <div class="kice-rubric-box">
-                <div class="kice-rubric-header">&lt;작성 &nbsp; 방법&gt;</div>
-                <div class="kice-rubric-body">${formattedLines}</div>
+            let rubricHtml = '';
+            if (separateRubric) {
+              let cleanRubric = separateRubric.replace(/^<(작성 방법|배\s*점)>\s*:?\s*/i, '').trim();
+              const lines = cleanRubric.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+              const formattedLines = lines.map(l => {
+                let text = l;
+                if (!text.startsWith('○') && !text.startsWith('-') && !text.startsWith('•') && !text.startsWith('※') && !text.startsWith('1.') && !text.startsWith('2.')) {
+                  text = `○ ${text}`;
+                } else if (text.startsWith('1.') || text.startsWith('2.') || text.startsWith('3.')) {
+                  text = text.replace(/^\d+\.\s*/, '○ ');
+                }
+                return `<div class="kice-rubric-item">${formatKiceSymbols(text)}</div>`;
+              }).join('');
+
+              rubricHtml = `
+                <div class="kice-rubric-box">
+                  <div class="kice-rubric-header">&lt;작성 &nbsp; 방법&gt;</div>
+                  <div class="kice-rubric-body">${formattedLines}</div>
+                </div>
+              `;
+            }
+
+            if (formattedPassage) {
+              const speakerNames = "상담교사|수퍼바이저|담임교사|경력 교사|신임 교사|김 교사|박 교사|이 교사|최 교사|지혜|민우|승호|유진|수진|민지|현수|민호|재민|성민|성준|아버지|어 머 니|어머니|준서|집단원 A|집단원 B|내담자|수검자|보호자|내담자 민우|내담자 현수|내담자 민호|내담자 서연이|내담 아동";
+              const dialogueRegex = new RegExp(`([\"\\.\\?!\\)\\s])\\s*(${speakerNames})\\s*:`, 'g');
+              formattedPassage = formattedPassage.replace(dialogueRegex, '$1\n$2:');
+              formattedPassage = formattedPassage.replace(/\n{3,}/g, '\n\n').trim();
+              formattedPassage = formatKiceSymbols(formattedPassage);
+            }
+
+            return `
+              <div class="q-block" id="paper-q-${qNumInt}">
+                <div class="q-title">${mainQuestionText}</div>
+                ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
+                ${rubricHtml}
+              </div>
+            `;
+          } catch(err) {
+            console.error('Error in renderQuestionBlock:', err);
+            const qNumFallback = qIndex + 1;
+            return `
+              <div class="q-block" id="paper-q-${qNumFallback}">
+                <div class="q-title">${qNumFallback}. ${q.title || '문항'} [4점]</div>
+                ${q.passage ? `<div class="q-passage">${q.passage}</div>` : ''}
+                ${q.rubric ? `<div class="kice-rubric-box"><div class="kice-rubric-body">${q.rubric}</div></div>` : ''}
               </div>
             `;
           }
-
-          if (formattedPassage) {
-            const speakerNames = "상담교사|수퍼바이저|담임교사|경력 교사|신임 교사|김 교사|박 교사|이 교사|최 교사|지혜|민우|승호|유진|수진|민지|현수|민호|재민|성민|성준|아버지|어 머 니|어머니|준서|집단원 A|집단원 B|내담자|수검자|보호자|내담자 민우|내담자 현수|내담자 민호|내담자 서연이|내담 아동";
-            const dialogueRegex = new RegExp(`([\\"\\.\\?!\\)\\s])\\s*(${speakerNames})\\s*:`, 'g');
-            formattedPassage = formattedPassage.replace(dialogueRegex, '$1\n$2:');
-            formattedPassage = formattedPassage.replace(/\n{3,}/g, '\n\n').trim();
-            formattedPassage = formatKiceSymbols(formattedPassage);
-          }
-
-          return `
-            <div class="q-block" id="paper-q-${qNumInt}">
-              <div class="q-title">${mainQuestionText}</div>
-              ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
-              ${rubricHtml}
-            </div>
-          `;
         };
 
         const leftColHtml = renderQuestionBlock(leftQ, leftQIdx);
@@ -1775,7 +1795,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (zoomPercent < 150) {
       zoomPercent += 10;
       zoomLevel.textContent = `${zoomPercent}%`;
-      paperBody.style.fontSize = `${15 * (zoomPercent / 100)}px`;
+      if (paperContainer) paperContainer.style.fontSize = `${15 * (zoomPercent / 100)}px`;
     }
   });
 
@@ -1783,7 +1803,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (zoomPercent > 80) {
       zoomPercent -= 10;
       zoomLevel.textContent = `${zoomPercent}%`;
-      paperBody.style.fontSize = `${15 * (zoomPercent / 100)}px`;
+      if (paperContainer) paperContainer.style.fontSize = `${15 * (zoomPercent / 100)}px`;
     }
   });
 
