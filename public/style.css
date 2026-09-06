@@ -2623,3 +2623,27 @@ body {
 .split-main {
   padding-bottom: 54px;
 }
+
+
+/* 🛡️ 문제지 절대 무손실 및 1교시 교육학 완전 노출 보장 규칙 */
+.kice-exam-page.active-page {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.pedagogy-page-mode.active-page {
+  display: block !important;
+}
+
+.pedagogy-page-mode .q-block {
+  display: block !important;
+}
+
+.mode-single-focus .pedagogy-page-mode .q-block {
+  display: block !important;
+}
+
+.mode-single-focus .pink-omr-box[id="omr-card-1"] {
+  display: block !important;
+}

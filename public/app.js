@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentExam = null;
   let currentExamId = 'exam-0905_01';
   let currentSectionKey = 'P'; // P: 1교시 교육학, A: 2교시 전공A, B: 3교시 전공B
+  let currentExamPageNo = 1;
   let activeQuestionId = 1;
   let userAnswers = {};
   let userAnswersHtmlMap = {}; // 개별 글자 색상이 포함된 서식 HTML 영구 저장
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   let sectionTimerInterval = null;
-  let sectionRemainingSecs = 60 * 60;
+  let sectionRemainingSecs = 35 * 60;
 
   let qTimerInterval = null;
   let qRemainingSecs = 6 * 60;
@@ -473,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showSectionResultModal('P');
       }
     } else if (currentSectionKey === 'A') {
-      if (confirm('2교시 [전공 A형] 답안을 완료 제출하고 3교시 [전공 B형(90분)]으로 이동하시겠습니까?')) {
+      if (confirm('2교시 [전공 A형] 답안을 완료 제출하고 3교시 [전공 B형(35분)]으로 이동하시겠습니까?')) {
         completedSections.A = true;
         updateSectionTabUI();
         showSectionResultModal('A');
@@ -555,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (data.success && data.exam) {
         currentExam = data.exam;
         if (currentExam && currentExam.sections && currentExam.sections.P) {
-          currentExam.sections.P.timeLimit = 37;
+          currentExam.sections.P.timeLimit = 35;
         }
         return;
       }
@@ -570,18 +571,19 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('시험지 데이터를 로드하지 못했습니다.');
     }
     if (currentExam && currentExam.sections && currentExam.sections.P) {
-      currentExam.sections.P.timeLimit = 37;
+      currentExam.sections.P.timeLimit = 35;
     }
   }
 
   // 교시(P/A/B) 시작 시 최종 제출 버튼 노출 제어 (마지막 B형에서만 전체 최종 제출 버튼 노출!)
   async function startSection(secKey) {
     currentSectionKey = secKey;
+    currentExamPageNo = 1;
     await loadDraftAnswers();
     const secData = currentExam.sections[secKey];
 
     if (secKey === 'P') {
-      secData.timeLimit = 37;
+      secData.timeLimit = 35;
     }
 
     updateSectionTabUI();
@@ -631,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    sectionRemainingSecs = (secKey === 'P' ? 37 : (secData.timeLimit || 35)) * 60;
+    sectionRemainingSecs = 35 * 60;
     startSectionTimer();
 
     renderExamPaper(secData.questions);
@@ -830,7 +832,7 @@ document.addEventListener('DOMContentLoaded', () => {
     playChimeSound(); // 교시 개시 령 종소리!
     
     if (currentSectionKey === 'P') {
-      showSupervisorNotice('🔔 1교시 교육학 논술 시험이 시작되었습니다. 제한시간 37분 동안 신중히 답안을 작성하십시오.');
+      showSupervisorNotice('🔔 1교시 교육학 논술 시험이 시작되었습니다. 제한시간 35분 동안 신중히 답안을 작성하십시오.');
     } else if (currentSectionKey === 'A') {
       showSupervisorNotice('🔔 2교시 전공 A형 시험이 시작되었습니다. 제한시간 35분 동안 서술형 답안을 작성하십시오.');
     } else {
@@ -926,7 +928,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (qRemainingSecs > 60) qTimerDisplay.style.color = '#facc15';
   }
 
-  let currentExamPageNo = 1;
 
   function selectExamPage(pageNo) {
     currentExamPageNo = pageNo;
@@ -948,6 +949,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentSectionKey !== 'P') {
       const targetPageNo = Math.max(1, Math.ceil(qNumInt / 2));
       selectExamPage(targetPageNo);
+    } else {
+      currentExamPageNo = 1;
+      const pedPage = document.querySelector('.pedagogy-page-mode') || document.querySelector('.kice-exam-page');
+      if (pedPage) pedPage.classList.add('active-page');
     }
 
     document.querySelectorAll('.q-tab').forEach(t => {
@@ -1083,7 +1088,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <td>제1차 시험</td>
               <td>1교시</td>
               <td>1문항 20점</td>
-              <td>시험 시간 60분</td>
+              <td>시험 시간 35분</td>
             </tr>
           </table>
         </div>
@@ -1175,7 +1180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <td>제1차 시험</td>
                   <td>${currentSectionKey === 'A' ? '2교시 전공 A' : '3교시 전공 B'}</td>
                   <td>${totalQCount}문항 40점</td>
-                  <td>시험 시간 90분</td>
+                  <td>시험 시간 35분</td>
                 </tr>
               </table>
             </div>
