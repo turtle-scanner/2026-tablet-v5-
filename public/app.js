@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentSectionKey = 'P'; // P: 1교시 교육학, A: 2교시 전공A, B: 3교시 전공B
   let activeQuestionId = 1;
   let userAnswers = {};
+  let userAnswersHtmlMap = {}; // 개별 글자 색상이 포함된 서식 HTML 영구 저장
+  let omrMarksMap = {};        // 문항별 O / △ / X 채점 도장 저장
+  let qPenColorMap = {};       // 문항별 기본 펜 색상 저장
+  let activePenColor = 'black'; // 기본 펜 색상
 
   let draftSaveTimer = null;
 
@@ -147,6 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnCompleteCurrentSec = document.getElementById('btnCompleteCurrentSec');
   const btnSubmitExam = document.getElementById('btnSubmitExam');
   const btnAdminDashboardNav = document.getElementById('btnAdminDashboardNav');
+
+  const btnToggleViewMode = document.getElementById('btnToggleViewMode');
+  const btnOpenOmrDrawer = document.getElementById('btnOpenOmrDrawer');
+  const btnRightOmrStrip = document.getElementById('btnRightOmrStrip');
+  const btnCloseOmrDrawer = document.getElementById('btnCloseOmrDrawer');
+  const omrBackdrop = document.getElementById('omrBackdrop');
+  const floatingScoreBadge = document.getElementById('floatingScoreBadge');
+  const splitMain = document.getElementById('splitMain');
+  const paneLeft = document.getElementById('paneLeft');
+  const paneRight = document.getElementById('paneRight');
+  const resizer = document.getElementById('resizer');
 
   // Paper & OMR
   const questionTabs = document.getElementById('questionTabs');
@@ -1316,10 +1331,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // ⭕/❌ O/X 채점 도장 표식 & ✒️ 한글 프로그램 방식 개별 글자 펜 색상(검정/빨강/파랑) 서식 엔진
   // =========================================================
-  let omrMarksMap = {};
-  let qPenColorMap = {}; // 문항별 기본 펜 색상 저장
-  let userAnswersHtmlMap = {}; // 개별 글자 색상이 포함된 서식 HTML 영구 저장 { '1': '...', '2': '...' }
-  let activePenColor = 'black'; // 기본 펜 색상
+  // (상단에 이미 전역 선언됨)
 
   const colorHexCodes = {
     black: '#000000',
@@ -1434,8 +1446,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!bannerEl) return;
 
     const scores = calculateSelfGradingScores();
-    if (floatingScoreBadge) {
-      floatingScoreBadge.textContent = `${scores.totalScore.toFixed(1)}/100점`;
+    const floatingBadge = document.getElementById('floatingScoreBadge');
+    if (floatingBadge) {
+      floatingBadge.textContent = `${scores.totalScore.toFixed(1)}/100점`;
     }
     bannerEl.innerHTML = `
       <div class="score-banner-title">
@@ -1634,115 +1647,118 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     omrAnswerContainer.appendChild(omrTopHeader);
 
-    // 실시간 자가 채점 스코어보드 배너 삽입
+    // 1. 문항별 실전 줄노트 답안 상자 렌더링 (사용자가 바로 작성할 수 있도록 최상단에 전면 노출!)
+    if (questions && questions.length > 0) {
+      questions.forEach((q, idx) => {
+        const qNumInt = idx + 1; // 🎯 교시 내 실제 문항 번호 (1번, 2번, 3번...)
+        const qNum = qNumInt;
+        const ansKey = getAnswerKey(qNumInt);
+        const qScore = q.points || q.score || (isPed ? 20 : (isSecA ? (qNumInt <= 4 ? 2 : 4) : (qNumInt <= 2 ? 2 : 4)));
+        const qColor = qPenColorMap[ansKey] || qPenColorMap[qNum] || 'black';
+
+        // 1줄 vs 4줄 판정:
+        // A형: 1~4번은 1줄(단답형 2점), 5~12번은 4줄(서술형 4점)
+        // B형: 1~2번은 1줄(단답형 2점), 3~11번은 4줄(서술형 4점)
+        let isOneLine = false;
+        if (isSecA && qNumInt <= 4) isOneLine = true;
+        if (isSecB && qNumInt <= 2) isOneLine = true;
+
+        let colorThemeClass = 'theme-red';
+        if (isPed) {
+          colorThemeClass = 'theme-ped';
+        } else if (isSecA) {
+          if (qNumInt >= 8) colorThemeClass = 'theme-gray';
+          else colorThemeClass = 'theme-red';
+        } else if (isSecB) {
+          if (qNumInt >= 7) colorThemeClass = 'theme-cyan';
+          else colorThemeClass = 'theme-red';
+        }
+
+        const box = document.createElement('div');
+        box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''} ${isOneLine ? 'oneline-omr-box' : 'fourline-omr-box'} ${colorThemeClass}`;
+        box.id = `omr-card-${qNumInt}`;
+
+        const savedHtml = userAnswersHtmlMap[ansKey] || userAnswers[ansKey] || '';
+        const savedText = userAnswers[ansKey] || '';
+        const curMark = omrMarksMap[ansKey] || null;
+
+        const earnedScore = getEarnedScoreByMark(qScore, curMark);
+        const earnedTagText = curMark ? `[+${earnedScore.toFixed(1)}점]` : '';
+        const tagClass = curMark === 'O' ? 'tag-full' : curMark === 'TRIANGLE' ? 'tag-half' : curMark === 'X' ? 'tag-zero' : '';
+
+        box.innerHTML = `
+          <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNumInt}" data-anskey="${ansKey}" title="클릭하여 O/X/△ 도장을 찍으세요">
+            <div class="pink-q-num">${isPed ? '교육학' : `문항 ${qNumInt}`}</div>
+            <div class="pink-q-score">(${qScore}점)</div>
+            <div id="earned-score-tag-${ansKey}" class="grade-score-tag ${tagClass}" data-maxscore="${qScore}">${earnedTagText}</div>
+          </div>
+          <div class="pink-input-cell">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; flex-wrap:wrap; gap:4px;">
+              <!-- O / △ / X 원클릭 자가채점 버튼 바 -->
+              <div class="omr-self-grade-bar">
+                <span style="font-size:11.5px; font-weight:800; color:#475569; margin-right:4px;">채점:</span>
+                <button type="button" class="btn-grade-choice ${curMark === 'O' ? 'active-o' : ''}" data-anskey="${ansKey}" data-marktype="O" title="정답 (+${qScore}점)">⭕ 정답 (+${qScore}점)</button>
+                <button type="button" class="btn-grade-choice ${curMark === 'TRIANGLE' ? 'active-tri' : ''}" data-anskey="${ansKey}" data-marktype="TRIANGLE" title="부분점수 (+${(qScore * 0.5).toFixed(1)}점)">🔺 세모 (+${(qScore * 0.5).toFixed(1)}점)</button>
+                <button type="button" class="btn-grade-choice ${curMark === 'X' ? 'active-x' : ''}" data-anskey="${ansKey}" data-marktype="X" title="기본점수 (+${(qScore * 0.25).toFixed(1)}점)">❌ 오답 (+${(qScore * 0.25).toFixed(1)}점)</button>
+              </div>
+              <div class="pink-char-counter" id="char-count-${qNumInt}" style="margin:0;">${savedText.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}</div>
+            </div>
+            <div id="ans-text-${qNumInt}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isOneLine ? 'oneline-textarea' : 'fourline-textarea'} ${colorThemeClass}-textarea" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : (isOneLine ? `문항 ${qNumInt}번 단답형 답안을 1줄에 작성하세요.` : `문항 ${qNumInt}번 서술형 답안을 4줄에 작성하세요.`)}">${savedHtml}</div>
+          </div>
+        `;
+
+        omrAnswerContainer.appendChild(box);
+
+        const qCell = box.querySelector(`#q-label-cell-${qNumInt}`);
+        if (qCell) {
+          updateOMRMarkDisplay(ansKey, qCell);
+          qCell.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleOMRMark(ansKey, qCell);
+          });
+        }
+
+        // O / △ / X 버튼 클릭 이벤트 리스너
+        box.querySelectorAll('.btn-grade-choice').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const targetKey = btn.dataset.anskey;
+            const targetMark = btn.dataset.marktype;
+            setSelfGradeMark(targetKey, targetMark, qCell);
+          });
+        });
+
+        const ed = box.querySelector(`#ans-text-${qNumInt}`);
+        if (ed) {
+          ed.addEventListener('focus', () => {
+            selectQuestion(qNumInt);
+            const curColor = qPenColorMap[ansKey] || qPenColorMap[qNumInt] || 'black';
+            if (btnPenBlack) btnPenBlack.classList.toggle('active-pen', curColor === 'black');
+            if (btnPenRed) btnPenRed.classList.toggle('active-pen', curColor === 'red');
+            if (btnPenBlue) btnPenBlue.classList.toggle('active-pen', curColor === 'blue');
+          });
+
+          ed.addEventListener('input', () => {
+            const textVal = ed.innerText.trim();
+            userAnswers[ansKey] = textVal;
+            userAnswers[qNumInt] = textVal; // 하위 호환
+            userAnswersHtmlMap[ansKey] = ed.innerHTML;
+            userAnswersHtmlMap[qNumInt] = ed.innerHTML;
+            const counterEl = document.getElementById(`char-count-${qNumInt}`);
+            if (counterEl) counterEl.textContent = `${textVal.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}`;
+            updateTotalCharCount();
+            saveDraftAnswers(); // 실시간 회원별 영구 저장!
+          });
+        }
+      });
+    }
+
+    // 2. 실시간 자가 채점 스코어보드 배너 삽입 (답안지 작성란 하단에 안정적으로 배치)
     const bannerContainer = document.createElement('div');
     bannerContainer.id = 'realtimeScoreBanner';
     bannerContainer.className = 'realtime-score-banner';
     omrAnswerContainer.appendChild(bannerContainer);
-    updateSelfGradingBanner();
-
-    questions.forEach((q, idx) => {
-      const qNumInt = idx + 1; // 🎯 교시 내 실제 문항 번호 (1번, 2번, 3번...)
-      const qNum = qNumInt;
-      const ansKey = getAnswerKey(qNumInt);
-      const qScore = q.points || q.score || (isPed ? 20 : (isSecA ? (qNumInt <= 4 ? 2 : 4) : (qNumInt <= 2 ? 2 : 4)));
-      const qColor = qPenColorMap[ansKey] || qPenColorMap[qNum] || 'black';
-
-      // 1줄 vs 4줄 판정:
-      // A형: 1~4번은 1줄(단답형 2점), 5~12번은 4줄(서술형 4점)
-      // B형: 1~2번은 1줄(단답형 2점), 3~11번은 4줄(서술형 4점)
-      let isOneLine = false;
-      if (isSecA && qNumInt <= 4) isOneLine = true;
-      if (isSecB && qNumInt <= 2) isOneLine = true;
-
-      let colorThemeClass = 'theme-red';
-      if (isPed) {
-        colorThemeClass = 'theme-ped';
-      } else if (isSecA) {
-        if (qNumInt >= 8) colorThemeClass = 'theme-gray';
-        else colorThemeClass = 'theme-red';
-      } else if (isSecB) {
-        if (qNumInt >= 7) colorThemeClass = 'theme-cyan';
-        else colorThemeClass = 'theme-red';
-      }
-
-      const box = document.createElement('div');
-      box.className = `pink-omr-box ${isPed ? 'pedagogy-box' : ''} ${isOneLine ? 'oneline-omr-box' : 'fourline-omr-box'} ${colorThemeClass}`;
-      box.id = `omr-card-${qNumInt}`;
-
-      const savedHtml = userAnswersHtmlMap[ansKey] || userAnswers[ansKey] || '';
-      const savedText = userAnswers[ansKey] || '';
-      const curMark = omrMarksMap[ansKey] || null;
-
-      const earnedScore = getEarnedScoreByMark(qScore, curMark);
-      const earnedTagText = curMark ? `[+${earnedScore.toFixed(1)}점]` : '';
-      const tagClass = curMark === 'O' ? 'tag-full' : curMark === 'TRIANGLE' ? 'tag-half' : curMark === 'X' ? 'tag-zero' : '';
-
-      box.innerHTML = `
-        <div class="pink-q-cell pink-q-label" id="q-label-cell-${qNumInt}" data-anskey="${ansKey}" title="클릭하여 O/X/△ 도장을 찍으세요">
-          <div class="pink-q-num">${isPed ? '교육학' : `문항 ${qNumInt}`}</div>
-          <div class="pink-q-score">(${qScore}점)</div>
-          <div id="earned-score-tag-${ansKey}" class="grade-score-tag ${tagClass}" data-maxscore="${qScore}">${earnedTagText}</div>
-        </div>
-        <div class="pink-input-cell">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; flex-wrap:wrap; gap:4px;">
-            <!-- O / △ / X 원클릭 자가채점 버튼 바 -->
-            <div class="omr-self-grade-bar">
-              <span style="font-size:11.5px; font-weight:800; color:#475569; margin-right:4px;">채점:</span>
-              <button type="button" class="btn-grade-choice ${curMark === 'O' ? 'active-o' : ''}" data-anskey="${ansKey}" data-marktype="O" title="정답 (+${qScore}점)">⭕ 정답 (+${qScore}점)</button>
-              <button type="button" class="btn-grade-choice ${curMark === 'TRIANGLE' ? 'active-tri' : ''}" data-anskey="${ansKey}" data-marktype="TRIANGLE" title="부분점수 (+${(qScore * 0.5).toFixed(1)}점)">🔺 세모 (+${(qScore * 0.5).toFixed(1)}점)</button>
-              <button type="button" class="btn-grade-choice ${curMark === 'X' ? 'active-x' : ''}" data-anskey="${ansKey}" data-marktype="X" title="기본점수 (+${(qScore * 0.25).toFixed(1)}점)">❌ 오답 (+${(qScore * 0.25).toFixed(1)}점)</button>
-            </div>
-            <div class="pink-char-counter" id="char-count-${qNumInt}" style="margin:0;">${savedText.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}</div>
-          </div>
-          <div id="ans-text-${qNumInt}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isOneLine ? 'oneline-textarea' : 'fourline-textarea'} ${colorThemeClass}-textarea" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : (isOneLine ? `문항 ${qNumInt}번 단답형 답안을 1줄에 작성하세요.` : `문항 ${qNumInt}번 서술형 답안을 4줄에 작성하세요.`)}">${savedHtml}</div>
-        </div>
-      `;
-
-      omrAnswerContainer.appendChild(box);
-
-      const qCell = box.querySelector(`#q-label-cell-${qNumInt}`);
-      if (qCell) {
-        updateOMRMarkDisplay(ansKey, qCell);
-        qCell.addEventListener('click', (e) => {
-          e.stopPropagation();
-          toggleOMRMark(ansKey, qCell);
-        });
-      }
-
-      // O / △ / X 버튼 클릭 이벤트 리스너
-      box.querySelectorAll('.btn-grade-choice').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const targetKey = btn.dataset.anskey;
-          const targetMark = btn.dataset.marktype;
-          setSelfGradeMark(targetKey, targetMark, qCell);
-        });
-      });
-
-      const ed = box.querySelector(`#ans-text-${qNumInt}`);
-      if (ed) {
-        ed.addEventListener('focus', () => {
-          selectQuestion(qNumInt);
-          const curColor = qPenColorMap[ansKey] || qPenColorMap[qNumInt] || 'black';
-          if (btnPenBlack) btnPenBlack.classList.toggle('active-pen', curColor === 'black');
-          if (btnPenRed) btnPenRed.classList.toggle('active-pen', curColor === 'red');
-          if (btnPenBlue) btnPenBlue.classList.toggle('active-pen', curColor === 'blue');
-        });
-
-        ed.addEventListener('input', () => {
-          const textVal = ed.innerText.trim();
-          userAnswers[ansKey] = textVal;
-          userAnswers[qNumInt] = textVal; // 하위 호환
-          userAnswersHtmlMap[ansKey] = ed.innerHTML;
-          userAnswersHtmlMap[qNumInt] = ed.innerHTML;
-          const counterEl = document.getElementById(`char-count-${qNumInt}`);
-          if (counterEl) counterEl.textContent = `${textVal.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}`;
-          updateTotalCharCount();
-          saveDraftAnswers(); // 실시간 회원별 영구 저장!
-        });
-      }
-    });
+    
     updateTotalCharCount();
     updateSelfGradingBanner();
   }
@@ -2288,12 +2304,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // 📱 아이패드 10.1 & 태블릿 & 모바일 전용 팝업 OMR 답안지 드로어 컨트롤러
   // =========================================================
-  const btnToggleViewMode = document.getElementById('btnToggleViewMode');
-  const btnOpenOmrDrawer = document.getElementById('btnOpenOmrDrawer');
-  const btnRightOmrStrip = document.getElementById('btnRightOmrStrip');
-  const btnCloseOmrDrawer = document.getElementById('btnCloseOmrDrawer');
-  const omrBackdrop = document.getElementById('omrBackdrop');
-  const floatingScoreBadge = document.getElementById('floatingScoreBadge');
+  // (DOM element variables moved to top)
 
   let isPopupOmrMode = true;
 
