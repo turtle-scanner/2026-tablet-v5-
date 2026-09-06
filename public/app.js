@@ -461,22 +461,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function switchSection(targetKey) {
     if (currentSectionKey === targetKey) return;
-
-    if (currentUser && currentUser.isAdmin) {
-      startSection(targetKey);
-      return;
-    }
-
-    if (targetKey === 'A' && !completedSections.P) {
-      alert('⚠️ 1교시 [교육학 논술] 답안을 제출하거나 시험 시간이 경과되어야 2교시 전공 A형으로 이동할 수 있습니다.');
-      return;
-    }
-
-    if (targetKey === 'B' && !completedSections.A) {
-      alert('⚠️ 2교시 [전공 A형] 답안을 제출하거나 시험 시간이 경과되어야 3교시 전공 B형으로 이동할 수 있습니다.');
-      return;
-    }
-
     startSection(targetKey);
   }
 
@@ -546,33 +530,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateSectionTabUI() {
-    const isAdmin = currentUser && currentUser.isAdmin;
-
     if (btnSecP) {
-      btnSecP.textContent = '1교시';
+      btnSecP.textContent = '1교시 교육학';
       btnSecP.classList.toggle('active-sec', currentSectionKey === 'P');
     }
     
     if (btnSecA) {
-      if (isAdmin || completedSections.P) {
-        btnSecA.classList.remove('locked-tab');
-        btnSecA.textContent = '2교시';
-        btnSecA.classList.toggle('active-sec', currentSectionKey === 'A');
-      } else {
-        btnSecA.classList.add('locked-tab');
-        btnSecA.textContent = '🔒 2교시';
-      }
+      btnSecA.classList.remove('locked-tab');
+      btnSecA.textContent = '2교시 전공 A';
+      btnSecA.classList.toggle('active-sec', currentSectionKey === 'A');
     }
 
     if (btnSecB) {
-      if (isAdmin || completedSections.A) {
-        btnSecB.classList.remove('locked-tab');
-        btnSecB.textContent = '3교시';
-        btnSecB.classList.toggle('active-sec', currentSectionKey === 'B');
-      } else {
-        btnSecB.classList.add('locked-tab');
-        btnSecB.textContent = '🔒 3교시';
-      }
+      btnSecB.classList.remove('locked-tab');
+      btnSecB.textContent = '3교시 전공 B';
+      btnSecB.classList.toggle('active-sec', currentSectionKey === 'B');
     }
   }
 
@@ -666,8 +638,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderOMRForm(secData.questions);
     renderTabs(secData.questions);
 
-    if (secData.questions.length > 0) {
-      selectQuestion(secData.questions[0].id);
+    if (secData.questions && secData.questions.length > 0) {
+      selectQuestion(1);
     }
   }
 
@@ -967,25 +939,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function selectQuestion(qId) {
-    activeQuestionId = qId;
+    const qNumInt = parseInt(qId, 10) || 1;
+    activeQuestionId = qNumInt;
     startQuestionTimer();
 
-    const qNumInt = parseInt(qId, 10) || 1;
     if (currentSectionKey !== 'P') {
-      const targetPageNo = Math.ceil(qNumInt / 2);
+      const targetPageNo = Math.max(1, Math.ceil(qNumInt / 2));
       selectExamPage(targetPageNo);
     }
 
     document.querySelectorAll('.q-tab').forEach(t => {
-      t.classList.toggle('active', t.dataset.qid == qId);
+      t.classList.toggle('active', t.dataset.qid == qNumInt);
     });
 
     document.querySelectorAll('.pink-omr-box').forEach(c => {
-      c.classList.toggle('active-omr', c.id === `omr-card-${qId}`);
+      c.classList.toggle('active-omr', c.id === `omr-card-${qNumInt}`);
     });
 
-    const paperQ = document.getElementById(`paper-q-${qId}`);
-    const omrQ = document.getElementById(`omr-card-${qId}`);
+    const paperQ = document.getElementById(`paper-q-${qNumInt}`);
+    const omrQ = document.getElementById(`omr-card-${qNumInt}`);
     if (paperQ) paperQ.scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (omrQ) omrQ.scrollIntoView({ behavior: 'smooth' });
   }
@@ -995,38 +967,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!text) return '';
     let res = text;
 
-    // 1. (ㄱ), (ㄴ), (ㄷ), (ㄹ), (ㅁ) 형태 밑줄 처리 -> <u>(ㄱ)</u>
+    // 1. (ㄱ), (ㄴ), (ㄷ)... 밑줄 처리
     res = res.replace(/\((ㄱ|ㄴ|ㄷ|ㄹ|ㅁ|ㅂ|ㅅ|ㅇ|ㅈ|ㅊ|ㅋ|ㅌ|ㅍ|ㅎ)\)/g, '<u>($1)</u>');
 
-    // 2. ( ㉠ ), ( ㉡ ), ( ㉢ ), ( ㉣ ), ( ㉤ ) 형태 밑줄 처리 -> <u>( ㉠ )</u>
+    // 2. ( ㉠ ), ( ㉡ )...
     res = res.replace(/\(\s*(㉠|㉡|㉢|㉣|㉤|㉥|㉦|㉧|㉨|㉩|㉪|㉫|㉬|㉭)\s*\)/g, '<u>( $1 )</u>');
 
-    // 3. (㉠), (㉡), (㉢) 형태 밑줄 처리 -> <u>(㉠)</u>
+    // 3. (㉠), (㉡)...
     res = res.replace(/\((㉠|㉡|㉢|㉣|㉤|㉥|㉦|㉧|㉨|㉩|㉪|㉫|㉬|㉭)\)/g, '<u>($1)</u>');
 
-    // 4. 단독 ㉠, ㉡, ㉢, ㉣, ㉤ 중 이미 <u>로 감싸지지 않은 부분 밑줄 처리
-    res = res.replace(/(?<!<u>\s*\(?\s*)(㉠|㉡|㉢|㉣|㉤|㉥|㉦|㉧|㉨|㉩|㉪|㉫|㉬|㉭)(?!\s*\)?\s*<\/u>)/g, '<u>$1</u>');
-
-    // 5. (a), (b), (c), (d), (e) 소문자 알파벳 괄호 기호 밑줄 처리
+    // 4. (a), (b), (c)...
     res = res.replace(/\((a|b|c|d|e|f|g)\)/gi, '<u>($1)</u>');
 
-    // 6. 🎯 평가원 기출 공식 부정형 핵심 강조 표현 밑줄 처리 ("아닌 것", "않는", "아닌", "않은 것", "틀린 것" 등)
-    const negativeKeywords = [
-      '적절하지 않은 것', '적절하지 않은', '적절하지 않는',
-      '부합하지 않는 것', '부합하지 않는', '부합하지 않은',
-      '해당하지 않는 것', '해당하지 않는', '해당하지 않은',
-      '잘못된 것', '잘못된',
-      '부적절한 것', '부적절한',
-      '틀린 것', '틀린',
-      '아닌 것', '아니한 것', '아니한', '아닌', '아니며', '아니고', '아니라',
-      '않은 것', '않는 것', '않은', '않는', '않으며', '않고', '않도록', '않거나'
-    ];
-
-    negativeKeywords.forEach(kw => {
-      const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const regex = new RegExp(`(?<!<u>)(${escaped})(?!<\/u>)`, 'g');
-      res = res.replace(regex, '<u>$1</u>');
-    });
+    // 중복 <u> 태그 정리
+    res = res.replace(/<u>\s*<u>/g, '<u>').replace(/<\/u>\s*<\/u>/g, '</u>');
 
     return res;
   }
