@@ -2460,3 +2460,166 @@ body {
 
 
 
+
+/* =========================================================
+   📱 2026 태블릿 ULTRA 프리미엄 UX 엔진 (터치/스와이프/3단 뷰/하단 칩)
+   ========================================================= */
+:root {
+  --exam-font-scale: 1.0;
+}
+
+/* 폰트 스케일 적용 */
+.q-title, .q-passage, .kice-rubric-body, .pedagogy-textarea, .pink-rich-textarea {
+  font-size: calc(15px * var(--exam-font-scale)) !important;
+}
+
+.q-passage {
+  line-height: calc(1.85 * var(--exam-font-scale)) !important;
+}
+
+.pink-rich-textarea {
+  line-height: calc(38px * var(--exam-font-scale)) !important;
+  font-size: calc(16px * var(--exam-font-scale)) !important;
+}
+
+.pedagogy-textarea {
+  font-size: calc(17px * var(--exam-font-scale)) !important;
+  line-height: calc(38px * var(--exam-font-scale)) !important;
+}
+
+/* 3단 뷰 모드 스위처 */
+.v6-view-mode-group {
+  display: inline-flex;
+  background: #f1f5f9;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.v6-vm-btn {
+  background: transparent;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.v6-vm-btn:hover {
+  color: #0f172a;
+}
+
+.v6-vm-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 1px 4px rgba(37, 99, 235, 0.3);
+}
+
+/* 1문항 단독 집중 모드 (Single Focus Mode) */
+.mode-single-focus .kice-col .q-block {
+  display: none !important;
+}
+
+.mode-single-focus .kice-col .q-block.focus-active-q {
+  display: block !important;
+  animation: fadeInFocus 0.25s ease-out;
+}
+
+.mode-single-focus .pink-omr-box {
+  display: none !important;
+}
+
+.mode-single-focus .pink-omr-box.focus-active-omr {
+  display: flex !important;
+  animation: fadeInFocus 0.25s ease-out;
+}
+
+@keyframes fadeInFocus {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 하단 고정 원터치 문항 칩 내비게이터 바 */
+.tablet-quick-jump-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 2px solid #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 0 16px;
+  z-index: 9990;
+  overflow-x: auto;
+  box-shadow: 0 -4px 18px rgba(0,0,0,0.35);
+  scrollbar-width: none;
+}
+.tablet-quick-jump-bar::-webkit-scrollbar { display: none; }
+
+.jump-bar-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #93c5fd;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+.jump-chip {
+  padding: 5px 12px;
+  background: #1e293b;
+  color: #e2e8f0;
+  border: 1.5px solid #475569;
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+
+.jump-chip:hover {
+  background: #334155;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.jump-chip.active-chip {
+  background: #facc15 !important;
+  color: #0f172a !important;
+  border-color: #eab308 !important;
+  font-weight: 900 !important;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.6);
+  transform: scale(1.08);
+}
+
+/* 태블릿 스와이프 안내 표시 */
+.swipe-hint-badge {
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid #3b82f6;
+  color: #93c5fd;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 태블릿 하단 공간 확보 */
+.split-main {
+  padding-bottom: 54px;
+}

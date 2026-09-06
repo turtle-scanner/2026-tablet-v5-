@@ -118,15 +118,28 @@
         </div>
       </div>
 
-      <div class="v6-nav-center">
-        <!-- 3. 남은 시간 타이머 -->
-        <div class="v6-timer-pill" id="sectionTimerBox">
+            <div class="v6-nav-center">
+        <!-- 3. 3단 뷰 모드 스위처 (5:5 분할 / 전면 문제지 / 1문항 집중) -->
+        <div class="v6-view-mode-group">
+          <button type="button" class="v6-vm-btn active" id="btnVmSplit" onclick="setTabletViewMode('split')">🖥️ 5:5 분할</button>
+          <button type="button" class="v6-vm-btn" id="btnVmFull" onclick="setTabletViewMode('popup')">📖 전면 문제지</button>
+          <button type="button" class="v6-vm-btn" id="btnVmSingle" onclick="setTabletViewMode('single')">🎯 1문항 집중</button>
+        </div>
+
+        <!-- 4. 태블릿 글자 크기 스케일러 -->
+        <div class="zoom-controls" style="margin-left: 6px;">
+          <button type="button" onclick="stepExamFontScale(-0.1)" title="글자 축소">A-</button>
+          <span id="fontScaleDisplay" style="font-size: 12px; font-weight: 800; color: #0284c7; min-width: 40px; text-align: center;">100%</span>
+          <button type="button" onclick="stepExamFontScale(0.1)" title="글자 확대">A+</button>
+        </div>
+
+        <!-- 5. 남은 시간 타이머 -->
+        <div class="v6-timer-pill" id="sectionTimerBox" style="margin-left: 6px;">
           <span class="v6-timer-tag">남은시간</span>
           <span id="sectionTimerDisplay" class="v6-timer-digits">60:00</span>
           <button id="btnPauseTimer" class="v6-pause-btn" title="일시정지">⏸️</button>
         </div>
       </div>
-
       <div class="v6-nav-right">
         <!-- 4. 임시저장 & 팝업 답안지 열기 & 제출 버튼 -->
         <button id="btnSaveTemp" class="v6-btn v6-btn-save" title="답안 임시저장">임시저장</button>
@@ -240,6 +253,17 @@
       </section>
 
     </main>
+
+    <!-- 📱 태블릿 전용 하단 고정 원터치 문항 내비게이터 칩 바 -->
+    <nav class="tablet-quick-jump-bar" id="tabletQuickJumpBar">
+      <span class="jump-bar-label">📱 문항 이동:</span>
+      <div id="jumpChipsContainer" style="display:flex; gap:6px; align-items:center;">
+        <!-- JS에서 문항 번호 칩 자동 생성 -->
+      </div>
+      <div style="margin-left:auto; display:flex; align-items:center; gap:6px;">
+        <span class="swipe-hint-badge">👈 핑거 스와이프로 면 전환 👉</span>
+      </div>
+    </nav>
   </div>
 
   <!-- 3. 교시 완료 및 전환 모달 -->

@@ -637,6 +637,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderExamPaper(secData.questions);
     renderOMRForm(secData.questions);
     renderTabs(secData.questions);
+    renderTabletQuickJumpChips(secData.questions);
+    initTabletTouchSwipe();
 
     if (secData.questions && secData.questions.length > 0) {
       selectQuestion(1);
@@ -955,6 +957,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.pink-omr-box').forEach(c => {
       c.classList.toggle('active-omr', c.id === `omr-card-${qNumInt}`);
     });
+
+    document.querySelectorAll('.jump-chip').forEach(chip => {
+      chip.classList.toggle('active-chip', chip.dataset.jumpid == qNumInt);
+    });
+
+    if (typeof updateSingleFocusDisplay === 'function') {
+      updateSingleFocusDisplay(qNumInt);
+    }
 
     const paperQ = document.getElementById(`paper-q-${qNumInt}`);
     const omrQ = document.getElementById(`omr-card-${qNumInt}`);
@@ -2403,6 +2413,134 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+
+  // =========================================================
+  // 📱 태블릿 ULTRA 프리미엄 UX 엔진 (3단 뷰 / 터치 스와이프 / 하단 칩)
+  // =========================================================
+  let currentTabletViewMode = 'split'; // 'split' | 'popup' | 'single'
+  let examFontScale = parseFloat(localStorage.getItem('user_exam_font_scale')) || 1.0;
+
+  window.setExamFontScale = function(scale) {
+    scale = Math.max(0.8, Math.min(2.2, parseFloat(scale) || 1.0));
+    examFontScale = Math.round(scale * 10) / 10;
+    document.documentElement.style.setProperty('--exam-font-scale', examFontScale);
+    const disp = document.getElementById('fontScaleDisplay');
+    if (disp) disp.textContent = Math.round(examFontScale * 100) + '%';
+    localStorage.setItem('user_exam_font_scale', examFontScale);
+  };
+
+  window.stepExamFontScale = function(delta) {
+    window.setExamFontScale(examFontScale + delta);
+  };
+
+  window.setTabletViewMode = function(mode) {
+    currentTabletViewMode = mode;
+    const splitMainEl = document.getElementById('splitMain');
+    const paneLeftEl = document.getElementById('paneLeft');
+    const paneRightEl = document.getElementById('paneRight');
+
+    document.querySelectorAll('.v6-vm-btn').forEach(b => b.classList.remove('active'));
+    if (mode === 'split') {
+      const btn = document.getElementById('btnVmSplit');
+      if (btn) btn.classList.add('active');
+      if (splitMainEl) {
+        splitMainEl.classList.remove('mode-popup-omr', 'mode-single-focus');
+        splitMainEl.classList.add('mode-split');
+      }
+      if (paneLeftEl) paneLeftEl.style.flex = '1 1 50%';
+      if (paneRightEl) {
+        paneRightEl.style.flex = '1 1 50%';
+        paneRightEl.classList.remove('omr-drawer-open');
+      }
+    } else if (mode === 'popup') {
+      const btn = document.getElementById('btnVmFull');
+      if (btn) btn.classList.add('active');
+      if (splitMainEl) {
+        splitMainEl.classList.remove('mode-split', 'mode-single-focus');
+        splitMainEl.classList.add('mode-popup-omr');
+      }
+      if (paneLeftEl) paneLeftEl.style.flex = '1 1 100%';
+    } else if (mode === 'single') {
+      const btn = document.getElementById('btnVmSingle');
+      if (btn) btn.classList.add('active');
+      if (splitMainEl) {
+        splitMainEl.classList.remove('mode-popup-omr');
+        splitMainEl.classList.add('mode-single-focus');
+      }
+      if (paneLeftEl) paneLeftEl.style.flex = '1 1 50%';
+      if (paneRightEl) {
+        paneRightEl.style.flex = '1 1 50%';
+        paneRightEl.classList.remove('omr-drawer-open');
+      }
+      updateSingleFocusDisplay(activeQuestionId);
+    }
+  };
+
+  function updateSingleFocusDisplay(qNumInt) {
+    if (currentTabletViewMode !== 'single') return;
+    document.querySelectorAll('.q-block').forEach(b => {
+      b.classList.toggle('focus-active-q', b.id === `paper-q-${qNumInt}`);
+    });
+    document.querySelectorAll('.pink-omr-box').forEach(b => {
+      b.classList.toggle('focus-active-omr', b.id === `omr-card-${qNumInt}`);
+    });
+  }
+
+  function renderTabletQuickJumpChips(questions) {
+    const container = document.getElementById('jumpChipsContainer');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const count = (currentSectionKey === 'P') ? 1 : questions.length;
+    for (let i = 1; i <= count; i++) {
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = `jump-chip ${i === activeQuestionId ? 'active-chip' : ''}`;
+      chip.dataset.jumpid = i;
+      chip.textContent = (currentSectionKey === 'P') ? '1교시 논술' : `${i}번`;
+      chip.addEventListener('click', () => {
+        selectQuestion(i);
+      });
+      container.appendChild(chip);
+    }
+  }
+
+  // 🖐️ 태블릿 터치 스와이프 제스처 리스너
+  function initTabletTouchSwipe() {
+    const paperContainerEl = document.getElementById('paperContainer');
+    if (!paperContainerEl) return;
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    paperContainerEl.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    paperContainerEl.addEventListener('touchend', (e) => {
+      if (e.changedTouches.length === 1 && currentSectionKey !== 'P') {
+        const deltaX = e.changedTouches[0].clientX - touchStartX;
+        const deltaY = e.changedTouches[0].clientY - touchStartY;
+
+        // 수평 스와이프 판정 (60px 이상, 수직 이동 대비 1.5배 이상)
+        if (Math.abs(deltaX) > 60 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+          const totalPages = (currentSectionKey === 'A') ? 6 : 6;
+          if (deltaX < 0) {
+            // 좌로 스와이프 -> 다음 페이지
+            if (currentExamPageNo < totalPages) selectExamPage(currentExamPageNo + 1);
+          } else {
+            // 우로 스와이프 -> 이전 페이지
+            if (currentExamPageNo > 1) selectExamPage(currentExamPageNo - 1);
+          }
+        }
+      }
+    }, { passive: true });
+  }
+
 
   // 페이지 초기 진입 시 드롭다운 동적 생성 즉시 실행
   setupExamRoundDropdownOptions();
