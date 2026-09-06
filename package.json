@@ -1,7 +1,7 @@
 {
-  "name": "2026_0906_tablet_v7",
+  "name": "v7",
   "version": "7.0.0",
-  "description": "2027 전문상담교사 임용고시 실전 모의고사 시스템 (2026_0906_tablet_V7)",
+  "description": "2027 전문상담교사 임용고시 실전 모의고사 시스템 v7",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
