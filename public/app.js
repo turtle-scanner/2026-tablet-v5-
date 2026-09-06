@@ -636,13 +636,20 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionRemainingSecs = 35 * 60;
     startSectionTimer();
 
-    renderExamPaper(secData.questions);
-    renderOMRForm(secData.questions);
-    renderTabs(secData.questions);
-    renderTabletQuickJumpChips(secData.questions);
+    const qs = (secData && secData.questions) ? secData.questions : [];
+    renderExamPaper(qs);
+    renderOMRForm(qs);
+    renderTabs(qs);
+    renderTabletQuickJumpChips(qs);
     initTabletTouchSwipe();
 
-    if (secData.questions && secData.questions.length > 0) {
+    // 🎯 시험지 첫 번째 페이지 활성화 보장
+    const firstPage = document.querySelector('.kice-exam-page');
+    if (firstPage) {
+      firstPage.classList.add('active-page');
+    }
+
+    if (qs.length > 0) {
       selectQuestion(1);
     }
   }
