@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  // 🧹 1. 기존 답안지 완전 초기화 (새로운 2027 시즌 맞춤)
+  if (localStorage.getItem('tablet_exam_cleared_v2') !== 'true') {
+    const keysToRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && (k.startsWith('draft_') || k.startsWith('answers_') || k.startsWith('kice_ans_') || k.startsWith('user_answers') || k.includes('omr') || k.includes('draft') || k.includes('paper_body'))) {
+        keysToRemove.push(k);
+      }
+    }
+    keysToRemove.forEach(k => localStorage.removeItem(k));
+    localStorage.setItem('tablet_exam_cleared_v2', 'true');
+    console.log('기존 모의고사 답안지가 깨끗하게 초기화되었습니다.');
+  }
+
+  // 🔒 2. 1인 1기기 고유 식별자 관리
+  function getOrCreateDeviceId() {
+    let devId = localStorage.getItem('kice_tablet_device_id_2027');
+    if (!devId) {
+      devId = 'DEV-TAB-' + Math.random().toString(36).substring(2, 9).toUpperCase() + '-' + Date.now().toString(36).toUpperCase();
+      localStorage.setItem('kice_tablet_device_id_2027', devId);
+    }
+    return devId;
+  }
+  getOrCreateDeviceId();
+
+  function isUserVip() {
+    if (!currentUser) return false;
+    if (currentUser.role === 'guest' || currentUser.isGuest) return false;
+    return !!(currentUser.isAdmin || currentUser.role === 'vip' || currentUser.role === 'admin' || currentUser.username === 'cntfed');
+  }
+
   let currentUser = null;
   let currentExam = null;
   let currentExamId = 'exam-0905_01';
@@ -213,6 +245,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 1. 로그인
 
+  
+  // 🌟 무료 간보기 버튼 리스너 (1회 전공 1번 맛보기)
+  const btnFreePreview = document.getElementById('btnFreePreview');
+  if (btnFreePreview) {
+    btnFreePreview.addEventListener('click', async () => {
+      currentUser = {
+        username: 'guest',
+        name: '무료 체험자',
+        studentNo: 'FREE-PREVIEW',
+        isAdmin: false,
+        isGuest: true,
+        role: 'guest'
+      };
+      if (inputStudentNo) inputStudentNo.value = 'FREE-PREVIEW';
+      if (displayStudentInfo) displayStudentInfo.textContent = '👀 무료 체험 모드 (1회 전공 1번 맛보기)';
+
+      if (btnAdminDashboardNav) btnAdminDashboardNav.classList.add('hidden');
+      completedSections.P = false;
+      completedSections.A = false;
+      completedSections.B = false;
+
+      if (loginView) loginView.classList.add('hidden');
+      if (examView) examView.classList.remove('hidden');
+
+      try {
+        await setupExamRoundDropdownOptions();
+        await loadExamData(currentExamId);
+        // 바로 2교시 전공 A 1번 문항으로 이동
+        await startSection('A');
+      } catch(e) {
+        console.error('Free preview start error:', e);
+      }
+    });
+  }
+
   btnLogin.addEventListener('click', () => {
     const username = loginIdInput.value.trim();
     const password = loginPwInput.value.trim();
@@ -246,8 +313,46 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await res.json();
 
       if (data.success) {
+        // 🔒 1인 1기기 클라우드 귀속 검증 (Firestore REST API)
+        const deviceId = getOrCreateDeviceId();
+        const cleanId = username.toLowerCase();
+        const isAdmin = (username === 'cntfed' || data.isAdmin);
+
+        if (!isAdmin) {
+          try {
+            const fsUrl = 'https://firestore.googleapis.com/v1/projects/kice-study-29a5c/databases/(default)/documents/bound_devices/' + encodeURIComponent(cleanId);
+            const fsRes = await fetch(fsUrl);
+            if (fsRes.status === 200) {
+              const fsDoc = await fsRes.json();
+              const boundDev = fsDoc.fields && fsDoc.fields.deviceId && fsDoc.fields.deviceId.stringValue;
+              if (boundDev && boundDev !== deviceId) {
+                alert('⚠️ [계정 공유 차단] 이미 다른 기기(1대)에 등록된 아이디입니다.\n1아이디당 1기기만 사용 가능합니다. (기기 변경 문의: 관리자)');
+                return;
+              }
+            } else if (fsRes.status === 404) {
+              // 최초 1대 기기 등록
+              const postUrl = 'https://firestore.googleapis.com/v1/projects/kice-study-29a5c/databases/(default)/documents/bound_devices?documentId=' + encodeURIComponent(cleanId);
+              const payload = {
+                fields: {
+                  deviceId: { stringValue: deviceId },
+                  userName: { stringValue: data.user.name || username },
+                  registeredAt: { stringValue: new Date().toISOString() }
+                }
+              };
+              await fetch(postUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+            }
+          } catch(fsErr) {
+            console.warn('Firestore device check fallback:', fsErr);
+          }
+        }
+
         currentUser = data.user;
-        currentUser.isAdmin = data.isAdmin || (username === 'cntfed');
+        currentUser.role = 'vip';
+        currentUser.isAdmin = isAdmin;
         if (inputStudentNo) inputStudentNo.value = currentUser.studentNo;
         if (displayStudentInfo) displayStudentInfo.textContent = `${currentUser.isAdmin ? '👑 관리자' : '수험생'}: ${currentUser.name} (${currentUser.studentNo})`;
 
@@ -285,9 +390,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {
       console.warn('서버 연결 실패, 오프라인 단독 모드로 로그인합니다.', err);
-      const studentList = [
-        { username: '1000door', password: '135300', name: '천개의문/초수/인천/독학', studentNo: '2027-0100' },
-        { username: 'ryan_jaesu', password: 'pass_ryan77', name: '라이언/재수/경기', studentNo: '2027-0100b' }
+            const studentList = [
+        { username: 'cntfed', password: 'cntfed', name: '관리자(변귀섭)', studentNo: 'ADMIN-2027', role: 'admin' },
+        { username: '어피치', password: '381924', name: '엉엉 우는 어피치', studentNo: '2027-0101', role: 'vip' },
+        { username: '죠르디', password: '592814', name: '죠르디', studentNo: '2027-0102', role: 'vip' },
+        { username: '춘식', password: '419827', name: '춘식', studentNo: '2027-0103', role: 'vip' },
+        { username: '교대원2학차', password: '628193', name: '교대원 2학차', studentNo: '2027-0104', role: 'vip' },
+        { username: '라이언', password: '731948', name: '라이언', studentNo: '2027-0105', role: 'vip' },
+        { username: '화이팅춘식이', password: '284719', name: '화이팅 춘식이', studentNo: '2027-0106', role: 'vip' },
+        { username: 'rann', password: '918273', name: 'rann♡', studentNo: '2027-0107', role: 'vip' }
       ];
       const isAdmin = (username === 'cntfed' || username === 'admin');
       const foundStudent = studentList.find(u => u.username === username && u.password === password);
@@ -396,7 +507,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  selectExamRound.addEventListener('change', async (e) => {
+  
+    selectExamRound.addEventListener('change', async (e) => {
+      if (!isUserVip() && selectExamRound.selectedIndex > 0) {
+        alert('⚠️ 다른 회차 모의고사는 6만 원 VIP 마스터패스 전용입니다.\n1회차 전공 1번 무료 체험만 이용 가능합니다.');
+        selectExamRound.selectedIndex = 0;
+        return;
+      }
+
     const targetRound = e.target.value;
     const isAdmin = currentUser && currentUser.isAdmin;
 
@@ -1089,6 +1207,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const pageEl = document.createElement('div');
       pageEl.className = 'kice-exam-page pedagogy-page-mode active-page';
       pageEl.id = 'exam-page-1';
+
+      if (!isUserVip()) {
+        pageEl.innerHTML = `
+          <div class="vip-locked-card" style="min-height:500px; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; background:#0f172a; border-radius:8px;">
+            <div class="vip-blur-content" style="padding:40px 20px; text-align:center;">
+              <h2 style="font-size:22px; color:#fff; margin-bottom:12px;">2027학년도 1교시 교육학 논술 실전 시험지</h2>
+              <p style="color:#94a3b8; font-size:15px;">교육과정·교육방법·교육평가·교육행정 4대 영역 16개 세부 소문항 규격 실전 문제</p>
+            </div>
+            <div class="vip-overlay-box">
+              <div class="vip-overlay-icon">🔒</div>
+              <div class="vip-overlay-title">1교시 교육학 논술 VIP 마스터패스 전용 (6만 원)</div>
+              <div class="vip-overlay-desc">
+                교육학 논술 4대 영역 16개 세부 소문항 및 실시간 답안 작성기는<br>
+                <b>6만 원 VIP 마스터패스</b> 등록 후 전체 이용 가능합니다.<br>
+                (2교시 전공 A형 1번 문제는 무료로 체험하실 수 있습니다)
+              </div>
+              <button type="button" class="vip-overlay-btn" onclick="location.reload()">🔑 1인 1기기 VIP 로그인 / 구매 안내</button>
+            </div>
+          </div>
+        `;
+        paperContainer.appendChild(pageEl);
+        return;
+      }
       pageEl.innerHTML = `
         <div class="paper-header">
           <div class="p-title">2027학년도 중등학교교사 임용후보자 선정경쟁시험</div>
@@ -1283,9 +1424,32 @@ document.addEventListener('DOMContentLoaded', () => {
               formattedPassage = formatKiceSymbols(formattedPassage);
             }
 
+            // 🔒 무료 간보기: 전공 A 1번만 무료 허용, 그 외는 6만 원 잠금!
+            const isFreeAllowed = (currentSectionKey === 'A' && qNumInt === 1);
+            if (!isUserVip() && !isFreeAllowed) {
+              return `
+                <div class="q-block vip-locked-card" id="paper-q-${qNumInt}" style="min-height:280px; position:relative;">
+                  <div class="vip-blur-content">
+                    <div class="q-title">${mainQuestionText}</div>
+                    ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
+                    ${rubricHtml}
+                  </div>
+                  <div class="vip-overlay-box">
+                    <div class="vip-overlay-icon">🔒</div>
+                    <div class="vip-overlay-title">[문항 ${qNumInt}번] 6만 원 VIP 마스터패스 전용</div>
+                    <div class="vip-overlay-desc">
+                      실전 모의고사 3교시 풀세트 + 전 회차 무제한 이용은<br>
+                      <b>6만 원 VIP 마스터패스</b> 활성화 시 즉시 잠금 해제됩니다.
+                    </div>
+                    <button type="button" class="vip-overlay-btn" onclick="location.reload()">🔑 VIP 로그인 / 구매 안내</button>
+                  </div>
+                </div>
+              `;
+            }
+
             return `
               <div class="q-block" id="paper-q-${qNumInt}">
-                <div class="q-title">${mainQuestionText}</div>
+                <div class="q-title">${mainQuestionText} ${isFreeAllowed ? '<span style="background:#0284c7; color:#fff; font-size:11px; padding:2px 8px; border-radius:12px; margin-left:6px;">✨ 무료 체험</span>' : ''}</div>
                 ${formattedPassage ? `<div class="q-passage">${formattedPassage}</div>` : ''}
                 ${rubricHtml}
               </div>
@@ -1699,7 +1863,13 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <div class="pink-char-counter" id="char-count-${qNumInt}" style="margin:0;">${savedText.length} 자${isPed ? '' : (isOneLine ? ' (단답 1줄)' : ' (최대 4줄)')}</div>
             </div>
-            <div id="ans-text-${qNumInt}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isOneLine ? 'oneline-textarea' : 'fourline-textarea'} ${colorThemeClass}-textarea" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : (isOneLine ? `문항 ${qNumInt}번 단답형 답안을 1줄에 작성하세요.` : `문항 ${qNumInt}번 서술형 답안을 4줄에 작성하세요.`)}">${savedHtml}</div>
+            ${(!isUserVip() && !(currentSectionKey === 'A' && qNumInt === 1)) ? `
+              <div style="background:#1e293b; border:1.5px dashed #475569; border-radius:6px; padding:18px; text-align:center; color:#94a3b8; font-size:13px; font-weight:700;">
+                🔒 6만 원 VIP 마스터패스 활성화 후 B4 OMR 답안 작성 및 자가채점 가능
+              </div>
+            ` : `
+              <div id="ans-text-${qNumInt}" contenteditable="true" class="pink-rich-textarea ${isPed ? 'pedagogy-textarea' : ''} ${isOneLine ? 'oneline-textarea' : 'fourline-textarea'} ${colorThemeClass}-textarea" data-placeholder="${isPed ? '교육학 논술 서론-본론-결론 구조로 작성하세요 (1200~1500자)' : (isOneLine ? `문항 ${qNumInt}번 단답형 답안을 1줄에 작성하세요.` : `문항 ${qNumInt}번 서술형 답안을 4줄에 작성하세요.`)}">${savedHtml}</div>
+            `}
           </div>
         `;
 

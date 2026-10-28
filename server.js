@@ -11,40 +11,35 @@ const SUBMISSIONS_FILE = path.join(__dirname, 'data', 'submissions.json');
 const DRAFTS_FILE = path.join(__dirname, 'data', 'drafts.json');
 const ADMIN_CONFIG_FILE = path.join(__dirname, 'data', 'admin_config.json');
 
-// 카카오톡 수험생 스터디 회원 계정 (닉네임 기반 계정)
+// 카카오톡 수험생 스터디 회원 정식 계정 (7인 + 관리자)
 const STUDENT_USERS = [
-  { username: '1000door', password: '135300', name: '천개의문/초수/인천/독학', studentNo: '2027-0100' },
-  { username: 'ryan_jaesu', password: 'pass_ryan77', name: '라이언/재수/경기', studentNo: '2027-0100b' },
-  { username: 'jordi_incheon', password: 'pass_jordi01', name: '사랑에 빠진 죠르디/재수/인천', studentNo: '2027-0101' },
-  { username: 'apeach_gyeongbuk', password: 'pass_apeach02', name: '엉엉 우는 어피치/재수/경북', studentNo: '2027-0102' },
-  { username: 'jjordy_jeonbuk', password: 'pass_jjordy03', name: '쪼르디/초수/전북', studentNo: '2027-0103' },
-  { username: 'ryan_gyeonggi', password: 'pass_ryan04', name: '축하하는 라이언/초수/경기', studentNo: '2027-0104' },
-  { username: 'chunsik_gyeonggi', password: 'pass_chunsik05', name: '춘식/초수/경기', studentNo: '2027-0105' },
-  { username: 'muzi_seoul', password: 'pass_muzi06', name: '쑥스러운 무지/N수/서울', studentNo: '2027-0106' },
-  { username: 'con_busan', password: 'pass_con07', name: '신나는 콘/초수/부산', studentNo: '2027-0107' },
-  { username: 'tube_daegu', password: 'pass_tube08', name: '기빠진 튜브/재수/대구', studentNo: '2027-0108' },
-  { username: 'frodo_gyeongnam', password: 'pass_frodo09', name: '당황한 프로도/초수/경남', studentNo: '2027-0109' },
-  { username: 'neo_chungnam', password: 'pass_neo10', name: '도도한 네오/N수/충남', studentNo: '2027-0110' },
-  { username: 'jayg_jeonnam', password: 'pass_jayg11', name: '신난 제이지/재수/전남', studentNo: '2027-0111' },
-  { username: 'studying_jordi', password: 'pass_jordi12', name: '열공하는 죠르디/초수/강원', studentNo: '2027-0112' },
-  { username: 'running_chunsik', password: 'pass_chunsik13', name: '달려라 춘식/재수/대전', studentNo: '2027-0113' },
-  { username: 'pass_apeach', password: 'pass_apeach14', name: '합격 기원 어피치/초수/세종', studentNo: '2027-0114' },
-  { username: 'smile_ryan', password: 'pass_ryan15', name: '웃는 라이언/N수/광주', studentNo: '2027-0115' },
-  { username: 'fighting_tube', password: 'pass_tube16', name: '파이팅 튜브/초수/울산', studentNo: '2027-0116' },
-  { username: 'effort_muzi', password: 'pass_muzi17', name: '노력파 무지/재수/제주', studentNo: '2027-0117' },
-  { username: 'pass_con', password: 'pass_con18', name: '초수합격 콘/초수/인천', studentNo: '2027-0118' },
-  { username: 'dream_jordi', password: 'pass_jordi19', name: '꿈꾸는 죠르디/재수/서울', studentNo: '2027-0119' },
-  { username: 'passion_chunsik', password: 'pass_chunsik20', name: '열정의 춘식/초수/경북', studentNo: '2027-0120' },
-  { username: 'top_apeach', password: 'pass_apeach21', name: '수석합격 어피치/N수/경기', studentNo: '2027-0121' },
-  { username: 'sincere_neo', password: 'pass_neo22', name: '성실한 네오/재수/충북', studentNo: '2027-0122' },
-  { username: 'lucky_frodo', password: 'pass_frodo23', name: '행운의 프로도/초수/전북', studentNo: '2027-0123' },
-  { username: 'flame_jayg', password: 'pass_jayg24', name: '불꽃 제이지/재수/경남', studentNo: '2027-0124' },
-  { username: 'hope_jordi', password: 'pass_jordi25', name: '희망찬 죠르디/초수/부산', studentNo: '2027-0125' },
-  { username: 'positive_chunsik', password: 'pass_chunsik26', name: '긍정 춘식/N수/대구', studentNo: '2027-0126' },
-  { username: 'shining_ryan', password: 'pass_ryan27', name: '빛나는 라이언/재수/경북', studentNo: '2027-0127' },
-  { username: 'passion_muzi', password: 'pass_muzi28', name: '열정 무지/초수/강원', studentNo: '2027-0128' },
-  { username: 'victory_apeach', password: 'pass_apeach29', name: '필승 어피치/재수/경기', studentNo: '2027-0129' },
-  { username: 'final_chunsik', password: 'pass_chunsik30', name: '최종합격 춘식/초수/서울', studentNo: '2027-0130' }
+  // 관리자
+  { username: 'cntfed', password: 'cntfed', name: '관리자(변귀섭)', studentNo: 'ADMIN-2027', role: 'admin' },
+  { username: '1000door', password: 'cntfed', name: '천개의문(관리자)', studentNo: 'ADMIN-2027-2', role: 'admin' },
+
+  // 회원 1: 엉엉 우는 어피치
+  { username: '어피치', password: '381924', name: '엉엉 우는 어피치', studentNo: '2027-0101', role: 'vip' },
+  { username: '엉엉우는어피치', password: '381924', name: '엉엉 우는 어피치', studentNo: '2027-0101', role: 'vip' },
+
+  // 회원 2: 죠르디
+  { username: '죠르디', password: '592814', name: '죠르디', studentNo: '2027-0102', role: 'vip' },
+
+  // 회원 3: 춘식
+  { username: '춘식', password: '419827', name: '춘식', studentNo: '2027-0103', role: 'vip' },
+
+  // 회원 4: 교대원 2학차
+  { username: '교대원2학차', password: '628193', name: '교대원 2학차', studentNo: '2027-0104', role: 'vip' },
+  { username: '교대원', password: '628193', name: '교대원 2학차', studentNo: '2027-0104', role: 'vip' },
+
+  // 회원 5: 라이언
+  { username: '라이언', password: '731948', name: '라이언', studentNo: '2027-0105', role: 'vip' },
+
+  // 회원 6: 화이팅 춘식이
+  { username: '화이팅춘식이', password: '284719', name: '화이팅 춘식이', studentNo: '2027-0106', role: 'vip' },
+
+  // 회원 7: rann
+  { username: 'rann', password: '918273', name: 'rann♡', studentNo: '2027-0107', role: 'vip' },
+  { username: 'rann♡', password: '918273', name: 'rann♡', studentNo: '2027-0107', role: 'vip' }
 ];
 
 const MIME_TYPES = {
