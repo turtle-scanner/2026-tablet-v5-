@@ -398,7 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { username: '교대원2학차', password: '628193', name: '교대원 2학차', studentNo: '2027-0104', role: 'vip' },
         { username: '라이언', password: '731948', name: '라이언', studentNo: '2027-0105', role: 'vip' },
         { username: '화이팅춘식이', password: '284719', name: '화이팅 춘식이', studentNo: '2027-0106', role: 'vip' },
-        { username: 'rann', password: '918273', name: 'rann♡', studentNo: '2027-0107', role: 'vip' }
+        { username: 'rann', password: '918273', name: 'rann♡', studentNo: '2027-0107', role: 'vip' },
+        { username: 'open', password: '000011', name: '열린생각/초수/청주', studentNo: '2027-0108', role: 'vip' },
+        { username: '열린생각', password: '000011', name: '열린생각/초수/청주', studentNo: '2027-0108', role: 'vip' }
       ];
       const isAdmin = (username === 'cntfed' || username === 'admin');
       const foundStudent = studentList.find(u => u.username === username && u.password === password);

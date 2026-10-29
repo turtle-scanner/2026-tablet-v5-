@@ -39,7 +39,9 @@ const STUDENT_USERS = [
 
   // 회원 7: rann
   { username: 'rann', password: '918273', name: 'rann♡', studentNo: '2027-0107', role: 'vip' },
-  { username: 'rann♡', password: '918273', name: 'rann♡', studentNo: '2027-0107', role: 'vip' }
+  { username: 'rann♡', password: '918273', name: 'rann♡', studentNo: '2027-0107', role: 'vip' },
+  { username: 'open', password: '000011', name: '열린생각/초수/청주', studentNo: '2027-0108', role: 'vip' },
+  { username: '열린생각', password: '000011', name: '열린생각/초수/청주', studentNo: '2027-0108', role: 'vip' }
 ];
 
 const MIME_TYPES = {
